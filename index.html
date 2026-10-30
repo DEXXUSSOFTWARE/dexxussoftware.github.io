@@ -416,6 +416,24 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <p>Interesse? Schreiben Sie an <span class="adresse">info@dexxus.ch</span></p>
     </div>
   </div>
+  <div class="wrap stack" style="gap:16px; margin-top:40px">
+    <div class="stack"><p class="eyebrow">Influencer &amp; Testpersonen</p><h2>Gratislizenz für 12 Monate</h2>
+      <p class="lead">Sie berichten über IT, Software, KI oder Digitalisierung – oder möchten DEXXUS gründlich testen? Bewerben Sie sich: Sie erhalten eine Gratislizenz und berichten monatlich über Ihre Beiträge oder Tests. Wir prüfen jede Bewerbung; das Programm richtet sich an technikaffine Partnerinnen und Partner.</p></div>
+    <form class="bestell" id="partnerform" novalidate>
+      <label>Ich bewerbe mich als<select id="p-art"><option>Influencer</option><option>Testperson</option></select></label>
+      <label>Name *<input id="p-name" autocomplete="name"></label>
+      <label>Firma (optional)<input id="p-firma" autocomplete="organization"></label>
+      <label>E-Mail *<input id="p-mail" type="email" autocomplete="email"></label>
+      <label>PLZ Ort<input id="p-ort"></label>
+      <label>Reichweite (Abonnenten / Follower)<input id="p-reich" inputmode="numeric"></label>
+      <label class="breit">Kanal / Links (YouTube, LinkedIn, Blog …)<input id="p-kanal"></label>
+      <label class="breit">Themen / Branche *<input id="p-themen" placeholder="z.B. IT-Consulting für KMU, Software, KI"></label>
+      <div class="breit" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+        <button class="btn primary" type="submit">Bewerbung per E-Mail senden</button>
+        <span class="code-info" id="p-meldung" aria-live="polite"></span>
+      </div>
+    </form>
+  </div>
 </section>
 
 <section id="hilfe">
@@ -652,5 +670,22 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   const q = new URLSearchParams(location.search).get("code");
   if (q) $("b-code").value = q;
   paket.value = "KMU"; laufzeiten(); rechnen();
+})();
+</script>
+
+<script>
+(function () {
+  const f = document.getElementById("partnerform"); if (!f) return;
+  const v = id => document.getElementById(id).value.trim();
+  f.addEventListener("submit", e => {
+    e.preventDefault();
+    const m = document.getElementById("p-meldung");
+    if (!v("p-name") || !/@/.test(v("p-mail")) || !v("p-themen")) { m.textContent = "Bitte Name, E-Mail und Themen ausfüllen."; return; }
+    const t = "DEXXUS-Partnerbewerbung\nArt: " + v("p-art") + "\nName: " + v("p-name") + "\nFirma: " + v("p-firma") +
+      "\nE-Mail: " + v("p-mail") + "\nKanal / Links: " + v("p-kanal") + "\nThemen / Branche: " + v("p-themen") +
+      "\nReichweite: " + v("p-reich") + "\nPLZ Ort: " + v("p-ort") + "\n";
+    location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Partnerbewerbung DEXXUS – " + v("p-name")) + "&body=" + encodeURIComponent(t);
+    m.textContent = "Ihr E-Mail-Programm sollte sich öffnen – bitte nur noch «Senden».";
+  });
 })();
 </script>
