@@ -120,6 +120,13 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); }
 .zwei > div { min-width: 0; }
 .kasten { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: grid; gap: 12px; }
+.module-mini { list-style: none; padding: 0; margin: 4px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+.module-mini li { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 6px 10px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; text-align: center; font-size: .78rem; line-height: 1.25; color: var(--ink); min-width: 0; }
+.module-mini svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.module-mini li.ki svg { stroke: var(--wissen); }
+.zwei > .kasten { align-self: start; align-content: start; }
+.module-titel { font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 ul.liste { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; color: var(--muted); }
 ul.liste b { color: var(--ink); }
 .adresse { font-family: var(--mono); font-size: .9rem; background: var(--bg); border: 1px solid var(--line); padding: 2px 8px; border-radius: 4px; user-select: all; }
@@ -409,7 +416,18 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 <section id="kontakt">
   <div class="wrap zwei">
     <div class="stack" style="gap:16px"><p class="eyebrow">Kontakt</p><h2>Fragen, Offerte, Bestellung</h2>
-      <p class="lead">Schreiben Sie uns, welches Paket Sie interessiert. Sie erhalten die Rechnung mit QR-Einzahlungsschein oder einen Link für TWINT und Karte.</p></div>
+      <p class="lead">Schreiben Sie uns, welches Paket Sie interessiert. Sie erhalten die Rechnung mit QR-Einzahlungsschein oder einen Link für TWINT und Karte.</p>
+      <p class="module-titel">Die Module</p>
+      <ul class="module-mini" aria-label="Module von DEXXUS">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>ERP</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Korrespondenz</span></li>
+        <li class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M9 11h4M11 9v4"/></svg><span>Wissen &amp; KI</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Akten &amp; Fristen</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Clean Room</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span>DataSweep</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Projekte</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8 12 3 3 5-6"/></svg><span>To-do</span></li>
+      </ul></div>
     <div class="kasten">
       <p><b>E-Mail</b><br><span class="adresse">info@dexxus.ch</span></p>
       <p><b>Anbieter</b><br>avotec AG, Schweiz<br>Abteilung Software &amp; Datenmanagement</p>
