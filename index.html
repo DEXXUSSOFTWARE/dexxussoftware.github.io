@@ -1,9 +1,12 @@
 <title>DEXXUS Webseite</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+/* Schrift lokal (Inter, SIL Open Font License) – keine Verbindung zu Google */
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/Inter-Regular.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/Inter-Medium.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/Inter-SemiBold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/Inter-Bold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/Inter-ExtraBold.woff") format("woff"); }
 /* Layout: CI wie DEXXUS-Programm – dunkelblaue Kopfleiste wie die Seitenleiste, helle Arbeitsfläche, blauer Akzent */
 :root {
   --bg: #F1F5F9;
@@ -20,7 +23,7 @@
   --ok: #10B981;
   --display: "Inter", "Segoe UI", Arial, sans-serif;
   --body: "Inter", "Segoe UI", Arial, sans-serif;
-  --mono: "IBM Plex Mono", Consolas, monospace;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
