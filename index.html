@@ -620,7 +620,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 <script>
 (function () {
   // Online-Kauf über Payrexx. «Kaufen» ist erst aktiv, wenn AGB/Datenschutz freigegeben und die Zahlungsseite eingerichtet sind.
-  const SHOP = {aktiv: false, url: ""};          // url = Payrexx-Zahlungsseite (z.B. https://<instanz>.payrexx.com/de/vpos)
+  const SHOP = {aktiv: false, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // Payrexx-Seite «DEXXUS – Lizenz kaufen»; aktiv erst nach Freigabe AGB/Datenschutz
   const MWST = 0.081;
   const P = {"DEXXUS Privat": {m: 0, e: 190}, "DEXXUS ERP Start": {m: 0, e: 299}, "KMU": {m: 49, e: 150}, "KMU Plus": {m: 79, e: 150},
              "Treuhand": {m: 149, e: 390}, "Kanzlei": {m: 190, e: 490}};
@@ -665,7 +665,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       return;
     }
     const zweck = "DEXXUS " + pk.replace("DEXXUS ", "") + (b.m ? ", " + b.m + " Monate" : ", unbefristet") + (rabatt.p && b.m ? ", Code " + rabatt.code : "");
-    const q = new URLSearchParams({invoice_amount: b.brutto.toFixed(2), invoice_currency: "CHF", invoice_number: zweck,
+    const q = new URLSearchParams({invoice_amount: b.brutto.toFixed(2), invoice_currency: "1", invoice_number: zweck, contact_country: "204",
                                    referenceId: ["WEB", pk, b.m, b.m ? rabatt.code : ""].join("|")});
     location.href = SHOP.url + (SHOP.url.includes("?") ? "&" : "?") + q.toString();
   }));
