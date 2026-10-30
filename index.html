@@ -4,14 +4,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: CI wie NEXUS-Programm – dunkelblaue Kopfleiste wie die Seitenleiste, helle Arbeitsfläche, blauer Akzent */
+/* Layout: CI wie DEXXUS-Programm – dunkelblaue Kopfleiste wie die Seitenleiste, helle Arbeitsfläche, blauer Akzent */
 :root {
   --bg: #F1F5F9;
   --surface: #FFFFFF;
   --ink: #0F172A;
   --muted: #64748B;
   --line: #E2E8F0;
-  --accent: #3B82F6;      /* NEXUS-Blau */
+  --accent: #3B82F6;      /* DEXXUS-Blau */
   --wissen: #8B5CF6;      /* Wissen & KI */
   --deep: #0F172A;        /* Seitenleiste */
   --on-deep: #FFFFFF;
@@ -275,6 +275,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <div class="eintrag"><span class="reiter">Korrespondenz</span><div class="stack" style="gap:4px"><h3>Briefe auf Ihrem Briefpapier</h3><p>Brief schreiben oder von der KI entwerfen lassen, als PDF oder Word, per E-Mail mit Beilagen. Abgelegt beim Kunden und in der Akte.</p></div></div>
       <div class="eintrag"><span class="reiter" style="color:var(--wissen)">Wissen &amp; KI</span><div class="stack" style="gap:4px"><h3>Dokumente finden und befragen</h3><p>PDFs, Scans, Word und E-Mails importieren und in eigenen Worten fragen. Die lokale KI antwortet direkt auf Ihrem PC.</p></div></div>
       <div class="eintrag"><span class="reiter">Akten</span><div class="stack" style="gap:4px"><h3>Mandate und Fristen</h3><p>Fälle mit Aktenverzeichnis, Eingang und Versand, Fristen mit Erinnerung, Gesetze aus Fedlex.</p></div></div>
+      <div class="eintrag"><span class="reiter">Zeiterfassung</span><div class="stack" style="gap:4px"><h3>Stunden erfassen und verrechnen</h3><p>Stoppuhr oder von Hand, Tarif und Takt je Kunde oder Mandat, Spesenpauschale – mit einem Klick zur Rechnung oder Honorarnote.</p></div></div>
+      <div class="eintrag"><span class="reiter">Mitarbeiter</span><div class="stack" style="gap:4px"><h3>Virtuelle Mitarbeiter</h3><p>Buchhaltung, Verkauf, Technik oder Kanzlei-Assistenz: wiederkehrende Rechnungen, Mahnungen, Offerten nachfassen, Fristenkontrolle – mit Pflichtenheft und Rapport an Sie.</p></div></div>
       <div class="eintrag"><span class="reiter">Clean Room</span><div class="stack" style="gap:4px"><h3>Verschlüsselte Ablage</h3><p>Ausweise, Verträge und Passwörter in einem verschlüsselten Tresor, mit Passwort-Generator.</p></div></div>
       <div class="eintrag"><span class="reiter">DataSweep</span><div class="stack" style="gap:4px"><h3>Ordnung auf dem PC</h3><p>Doppelte Dateien finden, Ablage ordnen, Speicher freigeben – ohne Systemordner anzutasten.</p></div></div>
       <div class="eintrag"><span class="reiter">Projekte</span><div class="stack" style="gap:4px"><h3>Aufträge im Griff</h3><p>Projekte mit Garantien, Fotos und den passenden E-Mails aus Outlook.</p></div></div>
@@ -306,28 +308,32 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
         <thead><tr><th>Paket</th><th>Für wen</th><th>Enthalten</th><th>Preis</th><th></th></tr></thead>
         <tbody>
           <tr class="gruppe"><td colspan="5">Einmal kaufen – unbefristet</td></tr>
-          <tr><td class="paket"><b>DEXXUS Light</b><span>1 Arbeitsplatz</span></td><td>Privat und Büro</td>
-            <td>Dokumentensuche, Data Clean Room, To-do, DataSweep</td><td class="preis">199.–<small>einmalig</small></td>
-            <td><a class="btn" href="#kontakt">Kaufen</a></td></tr>
+          <tr><td class="paket"><b>DEXXUS Privat</b><span>1 Arbeitsplatz</span></td><td>Privatpersonen</td>
+            <td>Briefe mit persönlichem Absender, Dokumentensuche &amp; KI, Data Clean Room, To-do, DataSweep</td>
+            <td class="preis">190.–<small>einmalig</small></td><td><a class="btn" href="#kontakt">Kaufen</a></td></tr>
           <tr><td class="paket"><b>DEXXUS ERP Start</b><span>1 Arbeitsplatz, 1 Firma</span></td><td>Kleinbetriebe</td>
             <td>Offerten, Rechnungen mit QR, Mahnungen, Briefpapier, E-Mail-Versand, Online-Zahlungslink</td>
             <td class="preis">299.–<small>einmalig</small></td><td><a class="btn" href="#kontakt">Kaufen</a></td></tr>
           <tr class="gruppe"><td colspan="5">Abo – mit allen Upgrades im ersten Jahr</td></tr>
-          <tr><td class="paket"><b>Privat</b><span>ab 24 Monaten</span></td><td>Privatpersonen</td>
-            <td>Wissen &amp; KI-Chat, Data Clean Room, To-do, DataSweep</td><td class="preis">ab 49.–<small>pro Monat</small></td>
-            <td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
-          <tr><td class="paket"><b>KMU / Gewerbe</b><span>ab 24 Monaten</span></td><td>Handwerk, Handel, Garagen</td>
-            <td>ERP, Projekte, Wissen &amp; KI, Korrespondenz, Werbung, Marktdaten</td>
-            <td class="preis">ab 69.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+          <tr><td class="paket"><b>KMU</b><span>ab 24 Monaten</span></td><td>Handwerk, Handel, Garagen</td>
+            <td>ERP, Projekte, Wissen &amp; KI, Korrespondenz, Zeiterfassung (Support- und Regiestunden)</td>
+            <td class="preis">ab 49.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+          <tr><td class="paket"><b>KMU Plus</b><span>ab 24 Monaten</span></td><td>Betriebe mit Büro</td>
+            <td>KMU + Virtuelle Mitarbeiter, Werbung, Marktdaten, Data Clean Room</td>
+            <td class="preis">ab 79.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+          <tr><td class="paket"><b>Treuhand</b><span>12, 24 oder 48 Monate</span></td><td>Treuhand, Verwaltungen</td>
+            <td>KMU Plus + Mandate &amp; Akten mit Fristen</td>
+            <td class="preis">ab 149.–<small>pro Monat + 390.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
           <tr><td class="paket"><b>Kanzlei</b><span>12, 24 oder 48 Monate</span></td><td>Anwaltskanzleien</td>
-            <td>Mandate &amp; Akten, ERP, Wissen &amp; KI, Data Clean Room, Korrespondenz</td>
-            <td class="preis">ab 250.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
-          <tr><td class="paket"><b>Treuhand · Immobilien</b><span>nach Bedarf</span></td><td>Treuhand, Verwaltungen</td>
-            <td>Zusammenstellung nach Ihren Abläufen</td><td class="preis">auf Anfrage</td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+            <td>Mandate &amp; Akten, Zeiterfassung mit Honorarnote, Virtuelle Mitarbeiter, ERP, Wissen &amp; KI, Data Clean Room, Korrespondenz</td>
+            <td class="preis">ab 190.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+          <tr><td class="paket"><b>Komplett</b><span>12, 24 oder 48 Monate</span></td><td>Alles in einem</td>
+            <td>Alle Module</td>
+            <td class="preis">ab 240.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="hinweis">Wechsel von Light oder ERP Start aufs Abo innert 12 Monaten: Der bezahlte Preis wird angerechnet. Mehrere Arbeitsplätze im Firmennetz auf Anfrage (Installation durch Ihre IT). Firmenkunden in Deutschland und Österreich: Preise in EUR auf Anfrage.</p>
+    <p class="hinweis">Wechsel von Privat oder ERP Start aufs Abo innert 12 Monaten: Der bezahlte Preis wird angerechnet. Mehrere Arbeitsplätze im Firmennetz auf Anfrage (Installation durch Ihre IT). Firmenkunden in Deutschland und Österreich: Preise in EUR auf Anfrage.</p>
   </div>
 </section>
 
@@ -423,6 +429,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Korrespondenz</span></li>
         <li class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M9 11h4M11 9v4"/></svg><span>Wissen &amp; KI</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Akten &amp; Fristen</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M10 2h4"/></svg><span>Zeiterfassung</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><span>Mitarbeiter</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Clean Room</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span>DataSweep</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Projekte</span></li>
