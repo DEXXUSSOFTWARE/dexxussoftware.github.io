@@ -184,6 +184,21 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 @media (prefers-reduced-motion: no-preference) {
   .ph, .real { transition: background-color .25s ease; }
 }
+
+/* Bestellen */
+.bestell { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; padding: clamp(16px, 3vw, 28px); }
+.bestell label { display: grid; gap: 4px; font-size: .86rem; color: var(--muted); }
+.bestell .breit { grid-column: 1 / -1; }
+.bestell input, .bestell select, .bestell textarea { font: 400 1rem var(--body); color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.bestell input:focus-visible, .bestell select:focus-visible, .bestell textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.code-info { font-size: .86rem; min-height: 1.3em; }
+.code-info.ok { color: var(--ok); } .code-info.nein { color: var(--muted); }
+.total { font-family: var(--display); font-size: 1.25rem; font-weight: 800; }
+.total small { display: block; font: 400 .86rem var(--body); color: var(--muted); margin-top: 2px; }
+.aktion { background: var(--mark); color: var(--mark-ink); border-radius: 8px; padding: 10px 14px; font-size: .95rem; }
+@media (max-width: 680px) { .bestell { grid-template-columns: 1fr; } }
 </style>
 
 <header class="top">
@@ -193,6 +208,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <a href="#funktionen">Funktionen</a>
       <a href="#datenschutz">Datenschutz</a>
       <a href="#preise">Preise</a>
+      <a href="#bestellen">Bestellen</a>
       <a href="#optionen">Optionen</a>
       <a href="#test">Testversion</a>
       <a href="#partner">Partner</a>
@@ -310,26 +326,26 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
           <tr class="gruppe"><td colspan="5">Einmal kaufen – unbefristet</td></tr>
           <tr><td class="paket"><b>DEXXUS Privat</b><span>1 Arbeitsplatz</span></td><td>Privatpersonen</td>
             <td>Briefe mit persönlichem Absender, Dokumentensuche &amp; KI, Data Clean Room, To-do, DataSweep</td>
-            <td class="preis">190.–<small>einmalig</small></td><td><a class="btn" href="#kontakt">Kaufen</a></td></tr>
+            <td class="preis">190.–<small>einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="DEXXUS Privat">Bestellen</a></td></tr>
           <tr><td class="paket"><b>DEXXUS ERP Start</b><span>1 Arbeitsplatz, 1 Firma</span></td><td>Kleinbetriebe</td>
             <td>Offerten, Rechnungen mit QR, Mahnungen, Briefpapier, E-Mail-Versand, Online-Zahlungslink</td>
-            <td class="preis">299.–<small>einmalig</small></td><td><a class="btn" href="#kontakt">Kaufen</a></td></tr>
+            <td class="preis">299.–<small>einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="DEXXUS ERP Start">Bestellen</a></td></tr>
           <tr class="gruppe"><td colspan="5">Abo – mit allen Upgrades im ersten Jahr</td></tr>
           <tr><td class="paket"><b>KMU</b><span>ab 24 Monaten</span></td><td>Handwerk, Handel, Garagen</td>
             <td>ERP, Projekte, Wissen &amp; KI, Korrespondenz, Zeiterfassung (Support- und Regiestunden)</td>
-            <td class="preis">ab 49.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+            <td class="preis">ab 49.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="KMU">Bestellen</a></td></tr>
           <tr><td class="paket"><b>KMU Plus</b><span>ab 24 Monaten</span></td><td>Betriebe mit Büro</td>
             <td>KMU + Virtuelle Mitarbeiter, Werbung, Marktdaten, Data Clean Room</td>
-            <td class="preis">ab 79.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+            <td class="preis">ab 79.–<small>pro Monat + 150.– einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="KMU Plus">Bestellen</a></td></tr>
           <tr><td class="paket"><b>Treuhand</b><span>12, 24 oder 48 Monate</span></td><td>Treuhand, Verwaltungen</td>
             <td>KMU Plus + Mandate &amp; Akten mit Fristen</td>
-            <td class="preis">ab 149.–<small>pro Monat + 390.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+            <td class="preis">ab 149.–<small>pro Monat + 390.– einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="Treuhand">Bestellen</a></td></tr>
           <tr><td class="paket"><b>Kanzlei</b><span>12, 24 oder 48 Monate</span></td><td>Anwaltskanzleien</td>
             <td>Mandate &amp; Akten, Zeiterfassung mit Honorarnote, Virtuelle Mitarbeiter, ERP, Wissen &amp; KI, Data Clean Room, Korrespondenz</td>
-            <td class="preis">ab 190.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+            <td class="preis">ab 190.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="Kanzlei">Bestellen</a></td></tr>
           <tr><td class="paket"><b>Komplett</b><span>12, 24 oder 48 Monate</span></td><td>Alles in einem</td>
             <td>Alle Module</td>
-            <td class="preis">ab 240.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#kontakt">Anfragen</a></td></tr>
+            <td class="preis">ab 240.–<small>pro Monat + 490.– einmalig</small></td><td><a class="btn" href="#bestellen" data-paket="Komplett">Bestellen</a></td></tr>
         </tbody>
       </table>
     </div>
@@ -416,6 +432,37 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       </ul>
       <p class="hinweis">Bedienungsanleitung (PDF) und 18 Anleitungsvideos folgen mit dem Start der Webseite.</p>
     </div>
+  </div>
+</section>
+
+<section id="bestellen">
+  <div class="wrap stack" style="gap:22px">
+    <div class="stack"><p class="eyebrow">Bestellen</p><h2>Paket wählen, Angaben eintragen, absenden</h2>
+      <p class="lead">Sie erhalten die Rechnung mit QR-Einzahlungsschein und einen Link für TWINT und Karte. Nach der Zahlung kommt Ihre Lizenz per E-Mail.</p></div>
+    <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> Mit dem Rabattcode aus unserem Video erhalten Sie 20 % auf die gesamte erste Abo-Laufzeit. Danach gilt der normale Preis.</p>
+    <form class="bestell" id="bestellform" novalidate>
+      <label>Paket<select id="b-paket"></select></label>
+      <label>Laufzeit<select id="b-lauf"></select></label>
+      <label>Arbeitsplätze<input id="b-plaetze" type="number" min="1" max="10" value="1" inputmode="numeric"></label>
+      <label>Rabattcode<input id="b-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
+      <p class="code-info breit" id="b-code-info" aria-live="polite"></p>
+      <p class="total breit" id="b-total" aria-live="polite"></p>
+      <label>Firma / Name *<input id="b-firma" autocomplete="organization"></label>
+      <label>Kontaktperson<input id="b-kontakt" autocomplete="name"></label>
+      <label>Strasse Nr.<input id="b-strasse" autocomplete="street-address"></label>
+      <label>PLZ Ort *<input id="b-ort" autocomplete="address-level2"></label>
+      <label>Land<select id="b-land"><option>CH</option><option>LI</option><option>DE</option><option>AT</option></select></label>
+      <label>E-Mail *<input id="b-mail" type="email" autocomplete="email"></label>
+      <label>Telefon<input id="b-tel" type="tel" autocomplete="tel"></label>
+      <label>USt-IdNr. (nur DE/AT)<input id="b-uid"></label>
+      <label class="breit">Bemerkung<textarea id="b-bem" rows="2"></textarea></label>
+      <div class="breit" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+        <button class="btn primary" type="submit">Bestellung per E-Mail senden</button>
+        <button class="btn" type="button" id="b-kopie">Bestellung kopieren</button>
+        <span class="code-info" id="b-meldung" aria-live="polite"></span>
+      </div>
+    </form>
+    <p class="hinweis">Ihr E-Mail-Programm öffnet sich mit der fertigen Bestellung an info@dexxus.ch – bitte nur noch «Senden». Preise exkl. MWST. Firmenkunden in Deutschland und Österreich: Preise in EUR auf Anfrage; Privat und ERP Start nur in der Schweiz.</p>
   </div>
 </section>
 
@@ -518,5 +565,92 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     q.fillStyle = "#000000"; q.fillRect(x, y, 7, 7); q.fillStyle = "#FFFFFF"; q.fillRect(x + 1, y + 1, 5, 5);
     q.fillStyle = "#000000"; q.fillRect(x + 2, y + 2, 3, 3);
   });
+})();
+</script>
+
+<script>
+(function () {
+  const P = {
+    "KMU": {m: 49, e: 150, z: 29, n: 290, l: [24, 48]}, "KMU Plus": {m: 79, e: 150, z: 39, n: 390, l: [24, 48]},
+    "Treuhand": {m: 149, e: 390, z: 69, n: 590, l: [12, 24, 48]}, "Kanzlei": {m: 190, e: 490, z: 90, n: 790, l: [12, 24, 48]},
+    "Komplett": {m: 240, e: 490, z: 110, n: 790, l: [12, 24, 48]},
+    "DEXXUS Privat": {m: 0, e: 190, l: [0]}, "DEXXUS ERP Start": {m: 0, e: 299, l: [0]}
+  };
+  const CODES = {"e57caa0cbf611bb4d60616214914cc4fa03a265975fa5acaa225799df8f6c6d2": {p: 20, bis: "2027-03-31"}};
+  const $ = id => document.getElementById(id);
+  const chf = x => x.toLocaleString("de-CH", {minimumFractionDigits: 2, maximumFractionDigits: 2}).replace(/’/g, "'");
+  let rabattCode = "";
+  const paket = $("b-paket"), lauf = $("b-lauf");
+  if (!paket) return;
+  Object.keys(P).forEach(n => paket.add(new Option(n, n)));
+  async function sha(t) {
+    if (!window.crypto || !crypto.subtle) return "";
+    const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+  }
+  function laufzeiten() {
+    const p = P[paket.value], alt = lauf.value; lauf.innerHTML = "";
+    p.l.forEach(m => lauf.add(new Option(m ? m + " Monate" : "unbefristet", m ? m + " Monate" : "unbefristet")));
+    if ([...lauf.options].some(o => o.value === alt)) lauf.value = alt;
+  }
+  async function rechnen() {
+    const p = P[paket.value], m = parseInt(lauf.value) || 0;
+    let pl = Math.max(1, parseInt($("b-plaetze").value) || 1);
+    if (!m) { pl = 1; $("b-plaetze").value = 1; }
+    const monat = p.m + (pl - 1) * (p.z || 0), netz = pl > 1 ? (p.n || 0) : 0;
+    let total = monat * m + p.e + netz, rabatt = 0;
+    const code = $("b-code").value.trim().toUpperCase().replace(/\s/g, ""), info = $("b-code-info");
+    rabattCode = "";
+    if (code) {
+      const c = CODES[await sha(code)];
+      if (!c) { info.textContent = "Dieser Rabattcode ist nicht gültig."; info.className = "code-info breit nein"; }
+      else if (new Date().toISOString().slice(0, 10) > c.bis) { info.textContent = "Dieser Rabattcode ist abgelaufen."; info.className = "code-info breit nein"; }
+      else if (!m) { info.textContent = "Der Rabattcode gilt nur für Abos (KMU bis Komplett)."; info.className = "code-info breit nein"; }
+      else { rabatt = Math.round(monat * m * c.p / 100 * 20) / 20; rabattCode = code;
+             info.textContent = "✔ Einführungsrabatt " + c.p + " % auf die erste Laufzeit: − CHF " + chf(rabatt); info.className = "code-info breit ok"; }
+    } else { info.textContent = ""; }
+    total -= rabatt;
+    $("b-total").innerHTML = "Total CHF " + chf(total) + " exkl. MWST<small>" +
+      (m ? m + " × CHF " + chf(monat) + (pl > 1 ? " (" + pl + " Arbeitsplätze)" : "") + " + Lizenzgebühr CHF " + chf(p.e) +
+           (netz ? " + Netzwerk CHF " + chf(netz) : "") + (rabatt ? " − Rabatt CHF " + chf(rabatt) : "") + " · zahlbar im Voraus"
+         : "einmalig, unbefristet für diese Version (1 Arbeitsplatz)") + "</small>";
+    return total;
+  }
+  function text(total) {
+    const v = id => $(id).value.trim();
+    return "Bestellung DEXXUS\n\nPaket: " + paket.value + "\nLaufzeit: " + lauf.value + "\nArbeitsplätze: " +
+      (parseInt($("b-plaetze").value) || 1) + "\nOnline-Recherche: nein\n" + (rabattCode ? "Rabattcode: " + rabattCode + "\n" : "") +
+      "Richtpreis: CHF " + chf(total) + " exkl. MWST\n\nFirma / Name: " + v("b-firma") + "\nKontakt: " + v("b-kontakt") +
+      "\nAdresse: " + v("b-strasse") + ", " + v("b-ort") + ", " + v("b-land") + "\nE-Mail: " + v("b-mail") + "\nTelefon: " + v("b-tel") + "\n" +
+      (v("b-uid") ? "USt-IdNr.: " + v("b-uid") + "\n" : "") + (v("b-bem") ? "\nBemerkung: " + v("b-bem") + "\n" : "") +
+      "\nQuelle: Webseite\n";
+  }
+  function pruefen() {
+    const m = $("b-meldung"), land = $("b-land").value;
+    if (!$("b-firma").value.trim() || !$("b-ort").value.trim() || !/@/.test($("b-mail").value)) { m.textContent = "Bitte Firma/Name, PLZ Ort und E-Mail ausfüllen."; return false; }
+    if ((land === "DE" || land === "AT") && !$("b-uid").value.trim()) { m.textContent = "Für Deutschland und Österreich bitte die USt-IdNr. angeben."; return false; }
+    if ((land === "DE" || land === "AT") && !(parseInt(lauf.value) || 0)) { m.textContent = "Privat und ERP Start gibt es nur in der Schweiz."; return false; }
+    m.textContent = ""; return true;
+  }
+  ["change", "input"].forEach(ev => { paket.addEventListener(ev, () => { laufzeiten(); rechnen(); });
+    lauf.addEventListener(ev, rechnen); $("b-plaetze").addEventListener(ev, rechnen); $("b-code").addEventListener(ev, rechnen); });
+  $("bestellform").addEventListener("submit", async e => {
+    e.preventDefault(); if (!pruefen()) return;
+    const t = text(await rechnen());
+    location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Bestellung DEXXUS " + paket.value + " – " + $("b-firma").value.trim()) + "&body=" + encodeURIComponent(t);
+    $("b-meldung").textContent = "Ihr E-Mail-Programm sollte sich öffnen. Falls nicht: «Bestellung kopieren» und an info@dexxus.ch senden.";
+  });
+  $("b-kopie").addEventListener("click", async () => {
+    if (!pruefen()) return;
+    const t = text(await rechnen());
+    try { await navigator.clipboard.writeText(t); $("b-meldung").textContent = "Kopiert – bitte in eine E-Mail an info@dexxus.ch einfügen."; }
+    catch (x) { $("b-meldung").textContent = "Kopieren nicht möglich – bitte «Bestellung per E-Mail senden» verwenden."; }
+  });
+  document.querySelectorAll('a[data-paket]').forEach(a => a.addEventListener("click", () => {
+    if (P[a.dataset.paket]) { paket.value = a.dataset.paket; laufzeiten(); rechnen(); }
+  }));
+  const q = new URLSearchParams(location.search).get("code");
+  if (q) $("b-code").value = q;
+  paket.value = "KMU"; laufzeiten(); rechnen();
 })();
 </script>
