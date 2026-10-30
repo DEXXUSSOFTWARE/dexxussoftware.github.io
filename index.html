@@ -133,7 +133,15 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .matrix td.ja { color: var(--ok); font-weight: 700; font-size: 1.1rem; }
 .matrix td.nein { color: var(--muted); opacity: .6; }
 .matrix .gruppe td { text-align: left; }
-.matrix .knoepfe .btn { padding-inline: 12px; font-size: .85rem; }
+.matrix .knoepfe td { vertical-align: top; }
+.matrix .knoepfe .btn { display: flex; justify-content: center; width: 100%; padding: 8px 10px; font-size: .85rem; margin-bottom: 6px; }
+.matrix .laufzeit select { font: inherit; font-size: .85rem; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.matrix .preis-info { display: block; font-size: .74rem; color: var(--muted); line-height: 1.3; }
+.shop-kopf { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.shop-kopf .aktion { margin: 0; }
+.code-feld { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; }
+.code-feld input { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; width: 170px; background: var(--surface); color: var(--ink); }
+.code-info.ok { color: var(--ok); } .code-info.nein { color: #B45309; }
 @media (max-width: 640px) { .matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { min-width: 140px; max-width: 150px; font-size: .84rem; } .matrix table { min-width: 860px; } }
 .matrix-tipp { display: none; color: var(--muted); font-size: .84rem; }
 @media (max-width: 980px) { .matrix-tipp { display: block; } }
@@ -230,7 +238,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <a href="#funktionen">Funktionen</a>
       <a href="#datenschutz">Datenschutz</a>
       <a href="#preise">Preise</a>
-      <a href="#bestellen">Bestellen</a>
+      <a href="#preise">Kaufen</a>
       <a href="#optionen">Optionen</a>
       <a href="#test">Testversion</a>
       <a href="#partner">Partner</a>
@@ -341,6 +349,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   <div class="wrap stack" style="gap:24px">
     <div class="stack"><h2>Pakete &amp; Preise</h2>
       <p class="lead">Alle Preise in CHF, exkl. MWST. Abos zahlbar im Voraus. Updates mit Fehlerkorrekturen sind während der ganzen Laufzeit inbegriffen.</p></div>
+    <div class="shop-kopf">
+      <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> 20 % auf die erste Abo-Laufzeit mit dem Code aus unserem Video.</p>
+      <label class="code-feld">Rabattcode <input id="s-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
+      <span class="code-info" id="s-code-info" aria-live="polite"></span>
+    </div>
+    <p class="hinweis" id="s-status" aria-live="polite"></p>
     <p class="matrix-tipp">Tabelle seitlich wischen, um alle Pakete zu sehen →</p>
     <div class="preise matrix">
       <table>
@@ -374,7 +388,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
           <tr class="gruppe"><td colspan="7">Werkzeuge</td></tr>
           <tr><th scope="row">To-do mit Erinnerung</th><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
           <tr><th scope="row">DataSweep (Ordnung auf dem PC)</th><td class="ja" aria-label="enthalten">✓</td><td class="nein" aria-label="nicht enthalten">–</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
-          <tr class="knoepfe"><th scope="row"></th><td><a class="btn" href="#bestellen" data-paket="DEXXUS Privat">Bestellen</a></td><td><a class="btn" href="#bestellen" data-paket="DEXXUS ERP Start">Bestellen</a></td><td><a class="btn" href="#bestellen" data-paket="KMU">Bestellen</a></td><td><a class="btn" href="#bestellen" data-paket="KMU Plus">Bestellen</a></td><td><a class="btn" href="#bestellen" data-paket="Treuhand">Vorbestellen</a></td><td><a class="btn" href="#bestellen" data-paket="Kanzlei">Vorbestellen</a></td></tr>
+          <tr class="laufzeit"><th scope="row">Laufzeit</th><td>unbefristet</td><td>unbefristet</td><td><select data-lauf="KMU" aria-label="Laufzeit KMU"><option value="24">24 Monate</option><option value="48">48 Monate</option></select></td><td><select data-lauf="KMU Plus" aria-label="Laufzeit KMU Plus"><option value="24">24 Monate</option><option value="48">48 Monate</option></select></td><td><select data-lauf="Treuhand" aria-label="Laufzeit Treuhand"><option value="12">12 Monate</option><option value="24" selected>24 Monate</option><option value="48">48 Monate</option></select></td><td><select data-lauf="Kanzlei" aria-label="Laufzeit Kanzlei"><option value="12">12 Monate</option><option value="24" selected>24 Monate</option><option value="48">48 Monate</option></select></td></tr>
+          <tr class="knoepfe"><th scope="row"></th><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS Privat">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS Privat"></span></td><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS ERP Start">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS ERP Start"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU Plus">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU Plus"></span></td><td><button type="button" class="btn vorbestellen" data-paket="Treuhand">Vorbestellen</button><a class="btn testen" href="#test">Testen</a></td><td><button type="button" class="btn vorbestellen" data-paket="Kanzlei">Vorbestellen</button><a class="btn testen" href="#test">Testen</a></td></tr>
         </tbody>
       </table>
     </div>
@@ -483,42 +498,10 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   </div>
 </section>
 
-<section id="bestellen">
-  <div class="wrap stack" style="gap:22px">
-    <div class="stack"><p class="eyebrow">Bestellen</p><h2>Paket wählen, Angaben eintragen, absenden</h2>
-      <p class="lead">Sie erhalten die Rechnung mit QR-Einzahlungsschein und einen Link für TWINT und Karte. Nach der Zahlung kommt Ihre Lizenz per E-Mail.</p></div>
-    <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> Mit dem Rabattcode aus unserem Video erhalten Sie 20 % auf die gesamte erste Abo-Laufzeit. Danach gilt der normale Preis.</p>
-    <form class="bestell" id="bestellform" novalidate>
-      <label>Paket<select id="b-paket"></select></label>
-      <label>Laufzeit<select id="b-lauf"></select></label>
-      <label>Arbeitsplätze<input id="b-plaetze" type="number" min="1" max="10" value="1" inputmode="numeric"></label>
-      <label>Rabattcode<input id="b-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
-      <p class="code-info breit" id="b-code-info" aria-live="polite"></p>
-      <p class="total breit" id="b-total" aria-live="polite"></p>
-      <p class="code-info breit" id="b-beta" aria-live="polite" style="color:#B45309"></p>
-      <label>Firma / Name *<input id="b-firma" autocomplete="organization"></label>
-      <label>Kontaktperson<input id="b-kontakt" autocomplete="name"></label>
-      <label>Strasse Nr.<input id="b-strasse" autocomplete="street-address"></label>
-      <label>PLZ Ort *<input id="b-ort" autocomplete="address-level2"></label>
-      <label>Land<select id="b-land"><option>CH</option><option>LI</option><option>DE</option><option>AT</option></select></label>
-      <label>E-Mail *<input id="b-mail" type="email" autocomplete="email"></label>
-      <label>Telefon<input id="b-tel" type="tel" autocomplete="tel"></label>
-      <label>USt-IdNr. (nur DE/AT)<input id="b-uid"></label>
-      <label class="breit">Bemerkung<textarea id="b-bem" rows="2"></textarea></label>
-      <div class="breit" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
-        <button class="btn primary" type="submit" id="b-senden">Bestellung per E-Mail senden</button>
-        <button class="btn" type="button" id="b-kopie">Bestellung kopieren</button>
-        <span class="code-info" id="b-meldung" aria-live="polite"></span>
-      </div>
-    </form>
-    <p class="hinweis">Ihr E-Mail-Programm öffnet sich mit der fertigen Bestellung an info@dexxus.ch – bitte nur noch «Senden». Preise exkl. MWST. Firmenkunden in Deutschland und Österreich: Preise in EUR auf Anfrage; Privat und ERP Start nur in der Schweiz.</p>
-  </div>
-</section>
-
 <section id="kontakt">
   <div class="wrap zwei">
     <div class="stack" style="gap:16px"><p class="eyebrow">Kontakt</p>
-      <p class="lead">Schreiben Sie uns, welches Paket Sie interessiert. Sie erhalten die Rechnung mit QR-Einzahlungsschein oder einen Link für TWINT und Karte.</p>
+      <p class="lead">Fragen zu Paketen, Mehrplatz-Lizenzen oder Firmen in Deutschland und Österreich? Schreiben Sie uns – wir antworten in der Regel innert eines Arbeitstages.</p>
       <p class="module-titel">Die Module</p>
       <ul class="module-mini" aria-label="Module von DEXXUS">
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>ERP</span></li>
@@ -619,94 +602,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 
 <script>
 (function () {
-  const P = {
-    "KMU": {m: 49, e: 150, z: 29, n: 290, l: [24, 48]}, "KMU Plus": {m: 79, e: 150, z: 39, n: 390, l: [24, 48]},
-    "Treuhand": {m: 149, e: 390, z: 69, n: 590, l: [12, 24, 48], beta: 1}, "Kanzlei": {m: 190, e: 490, z: 90, n: 790, l: [12, 24, 48], beta: 1},
-    "DEXXUS Privat": {m: 0, e: 190, l: [0]}, "DEXXUS ERP Start": {m: 0, e: 299, l: [0]}
-  };
-  const CODES = {"e57caa0cbf611bb4d60616214914cc4fa03a265975fa5acaa225799df8f6c6d2": {p: 20, bis: "2027-03-31"}};
-  const $ = id => document.getElementById(id);
-  const chf = x => x.toLocaleString("de-CH", {minimumFractionDigits: 2, maximumFractionDigits: 2}).replace(/’/g, "'");
-  let rabattCode = "";
-  const paket = $("b-paket"), lauf = $("b-lauf");
-  if (!paket) return;
-  Object.keys(P).forEach(n => paket.add(new Option(n, n)));
-  async function sha(t) {
-    if (!window.crypto || !crypto.subtle) return "";
-    const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
-    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
-  }
-  function laufzeiten() {
-    const p = P[paket.value], alt = lauf.value; lauf.innerHTML = "";
-    p.l.forEach(m => lauf.add(new Option(m ? m + " Monate" : "unbefristet", m ? m + " Monate" : "unbefristet")));
-    if ([...lauf.options].some(o => o.value === alt)) lauf.value = alt;
-  }
-  async function rechnen() {
-    const p = P[paket.value], m = parseInt(lauf.value) || 0;
-    let pl = Math.max(1, parseInt($("b-plaetze").value) || 1);
-    if (!m) { pl = 1; $("b-plaetze").value = 1; }
-    const monat = p.m + (pl - 1) * (p.z || 0), netz = pl > 1 ? (p.n || 0) : 0;
-    let total = monat * m + p.e + netz, rabatt = 0;
-    const code = $("b-code").value.trim().toUpperCase().replace(/\s/g, ""), info = $("b-code-info");
-    rabattCode = "";
-    if (code) {
-      const c = CODES[await sha(code)];
-      if (!c) { info.textContent = "Dieser Rabattcode ist nicht gültig."; info.className = "code-info breit nein"; }
-      else if (new Date().toISOString().slice(0, 10) > c.bis) { info.textContent = "Dieser Rabattcode ist abgelaufen."; info.className = "code-info breit nein"; }
-      else if (!m) { info.textContent = "Der Rabattcode gilt nur für Abos (KMU, KMU Plus, Treuhand, Kanzlei)."; info.className = "code-info breit nein"; }
-      else { rabatt = Math.round(monat * m * c.p / 100 * 20) / 20; rabattCode = code;
-             info.textContent = "✔ Einführungsrabatt " + c.p + " % auf die erste Laufzeit: − CHF " + chf(rabatt); info.className = "code-info breit ok"; }
-    } else { info.textContent = ""; }
-    total -= rabatt;
-    const bi = $("b-beta"); if (bi) { bi.textContent = p.beta ? "Beta-Test: Vorbestellung ohne Anzahlung – die Rechnung kommt erst, wenn das Paket freigegeben ist. Jederzeit kostenlos zurückziehbar." : ""; }
-    const sb = $("b-senden"); if (sb) sb.textContent = p.beta ? "Vorbestellung per E-Mail senden" : "Bestellung per E-Mail senden";
-    $("b-total").innerHTML = "Total CHF " + chf(total) + " exkl. MWST<small>" +
-      (m ? m + " × CHF " + chf(monat) + (pl > 1 ? " (" + pl + " Arbeitsplätze)" : "") + " + Lizenzgebühr CHF " + chf(p.e) +
-           (netz ? " + Netzwerk CHF " + chf(netz) : "") + (rabatt ? " − Rabatt CHF " + chf(rabatt) : "") + " · zahlbar im Voraus"
-         : "einmalig, unbefristet für diese Version (1 Arbeitsplatz)") + "</small>";
-    return total;
-  }
-  function text(total) {
-    const v = id => $(id).value.trim();
-    return "Bestellung DEXXUS\n\n" + (P[paket.value].beta ? "Art: Vorbestellung (Beta-Test, ohne Anzahlung)\n" : "") + "Paket: " + paket.value + "\nLaufzeit: " + lauf.value + "\nArbeitsplätze: " +
-      (parseInt($("b-plaetze").value) || 1) + "\nOnline-Recherche: nein\n" + (rabattCode ? "Rabattcode: " + rabattCode + "\n" : "") +
-      "Richtpreis: CHF " + chf(total) + " exkl. MWST\n\nFirma / Name: " + v("b-firma") + "\nKontakt: " + v("b-kontakt") +
-      "\nAdresse: " + v("b-strasse") + ", " + v("b-ort") + ", " + v("b-land") + "\nE-Mail: " + v("b-mail") + "\nTelefon: " + v("b-tel") + "\n" +
-      (v("b-uid") ? "USt-IdNr.: " + v("b-uid") + "\n" : "") + (v("b-bem") ? "\nBemerkung: " + v("b-bem") + "\n" : "") +
-      "\nQuelle: Webseite\n";
-  }
-  function pruefen() {
-    const m = $("b-meldung"), land = $("b-land").value;
-    if (!$("b-firma").value.trim() || !$("b-ort").value.trim() || !/@/.test($("b-mail").value)) { m.textContent = "Bitte Firma/Name, PLZ Ort und E-Mail ausfüllen."; return false; }
-    if ((land === "DE" || land === "AT") && !$("b-uid").value.trim()) { m.textContent = "Für Deutschland und Österreich bitte die USt-IdNr. angeben."; return false; }
-    if ((land === "DE" || land === "AT") && !(parseInt(lauf.value) || 0)) { m.textContent = "Privat und ERP Start gibt es nur in der Schweiz."; return false; }
-    m.textContent = ""; return true;
-  }
-  ["change", "input"].forEach(ev => { paket.addEventListener(ev, () => { laufzeiten(); rechnen(); });
-    lauf.addEventListener(ev, rechnen); $("b-plaetze").addEventListener(ev, rechnen); $("b-code").addEventListener(ev, rechnen); });
-  $("bestellform").addEventListener("submit", async e => {
-    e.preventDefault(); if (!pruefen()) return;
-    const t = text(await rechnen());
-    location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent((P[paket.value].beta ? "Vorbestellung" : "Bestellung") + " DEXXUS " + paket.value + " – " + $("b-firma").value.trim()) + "&body=" + encodeURIComponent(t);
-    $("b-meldung").textContent = "Ihr E-Mail-Programm sollte sich öffnen. Falls nicht: «Bestellung kopieren» und an info@dexxus.ch senden.";
-  });
-  $("b-kopie").addEventListener("click", async () => {
-    if (!pruefen()) return;
-    const t = text(await rechnen());
-    try { await navigator.clipboard.writeText(t); $("b-meldung").textContent = "Kopiert – bitte in eine E-Mail an info@dexxus.ch einfügen."; }
-    catch (x) { $("b-meldung").textContent = "Kopieren nicht möglich – bitte «Bestellung per E-Mail senden» verwenden."; }
-  });
-  document.querySelectorAll('a[data-paket]').forEach(a => a.addEventListener("click", () => {
-    if (P[a.dataset.paket]) { paket.value = a.dataset.paket; laufzeiten(); rechnen(); }
-  }));
-  const q = new URLSearchParams(location.search).get("code");
-  if (q) $("b-code").value = q;
-  paket.value = "KMU"; laufzeiten(); rechnen();
-})();
-</script>
-
-<script>
-(function () {
   const f = document.getElementById("partnerform"); if (!f) return;
   const v = id => document.getElementById(id).value.trim();
   f.addEventListener("submit", e => {
@@ -719,5 +614,72 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Partnerbewerbung DEXXUS – " + v("p-name")) + "&body=" + encodeURIComponent(t);
     m.textContent = "Ihr E-Mail-Programm sollte sich öffnen – bitte nur noch «Senden».";
   });
+})();
+</script>
+
+<script>
+(function () {
+  // Online-Kauf über Payrexx. «Kaufen» ist erst aktiv, wenn AGB/Datenschutz freigegeben und die Zahlungsseite eingerichtet sind.
+  const SHOP = {aktiv: false, url: ""};          // url = Payrexx-Zahlungsseite (z.B. https://<instanz>.payrexx.com/de/vpos)
+  const MWST = 0.081;
+  const P = {"DEXXUS Privat": {m: 0, e: 190}, "DEXXUS ERP Start": {m: 0, e: 299}, "KMU": {m: 49, e: 150}, "KMU Plus": {m: 79, e: 150},
+             "Treuhand": {m: 149, e: 390}, "Kanzlei": {m: 190, e: 490}};
+  const CODES = {"e57caa0cbf611bb4d60616214914cc4fa03a265975fa5acaa225799df8f6c6d2": {p: 20, bis: "2027-03-31"}};
+  const $ = id => document.getElementById(id);
+  const chf = x => x.toLocaleString("de-CH", {minimumFractionDigits: 2, maximumFractionDigits: 2}).replace(/’/g, "'");
+  const r05 = x => Math.round(x * 20) / 20;
+  let rabatt = {code: "", p: 0};
+  async function sha(t) {
+    if (!window.crypto || !crypto.subtle) return "";
+    const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+  }
+  const lauf = pk => { const s = document.querySelector('select[data-lauf="' + pk + '"]'); return s ? parseInt(s.value) : 0; };
+  function betrag(pk) {
+    const p = P[pk], m = lauf(pk), abo = p.m * m, rab = m ? r05(abo * rabatt.p / 100) : 0;
+    const netto = abo - rab + p.e;
+    return {netto, rab, brutto: r05(netto * (1 + MWST)), m};
+  }
+  function infos() {
+    document.querySelectorAll("[data-info]").forEach(el => {
+      const b = betrag(el.dataset.info);
+      el.textContent = "Total CHF " + chf(b.netto) + " exkl. MWST" + (b.m ? " für " + b.m + " Mt." : "") + (b.rab ? " (−" + chf(b.rab) + " Rabatt)" : "");
+    });
+  }
+  async function code() {
+    const c = $("s-code").value.trim().toUpperCase().replace(/\s/g, ""), info = $("s-code-info");
+    rabatt = {code: "", p: 0};
+    if (c) {
+      const d = CODES[await sha(c)];
+      if (!d) { info.textContent = "Code nicht gültig."; info.className = "code-info nein"; }
+      else if (new Date().toISOString().slice(0, 10) > d.bis) { info.textContent = "Code abgelaufen."; info.className = "code-info nein"; }
+      else { rabatt = {code: c, p: d.p}; info.textContent = "✔ " + d.p + " % auf die erste Abo-Laufzeit (KMU bis Kanzlei)"; info.className = "code-info ok"; }
+    } else { info.textContent = ""; info.className = "code-info"; }
+    infos();
+  }
+  document.querySelectorAll("button.kaufen").forEach(bt => bt.addEventListener("click", () => {
+    const pk = bt.dataset.paket, b = betrag(pk);
+    if (!SHOP.aktiv || !SHOP.url) {
+      $("s-status").textContent = "Der Online-Kauf startet in Kürze. Testen Sie DEXXUS bis dahin 30 Tage gratis – Ihre Testdaten bleiben beim Kauf erhalten.";
+      $("s-status").scrollIntoView({behavior: "smooth", block: "center"});
+      return;
+    }
+    const zweck = "DEXXUS " + pk.replace("DEXXUS ", "") + (b.m ? ", " + b.m + " Monate" : ", unbefristet") + (rabatt.p && b.m ? ", Code " + rabatt.code : "");
+    const q = new URLSearchParams({invoice_amount: b.brutto.toFixed(2), invoice_currency: "CHF", invoice_number: zweck,
+                                   referenceId: ["WEB", pk, b.m, b.m ? rabatt.code : ""].join("|")});
+    location.href = SHOP.url + (SHOP.url.includes("?") ? "&" : "?") + q.toString();
+  }));
+  document.querySelectorAll("button.vorbestellen").forEach(bt => bt.addEventListener("click", () => {
+    const pk = bt.dataset.paket, m = lauf(pk);
+    const t = "Bestellung DEXXUS\n\nArt: Vorbestellung (Beta-Test, ohne Anzahlung)\nPaket: " + pk + "\nLaufzeit: " + m + " Monate\nArbeitsplätze: 1\n" +
+      (rabatt.code ? "Rabattcode: " + rabatt.code + "\n" : "") + "\nFirma / Name: \nKontakt: \nAdresse: \nE-Mail: \nTelefon: \n\nQuelle: Webseite\n";
+    location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Vorbestellung DEXXUS " + pk) + "&body=" + encodeURIComponent(t);
+    $("s-status").textContent = "Ihr E-Mail-Programm öffnet sich – bitte Firma, Adresse und Telefon ergänzen und senden. Keine Anzahlung, jederzeit kostenlos zurückziehbar.";
+  }));
+  document.querySelectorAll("select[data-lauf]").forEach(s => s.addEventListener("change", infos));
+  $("s-code").addEventListener("input", code);
+  const q = new URLSearchParams(location.search).get("code");
+  if (q) $("s-code").value = q;
+  code();
 })();
 </script>
