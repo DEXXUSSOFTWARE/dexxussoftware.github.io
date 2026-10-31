@@ -119,23 +119,25 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .gruppe td { background: var(--bg); font-family: var(--mono); font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); padding-block: 8px; }
 .hinweis { color: var(--muted); font-size: .88rem; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.matrix table { min-width: 900px; }
-.matrix th, .matrix td { padding: 10px 12px; text-align: center; vertical-align: middle; }
-.matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { text-align: left; font: 400 .92rem var(--body); text-transform: none; letter-spacing: 0; color: var(--ink);
-  position: sticky; left: 0; background: var(--surface); min-width: 220px; z-index: 1; }
+.preise.matrix { overflow-x: visible; }
+.matrix table { min-width: 0; table-layout: fixed; }
+.matrix th, .matrix td { padding: 9px 6px; text-align: center; vertical-align: middle; overflow-wrap: anywhere; hyphens: auto; }
+.matrix thead tr th:first-child { width: 19%; }
+.matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { text-align: left; font: 400 .86rem var(--body); text-transform: none; letter-spacing: 0; color: var(--ink);
+  background: var(--surface); padding-left: 12px; overflow-wrap: normal; }
 .matrix thead th b { display: block; font: 700 1.02rem var(--display); color: var(--ink); text-transform: none; letter-spacing: 0; }
 .matrix thead th span { display: block; font: 400 .78rem var(--body); text-transform: none; letter-spacing: 0; color: var(--muted); margin-top: 2px; }
 .matrix thead th em { display: inline-block; font: 600 .68rem var(--body); font-style: normal; color: #FFFFFF; background: var(--accent); border-radius: 999px; padding: 2px 8px; margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
 .matrix .top, .matrix td:nth-child(6) { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
-.matrix .preiszeile td { font: 700 1.25rem var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.matrix .preiszeile td { font: 700 1.05rem var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .matrix .preiszeile td small { display: block; font: 400 .76rem var(--body); color: var(--muted); }
 .matrix thead th em.beta { background: #F59E0B; color: #1F2937; }
 .matrix td.ja { color: var(--ok); font-weight: 700; font-size: 1.1rem; }
 .matrix td.nein { color: var(--muted); opacity: .6; }
 .matrix .gruppe td { text-align: left; }
 .matrix .knoepfe td { vertical-align: top; }
-.matrix .knoepfe .btn { display: flex; justify-content: center; width: 100%; padding: 8px 10px; font-size: .85rem; margin-bottom: 6px; }
-.matrix .laufzeit select { font: inherit; font-size: .85rem; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.matrix .knoepfe .btn { display: flex; justify-content: center; width: 100%; padding: 8px 4px; font-size: .8rem; margin-bottom: 6px; }
+.matrix .laufzeit select { font: inherit; font-size: .78rem; width: 100%; padding: 4px 2px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
 .matrix .preis-info { display: block; font-size: .74rem; color: var(--muted); line-height: 1.3; }
 .matrix .preis-info > span { display: block; }
 .matrix .preis-info .normalpreis { color: var(--ink); }
@@ -152,9 +154,26 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .download { display: inline-flex; margin-top: 8px; }
 footer a { color: inherit; }
 #system .fazit { border-left: 4px solid var(--accent, #3B82F6); } .code-info.nein { color: #B45309; }
-@media (max-width: 640px) { .matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { min-width: 140px; max-width: 150px; font-size: .84rem; } .matrix table { min-width: 860px; } }
-.matrix-tipp { display: none; color: var(--muted); font-size: .84rem; }
-@media (max-width: 980px) { .matrix-tipp { display: block; } }
+.paket-wahl { display: none; flex-wrap: wrap; gap: 6px; }
+.paket-wahl button { font: 600 .85rem var(--body); padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.paket-wahl button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+.paket-wahl button .b { font-weight: 400; font-size: .72rem; opacity: .85; }
+@media (max-width: 900px) {
+  .paket-wahl { display: flex; }
+  .matrix table { table-layout: auto; }
+  .matrix thead tr th:first-child { width: 58%; }
+  .matrix th, .matrix td { overflow-wrap: normal; hyphens: manual; }
+  .matrix th, .matrix td { padding: 10px 10px; }
+  .matrix .preiszeile td { font-size: 1.25rem; }
+  .matrix .knoepfe .btn, .matrix .laufzeit select { font-size: .9rem; }
+  .matrix[data-zeige="2"] tr > :nth-child(n+2):not(:nth-child(2)) { display: none; }
+  .matrix[data-zeige="3"] tr > :nth-child(n+2):not(:nth-child(3)) { display: none; }
+  .matrix[data-zeige="4"] tr > :nth-child(n+2):not(:nth-child(4)) { display: none; }
+  .matrix[data-zeige="5"] tr > :nth-child(n+2):not(:nth-child(5)) { display: none; }
+  .matrix[data-zeige="6"] tr > :nth-child(n+2):not(:nth-child(6)) { display: none; }
+  .matrix[data-zeige="7"] tr > :nth-child(n+2):not(:nth-child(7)) { display: none; }
+  .matrix[data-zeige="8"] tr > :nth-child(n+2):not(:nth-child(8)) { display: none; }
+}
 
 /* Zweispaltig */
 .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); }
@@ -367,8 +386,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     </div>
     <p class="hinweis">Kauf ab 18 Jahren. Mit dem Kauf oder der Vorbestellung akzeptieren Sie unsere <a href="agb.html">AGB / Lizenzbedingungen</a> und die <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <p class="hinweis" id="s-status" aria-live="polite"></p>
-    <p class="matrix-tipp">Tabelle seitlich wischen, um alle Pakete zu sehen →</p>
-    <div class="preise matrix">
+    <div class="paket-wahl" aria-label="Paket anzeigen"><button type="button" data-k="2" aria-pressed="true">Starter</button><button type="button" data-k="3" aria-pressed="false">Privat</button><button type="button" data-k="4" aria-pressed="false">ERP Start</button><button type="button" data-k="5" aria-pressed="false">KMU</button><button type="button" data-k="6" aria-pressed="false">KMU Plus</button><button type="button" data-k="7" aria-pressed="false">Treuhand <span class="b">Beta</span></button><button type="button" data-k="8" aria-pressed="false">Kanzlei <span class="b">Beta</span></button></div>
+    <div class="preise matrix" data-zeige="2">
       <table>
         <caption class="sr">Vergleich der DEXXUS-Pakete</caption>
         <thead><tr><th scope="col">Paket</th><th scope="col"><em class="neu">Aktion</em><b>Starter</b><span>Nebenerwerb, Einzelpersonen, ab 18</span></th><th scope="col"><b>Privat</b><span>Privatpersonen</span></th><th scope="col"><b>ERP Start</b><span>Kleinbetriebe</span></th><th scope="col"><b>KMU</b><span>Handwerk, Handel, Garagen</span></th><th scope="col" class="top"><em>Beliebt</em><b>KMU Plus</b><span>Betriebe mit Büro</span></th><th scope="col"><em class="beta">Beta-Test</em><b>Treuhand</b><span>Treuhand, Verwaltungen</span></th><th scope="col"><em class="beta">Beta-Test</em><b>Kanzlei</b><span>Anwaltskanzleien</span></th></tr>
@@ -760,5 +779,16 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   const q = new URLSearchParams(location.search).get("code");
   if (q) $("s-code").value = q;
   code();
+})();
+</script>
+<script>
+(function () {
+  var m = document.querySelector(".preise.matrix"), w = document.querySelector(".paket-wahl");
+  if (!m || !w) return;
+  w.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-k]"); if (!b) return;
+    m.setAttribute("data-zeige", b.getAttribute("data-k"));
+    w.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+  });
 })();
 </script>
