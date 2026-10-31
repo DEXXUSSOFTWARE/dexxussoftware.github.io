@@ -256,7 +256,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <a href="#partner">Partner</a>
       <a href="#hilfe">Hilfe</a>
     </nav>
-    <span class="vorschau">Vorschau</span>
   </div>
 </header>
 
@@ -688,7 +687,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 <script>
 (function () {
   // Online-Kauf über Payrexx. «Kaufen» ist erst aktiv, wenn AGB/Datenschutz freigegeben und die Zahlungsseite eingerichtet sind.
-  const SHOP = {aktiv: false, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // Payrexx-Seite «DEXXUS – Lizenz kaufen»; aktiv erst nach Freigabe AGB/Datenschutz
+  const SHOP = {aktiv: true, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // Payrexx-Seite «DEXXUS – Lizenz kaufen»; aktiv erst nach Freigabe AGB/Datenschutz
   // Alle Preise sind Endpreise inkl. 8.1 % MWST – der Betrag geht unverändert an Payrexx.
   const P = {"DEXXUS Starter": {m: 0, e: 19.90}, "DEXXUS Privat": {m: 0, e: 190}, "DEXXUS ERP Start": {m: 0, e: 299}, "KMU": {m: 49, e: 150}, "KMU Plus": {m: 79, e: 150},
              "Treuhand": {m: 149, e: 390}, "Kanzlei": {m: 190, e: 490}};
