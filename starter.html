@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DEXXUS Starter – Aktion CHF 19.90</title>
-<meta name="description" content="DEXXUS Starter: Offerten, Auftragsbestätigungen und Rechnungen mit Schweizer QR-Einzahlungsschein. Aktion CHF 19.90 einmalig, kein Abo. Deutsch, English, Español.">
+<meta name="description" content="DEXXUS Starter: Offerten, Lieferscheine und Rechnungen mit Schweizer QR-Einzahlungsschein. Aktion CHF 19.90 einmalig, kein Abo. Deutsch, English, Español.">
 <style>
 @font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("fonts/Inter-Regular.woff") format("woff"); }
 @font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("fonts/Inter-SemiBold.woff") format("woff"); }
@@ -76,7 +76,7 @@ footer a { color: #CBD5E1; margin-right: 16px; }
     <div>
       <span class="badge" data-t="aktion">AKTION</span>
       <h1 data-t="h1">Dein Büro für CHF 19.90.</h1>
-      <p class="lead" data-t="lead">Offerten, Auftragsbestätigungen und Rechnungen mit Schweizer QR-Einzahlungsschein – in wenigen Minuten. Einmal bezahlen, kein Abo.</p>
+      <p class="lead" data-t="lead">Offerten, Lieferscheine und Rechnungen mit Schweizer QR-Einzahlungsschein – in wenigen Minuten. Einmal bezahlen, kein Abo.</p>
       <div class="preis"><b>CHF 19.90</b><span data-t="einmalig">einmalig · inkl. MWST · unbefristet</span></div>
       <div class="knoepfe">
         <button type="button" class="btn" id="kaufen" data-t="kaufen">Jetzt kaufen</button>
@@ -100,11 +100,11 @@ footer a { color: #CBD5E1; margin-right: 16px; }
   <div class="wrap">
     <h2 data-t="h2umfang">Das ist im Starter dabei</h2>
     <div class="grid">
-      <div class="karte"><h3 data-t="k1t">Offerten & Rechnungen</h3><p data-t="k1">Offerten, Auftragsbestätigungen, Lieferscheine und Rechnungen. Aus der Offerte wird mit einem Klick die Rechnung.</p></div>
+      <div class="karte"><h3 data-t="k1t">Offerten & Rechnungen</h3><p data-t="k1">Offerten, Lieferscheine und Rechnungen. Aus der Offerte wird mit einem Klick die Rechnung.</p></div>
       <div class="karte"><h3 data-t="k2t">QR-Einzahlungsschein</h3><p data-t="k2">Jede Rechnung mit Schweizer QR-Zahlteil – als PDF, zum Drucken oder per E-Mail.</p></div>
       <div class="karte"><h3 data-t="k3t">Kunden & Artikel</h3><p data-t="k3">Kundenkartei und Artikelliste, Import aus Excel oder CSV.</p></div>
       <div class="karte"><h3 data-t="k4t">Briefe</h3><p data-t="k4">Korrespondenz auf deinem Briefpapier, als PDF oder Word.</p></div>
-      <div class="karte"><h3 data-t="k5t">To-do & DataSweep</h3><p data-t="k5">Aufgaben mit Erinnerung. DataSweep räumt deinen PC auf: Dubletten finden, Dateien ordnen.</p></div>
+      <div class="karte"><h3 data-t="k5t">To-do</h3><p data-t="k5">Aufgaben mit Erinnerung – damit nichts vergessen geht.</p></div>
       <div class="karte"><h3 data-t="k6t">Deutsch · English · Español</h3><p data-t="k6">Das Programm spricht deine Sprache – Belege auch in der Sprache deiner Kunden.</p></div>
     </div>
   </div>
@@ -117,6 +117,7 @@ footer a { color: #CBD5E1; margin-right: 16px; }
       <li data-t="g1">Alle Daten bleiben auf deinem PC – keine Cloud, kein Abo.</li>
       <li data-t="g2">Später mehr? Wechsel aufs Abo innert 12 Monaten: Der bezahlte Preis wird angerechnet.</li>
       <li data-t="g3">Aktionspreis – Rabattcodes gelten nicht für den Starter.</li>
+      <li data-t="g5">Für Einzelpersonen und Nebenerwerb: Absender ist deine Person, ohne MWST. Firmendaten, MWST und Mahnungen gibt es ab den grösseren Paketen.</li>
       <li data-t="g4">Support per E-Mail an info@dexxus.ch. Keine Installation und kein Support vor Ort.</li>
     </ul>
     <p class="klein" data-t="agbhinweis">Es gelten die <a href="agb.html">AGB</a> und die <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
@@ -136,37 +137,39 @@ footer a { color: #CBD5E1; margin-right: 16px; }
   const SHOP = {aktiv: false, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // wie index.html – aktiv erst mit Verkaufsstart
   const T = {
     en: {aktion: "SPECIAL OFFER", h1: "Your office for CHF 19.90.",
-      lead: "Quotes, order confirmations and invoices with Swiss QR payment slip – in just minutes. Pay once, no subscription.",
+      lead: "Quotes, delivery notes and invoices with Swiss QR payment slip – in just minutes. Pay once, no subscription.",
       einmalig: "one-time · incl. VAT · unlimited", kaufen: "Buy now", mehr: "What's included?",
       bedingungen: "Purchase from age 18 · for customers in Switzerland · 1 PC · Windows 10/11",
       video: "Video in German · subtitles in English and Spanish", h2umfang: "What's included in Starter",
-      k1t: "Quotes & invoices", k1: "Quotes, order confirmations, delivery notes and invoices. Turn a quote into an invoice with one click.",
+      k1t: "Quotes & invoices", k1: "Quotes, delivery notes and invoices. Turn a quote into an invoice with one click.",
       k2t: "QR payment slip", k2: "Every invoice with the Swiss QR payment part – as PDF, to print or by e-mail.",
       k3t: "Customers & items", k3: "Customer file and item list, import from Excel or CSV.",
       k4t: "Letters", k4: "Correspondence on your letterhead, as PDF or Word.",
-      k5t: "To-do & DataSweep", k5: "Tasks with reminders. DataSweep tidies up your PC: find duplicates, organise files.",
+      k5t: "To-do", k5: "Tasks with reminders – so nothing gets forgotten.",
       k6t: "Deutsch · English · Español", k6: "The program speaks your language – documents also in your customers' language.",
       h2gut: "Good to know", g1: "All data stays on your PC – no cloud, no subscription.",
       g2: "Need more later? Switch to a subscription within 12 months: the price paid is credited.",
       g3: "Special offer price – discount codes do not apply to Starter.",
+      g5: "For individuals and side businesses: you are the sender, without VAT. Company details, VAT and payment reminders come with the larger packages.",
       g4: "Support by e-mail to info@dexxus.ch. No installation and no on-site support.",
       agbhinweis: 'The <a href="agb.html">terms and conditions</a> and the <a href="datenschutz.html">privacy policy</a> apply (German version is binding).',
       alle: "All packages", ds: "Privacy", imp: "Legal notice",
       bald: "Online purchase starts soon. Please check back shortly – or write to info@dexxus.ch."},
     es: {aktion: "OFERTA", h1: "Tu oficina por CHF 19.90.",
-      lead: "Presupuestos, confirmaciones de pedido y facturas con boleta QR suiza – en pocos minutos. Pagas una vez, sin suscripción.",
+      lead: "Presupuestos, albaranes y facturas con boleta QR suiza – en pocos minutos. Pagas una vez, sin suscripción.",
       einmalig: "pago único · IVA incl. · sin caducidad", kaufen: "Comprar ahora", mehr: "¿Qué incluye?",
       bedingungen: "Compra a partir de 18 años · para clientes en Suiza · 1 PC · Windows 10/11",
       video: "Vídeo en alemán · subtítulos en inglés y español", h2umfang: "Qué incluye Starter",
-      k1t: "Presupuestos y facturas", k1: "Presupuestos, confirmaciones de pedido, albaranes y facturas. Del presupuesto a la factura con un clic.",
+      k1t: "Presupuestos y facturas", k1: "Presupuestos, albaranes y facturas. Del presupuesto a la factura con un clic.",
       k2t: "Boleta QR", k2: "Cada factura con la parte de pago QR suiza – en PDF, para imprimir o por correo.",
       k3t: "Clientes y artículos", k3: "Fichero de clientes y lista de artículos, importación desde Excel o CSV.",
       k4t: "Cartas", k4: "Correspondencia en tu membrete, en PDF o Word.",
-      k5t: "Tareas y DataSweep", k5: "Tareas con recordatorio. DataSweep ordena tu PC: encuentra duplicados y organiza archivos.",
+      k5t: "Tareas", k5: "Tareas con recordatorio – para que no se olvide nada.",
       k6t: "Deutsch · English · Español", k6: "El programa habla tu idioma – y los documentos, también el de tus clientes.",
       h2gut: "Bueno saber", g1: "Todos los datos se quedan en tu PC – sin nube, sin suscripción.",
       g2: "¿Necesitas más? Cambia a una suscripción en 12 meses: se descuenta el precio pagado.",
       g3: "Precio de oferta – los códigos de descuento no valen para Starter.",
+      g5: "Para particulares y trabajos extra: el remitente eres tú, sin IVA. Datos de empresa, IVA y recordatorios de pago, con los paquetes mayores.",
       g4: "Soporte por correo a info@dexxus.ch. Sin instalación ni soporte presencial.",
       agbhinweis: 'Se aplican las <a href="agb.html">condiciones generales</a> y la <a href="datenschutz.html">política de privacidad</a> (vale la versión alemana).',
       alle: "Todos los paquetes", ds: "Privacidad", imp: "Aviso legal",
