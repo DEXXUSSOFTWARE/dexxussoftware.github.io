@@ -372,7 +372,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
           <tr><th scope="row">Abrechnung</th><td>einmalig</td><td>einmalig</td><td>pro Monat</td><td>pro Monat</td><td>pro Monat</td><td>pro Monat</td></tr>
           <tr><th scope="row">Arbeitsplätze im Preis</th><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
           <tr><th scope="row">Zusatzplatz (weiterer PC) pro Monat</th><td>–</td><td>–</td><td>29.–</td><td>39.–</td><td>69.–</td><td>90.–</td></tr>
-          <tr><th scope="row">Netzwerk-Einrichtung einmalig (ab 2 Plätzen)</th><td>–</td><td>–</td><td>290.–</td><td>390.–</td><td>590.–</td><td>790.–</td></tr>
+          <tr><th scope="row">Netzwerk-Lizenz einmalig (ab 2 Plätzen) – Einrichtung durch Ihre IT</th><td>–</td><td>–</td><td>290.–</td><td>390.–</td><td>590.–</td><td>790.–</td></tr>
           <tr><th scope="row">Updates mit Fehlerkorrekturen</th><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
           <tr><th scope="row">Neue Funktionen (Upgrades) 12 Monate gratis</th><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
           <tr class="gruppe"><td colspan="7">Büro & Verkauf</td></tr>
@@ -401,7 +401,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       </table>
     </div>
     <p class="hinweis"><b>Beta-Test Treuhand und Kanzlei:</b> Die Fachmodule dieser Pakete werden zurzeit mit ersten Kunden getestet und laufend ergänzt. Sie können jetzt vorbestellen – ohne Anzahlung. Die Rechnung erhalten Sie erst, wenn Ihr Paket freigegeben ist; bis dahin können Sie die Vorbestellung jederzeit kostenlos zurückziehen.</p>
-    <p class="hinweis">Wechsel von Privat oder ERP Start aufs Abo innert 12 Monaten: Der bezahlte Preis wird angerechnet. Mehrere Arbeitsplätze: Zusatzplätze werden wie das Abo jährlich verrechnet, die Netzwerk-Einrichtung nur einmal. Beispiel KMU Plus mit 3 Plätzen: 79.– + 2 × 39.– = 157.– pro Monat, im 1. Jahr zusätzlich 150.– Lizenzgebühr und 390.– Netzwerk-Einrichtung. Bestellung mehrerer Plätze per E-Mail an info@dexxus.ch (Installation durch Ihre IT auf einem Windows-Server). Firmenkunden in Deutschland und Österreich: Preise in EUR auf Anfrage.</p>
+    <p class="hinweis">Wechsel von Privat oder ERP Start aufs Abo innert 12 Monaten: Der bezahlte Preis wird angerechnet. Mehrere Arbeitsplätze: Zusatzplätze werden wie das Abo jährlich verrechnet, die Netzwerk-Lizenz nur einmal. Beispiel KMU Plus mit 3 Plätzen: 79.– + 2 × 39.– = 157.– pro Monat, im 1. Jahr zusätzlich 150.– Lizenzgebühr und 390.– Netzwerk-Lizenz. Bestellung mehrerer Plätze per E-Mail an info@dexxus.ch. Die Einrichtung im Firmennetz (Windows-Server) macht Ihre IT-Firma oder Ihre eigene IT – wir liefern die Unterlagen dazu. Wir bieten keine Installation und keinen Support vor Ort; Support erhalten Sie per E-Mail. Firmenkunden in Deutschland und Österreich: Preise in EUR auf Anfrage.</p>
   </div>
 </section>
 
@@ -463,7 +463,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <ul class="liste">
         <li>Provision auf Lizenzen und Verlängerungen</li>
         <li>Einrichtungspakete für Ihre Kunden (Firmendaten, Kunden, Preislisten)</li>
-        <li>Unterlagen für die Installation im Firmennetz</li>
+        <li>Unterlagen für die Installation im Firmennetz – ideal für IT-Firmen, die bei ihren Kunden einrichten</li>
       </ul>
       <p>Interesse? Schreiben Sie an <span class="adresse">info@dexxus.ch</span></p>
     </div>
@@ -655,8 +655,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       if (!b.m) { el.textContent = "CHF " + chf(b.total) + " einmalig"; return; }
       let h = "";
       if (b.lzp) {                                       // 2 oder 3 Jahre: Normalpreis, darunter rot der Rabattpreis (Rabatt schon abgezogen)
-        h += '<span class="normalpreis">Normalpreis CHF ' + chf(b.normal) + ' / Jahr</span>';
-        h += '<span class="rabattpreis">Ihr Preis CHF ' + chf(b.jahr) + ' / Jahr<small>−' + b.lzp + ' % Laufzeitrabatt bereits abgezogen</small></span>';
+        h += '<span class="normalpreis">Normalpreis <s>CHF ' + chf(b.normal) + ' / Jahr</s></span>';
+        h += '<span class="rabattpreis">Ihr Preis CHF ' + chf(b.jahr) + ' / Jahr<small>−' + b.lzp + ' % Laufzeitrabatt bereits abgezogen – Sie sparen CHF ' + chf(b.lz) + ' in ' + (b.m / 12) + ' Jahren</small></span>';
       } else {
         h += '<span class="normalpreis">CHF ' + chf(b.normal) + ' / Jahr</span>';
       }
