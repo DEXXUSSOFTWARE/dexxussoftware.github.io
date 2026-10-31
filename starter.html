@@ -87,12 +87,8 @@ footer a { color: #CBD5E1; margin-right: 16px; }
     </div>
     <div>
       <video id="film" controls playsinline preload="metadata" poster="media/DEXXUS_Starter_poster.jpg">
-        <source src="media/DEXXUS_Starter_16x9_de.mp4" type="video/mp4">
-        <track kind="subtitles" src="media/DEXXUS_Starter_16x9_de.vtt" srclang="de" label="Deutsch" default>
-        <track kind="subtitles" src="media/DEXXUS_Starter_16x9_en.vtt" srclang="en" label="English">
-        <track kind="subtitles" src="media/DEXXUS_Starter_16x9_es.vtt" srclang="es" label="Español">
+        <source src="media/DEXXUS_Starter_16x9.mp4" type="video/mp4">
       </video>
-      <p class="klein" data-t="video" style="margin-top:8px">Video auf Deutsch · mit Untertiteln (Deutsch, Englisch, Spanisch)</p>
     </div>
   </div>
 </section>
@@ -141,7 +137,7 @@ footer a { color: #CBD5E1; margin-right: 16px; }
       lead: "Quotes, delivery notes and invoices with Swiss QR payment slip – in just minutes. Pay once, no subscription.",
       einmalig: "one-time · incl. VAT · unlimited", kaufen: "Buy now", mehr: "What's included?",
       bedingungen: "Purchase from age 18 · for customers in Switzerland · 1 PC · Windows 10/11",
-      video: "Video in German · with subtitles (German, English, Spanish)", h2umfang: "What's included in Starter",
+      h2umfang: "What's included in Starter",
       k1t: "Quotes & invoices", k1: "Quotes, delivery notes and invoices. Turn a quote into an invoice with one click.",
       k2t: "QR payment slip", k2: "Every invoice with the Swiss QR payment part – as PDF, to print or by e-mail.",
       k3t: "Customers & items", k3: "Customer file and item list, import from Excel or CSV.",
@@ -160,7 +156,7 @@ footer a { color: #CBD5E1; margin-right: 16px; }
       lead: "Presupuestos, albaranes y facturas con boleta QR suiza – en pocos minutos. Pagas una vez, sin suscripción.",
       einmalig: "pago único · IVA incl. · sin caducidad", kaufen: "Comprar ahora", mehr: "¿Qué incluye?",
       bedingungen: "Compra a partir de 18 años · para clientes en Suiza · 1 PC · Windows 10/11",
-      video: "Vídeo en alemán · con subtítulos (alemán, inglés, español)", h2umfang: "Qué incluye Starter",
+      h2umfang: "Qué incluye Starter",
       k1t: "Presupuestos y facturas", k1: "Presupuestos, albaranes y facturas. Del presupuesto a la factura con un clic.",
       k2t: "Boleta QR", k2: "Cada factura con la parte de pago QR suiza – en PDF, para imprimir o por correo.",
       k3t: "Clientes y artículos", k3: "Fichero de clientes y lista de artículos, importación desde Excel o CSV.",
@@ -186,8 +182,6 @@ footer a { color: #CBD5E1; margin-right: 16px; }
     document.documentElement.lang = L;
     document.querySelectorAll("[data-t]").forEach(e => { const v = (L === "de" ? DE : t)[e.dataset.t]; if (v) e.innerHTML = v; });
     document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === L)));
-    const v = document.getElementById("film");
-    for (const tr of v.textTracks) tr.mode = tr.language === L ? "showing" : "disabled";
     try { localStorage.setItem("dx_lang", L); } catch (e) {}
     document.getElementById("status").textContent = "";
   }

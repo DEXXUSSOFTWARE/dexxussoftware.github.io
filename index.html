@@ -195,6 +195,13 @@ footer a { color: inherit; }
 }
 
 /* Zweispaltig */
+.filme { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 28px); }
+.filme figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.filme figure.gross { grid-column: 1 / -1; }
+.filme video { width: 100%; aspect-ratio: 16 / 9; display: block; border-radius: 10px; background: #0F172A; border: 1px solid var(--line); }
+.filme figcaption { color: var(--muted); font-size: .95rem; }
+.filme figcaption b { color: var(--ink); }
+@media (max-width: 700px) { .filme { grid-template-columns: 1fr; } }
 .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); }
 .zwei > div { min-width: 0; }
 .kasten { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: grid; gap: 12px; }
@@ -284,6 +291,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     <a class="logo" href="#start"><b>DEXXUS</b><small>DATA · WISSEN · RECHT · ERP</small></a>
     <nav aria-label="Hauptnavigation">
       <a href="#funktionen">Funktionen</a>
+      <a href="#filme">Filme</a>
       <a href="#datenschutz">Datenschutz</a>
       <a href="#preise">Preise</a>
       <a href="starter.html">Starter</a>
@@ -376,6 +384,35 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <div class="eintrag"><span class="reiter">DataSweep</span><div class="stack" style="gap:4px"><h3>Ordnung auf dem PC</h3><p>Doppelte Dateien finden, Ablage ordnen, Speicher freigeben – ohne Systemordner anzutasten.</p></div></div>
       <div class="eintrag"><span class="reiter">Projekte</span><div class="stack" style="gap:4px"><h3>Aufträge im Griff</h3><p>Projekte mit Garantien, Fotos und den passenden E-Mails aus Outlook.</p></div></div>
       <div class="eintrag"><span class="reiter">To-do</span><div class="stack" style="gap:4px"><h3>Aufgaben mit Erinnerung</h3><p>Aufgaben zu Kunden und Fällen, fällig heute, morgen oder in drei Wochen.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="filme">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack"><p class="eyebrow">Filme</p><h2>DEXXUS in einer halben Minute</h2>
+      <p class="lead">Kurze Filme zu den Paketen – schauen Sie, was DEXXUS im Büro und zu Hause erledigt.</p></div>
+    <div class="filme">
+      <figure class="gross">
+        <video controls playsinline preload="none" poster="media/DEXXUS_Imagefilm_poster.jpg"><source src="media/DEXXUS_Imagefilm_16x9.mp4" type="video/mp4"></video>
+        <figcaption><b>DEXXUS</b> · Ihre eigene virtuelle Firma</figcaption>
+      </figure>
+      <figure>
+        <video controls playsinline preload="none" poster="media/DEXXUS_Starter_poster.jpg"><source src="media/DEXXUS_Starter_16x9.mp4" type="video/mp4"></video>
+        <figcaption><b>Starter</b> · Offerten und Rechnungen in Minuten</figcaption>
+      </figure>
+      <figure>
+        <video controls playsinline preload="none" poster="media/DEXXUS_Privat_poster.jpg"><source src="media/DEXXUS_Privat_16x9.mp4" type="video/mp4"></video>
+        <figcaption><b>Privat</b> · Briefe, Rechnungen und Verträge im Griff</figcaption>
+      </figure>
+      <figure>
+        <video controls playsinline preload="none" poster="media/DEXXUS_KMU_Plus_poster.jpg"><source src="media/DEXXUS_KMU_Plus_16x9.mp4" type="video/mp4"></video>
+        <figcaption><b>KMU Plus</b> · Das ganze Büro in einem Programm</figcaption>
+      </figure>
+      <figure>
+        <video controls playsinline preload="none" poster="media/DEXXUS_Virtuelle_Firma_poster.jpg"><source src="media/DEXXUS_Virtuelle_Firma_16x9.mp4" type="video/mp4"></video>
+        <figcaption><b>Virtuelle Mitarbeiter</b> · Software-Assistenten, die mitarbeiten</figcaption>
+      </figure>
     </div>
   </div>
 </section>
