@@ -245,6 +245,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <a href="#preise">Preise</a>
       <a href="#preise">Kaufen</a>
       <a href="#optionen">Optionen</a>
+      <a href="#system">System</a>
       <a href="#test">Testversion</a>
       <a href="#partner">Partner</a>
       <a href="#hilfe">Hilfe</a>
@@ -437,6 +438,38 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   </div>
 </section>
 
+<section id="system">
+  <div class="wrap stack" style="gap:24px">
+    <div class="stack"><p class="eyebrow">Systemanforderungen</p><h2>Was Ihr PC für DEXXUS braucht</h2>
+      <p class="lead">DEXXUS läuft auf einem normalen Windows-PC. Microsoft Office ist nicht nötig. Alle Daten und die KI bleiben auf Ihrem Gerät.</p></div>
+    <div class="preise">
+      <table>
+        <thead><tr><th>Bereich</th><th>Mindestens</th><th>Empfohlen</th></tr></thead>
+        <tbody>
+          <tr><td class="paket"><b>Betriebssystem</b></td><td>Windows 10, Version 22H2, 64-Bit – nur mit Sicherheitsupdates (ESU, siehe unten)</td><td>Windows 11, 64-Bit, aktuell gehalten</td></tr>
+          <tr><td class="paket"><b>Arbeitsspeicher</b></td><td>8 GB</td><td>16 GB oder mehr (für die lokale KI)</td></tr>
+          <tr><td class="paket"><b>Speicherplatz</b></td><td>20 GB frei (Programm, KI-Modelle, Texterkennung)</td><td>SSD mit 50 GB frei</td></tr>
+          <tr><td class="paket"><b>Grafikkarte</b></td><td>nicht nötig</td><td>NVIDIA oder AMD – die KI antwortet damit deutlich schneller</td></tr>
+          <tr><td class="paket"><b>Microsoft Office</b></td><td>nicht nötig – DEXXUS liest und schreibt Word- und Excel-Dateien (.docx, .xlsx) selbst</td><td>–</td></tr>
+          <tr><td class="paket"><b>E-Mail</b></td><td>Ihr E-Mail-Konto (IMAP/SMTP, z.B. Bluewin, Hostpoint, Gmail, Microsoft 365)</td><td>eigener Mail-Server; Outlook nur in der klassischen Version</td></tr>
+          <tr><td class="paket"><b>Internet</b></td><td>für Installation, Updates, Lizenz und Marktdaten</td><td>Die Arbeit mit Ihren Daten und der KI geht auch ohne Internet</td></tr>
+          <tr><td class="paket"><b>Mehrere Arbeitsplätze</b></td><td>Windows-Server mit Remotedesktop, eingerichtet durch Ihre IT-Firma oder Ihre IT</td><td>–</td></tr>
+          <tr><td class="paket"><b>Apple Mac</b></td><td>derzeit nicht unterstützt</td><td>–</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="kasten">
+      <h3>Gut zu wissen – Stand Oktober 2026</h3>
+      <ul class="liste">
+        <li><b>Windows 10:</b> Ohne Anmeldung zum Programm für erweiterte Sicherheitsupdates (ESU) gibt es seit Oktober 2025 keine Updates mehr. Privatpersonen erhalten mit Anmeldung kostenlos Updates bis 12. Oktober 2027, Firmen über das kostenpflichtige ESU-Programm von Microsoft. Wir empfehlen Windows 11.</li>
+        <li><b>Neues Outlook:</b> Microsoft stellt auf das «neue Outlook» um. Dieses lässt sich nicht mit anderen Programmen verbinden. Verbinden Sie DEXXUS darum direkt mit Ihrem E-Mail-Konto – das funktioniert mit jedem Outlook und jedem Anbieter. Das klassische Outlook unterstützt Microsoft voraussichtlich bis mindestens 2029.</li>
+        <li><b>Office-Versionen:</b> Für DEXXUS spielt die Office-Version keine Rolle. Für Ihre Sicherheit schon: Office 2016, 2019 und 2021 erhalten keine Updates mehr, Office 2024 bis Oktober 2029.</li>
+        <li><b>DEXXUS selbst</b>: Wir prüfen die technische Grundlage (Python, lokale KI, Windows) laufend und passen DEXXUS bei Bedarf mit Updates an. Diese Angaben führen wir hier nach.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section id="test">
   <div class="wrap zwei">
     <div class="stack" style="gap:16px"><p class="eyebrow">Testversion</p><h2>30 Tage gratis, mit Musterdaten</h2>
@@ -449,7 +482,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
         <li><b>Ausprobieren</b> – alle Module ausser Online-Recherche</li>
         <li><b>Kaufen</b> – Lizenzdatei einlesen, fertig</li>
       </ul>
-      <p class="hinweis">Voraussetzungen: Windows 10 oder 11, 8 GB RAM (16 GB für die lokale KI), 10 GB freier Speicher.</p>
+      <p class="hinweis">Voraussetzungen: Windows 11 (oder Windows 10 22H2 mit Sicherheitsupdates), 8 GB RAM (16 GB empfohlen), 20 GB freier Speicher – <a href="#system">alle Systemanforderungen</a>.</p>
     </div>
   </div>
 </section>
