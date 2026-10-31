@@ -137,6 +137,11 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .matrix .knoepfe .btn { display: flex; justify-content: center; width: 100%; padding: 8px 10px; font-size: .85rem; margin-bottom: 6px; }
 .matrix .laufzeit select { font: inherit; font-size: .85rem; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
 .matrix .preis-info { display: block; font-size: .74rem; color: var(--muted); line-height: 1.3; }
+.matrix .preis-info > span { display: block; }
+.matrix .preis-info .normalpreis { color: var(--ink); }
+.matrix .preis-info .rabattpreis { color: #C62828; font-weight: 700; font-size: .82rem; margin-top: 2px; }
+.matrix .preis-info .rabattpreis small { display: block; font-weight: 400; font-size: .7rem; }
+.matrix .preis-info .pi-summe { margin-top: 4px; font-size: .72rem; font-weight: 400; color: var(--muted); }
 .shop-kopf { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
 .shop-kopf .aktion { margin: 0; }
 .code-feld { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; }
@@ -348,7 +353,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 <section id="preise">
   <div class="wrap stack" style="gap:24px">
     <div class="stack"><h2>Pakete &amp; Preise</h2>
-      <p class="lead">Alle Preise in CHF, exkl. MWST. Abos für 1, 2 oder 3 Jahre (5 % bzw. 10 % Laufzeitrabatt), zahlbar im Voraus; sie verlängern sich um dieselbe Laufzeit. Die Lizenzgebühr bezahlen Sie nur einmal – bei der Verlängerung nur noch das Abo. Updates mit Fehlerkorrekturen sind während der ganzen Laufzeit inbegriffen.</p></div>
+      <p class="lead">Alle Preise in CHF inkl. 8.1 % MWST. Abos für 1, 2 oder 3 Jahre (5 % bzw. 10 % Laufzeitrabatt), zahlbar im Voraus; sie verlängern sich um dieselbe Laufzeit. Die Lizenzgebühr bezahlen Sie nur einmal – bei der Verlängerung nur noch das Abo. Updates mit Fehlerkorrekturen sind während der ganzen Laufzeit inbegriffen.</p></div>
     <div class="shop-kopf">
       <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> 20 % auf das erste Abo-Jahr mit dem Code aus unserem Video – zusätzlich zum Laufzeitrabatt.</p>
       <label class="code-feld">Rabattcode <input id="s-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
@@ -391,7 +396,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
           <tr><th scope="row">To-do mit Erinnerung</th><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
           <tr><th scope="row">DataSweep (Ordnung auf dem PC)</th><td class="ja" aria-label="enthalten">✓</td><td class="nein" aria-label="nicht enthalten">–</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
           <tr class="laufzeit"><th scope="row">Laufzeit wählen</th><td>unbefristet</td><td>unbefristet</td><td><select data-lauf="KMU" aria-label="Laufzeit KMU"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td><td><select data-lauf="KMU Plus" aria-label="Laufzeit KMU Plus"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td><td><select data-lauf="Treuhand" aria-label="Laufzeit Treuhand"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td><td><select data-lauf="Kanzlei" aria-label="Laufzeit Kanzlei"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td></tr>
-          <tr class="knoepfe"><th scope="row"></th><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS Privat">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS Privat"></span></td><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS ERP Start">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS ERP Start"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU Plus">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU Plus"></span></td><td><button type="button" class="btn vorbestellen" data-paket="Treuhand">Vorbestellen</button><a class="btn testen" href="#test">Testen</a></td><td><button type="button" class="btn vorbestellen" data-paket="Kanzlei">Vorbestellen</button><a class="btn testen" href="#test">Testen</a></td></tr>
+          <tr class="knoepfe"><th scope="row"></th><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS Privat">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS Privat"></span></td><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS ERP Start">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS ERP Start"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU Plus">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU Plus"></span></td><td><button type="button" class="btn vorbestellen" data-paket="Treuhand">Vorbestellen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="Treuhand"></span></td><td><button type="button" class="btn vorbestellen" data-paket="Kanzlei">Vorbestellen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="Kanzlei"></span></td></tr>
         </tbody>
       </table>
     </div>
@@ -623,7 +628,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 (function () {
   // Online-Kauf über Payrexx. «Kaufen» ist erst aktiv, wenn AGB/Datenschutz freigegeben und die Zahlungsseite eingerichtet sind.
   const SHOP = {aktiv: false, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // Payrexx-Seite «DEXXUS – Lizenz kaufen»; aktiv erst nach Freigabe AGB/Datenschutz
-  const MWST = 0.081;
+  // Alle Preise sind Endpreise inkl. 8.1 % MWST – der Betrag geht unverändert an Payrexx.
   const P = {"DEXXUS Privat": {m: 0, e: 190}, "DEXXUS ERP Start": {m: 0, e: 299}, "KMU": {m: 49, e: 150}, "KMU Plus": {m: 79, e: 150},
              "Treuhand": {m: 149, e: 390}, "Kanzlei": {m: 190, e: 490}};
   const CODES = {"e57caa0cbf611bb4d60616214914cc4fa03a265975fa5acaa225799df8f6c6d2": {p: 20, bis: "2027-03-31"}};
@@ -641,13 +646,23 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   function betrag(pk) {
     const p = P[pk], m = lauf(pk), abo = p.m * m, lzp = LZ[m] || 0, lz = r05(abo * lzp / 100);
     const rab = m ? r05(p.m * Math.min(12, m) * (1 - lzp / 100) * rabatt.p / 100) : 0;
-    const netto = abo - lz - rab + p.e;
-    return {netto, rab, lz, lzp, brutto: r05(netto * (1 + MWST)), m, jahr: r05(p.m * 12 * (1 - lzp / 100))};
+    const total = r05(abo - lz - rab + p.e);
+    return {total, rab, lz, lzp, brutto: total, m, normal: p.m * 12, jahr: r05(p.m * 12 * (1 - lzp / 100))};
   }
   function infos() {
     document.querySelectorAll("[data-info]").forEach(el => {
       const b = betrag(el.dataset.info);
-      el.textContent = b.m ? ("CHF " + chf(b.jahr) + " / Jahr" + (b.lzp ? " (−" + b.lzp + " % Laufzeitrabatt)" : "") + (rabatt.p ? " · 1. Jahr CHF " + chf(r05(b.jahr * (1 - rabatt.p / 100))) : "")) : ("CHF " + chf(b.netto) + " einmalig");
+      if (!b.m) { el.textContent = "CHF " + chf(b.total) + " einmalig"; return; }
+      let h = "";
+      if (b.lzp) {                                       // 2 oder 3 Jahre: Normalpreis, darunter rot der Rabattpreis (Rabatt schon abgezogen)
+        h += '<span class="normalpreis">Normalpreis CHF ' + chf(b.normal) + ' / Jahr</span>';
+        h += '<span class="rabattpreis">Ihr Preis CHF ' + chf(b.jahr) + ' / Jahr<small>−' + b.lzp + ' % Laufzeitrabatt bereits abgezogen</small></span>';
+      } else {
+        h += '<span class="normalpreis">CHF ' + chf(b.normal) + ' / Jahr</span>';
+      }
+      if (rabatt.p) h += '<span class="rabattpreis">1. Jahr mit Code CHF ' + chf(r05(b.jahr * (1 - rabatt.p / 100))) + '</span>';
+      h += '<span class="pi-summe">Total ' + (b.m / 12) + (b.m > 12 ? ' Jahre' : ' Jahr') + ' inkl. Lizenzgebühr: CHF ' + chf(b.total) + ' inkl. MWST</span>';
+      el.innerHTML = h;
     });
   }
   async function code() {
