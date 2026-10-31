@@ -148,6 +148,7 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .code-feld input { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; width: 170px; background: var(--surface); color: var(--ink); }
 .code-info.ok { color: var(--ok); }
 .download { display: inline-flex; margin-top: 8px; }
+footer a { color: inherit; }
 #system .fazit { border-left: 4px solid var(--accent, #3B82F6); } .code-info.nein { color: #B45309; }
 @media (max-width: 640px) { .matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { min-width: 140px; max-width: 150px; font-size: .84rem; } .matrix table { min-width: 860px; } }
 .matrix-tipp { display: none; color: var(--muted); font-size: .84rem; }
@@ -362,6 +363,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <label class="code-feld">Rabattcode <input id="s-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
       <span class="code-info" id="s-code-info" aria-live="polite"></span>
     </div>
+    <p class="hinweis">Mit dem Kauf oder der Vorbestellung akzeptieren Sie unsere <a href="agb.html">AGB / Lizenzbedingungen</a> und die <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <p class="hinweis" id="s-status" aria-live="polite"></p>
     <p class="matrix-tipp">Tabelle seitlich wischen, um alle Pakete zu sehen →</p>
     <div class="preise matrix">
@@ -496,6 +498,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       </ul>
       <p><a class="btn primary download" href="https://www.dropbox.com/scl/fi/f2jatmtciz7p0g0mdr184/DEXXUS_Testversion_V20.52_2026-10-31.zip?rlkey=gw56v5811wf44oa8krj81bpbm&amp;dl=1" rel="nofollow">⬇ Testversion herunterladen (Windows, 117 MB)</a></p>
       <p class="hinweis">Falls Windows beim Installieren warnt («Der Computer wurde durch Windows geschützt»): «Weitere Informationen» → «Trotzdem ausführen». Version V20.52 vom 31.10.2026.</p>
+      <p class="hinweis">Mit dem Herunterladen akzeptieren Sie die <a href="agb.html">AGB / Lizenzbedingungen</a>.</p>
       <p class="hinweis">Voraussetzungen: Windows 11 (oder Windows 10 22H2 mit Sicherheitsupdates), 8 GB RAM (16 GB empfohlen), 20 GB freier Speicher – <a href="#system">alle Systemanforderungen</a>.</p>
     </div>
   </div>
@@ -580,7 +583,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 <footer>
   <div class="wrap">
     <span>© 2026 DEXXUS · ein Produkt der avotec AG, Abteilung Software &amp; Datenmanagement · entwickelt in der Schweiz</span>
-    <span>Impressum · Datenschutzerklärung · Lizenzbedingungen</span>
+    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">AGB / Lizenzbedingungen</a></span>
   </div>
 </footer>
 

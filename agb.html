@@ -1,0 +1,350 @@
+<title>DEXXUS Lizenzbedingungen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Schrift lokal (Inter, SIL Open Font License) – keine Verbindung zu Google */
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/Inter-Regular.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/Inter-Medium.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/Inter-SemiBold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/Inter-Bold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/Inter-ExtraBold.woff") format("woff"); }
+/* Layout: CI wie DEXXUS-Programm – dunkelblaue Kopfleiste wie die Seitenleiste, helle Arbeitsfläche, blauer Akzent */
+:root {
+  --bg: #F1F5F9;
+  --surface: #FFFFFF;
+  --ink: #0F172A;
+  --muted: #64748B;
+  --line: #E2E8F0;
+  --accent: #3B82F6;      /* DEXXUS-Blau */
+  --wissen: #8B5CF6;      /* Dokumente & KI */
+  --deep: #0F172A;        /* Seitenleiste */
+  --on-deep: #FFFFFF;
+  --mark: #FEF3C7;        /* Platzhalter wie in der Datenschutz-Vorschau */
+  --mark-ink: #92400E;
+  --ok: #10B981;
+  --display: "Inter", "Segoe UI", Arial, sans-serif;
+  --body: "Inter", "Segoe UI", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1120; --surface: #141C2F; --ink: #E2E8F0; --muted: #94A3B8; --line: #24304A;
+    --accent: #60A5FA; --wissen: #A78BFA; --deep: #060B17; --on-deep: #E2E8F0; --mark: #4A3A12; --mark-ink: #FCD34D;
+    --ok: #34D399; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1120; --surface: #141C2F; --ink: #E2E8F0; --muted: #94A3B8; --line: #24304A;
+  --accent: #60A5FA; --wissen: #A78BFA; --deep: #060B17; --on-deep: #E2E8F0; --mark: #4A3A12; --mark-ink: #FCD34D;
+  --ok: #34D399; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+a { color: var(--accent); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.12rem; font-weight: 700; }
+p { margin: 0; }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.lead { color: var(--muted); font-size: 1.08rem; max-width: 62ch; }
+section { padding-block: clamp(48px, 8vw, 88px); }
+section + section { border-top: 1px solid var(--line); }
+.stack { display: grid; gap: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 600;
+  text-decoration: none; border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer;
+  font: 600 .98rem var(--body); }
+.btn.primary { background: var(--accent); color: #FFFFFF; }
+.btn:focus-visible, .tab:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Kopf */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--deep); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--deep); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.logo { display: grid; text-decoration: none; line-height: 1.1; }
+.logo b { font-family: var(--display); font-weight: 800; font-size: 1.45rem; color: var(--on-deep); }
+.logo small { font-size: .62rem; font-weight: 700; letter-spacing: .1em; color: #60A5FA; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: .93rem; }
+nav a { color: #94A3B8; text-decoration: none; }
+nav a:hover { color: var(--on-deep); }
+.vorschau { font-family: var(--mono); font-size: .72rem; color: var(--mark-ink); background: var(--mark); padding: 2px 8px; border-radius: 4px; }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.9rem); font-weight: 800; letter-spacing: -0.02em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.demo { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 0; }
+.demo .kopf { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px;
+  border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: .78rem; color: var(--muted); flex-wrap: wrap; }
+.tabs { display: flex; gap: 4px; }
+.tab { font: 500 .78rem var(--mono); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--line);
+  background: transparent; color: var(--muted); cursor: pointer; }
+.tab[aria-pressed="true"] { background: var(--accent); color: #FFFFFF; border-color: var(--accent); }
+.demo .text { padding: 18px 18px 20px; font-size: .97rem; line-height: 1.75; }
+.ph { font-family: var(--mono); font-size: .86em; background: var(--mark); color: var(--mark-ink); padding: 1px 5px; border-radius: 3px; white-space: nowrap; }
+.real { background: transparent; }
+.demo .fuss { padding: 10px 14px; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
+
+/* Fakten */
+.fakten { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.fakten div { padding: 18px; border-right: 1px solid var(--line); min-width: 0; }
+.fakten div:last-child { border-right: 0; }
+.fakten b { display: block; font-family: var(--display); font-size: 1.05rem; }
+.fakten span { color: var(--muted); font-size: .9rem; }
+
+/* Funktionen als Register */
+.register { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
+.register .eintrag { display: grid; grid-template-columns: 7.5rem 1fr; gap: 14px; padding-block: 16px; border-bottom: 1px solid var(--line); min-width: 0; }
+.register .reiter { font-family: var(--mono); font-size: .78rem; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; padding-top: 3px; }
+.register p { color: var(--muted); font-size: .95rem; }
+
+/* Schwärzung Schritte */
+.schritte { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+.schritte li { list-style: none; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.schritte li::before { counter-increment: s; content: counter(s); font: 700 1.6rem var(--display); color: var(--accent); }
+.schritte p { color: var(--muted); font-size: .95rem; }
+ol.schritte { padding: 0; margin: 0; }
+
+/* Preise */
+.preise { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: .95rem; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: .76rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td.preis { font-family: var(--display); font-weight: 700; font-size: 1.15rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted); }
+.paket b { font-family: var(--display); font-size: 1.05rem; }
+.paket span { display: block; color: var(--muted); font-size: .86rem; }
+.gruppe td { background: var(--bg); font-family: var(--mono); font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); padding-block: 8px; }
+.hinweis { color: var(--muted); font-size: .88rem; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.matrix table { min-width: 900px; }
+.matrix th, .matrix td { padding: 10px 12px; text-align: center; vertical-align: middle; }
+.matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { text-align: left; font: 400 .92rem var(--body); text-transform: none; letter-spacing: 0; color: var(--ink);
+  position: sticky; left: 0; background: var(--surface); min-width: 220px; z-index: 1; }
+.matrix thead th b { display: block; font: 700 1.02rem var(--display); color: var(--ink); text-transform: none; letter-spacing: 0; }
+.matrix thead th span { display: block; font: 400 .78rem var(--body); text-transform: none; letter-spacing: 0; color: var(--muted); margin-top: 2px; }
+.matrix thead th em { display: inline-block; font: 600 .68rem var(--body); font-style: normal; color: #FFFFFF; background: var(--accent); border-radius: 999px; padding: 2px 8px; margin-bottom: 4px; text-transform: none; letter-spacing: 0; }
+.matrix .top, .matrix td:nth-child(5) { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+.matrix .preiszeile td { font: 700 1.25rem var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.matrix .preiszeile td small { display: block; font: 400 .76rem var(--body); color: var(--muted); }
+.matrix thead th em.beta { background: #F59E0B; color: #1F2937; }
+.matrix td.ja { color: var(--ok); font-weight: 700; font-size: 1.1rem; }
+.matrix td.nein { color: var(--muted); opacity: .6; }
+.matrix .gruppe td { text-align: left; }
+.matrix .knoepfe td { vertical-align: top; }
+.matrix .knoepfe .btn { display: flex; justify-content: center; width: 100%; padding: 8px 10px; font-size: .85rem; margin-bottom: 6px; }
+.matrix .laufzeit select { font: inherit; font-size: .85rem; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.matrix .preis-info { display: block; font-size: .74rem; color: var(--muted); line-height: 1.3; }
+.matrix .preis-info > span { display: block; }
+.matrix .preis-info .normalpreis { color: var(--ink); }
+.matrix .preis-info .rabattpreis { color: var(--ok, #15803D); font-weight: 700; font-size: .82rem; margin-top: 2px; }
+.matrix .preis-info .rabattpreis small { display: block; font-weight: 400; font-size: .7rem; }
+.matrix .preis-info .pi-summe { margin-top: 4px; font-size: .72rem; font-weight: 400; color: var(--muted); }
+.shop-kopf { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.shop-kopf .aktion { margin: 0; }
+.code-feld { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; }
+.code-feld input { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; width: 170px; background: var(--surface); color: var(--ink); }
+.code-info.ok { color: var(--ok); }
+.download { display: inline-flex; margin-top: 8px; }
+#system .fazit { border-left: 4px solid var(--accent, #3B82F6); } .code-info.nein { color: #B45309; }
+@media (max-width: 640px) { .matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { min-width: 140px; max-width: 150px; font-size: .84rem; } .matrix table { min-width: 860px; } }
+.matrix-tipp { display: none; color: var(--muted); font-size: .84rem; }
+@media (max-width: 980px) { .matrix-tipp { display: block; } }
+
+/* Zweispaltig */
+.zwei { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); }
+.zwei > div { min-width: 0; }
+.kasten { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: grid; gap: 12px; }
+.module-mini { list-style: none; padding: 0; margin: 4px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+.module-mini li { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 6px 10px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; text-align: center; font-size: .78rem; line-height: 1.25; color: var(--ink); min-width: 0; }
+.module-mini svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.module-mini li.ki svg { stroke: var(--wissen); }
+.zwei > .kasten { align-self: start; align-content: start; }
+.module-titel { font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+ul.liste { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; color: var(--muted); }
+ul.liste b { color: var(--ink); }
+.adresse { font-family: var(--mono); font-size: .9rem; background: var(--bg); border: 1px solid var(--line); padding: 2px 8px; border-radius: 4px; user-select: all; }
+
+/* Swissness: Höhenlinien wie auf der Landeskarte, QR-Zahlteil */
+.hero-band { position: relative; overflow: hidden; }
+#hoehenlinien { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero-band > .wrap { position: relative; z-index: 1; }
+.koord { font-family: var(--mono); font-size: .74rem; color: var(--muted); letter-spacing: .04em; }
+.schweiz { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.schweiz > div { min-width: 0; }
+.ch-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.ch-liste div { padding-block: 14px; border-bottom: 1px solid var(--line); min-width: 0; }
+.ch-liste b { display: block; font-size: .98rem; }
+.ch-liste span { color: var(--muted); font-size: .9rem; }
+.zahlteil { background: #FFFFFF; color: #000000; border: 1px solid var(--line); border-radius: 8px; padding: 18px;
+  display: grid; grid-template-columns: auto 1fr; gap: 16px; font-family: Arial, Helvetica, sans-serif; font-size: 11px;
+  line-height: 1.45; max-width: 100%; box-shadow: 0 1px 0 var(--line); }
+.zahlteil h4 { grid-column: 1 / -1; margin: 0; font-size: 14px; }
+.zahlteil .qrbox { width: 132px; height: 132px; position: relative; }
+.zahlteil canvas { width: 132px; height: 132px; display: block; image-rendering: pixelated; }
+.zahlteil .kreuz { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; transform: translate(-50%, -50%);
+  background: #000000; outline: 2px solid #FFFFFF; }
+.zahlteil .kreuz::before, .zahlteil .kreuz::after { content: ""; position: absolute; background: #FFFFFF; }
+.zahlteil .kreuz::before { left: 9px; top: 4px; width: 4px; height: 14px; }
+.zahlteil .kreuz::after { left: 4px; top: 9px; width: 14px; height: 4px; }
+.zahlteil b { display: block; font-size: 9px; margin-top: 6px; }
+.zahlteil b:first-child { margin-top: 0; }
+.zahlteil .text-z { min-width: 0; }
+.sprachen { display: flex; gap: 8px; flex-wrap: wrap; }
+.sprachen span { font-family: var(--mono); font-size: .78rem; border: 1px solid var(--line); border-radius: 4px; padding: 3px 8px; color: var(--muted); }
+.sprachen span.aktiv { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 860px) { .schweiz { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .ch-liste { grid-template-columns: 1fr; } .zahlteil { grid-template-columns: 1fr; } }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px; font-size: .88rem; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .hero, .zwei { grid-template-columns: 1fr; }
+  .fakten { grid-template-columns: 1fr 1fr; }
+  .fakten div:nth-child(2) { border-right: 0; }
+  .fakten div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .register { grid-template-columns: 1fr; }
+  .schritte { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .fakten { grid-template-columns: 1fr; }
+  .fakten div { border-right: 0; border-bottom: 1px solid var(--line); }
+  .fakten div:last-child { border-bottom: 0; }
+  .schritte { grid-template-columns: 1fr; }
+  .register .eintrag { grid-template-columns: 1fr; gap: 4px; }
+  nav { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ph, .real { transition: background-color .25s ease; }
+}
+
+/* Bestellen */
+.bestell { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; padding: clamp(16px, 3vw, 28px); }
+.bestell label { display: grid; gap: 4px; font-size: .86rem; color: var(--muted); }
+.bestell .breit { grid-column: 1 / -1; }
+.bestell input, .bestell select, .bestell textarea { font: 400 1rem var(--body); color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.bestell input:focus-visible, .bestell select:focus-visible, .bestell textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.code-info { font-size: .86rem; min-height: 1.3em; }
+.code-info.ok { color: var(--ok); } .code-info.nein { color: var(--muted); }
+.total { font-family: var(--display); font-size: 1.25rem; font-weight: 800; }
+.total small { display: block; font: 400 .86rem var(--body); color: var(--muted); margin-top: 2px; }
+.aktion { background: var(--mark); color: var(--mark-ink); border-radius: 8px; padding: 10px 14px; font-size: .95rem; }
+@media (max-width: 680px) { .bestell { grid-template-columns: 1fr; } }
+</style>
+<style>
+.recht { max-width: 820px; margin: 0 auto; padding: 48px 16px 72px; }
+.recht h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 8px; }
+.recht h2 { font-size: 1.15rem; margin: 28px 0 8px; }
+.recht p, .recht li { line-height: 1.6; color: var(--ink); }
+.recht ul { padding-left: 1.2em; }
+.recht .entwurf { background: var(--mark); color: var(--mark-ink); border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; }
+.recht .zurueck { display: inline-block; margin-top: 32px; }
+footer a { color: inherit; }
+</style>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><b>DEXXUS</b><small>DATA · WISSEN · RECHT · ERP</small></a>
+    <nav aria-label="Hauptnavigation"><a href="index.html#preise">Preise</a><a href="index.html#system">System</a><a href="index.html#kontakt">Kontakt</a></nav>
+  </div>
+</header>
+<main class="recht">
+<h1>Allgemeine Geschäfts- und Lizenzbedingungen DEXXUS</h1>
+<p>Stand: 31. Oktober 2026 · Anbieterin: avotec AG, Pünten 4, 8602 Wangen ZH, UID CHE-102.264.214 («avotec»)</p>
+<h2>1. Geltungsbereich</h2>
+<ul>
+<li>Diese Bedingungen gelten für alle Lizenzen der Software DEXXUS (Abo- und Einmal-Lizenzen, Test- und Partnerlizenzen), für Updates und Upgrades sowie für alle damit verbundenen Leistungen von avotec.</li>
+<li>Abweichende Bedingungen des Kunden gelten nur, wenn avotec sie schriftlich anerkennt.</li>
+<li>Mit dem Herunterladen, Installieren oder Nutzen von DEXXUS, spätestens mit der Bestellung oder Zahlung, akzeptiert der Kunde diese Bedingungen.</li>
+</ul>
+<h2>2. Vertragsschluss</h2>
+<ul>
+<li>Online-Kauf auf dexxus.ch: Der Vertrag kommt mit der erfolgreichen Zahlung über Payrexx zustande; die Quittung per E-Mail bestätigt ihn.</li>
+<li>Bestellung per E-Mail oder Rechnung: Der Vertrag kommt mit unserer Rechnung bzw. Lizenzbestätigung zustande und ist nach Zahlung verbindlich.</li>
+<li>Vorbestellungen von Paketen im Beta-Test sind unverbindlich und ohne Anzahlung; sie können jederzeit kostenlos zurückgezogen werden. Ein Vertrag entsteht erst mit der Freigabe des Pakets und der Zahlung.</li>
+<li>Ein gesetzliches Widerrufsrecht besteht in der Schweiz nicht. Bitte testen Sie DEXXUS vor dem Kauf mit der Testversion.</li>
+</ul>
+<h2>3. Lizenz</h2>
+<ul>
+<li>DEXXUS wird nicht verkauft, sondern zur Nutzung lizenziert: nicht übertragbar, für die bestellte Anzahl Arbeitsplätze und – bei Einmal-Lizenzen – für eine Firma bzw. eine Privatperson (DEXXUS Privat: nur private Nutzung).</li>
+<li>Jede Lizenzdatei ist persönlich, auf den Namen des Kunden ausgestellt und digital signiert. Weitergabe, Kopie auf weitere Geräte über die lizenzierten Arbeitsplätze hinaus, Veränderung, Zurückentwicklung (Reverse Engineering) und Umgehung des Lizenzschutzes sind untersagt.</li>
+<li>Die Lizenz ist an den Computer des Kunden gebunden (Geräte-ID, bei der Netzwerkversion an den Server). Die Geräte-ID wird aus der Windows-Installation berechnet und enthält keine persönlichen Daten. Bei einem Wechsel des Computers stellt avotec auf Meldung des Kunden («Neuen PC melden») kostenlos eine neue Lizenzdatei aus; die Lizenz auf dem bisherigen Computer erlischt damit. Bis zu zwei Wechsel pro Jahr erfolgen ohne Rückfrage.</li>
+<li>Testversion: 30 Tage, nur zu Testzwecken, unentgeltlich und ohne jede Gewährleistung oder Haftung.</li>
+<li>Bei Verstoss gegen diese Bedingungen kann avotec die Lizenz ohne Rückerstattung beenden.</li>
+</ul>
+<h2>4. Preise und Zahlung</h2>
+<ul>
+<li>Preise gemäss Preisliste zum Zeitpunkt der Bestellung, in CHF inkl. der gesetzlichen MWST (derzeit 8.1 %); die enthaltene MWST wird auf der Rechnung ausgewiesen (Deutschland/Österreich: EUR, nur Firmen, Reverse Charge, ohne MWST).</li>
+<li>Abos laufen 1, 2 oder 3 Jahre (Laufzeitrabatt 5 % bzw. 10 % auf das Abo) und sind für die ganze Laufzeit im Voraus zahlbar. Die Lizenzgebühr und die Netzwerk-Lizenz (ab 2 Arbeitsplätzen) werden nur einmal verrechnet; bei der Verlängerung werden nur das Abo und allfällige Zusatzplätze verrechnet.</li>
+<li>Rabattcodes (z.B. Einführungsangebot) gelten nur für die erste Laufzeit und nur für die genannten Pakete; bei der Verlängerung gilt der dann gültige Normalpreis.</li>
+<li>Die Lizenzdatei wird nach Zahlungseingang zugestellt, sobald die Geräte-ID des Computers vorliegt.</li>
+<li>Bezahlte Beträge werden nicht zurückerstattet, auch nicht bei vorzeitiger Nichtnutzung, soweit das Gesetz nichts anderes zwingend vorschreibt.</li>
+</ul>
+<h2>5. Laufzeit, Verlängerung, Kündigung</h2>
+<ul>
+<li>Abos verlängern sich automatisch um dieselbe Laufzeit (mit demselben Laufzeitrabatt), wenn sie nicht bis spätestens <b>1 Monat vor Ablauf</b> gekündigt werden (per E-Mail an <a href="mailto:info@dexxus.ch">info@dexxus.ch</a> genügt).</li>
+<li>2 Monate vor Ablauf erhält der Kunde die Verlängerungsrechnung.</li>
+<li>Nach Ablauf bleiben die Daten des Kunden vollständig auf seinem PC und lesbar; es werden keine Daten gesperrt oder gelöscht.</li>
+</ul>
+<h2>6. Updates und Upgrades</h2>
+<p>Fehlerkorrekturen (Updates) sind während der Lizenzdauer kostenlos. Neue Funktionen (Upgrades) sind 12 Monate ab Lizenzbeginn inbegriffen, danach kostenpflichtig gemäss Preisliste. Ein Anspruch auf bestimmte neue Funktionen oder auf die Weiterführung einzelner Funktionen besteht nicht.</p>
+<h2>7. Installation, Systemumgebung und Drittsoftware</h2>
+<ul>
+<li>Der Kunde installiert DEXXUS selbst oder lässt es durch seine IT-Firma bzw. seine IT installieren. avotec bietet keine Installation, keine Fernwartung und keinen Support vor Ort.</li>
+<li>Bei der Installation werden auf dem Computer des Kunden weitere Programme und Bibliotheken eingerichtet bzw. aktualisiert, insbesondere Python, Programmbibliotheken, Ollama mit KI-Sprachmodellen und Tesseract. Dadurch wird die Systemumgebung des Kunden verändert; Speicherplatz, Arbeitsspeicher und Rechenleistung werden beansprucht.</li>
+<li>Der Kunde ist allein verantwortlich für die Eignung seines Computers, seines Netzwerks und seiner übrigen Software, für ein unterstütztes und aktuell gehaltenes Betriebssystem sowie für eine vollständige Datensicherung <b>vor</b> der Installation und vor jedem Update.</li>
+<li>avotec übernimmt <b>keine Haftung</b> für Veränderungen, Beeinträchtigungen, Verlangsamungen, Störungen, Unverträglichkeiten oder Ausfälle des Computers, des Netzwerks, des Betriebssystems, anderer Programme oder der Daten des Kunden, die durch Installation, Betrieb, Update oder Deinstallation von DEXXUS oder der Drittsoftware entstehen – insbesondere nicht bei fehlerhafter, unvollständiger oder durch Dritte vorgenommener Installation.</li>
+<li>Drittsoftware (z.B. Python, Ollama, KI-Modelle, Tesseract, Programmbibliotheken) und externe Dienste (z.B. Claude/Anthropic, Payrexx, Microsoft Outlook, E-Mail-Anbieter, Datenquellen für Marktdaten) unterliegen den Bedingungen ihrer Anbieter. avotec übernimmt dafür weder Gewähr noch Haftung.</li>
+</ul>
+<h2>8. Software mit künstlicher Intelligenz</h2>
+<ul>
+<li>DEXXUS wurde mit Unterstützung künstlicher Intelligenz (KI) entwickelt und enthält KI-Funktionen (u.a. KI-Assistent, Zusammenfassungen, virtuelle Mitarbeiter als Software-Assistenten, automatische Entwürfe und Zuordnungen).</li>
+<li>Software und KI-Ergebnisse können Fehler enthalten, unvollständig oder unzutreffend sein. Der Kunde prüft alle Ergebnisse, Entwürfe, Berechnungen, Rechnungen, Mahnungen, Fristen, Briefe und automatisch versandten Mitteilungen selbst, bevor er sich darauf verlässt oder sie verwendet.</li>
+<li>DEXXUS ersetzt keine Rechts-, Steuer-, Treuhand- oder Anlageberatung. Marktdaten (Börse: Schlusskurse vom Vortag, Wechselkurse: EZB-Referenzkurse) dienen nur der Information und sind keine Grundlage für Anlageentscheide.</li>
+</ul>
+<h2>9. Daten und Datensicherung</h2>
+<p>Alle Daten liegen beim Kunden. Für Datensicherung und Datensicherheit auf seinen Geräten ist allein der Kunde verantwortlich. avotec hat keinen Zugriff auf die Daten und führt keine Fernwartung durch. Für Datenverlust oder Datenveränderung haftet avotec nicht.</p>
+<h2>10. Support</h2>
+<p>Support per E-Mail (Ticketsystem) in der Regel innert eines Arbeitstages, ohne Gewähr für eine bestimmte Reaktions- oder Lösungszeit; Schulung per Telefon oder Video als Dienstleistung zu CHF 220.– pro Stunde. avotec bietet keine Installation und keinen Support vor Ort. Die Installation, insbesondere im Firmennetz bzw. auf einem Server, erfolgt durch die IT-Firma oder die IT des Kunden; avotec stellt die Unterlagen dazu zur Verfügung. Die Netzwerk-Lizenz ist eine Lizenzgebühr und keine Dienstleistung.</p>
+<h2>11. Gewährleistung</h2>
+<ul>
+<li>DEXXUS wird überlassen, wie es ist («as is»). avotec gewährleistet nicht, dass DEXXUS fehlerfrei, ununterbrochen, mit jeder Hard- und Software verträglich oder für einen bestimmten Zweck geeignet ist.</li>
+<li>Jede weitergehende Gewährleistung wird – soweit gesetzlich zulässig – wegbedungen. Meldet der Kunde einen reproduzierbaren wesentlichen Fehler, bemüht sich avotec, ihn mit einem Update zu beheben; weitere Ansprüche (Minderung, Wandelung, Schadenersatz) sind ausgeschlossen, soweit gesetzlich zulässig.</li>
+</ul>
+<h2>12. Haftungsausschluss</h2>
+<ul>
+<li>Die Haftung von avotec, ihrer Organe, Mitarbeitenden und Hilfspersonen wird <b>soweit gesetzlich zulässig vollständig ausgeschlossen</b>, gleich aus welchem Rechtsgrund (Vertrag, unerlaubte Handlung oder anderes).</li>
+<li>Ausgeschlossen ist insbesondere die Haftung für direkte und indirekte Schäden, Folgeschäden, entgangenen Gewinn, Betriebsunterbruch, Datenverlust, Mehraufwand, Ansprüche Dritter, Bussen, versäumte Fristen, fehlerhafte Rechnungen, Mahnungen, Berechnungen oder Mitteilungen sowie für Schäden aus der Nutzung der KI-Funktionen, der Marktdaten, der Drittsoftware und der Installation (Ziffer 7).</li>
+<li>Soweit eine Haftung dennoch besteht, ist sie begrenzt auf den Betrag, den der Kunde avotec für die betroffene Lizenz in den letzten 12 Monaten vor dem schädigenden Ereignis bezahlt hat, <b>höchstens jedoch auf CHF 1'000.–</b> (es gilt der tiefere Betrag), für alle Schadenfälle eines Vertragsjahres zusammen.</li>
+<li><b>Kein Regress:</b> Der Kunde verzichtet, soweit gesetzlich zulässig, auf jeden Rückgriff (Regress) gegen avotec, auch wenn er selbst von Dritten (z.B. seinen Kunden, Mandanten oder Behörden) in Anspruch genommen wird. Er hält avotec von Ansprüchen Dritter frei, die auf seiner Nutzung von DEXXUS beruhen.</li>
+<li>Vorbehalten bleibt die zwingende gesetzliche Haftung, namentlich für rechtswidrige Absicht und grobe Fahrlässigkeit sowie für Personenschäden.</li>
+</ul>
+<h2>13. Partnerprogramm</h2>
+<p>Gratislizenzen für Influencer und Testpersonen gelten 12 Monate gegen die vereinbarte Gegenleistung (Rapporte). Es gilt zusätzlich die Partnervereinbarung.</p>
+<h2>14. Systemvoraussetzungen</h2>
+<p>DEXXUS läuft auf Windows 11 (64-Bit); Windows 10 Version 22H2 nur, solange Microsoft dafür Sicherheitsupdates liefert. Mindestens 8 GB Arbeitsspeicher (16 GB empfohlen) und 20 GB freier Speicher. Microsoft Office ist nicht erforderlich. Apple macOS wird nicht unterstützt. Die aktuellen Systemvoraussetzungen stehen auf dexxus.ch; der Kunde ist für ein unterstütztes und aktuell gehaltenes Betriebssystem verantwortlich.</p>
+<h2>15. Datenschutz</h2>
+<p>Für die Bearbeitung von Personendaten gilt die Datenschutzerklärung auf dexxus.ch.</p>
+<h2>16. Änderungen dieser Bedingungen</h2>
+<p>avotec kann diese Bedingungen anpassen. Die neue Fassung wird auf dexxus.ch veröffentlicht und gilt für neue Lizenzen ab Veröffentlichung, für bestehende Abos ab der nächsten Verlängerung.</p>
+<h2>17. Teilunwirksamkeit (salvatorische Klausel)</h2>
+<ul>
+<li>Sollte eine Bestimmung dieser Bedingungen ganz oder teilweise unwirksam, nichtig oder nicht durchsetzbar sein oder werden, so bleibt die Gültigkeit <b>aller übrigen Bestimmungen</b> davon unberührt. Die Bedingungen als Ganzes bleiben gültig.</li>
+<li>Ist nur ein Teil einer Bestimmung unwirksam – etwa weil ein Haftungsausschluss oder eine Haftungsbegrenzung weiter geht, als das Gesetz erlaubt –, so gilt diese Bestimmung <b>im gesetzlich zulässigen Umfang</b> weiter.</li>
+<li>An die Stelle der unwirksamen Bestimmung tritt die gültige Regelung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt. Dasselbe gilt für allfällige Lücken.</li>
+</ul>
+<h2>18. Schlussbestimmungen</h2>
+<p>Es gilt ausschliesslich Schweizer Recht unter Ausschluss des Wiener Kaufrechts (CISG). Gerichtsstand ist der Sitz der avotec AG; zwingende Gerichtsstände für Konsumentinnen und Konsumenten bleiben vorbehalten.</p>
+<p><a class="zurueck" href="index.html">← zurück zur Startseite</a></p>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 DEXXUS · ein Produkt der avotec AG, Abteilung Software &amp; Datenmanagement · entwickelt in der Schweiz</span>
+    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">Lizenzbedingungen</a></span>
+  </div>
+</footer>
