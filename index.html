@@ -146,7 +146,8 @@ td.preis small { display: block; font: 400 .8rem var(--body); color: var(--muted
 .shop-kopf .aktion { margin: 0; }
 .code-feld { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; }
 .code-feld input { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; width: 170px; background: var(--surface); color: var(--ink); }
-.code-info.ok { color: var(--ok); } .code-info.nein { color: #B45309; }
+.code-info.ok { color: var(--ok); }
+#system .fazit { border-left: 4px solid var(--accent, #3B82F6); } .code-info.nein { color: #B45309; }
 @media (max-width: 640px) { .matrix tbody th, .matrix thead tr th:first-child, .matrix .preiszeile th { min-width: 140px; max-width: 150px; font-size: .84rem; } .matrix table { min-width: 860px; } }
 .matrix-tipp { display: none; color: var(--muted); font-size: .84rem; }
 @media (max-width: 980px) { .matrix-tipp { display: block; } }
@@ -442,6 +443,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   <div class="wrap stack" style="gap:24px">
     <div class="stack"><p class="eyebrow">Systemanforderungen</p><h2>Was Ihr PC für DEXXUS braucht</h2>
       <p class="lead">DEXXUS läuft auf einem normalen Windows-PC. Microsoft Office ist nicht nötig. Alle Daten und die KI bleiben auf Ihrem Gerät.</p></div>
+    <div class="kasten fazit">
+      <h3>Kurz gesagt</h3>
+      <ul class="liste">
+        <li>Ein Windows-PC mit <b>Windows 11</b> und <b>16 GB Arbeitsspeicher</b> genügt.</li>
+        <li><b>Kein Microsoft Office nötig</b> – E-Mails laufen direkt über Ihr E-Mail-Konto, mit jedem Anbieter.</li>
+        <li>Windows 10 nur noch mit Sicherheitsupdates; ein <b>Apple Mac</b> wird derzeit nicht unterstützt.</li>
+      </ul>
+    </div>
     <div class="preise">
       <table>
         <thead><tr><th>Bereich</th><th>Mindestens</th><th>Empfohlen</th></tr></thead>
