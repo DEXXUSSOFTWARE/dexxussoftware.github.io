@@ -348,9 +348,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 <section id="preise">
   <div class="wrap stack" style="gap:24px">
     <div class="stack"><h2>Pakete &amp; Preise</h2>
-      <p class="lead">Alle Preise in CHF, exkl. MWST. Abos laufen 12 Monate, zahlbar im Voraus, und verlängern sich jährlich – die Lizenzgebühr bezahlen Sie nur einmal, bei der Verlängerung nur noch das Abo. Updates mit Fehlerkorrekturen sind während der ganzen Laufzeit inbegriffen.</p></div>
+      <p class="lead">Alle Preise in CHF, exkl. MWST. Abos für 1, 2 oder 3 Jahre (5 % bzw. 10 % Laufzeitrabatt), zahlbar im Voraus; sie verlängern sich um dieselbe Laufzeit. Die Lizenzgebühr bezahlen Sie nur einmal – bei der Verlängerung nur noch das Abo. Updates mit Fehlerkorrekturen sind während der ganzen Laufzeit inbegriffen.</p></div>
     <div class="shop-kopf">
-      <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> 20 % auf das erste Abo-Jahr mit dem Code aus unserem Video.</p>
+      <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> 20 % auf das erste Abo-Jahr mit dem Code aus unserem Video – zusätzlich zum Laufzeitrabatt.</p>
       <label class="code-feld">Rabattcode <input id="s-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
       <span class="code-info" id="s-code-info" aria-live="polite"></span>
     </div>
@@ -364,7 +364,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
         <tbody>
           <tr class="gruppe"><td colspan="7">Grundlagen</td></tr>
           <tr><th scope="row">Lizenzgebühr – nur einmal, nie bei der Verlängerung</th><td>inkl.</td><td>inkl.</td><td>150.–</td><td>150.–</td><td>390.–</td><td>490.–</td></tr>
-          <tr><th scope="row">Laufzeit</th><td>unbefristet</td><td>unbefristet</td><td>12 Mt.</td><td>12 Mt.</td><td>12 Mt.</td><td>12 Mt.</td></tr>
+          <tr><th scope="row">Abrechnung</th><td>einmalig</td><td>einmalig</td><td>pro Monat</td><td>pro Monat</td><td>pro Monat</td><td>pro Monat</td></tr>
           <tr><th scope="row">Arbeitsplätze im Preis</th><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
           <tr><th scope="row">Zusatzplatz (weiterer PC) pro Monat</th><td>–</td><td>–</td><td>29.–</td><td>39.–</td><td>69.–</td><td>90.–</td></tr>
           <tr><th scope="row">Netzwerk-Einrichtung einmalig (ab 2 Plätzen)</th><td>–</td><td>–</td><td>290.–</td><td>390.–</td><td>590.–</td><td>790.–</td></tr>
@@ -390,7 +390,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
           <tr class="gruppe"><td colspan="7">Werkzeuge</td></tr>
           <tr><th scope="row">To-do mit Erinnerung</th><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
           <tr><th scope="row">DataSweep (Ordnung auf dem PC)</th><td class="ja" aria-label="enthalten">✓</td><td class="nein" aria-label="nicht enthalten">–</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td><td class="ja" aria-label="enthalten">✓</td></tr>
-          <tr class="laufzeit"><th scope="row">Verlängerung</th><td>–</td><td>–</td><td>jährlich, nur Abo</td><td>jährlich, nur Abo</td><td>jährlich, nur Abo</td><td>jährlich, nur Abo</td></tr>
+          <tr class="laufzeit"><th scope="row">Laufzeit wählen</th><td>unbefristet</td><td>unbefristet</td><td><select data-lauf="KMU" aria-label="Laufzeit KMU"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td><td><select data-lauf="KMU Plus" aria-label="Laufzeit KMU Plus"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td><td><select data-lauf="Treuhand" aria-label="Laufzeit Treuhand"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td><td><select data-lauf="Kanzlei" aria-label="Laufzeit Kanzlei"><option value="12">1 Jahr</option><option value="24">2 Jahre (−5 %)</option><option value="36">3 Jahre (−10 %)</option></select></td></tr>
           <tr class="knoepfe"><th scope="row"></th><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS Privat">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS Privat"></span></td><td><button type="button" class="btn primary kaufen" data-paket="DEXXUS ERP Start">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="DEXXUS ERP Start"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU"></span></td><td><button type="button" class="btn primary kaufen" data-paket="KMU Plus">Kaufen</button><a class="btn testen" href="#test">Testen</a><span class="preis-info" data-info="KMU Plus"></span></td><td><button type="button" class="btn vorbestellen" data-paket="Treuhand">Vorbestellen</button><a class="btn testen" href="#test">Testen</a></td><td><button type="button" class="btn vorbestellen" data-paket="Kanzlei">Vorbestellen</button><a class="btn testen" href="#test">Testen</a></td></tr>
         </tbody>
       </table>
@@ -636,16 +636,18 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
     return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
   }
-  const lauf = pk => (P[pk] && P[pk].m ? 12 : 0);      // Abos: immer 12 Monate (verlängert sich jährlich, ohne Lizenzgebühr)
+  const LZ = {12: 0, 24: 5, 36: 10};                     // Laufzeitrabatt % aufs Abo
+  const lauf = pk => { const s = document.querySelector('select[data-lauf="' + pk + '"]'); return s ? parseInt(s.value) : 0; };
   function betrag(pk) {
-    const p = P[pk], m = lauf(pk), abo = p.m * m, rab = m ? r05(abo * rabatt.p / 100) : 0;
-    const netto = abo - rab + p.e;
-    return {netto, rab, brutto: r05(netto * (1 + MWST)), m};
+    const p = P[pk], m = lauf(pk), abo = p.m * m, lzp = LZ[m] || 0, lz = r05(abo * lzp / 100);
+    const rab = m ? r05(p.m * Math.min(12, m) * (1 - lzp / 100) * rabatt.p / 100) : 0;
+    const netto = abo - lz - rab + p.e;
+    return {netto, rab, lz, lzp, brutto: r05(netto * (1 + MWST)), m, jahr: r05(p.m * 12 * (1 - lzp / 100))};
   }
   function infos() {
     document.querySelectorAll("[data-info]").forEach(el => {
       const b = betrag(el.dataset.info);
-      const pm = P[el.dataset.info].m; el.textContent = b.m ? ("CHF " + chf(rabatt.p ? r05(pm * (1 - rabatt.p / 100)) : pm) + " / Mt." + (rabatt.p ? " im 1. Jahr" : "")) : ("CHF " + chf(b.netto) + " einmalig");
+      el.textContent = b.m ? ("CHF " + chf(b.jahr) + " / Jahr" + (b.lzp ? " (−" + b.lzp + " % Laufzeitrabatt)" : "") + (rabatt.p ? " · 1. Jahr CHF " + chf(r05(b.jahr * (1 - rabatt.p / 100))) : "")) : ("CHF " + chf(b.netto) + " einmalig");
     });
   }
   async function code() {
@@ -678,7 +680,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Vorbestellung DEXXUS " + pk) + "&body=" + encodeURIComponent(t);
     $("s-status").textContent = "Ihr E-Mail-Programm öffnet sich – bitte Firma, Adresse und Telefon ergänzen und senden. Keine Anzahlung, jederzeit kostenlos zurückziehbar.";
   }));
-    $("s-code").addEventListener("input", code);
+    document.querySelectorAll("select[data-lauf]").forEach(x => x.addEventListener("change", infos));
+  $("s-code").addEventListener("input", code);
   const q = new URLSearchParams(location.search).get("code");
   if (q) $("s-code").value = q;
   code();
