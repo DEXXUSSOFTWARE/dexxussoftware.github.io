@@ -645,7 +645,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   function infos() {
     document.querySelectorAll("[data-info]").forEach(el => {
       const b = betrag(el.dataset.info);
-      el.textContent = (b.m ? "1. Jahr CHF " : "Einmalig CHF ") + chf(b.netto) + " exkl. MWST" + (b.rab ? " (−" + chf(b.rab) + " Rabatt)" : "") + (b.m ? " · danach CHF " + chf(P[el.dataset.info].m * 12) + "/Jahr" : "");
+      const pm = P[el.dataset.info].m; el.textContent = b.m ? ("CHF " + chf(rabatt.p ? r05(pm * (1 - rabatt.p / 100)) : pm) + " / Mt." + (rabatt.p ? " im 1. Jahr" : "")) : ("CHF " + chf(b.netto) + " einmalig");
     });
   }
   async function code() {
