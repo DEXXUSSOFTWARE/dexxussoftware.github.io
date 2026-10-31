@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DEXXUS Starter – Aktion CHF 19.90</title>
+<meta name="description" content="DEXXUS Starter: Offerten, Auftragsbestätigungen und Rechnungen mit Schweizer QR-Einzahlungsschein. Aktion CHF 19.90 einmalig, kein Abo. Deutsch, English, Español.">
+<style>
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("fonts/Inter-Regular.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("fonts/Inter-SemiBold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 800; font-display: swap; src: url("fonts/Inter-ExtraBold.woff") format("woff"); }
+:root { --bg: #F1F5F9; --surface: #FFFFFF; --ink: #0F172A; --muted: #64748B; --line: #E2E8F0; --accent: #3B82F6;
+  --deep: #0F172A; --on-deep: #FFFFFF; --ok: #10B981; --mark: #FEF3C7; --mark-ink: #92400E; --f: "Inter", "Segoe UI", Arial, sans-serif; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0B1120; --surface: #141C2F; --ink: #E2E8F0;
+  --muted: #94A3B8; --line: #24304A; --accent: #60A5FA; --deep: #060B17; --ok: #34D399; --mark: #4A3A12; --mark-ink: #FCD34D; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0B1120; --surface: #141C2F; --ink: #E2E8F0; --muted: #94A3B8; --line: #24304A; --accent: #60A5FA;
+  --deep: #060B17; --ok: #34D399; --mark: #4A3A12; --mark-ink: #FCD34D; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--f); }
+a { color: var(--accent); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+header { background: var(--deep); position: sticky; top: 0; z-index: 5; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; flex-wrap: wrap; }
+.logo { text-decoration: none; display: grid; line-height: 1.1; }
+.logo b { color: #fff; font-weight: 800; font-size: 1.4rem; }
+.logo small { color: #60A5FA; font-size: .62rem; font-weight: 600; letter-spacing: .1em; }
+.lang { display: flex; gap: 4px; }
+.lang button { font: 600 .85rem var(--f); color: #94A3B8; background: transparent; border: 1px solid #334155; border-radius: 6px;
+  padding: 6px 10px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; margin: 0 0 12px; }
+section { padding-block: clamp(36px, 7vw, 72px); }
+section + section { border-top: 1px solid var(--line); }
+.hero { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(20px, 4vw, 48px); align-items: center; }
+.lead { color: var(--muted); font-size: 1.1rem; margin: 14px 0 22px; max-width: 52ch; }
+.badge { display: inline-block; background: var(--ok); color: #fff; font-weight: 800; font-size: .8rem; letter-spacing: .08em;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+video { width: 100%; border-radius: 14px; background: #000; display: block; box-shadow: 0 18px 50px rgba(15, 23, 42, .25); }
+.preis { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.preis b { font-size: clamp(2.4rem, 6vw, 3.4rem); font-weight: 800; }
+.preis span { color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 8px; font: 600 1rem var(--f);
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; text-decoration: none; }
+.btn.sek { background: transparent; color: var(--accent); }
+.btn:focus-visible, .lang button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.knoepfe { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.status { margin-top: 12px; color: var(--muted); font-size: .95rem; min-height: 1.2em; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.karte { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.karte h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.karte p { margin: 0; color: var(--muted); font-size: .95rem; }
+ul.haken { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+ul.haken li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 10px; }
+.klein { color: var(--muted); font-size: .88rem; }
+footer { background: var(--deep); color: #94A3B8; font-size: .88rem; padding-block: 22px; }
+footer a { color: #CBD5E1; margin-right: 16px; }
+@media (max-width: 760px) { .hero, .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html"><b>DEXXUS</b><small>STARTER</small></a>
+    <div class="lang" role="group" aria-label="Sprache / Language / Idioma">
+      <button type="button" data-l="de" aria-pressed="true">DE</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+      <button type="button" data-l="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap hero">
+    <div>
+      <span class="badge" data-t="aktion">AKTION</span>
+      <h1 data-t="h1">Dein Büro für CHF 19.90.</h1>
+      <p class="lead" data-t="lead">Offerten, Auftragsbestätigungen und Rechnungen mit Schweizer QR-Einzahlungsschein – in wenigen Minuten. Einmal bezahlen, kein Abo.</p>
+      <div class="preis"><b>CHF 19.90</b><span data-t="einmalig">einmalig · inkl. MWST · unbefristet</span></div>
+      <div class="knoepfe">
+        <button type="button" class="btn" id="kaufen" data-t="kaufen">Jetzt kaufen</button>
+        <a class="btn sek" href="#umfang" data-t="mehr">Was ist dabei?</a>
+      </div>
+      <p class="status" id="status" role="status"></p>
+      <p class="klein" data-t="bedingungen">Kauf ab 18 Jahren · für Kundinnen und Kunden in der Schweiz · 1 PC · Windows 10/11</p>
+    </div>
+    <div>
+      <video id="film" controls playsinline preload="metadata" poster="media/DEXXUS_Starter_poster.jpg">
+        <source src="media/DEXXUS_Starter_16x9_de.mp4" type="video/mp4">
+        <track kind="subtitles" src="media/DEXXUS_Starter_16x9_en.vtt" srclang="en" label="English">
+        <track kind="subtitles" src="media/DEXXUS_Starter_16x9_es.vtt" srclang="es" label="Español">
+      </video>
+      <p class="klein" data-t="video" style="margin-top:8px">Video auf Deutsch · Untertitel Englisch und Spanisch</p>
+    </div>
+  </div>
+</section>
+
+<section id="umfang">
+  <div class="wrap">
+    <h2 data-t="h2umfang">Das ist im Starter dabei</h2>
+    <div class="grid">
+      <div class="karte"><h3 data-t="k1t">Offerten & Rechnungen</h3><p data-t="k1">Offerten, Auftragsbestätigungen, Lieferscheine und Rechnungen. Aus der Offerte wird mit einem Klick die Rechnung.</p></div>
+      <div class="karte"><h3 data-t="k2t">QR-Einzahlungsschein</h3><p data-t="k2">Jede Rechnung mit Schweizer QR-Zahlteil – als PDF, zum Drucken oder per E-Mail.</p></div>
+      <div class="karte"><h3 data-t="k3t">Kunden & Artikel</h3><p data-t="k3">Kundenkartei und Artikelliste, Import aus Excel oder CSV.</p></div>
+      <div class="karte"><h3 data-t="k4t">Briefe</h3><p data-t="k4">Korrespondenz auf deinem Briefpapier, als PDF oder Word.</p></div>
+      <div class="karte"><h3 data-t="k5t">To-do & DataSweep</h3><p data-t="k5">Aufgaben mit Erinnerung. DataSweep räumt deinen PC auf: Dubletten finden, Dateien ordnen.</p></div>
+      <div class="karte"><h3 data-t="k6t">Deutsch · English · Español</h3><p data-t="k6">Das Programm spricht deine Sprache – Belege auch in der Sprache deiner Kunden.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="display:grid;gap:14px;max-width:760px">
+    <h2 data-t="h2gut">Gut zu wissen</h2>
+    <ul class="haken">
+      <li data-t="g1">Alle Daten bleiben auf deinem PC – keine Cloud, kein Abo.</li>
+      <li data-t="g2">Später mehr? Wechsel aufs Abo innert 12 Monaten: Der bezahlte Preis wird angerechnet.</li>
+      <li data-t="g3">Aktionspreis – Rabattcodes gelten nicht für den Starter.</li>
+      <li data-t="g4">Support per E-Mail an info@dexxus.ch. Keine Installation und kein Support vor Ort.</li>
+    </ul>
+    <p class="klein" data-t="agbhinweis">Es gelten die <a href="agb.html">AGB</a> und die <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" data-t="alle">Alle Pakete</a><a href="agb.html">AGB</a><a href="datenschutz.html" data-t="ds">Datenschutz</a><a href="impressum.html" data-t="imp">Impressum</a>
+    <span>© 2026 avotec AG · DEXXUS</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const SHOP = {aktiv: false, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // wie index.html – aktiv erst mit Verkaufsstart
+  const T = {
+    en: {aktion: "SPECIAL OFFER", h1: "Your office for CHF 19.90.",
+      lead: "Quotes, order confirmations and invoices with Swiss QR payment slip – in just minutes. Pay once, no subscription.",
+      einmalig: "one-time · incl. VAT · unlimited", kaufen: "Buy now", mehr: "What's included?",
+      bedingungen: "Purchase from age 18 · for customers in Switzerland · 1 PC · Windows 10/11",
+      video: "Video in German · subtitles in English and Spanish", h2umfang: "What's included in Starter",
+      k1t: "Quotes & invoices", k1: "Quotes, order confirmations, delivery notes and invoices. Turn a quote into an invoice with one click.",
+      k2t: "QR payment slip", k2: "Every invoice with the Swiss QR payment part – as PDF, to print or by e-mail.",
+      k3t: "Customers & items", k3: "Customer file and item list, import from Excel or CSV.",
+      k4t: "Letters", k4: "Correspondence on your letterhead, as PDF or Word.",
+      k5t: "To-do & DataSweep", k5: "Tasks with reminders. DataSweep tidies up your PC: find duplicates, organise files.",
+      k6t: "Deutsch · English · Español", k6: "The program speaks your language – documents also in your customers' language.",
+      h2gut: "Good to know", g1: "All data stays on your PC – no cloud, no subscription.",
+      g2: "Need more later? Switch to a subscription within 12 months: the price paid is credited.",
+      g3: "Special offer price – discount codes do not apply to Starter.",
+      g4: "Support by e-mail to info@dexxus.ch. No installation and no on-site support.",
+      agbhinweis: 'The <a href="agb.html">terms and conditions</a> and the <a href="datenschutz.html">privacy policy</a> apply (German version is binding).',
+      alle: "All packages", ds: "Privacy", imp: "Legal notice",
+      bald: "Online purchase starts soon. Please check back shortly – or write to info@dexxus.ch."},
+    es: {aktion: "OFERTA", h1: "Tu oficina por CHF 19.90.",
+      lead: "Presupuestos, confirmaciones de pedido y facturas con boleta QR suiza – en pocos minutos. Pagas una vez, sin suscripción.",
+      einmalig: "pago único · IVA incl. · sin caducidad", kaufen: "Comprar ahora", mehr: "¿Qué incluye?",
+      bedingungen: "Compra a partir de 18 años · para clientes en Suiza · 1 PC · Windows 10/11",
+      video: "Vídeo en alemán · subtítulos en inglés y español", h2umfang: "Qué incluye Starter",
+      k1t: "Presupuestos y facturas", k1: "Presupuestos, confirmaciones de pedido, albaranes y facturas. Del presupuesto a la factura con un clic.",
+      k2t: "Boleta QR", k2: "Cada factura con la parte de pago QR suiza – en PDF, para imprimir o por correo.",
+      k3t: "Clientes y artículos", k3: "Fichero de clientes y lista de artículos, importación desde Excel o CSV.",
+      k4t: "Cartas", k4: "Correspondencia en tu membrete, en PDF o Word.",
+      k5t: "Tareas y DataSweep", k5: "Tareas con recordatorio. DataSweep ordena tu PC: encuentra duplicados y organiza archivos.",
+      k6t: "Deutsch · English · Español", k6: "El programa habla tu idioma – y los documentos, también el de tus clientes.",
+      h2gut: "Bueno saber", g1: "Todos los datos se quedan en tu PC – sin nube, sin suscripción.",
+      g2: "¿Necesitas más? Cambia a una suscripción en 12 meses: se descuenta el precio pagado.",
+      g3: "Precio de oferta – los códigos de descuento no valen para Starter.",
+      g4: "Soporte por correo a info@dexxus.ch. Sin instalación ni soporte presencial.",
+      agbhinweis: 'Se aplican las <a href="agb.html">condiciones generales</a> y la <a href="datenschutz.html">política de privacidad</a> (vale la versión alemana).',
+      alle: "Todos los paquetes", ds: "Privacidad", imp: "Aviso legal",
+      bald: "La compra en línea empieza pronto. Vuelve en breve – o escribe a info@dexxus.ch."},
+  };
+  const DE = {};
+  document.querySelectorAll("[data-t]").forEach(e => DE[e.dataset.t] = e.innerHTML);
+  DE.bald = "Der Online-Kauf startet in Kürze. Schau bald wieder vorbei – oder schreib an info@dexxus.ch.";
+  let L = "de";
+  function setze(l) {
+    L = T[l] ? l : "de";
+    const t = T[L] || DE;
+    document.documentElement.lang = L;
+    document.querySelectorAll("[data-t]").forEach(e => { const v = (L === "de" ? DE : t)[e.dataset.t]; if (v) e.innerHTML = v; });
+    document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === L)));
+    const v = document.getElementById("film");
+    for (const tr of v.textTracks) tr.mode = tr.language === L ? "showing" : "disabled";
+    try { localStorage.setItem("dx_lang", L); } catch (e) {}
+    document.getElementById("status").textContent = "";
+  }
+  document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setze(b.dataset.l)));
+  let start = new URLSearchParams(location.search).get("lang");
+  if (!start) { try { start = localStorage.getItem("dx_lang"); } catch (e) {} }
+  if (!start) start = (navigator.language || "de").slice(0, 2);
+  setze(start);
+  document.getElementById("kaufen").addEventListener("click", () => {
+    if (!SHOP.aktiv) { document.getElementById("status").textContent = (L === "de" ? DE : T[L]).bald; return; }
+    const q = new URLSearchParams({invoice_amount: "19.90", invoice_currency: "1", invoice_number: "DEXXUS Starter, unbefristet",
+                                   contact_country: "204", referenceId: ["WEB", "DEXXUS Starter", 0, ""].join("|")});
+    location.href = SHOP.url + (SHOP.url.includes("?") ? "&" : "?") + q.toString();
+  });
+})();
+</script>
+</body>
+</html>
