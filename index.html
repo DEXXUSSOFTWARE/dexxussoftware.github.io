@@ -913,3 +913,27 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   });
 })();
 </script>
+
+<!-- Lizenzvereinbarung per Klick vor Kauf/Download (ENTWURF 01.11.2026 – erst nach Freigabe veröffentlichen) -->
+<div id="lv-dlg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:9999;align-items:center;justify-content:center;padding:16px">
+ <div style="background:#fff;color:#0F172A;max-width:560px;width:100%;border-radius:14px;padding:22px;font:15px/1.5 system-ui,Segoe UI,Arial">
+  <h3 style="margin:0 0 8px">Lizenzbedingungen bestätigen</h3>
+  <p style="margin:0 0 12px">Vor dem Kauf bzw. Download bestätigen Sie die <a href="agb.html" target="_blank">Allgemeinen Geschäfts- und Lizenzbedingungen</a>. Kopieren, Weitergeben, Nachbauen (auch mit KI) und Umgehen des Lizenzschutzes sind verboten; bei Verletzung gilt eine Konventionalstrafe gemäss Ziffer 3.</p>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin:0 0 16px"><input type="checkbox" id="lv-cb" style="margin-top:4px"> <span>Ich habe die Lizenzbedingungen gelesen und akzeptiere sie, insbesondere die Konventionalstrafe.</span></label>
+  <div style="display:flex;gap:10px;justify-content:flex-end"><button id="lv-nein" style="padding:9px 16px;border-radius:8px;border:1px solid #CBD5E1;background:#fff">Abbrechen</button><button id="lv-ja" disabled style="padding:9px 16px;border-radius:8px;border:0;background:#2563EB;color:#fff;opacity:.5">Weiter</button></div>
+ </div>
+</div>
+<script>
+(function(){
+  var dlg=document.getElementById("lv-dlg"),cb=document.getElementById("lv-cb"),ja=document.getElementById("lv-ja"),ziel=null;
+  function zu(){dlg.style.display="none";ziel=null;}
+  cb.addEventListener("change",function(){ja.disabled=!cb.checked;ja.style.opacity=cb.checked?1:.5;});
+  document.getElementById("lv-nein").addEventListener("click",zu);
+  ja.addEventListener("click",function(){var z=ziel;try{localStorage.setItem("dexxus_lv","2026-11 "+new Date().toISOString());}catch(e){}zu();if(z){window.open(z.href,z.target||"_self");}});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    if(!/payrexx\.com|dropbox\.com|paypal\.me/i.test(a.href)) return;
+    e.preventDefault(); ziel=a; cb.checked=false; ja.disabled=true; ja.style.opacity=.5; dlg.style.display="flex";
+  },true);
+})();
+</script>
