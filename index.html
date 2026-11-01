@@ -886,7 +886,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
     const zweck = "DEXXUS " + pk.replace("DEXXUS ", "") + (b.m ? ", " + b.m + " Monate" : ", unbefristet") + (rabatt.p && b.m ? ", Code " + rabatt.code : "");
     const q = new URLSearchParams({invoice_amount: b.brutto.toFixed(2), invoice_currency: "1", invoice_number: zweck, contact_country: "204",
                                    referenceId: ["WEB", pk, b.m, b.m ? rabatt.code : ""].join("|")});
-    location.href = SHOP.url + (SHOP.url.includes("?") ? "&" : "?") + q.toString();
+    (window.lvBestaetigen || (u => { location.href = u; }))(SHOP.url + (SHOP.url.includes("?") ? "&" : "?") + q.toString());
   }));
   document.querySelectorAll("button.vorbestellen").forEach(bt => bt.addEventListener("click", () => {
     const pk = bt.dataset.paket, m = lauf(pk);
@@ -929,7 +929,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   function zu(){dlg.style.display="none";ziel=null;}
   cb.addEventListener("change",function(){ja.disabled=!cb.checked;ja.style.opacity=cb.checked?1:.5;});
   document.getElementById("lv-nein").addEventListener("click",zu);
-  ja.addEventListener("click",function(){var z=ziel;try{localStorage.setItem("dexxus_lv","2026-11 "+new Date().toISOString());}catch(e){}zu();if(z){window.open(z.href,z.target||"_self");}});
+  ja.addEventListener("click",function(){var z=ziel;try{localStorage.setItem("dexxus_lv","2026-11 "+new Date().toISOString());}catch(e){}zu();if(typeof z==="string"){location.href=z;}else if(z){window.open(z.href,z.target||"_self");}});
+  window.lvBestaetigen=function(url){ziel=url;cb.checked=false;ja.disabled=true;ja.style.opacity=.5;dlg.style.display="flex";};
   document.addEventListener("click",function(e){
     var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
     if(!/payrexx\.com|dropbox\.com|paypal\.me/i.test(a.href)) return;
