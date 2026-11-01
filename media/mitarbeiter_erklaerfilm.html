@@ -6,97 +6,116 @@
 @font-face{font-family:"Inter";font-weight:800;src:url("../fonts/Inter-ExtraBold.woff") format("woff");}
 :root{--f:"Inter",Segoe UI,Arial,sans-serif;--mono:ui-monospace,Consolas,monospace;--deep:#0F172A;--accent:#2563EB;--wissen:#7C3AED;--ok:#10B981;}
 *{margin:0;box-sizing:border-box;}
-#scene{position:relative;width:1280px;height:720px;background:radial-gradient(1200px 600px at 40% 0%,#F8FAFF,#EEF2F8);overflow:hidden;font-family:var(--f);}
-#dots{position:absolute;inset:0;background-image:radial-gradient(#CBD5E1 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.20;}
-.fig{position:absolute;}
+#scene{position:relative;width:1280px;height:720px;background:radial-gradient(1200px 600px at 50% 0%,#F8FAFF,#EEF2F8);overflow:hidden;font-family:var(--f);}
+#dots{position:absolute;inset:0;background-image:radial-gradient(#CBD5E1 1.3px,transparent 1.3px);background-size:26px 26px;opacity:.18;}
+.fig{position:absolute;} #org{position:absolute;inset:0;opacity:0;}
 #wm{position:absolute;left:24px;top:16px;font:800 16px var(--f);color:#94A3B8;}
-.lbl{position:absolute;text-align:center;font:800 15px var(--f);color:var(--deep);}
-.role{position:absolute;text-align:center;font:700 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;}
-.mlabel{position:absolute;width:120px;text-align:center;font:700 12.5px var(--f);color:var(--deep);}
-#dash{position:absolute;left:852px;top:70px;width:392px;height:558px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;box-shadow:0 20px 50px rgba(15,23,42,.12);padding:16px 20px;}
-#dash .dh{font:800 16px var(--f);color:var(--deep);display:flex;justify-content:space-between;align-items:center;}
-#dash .dh small{font:700 10px var(--mono);letter-spacing:.08em;color:#94A3B8;text-transform:uppercase;}
-#dash .sub{font:700 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#64748B;margin:14px 0 4px;}
-.drow{display:flex;align-items:center;gap:10px;font:600 14.5px var(--f);color:var(--deep);padding:7px 0;}
-.di{font-weight:800;width:20px;text-align:center;}
-#config{position:absolute;left:250px;top:220px;width:364px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;box-shadow:0 20px 50px rgba(15,23,42,.14);padding:16px 18px;z-index:7;}
-#config .ch{font:800 15px var(--f);color:var(--deep);margin-bottom:10px;}
-#config .row{display:flex;gap:8px;font-size:13.5px;margin:7px 0;}
-#config .row b{min-width:104px;color:#64748B;font-weight:700;}
-#config .you{margin-top:12px;font:700 12.5px var(--f);color:#059669;}
+.lbl{position:absolute;text-align:center;font:800 14px var(--f);color:var(--deep);}
+.role{position:absolute;text-align:center;font:700 9.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;}
+.mlabel{position:absolute;width:120px;text-align:center;font:700 12px var(--f);color:var(--deep);}
+#panel{position:absolute;left:992px;top:18px;width:266px;background:#fff;border:1px solid #E2E8F0;border-radius:14px;box-shadow:0 16px 40px rgba(15,23,42,.12);padding:12px 14px;}
+#panel .ph{font:800 13px var(--f);color:var(--deep);display:flex;justify-content:space-between;align-items:center;}
+#panel .ph small{font:700 9px var(--mono);letter-spacing:.06em;color:#94A3B8;}
+#panel .sub{font:700 9px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#64748B;margin:9px 0 2px;}
+.prow{display:flex;align-items:center;gap:8px;font:600 12px var(--f);color:var(--deep);padding:4px 0;}
+.pi{font-weight:800;width:16px;text-align:center;}
+.chip{position:absolute;opacity:0;color:#fff;font:700 11.5px var(--f);padding:4px 9px;border-radius:999px;white-space:nowrap;}
+#config{position:absolute;left:456px;top:300px;width:368px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;box-shadow:0 20px 50px rgba(15,23,42,.14);padding:15px 18px;z-index:8;}
+#config .ch{font:800 15px var(--f);color:var(--deep);margin-bottom:9px;}
+#config .row{display:flex;gap:8px;font-size:13px;margin:6px 0;}
+#config .row b{min-width:100px;color:#64748B;font-weight:700;}
+#config .you{margin-top:11px;font:700 12.5px var(--f);color:#059669;}
 #config .pill{background:#EFF6FF;border:1px solid #DBEAFE;border-radius:6px;padding:1px 7px;font-weight:700;color:#2563EB;}
-.chip{position:absolute;opacity:0;background:#2563EB;color:#fff;font:700 12.5px var(--f);padding:5px 11px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 20px rgba(37,99,235,.3);}
-#caption{position:absolute;left:0;right:420px;top:660px;text-align:center;font:700 21px var(--f);color:var(--deep);}
-#badge{position:absolute;left:0;right:420px;top:654px;text-align:center;opacity:0;}
-#badge span{display:inline-flex;gap:8px;background:linear-gradient(90deg,var(--accent),var(--wissen));color:#fff;font:800 18px var(--f);padding:9px 18px;border-radius:999px;}
-#prog{position:absolute;left:40px;right:40px;bottom:20px;height:5px;background:#E2E8F0;border-radius:3px;}
+#caption{position:absolute;left:0;right:0;top:662px;text-align:center;font:700 21px var(--f);color:var(--deep);}
+#badge{position:absolute;left:0;right:0;top:656px;text-align:center;opacity:0;}
+#badge span{display:inline-flex;gap:8px;background:linear-gradient(90deg,var(--accent),var(--wissen));color:#fff;font:800 18px var(--f);padding:9px 20px;border-radius:999px;}
+#prog{position:absolute;left:40px;right:40px;bottom:18px;height:5px;background:#E2E8F0;border-radius:3px;}
 #progbar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--wissen));border-radius:3px;}
 </style></head><body>
 <div id="scene">
   <div id="dots"></div><div id="wm">DEXXUS</div>
 
-  <svg class="fig" style="left:0;top:0" width="1280" height="720" viewBox="0 0 1280 720">
-    <path class="ol" id="olc" d="M430 158 L430 232" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-    <path class="ol" id="ol0" d="M430 330 C 430 400,80 395,80 466" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-    <path class="ol" id="ol1" d="M430 330 C 430 400,220 395,220 466" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-    <path class="ol" id="ol2" d="M430 330 C 430 400,360 395,360 466" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-    <path class="ol" id="ol3" d="M430 330 C 430 400,500 395,500 466" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-    <path class="ol" id="ol4" d="M430 330 C 430 400,640 395,640 466" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-    <path class="ol" id="ol5" d="M430 330 C 430 400,780 395,780 466" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
-  </svg>
+  <svg class="fig" style="left:545px;top:22px" width="110" height="110" viewBox="0 0 120 120"><defs><clipPath id="cceo"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#E0ECFF"/><g clip-path="url(#cceo)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#1E3A8A"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#DC2626"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#3A2A1A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <div class="lbl" style="left:500px;top:136px;width:200px">Sie</div>
+  <div class="role" style="left:500px;top:156px;width:200px;color:#2563EB">CEO · Chef</div>
 
-  <svg class="fig" style="left:372px;top:34px" width="118" height="118" viewBox="0 0 120 120"><defs><clipPath id="ccv"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#E0ECFF"/><g clip-path="url(#ccv)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#1E3A8A"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#DC2626"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#3A2A1A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <div class="lbl" style="left:331px;top:160px;width:200px">Sie</div>
-  <div class="role" style="left:331px;top:182px;width:200px;color:#2563EB">CEO · Chef</div>
-
-  <svg class="fig" style="left:386px;top:232px" width="92" height="92" viewBox="0 0 120 120"><defs><clipPath id="ctl"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EEF2F7"/><g clip-path="url(#ctl)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#475569"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#2563EB"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <div class="lbl" id="tllbl" style="left:330px;top:330px;width:200px;opacity:0">Teamleiter</div>
-  <div class="role" id="tlrole" style="left:330px;top:352px;width:200px;color:#475569;opacity:0">führt das Team</div>
-
-  <svg class="fig" id="glowtl" style="left:374px;top:220px;opacity:0" width="116" height="116" viewBox="0 0 116 116"><circle cx="58" cy="58" r="54" fill="none" stroke="#60A5FA" stroke-width="5.5"/></svg>
-
-  <svg class="fig" id="glow0" style="left:26px;top:456px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#38BDF8" stroke-width="5.5"/></svg>
-  <svg class="fig" id="glow1" style="left:166px;top:456px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#34D399" stroke-width="5.5"/></svg>
-  <svg class="fig" id="glow2" style="left:306px;top:456px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#FBBF24" stroke-width="5.5"/></svg>
-  <svg class="fig" id="glow3" style="left:446px;top:456px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#60A5FA" stroke-width="5.5"/></svg>
-  <svg class="fig" id="glow4" style="left:586px;top:456px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#A78BFA" stroke-width="5.5"/></svg>
-  <svg class="fig" id="glow5" style="left:726px;top:456px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#A78BFA" stroke-width="5.5"/></svg>
-  <svg class="fig" style="left:38px;top:468px" width="84" height="84" viewBox="0 0 120 120"><defs><clipPath id="m0"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EFF6FF"/><g clip-path="url(#m0)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#0EA5E9"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#263347"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <svg class="fig" style="left:178px;top:468px" width="84" height="84" viewBox="0 0 120 120"><defs><clipPath id="m1"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#ECFDF5"/><g clip-path="url(#m1)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#10B981"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#6B3F2A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <svg class="fig" style="left:318px;top:468px" width="84" height="84" viewBox="0 0 120 120"><defs><clipPath id="m2"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#FEF3C7"/><g clip-path="url(#m2)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#F59E0B"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#1E293B"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <svg class="fig" style="left:458px;top:468px" width="84" height="84" viewBox="0 0 120 120"><defs><clipPath id="m3"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EFF6FF"/><g clip-path="url(#m3)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#3B82F6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#4B2E2E"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <svg class="fig" style="left:598px;top:468px" width="84" height="84" viewBox="0 0 120 120"><defs><clipPath id="m4"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#m4)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#8B5CF6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
-  <svg class="fig" style="left:738px;top:468px" width="84" height="84" viewBox="0 0 120 120"><defs><clipPath id="crv"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#crv)"><line x1="60" y1="34" x2="60" y2="24" stroke="#8B5CF6" stroke-width="3"/><circle cx="60" cy="21" r="5" fill="#8B5CF6"/><rect x="26" y="34" width="68" height="70" rx="20" fill="#FBFAFF" stroke="#8B5CF6" stroke-width="3"/><rect x="40" y="52" width="40" height="30" rx="11" fill="#fff" stroke="#8B5CF6" stroke-width="2"/><circle cx="52" cy="66" r="4.4" fill="#7C3AED"/><circle cx="68" cy="66" r="4.4" fill="#7C3AED"/><path d="M52 75 q8 6 16 0" fill="none" stroke="#A78BFA" stroke-width="2.6" stroke-linecap="round"/></g></svg>
-  <div class="mlabel" style="left:20px;top:556px">Buchhaltung</div>
-  <div class="mlabel" style="left:160px;top:556px">Verkauf</div>
-  <div class="mlabel" style="left:300px;top:556px">Mahnwesen</div>
-  <div class="mlabel" style="left:440px;top:556px">Einkauf</div>
-  <div class="mlabel" style="left:580px;top:556px">Kanzlei</div>
-  <div class="mlabel" style="left:720px;top:556px">KI «Dexi»</div>
-
-
-  <div id="dash" style="opacity:0">
-    <div class="dh">📊 CEO-Dashboard<small>live</small></div>
-    <div class="sub">Verkaufsstatistik</div>
-    <svg width="352" height="104" viewBox="0 0 352 104" style="display:block">
-      <line x1="0" y1="100" x2="352" y2="100" stroke="#E2E8F0" stroke-width="2"/>
-      <rect id="bar0" x="14"  y="100" width="46" height="0" rx="4" fill="#60A5FA"/>
-      <rect id="bar1" x="80"  y="100" width="46" height="0" rx="4" fill="#60A5FA"/>
-      <rect id="bar2" x="146" y="100" width="46" height="0" rx="4" fill="#3B82F6"/>
-      <rect id="bar3" x="212" y="100" width="46" height="0" rx="4" fill="#3B82F6"/>
-      <rect id="bar4" x="278" y="100" width="46" height="0" rx="4" fill="#2563EB"/>
+  <div id="org">
+    <svg class="fig" style="left:0;top:0" width="1280" height="720" viewBox="0 0 1280 720">
+      <path class="ol" d="M600 134 L600 258" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+      <path class="ol stub" d="M600 172 L470 172" fill="none" stroke="#CBD5E1" stroke-width="2.5" stroke-dasharray="2 5"/>
+      <path class="ol stub" d="M600 172 L730 172" fill="none" stroke="#CBD5E1" stroke-width="2.5" stroke-dasharray="2 5"/>
+      <path class="ol" d="M360 258 L840 258" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+      <path class="ol" d="M360 258 L360 268" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+      <path class="ol" d="M840 258 L840 268" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M360 392 C 360 445,180 440,180 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M360 392 C 360 445,360 440,360 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M360 392 C 360 445,540 440,540 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M840 392 C 840 445,700 440,700 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M840 392 C 840 445,840 440,840 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M840 392 C 840 445,980 440,980 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
+    <path class="ol" d="M840 392 C 840 445,1120 440,1120 482" fill="none" stroke="#CBD5E1" stroke-width="2.5"/>
     </svg>
-    <div class="sub">Rapporte &amp; Ergebnisse</div>
-      <div class="drow" id="d0" style="opacity:0"><span class="di" id="d0ic" style="color:#059669">✓</span>Monatsabschluss</div>
-      <div class="drow" id="d1" style="opacity:0"><span class="di" id="d1ic" style="color:#2563EB">✓</span>Rechnungen gestellt</div>
-      <div class="drow" id="d2" style="opacity:0"><span class="di" id="d2ic" style="color:#D97706">🔔</span>1 Zahlung überfällig</div>
-      <div class="drow" id="d3" style="opacity:0"><span class="di" id="d3ic" style="color:#2563EB">✓</span>Rapport Teamsitzung</div>
-      <div class="drow" id="d4" style="opacity:0"><span class="di" id="d4ic" style="color:#7C3AED">✓</span>Werbekampagne geplant</div>
-  </div>
 
-  <div class="chip" id="chip0">⬇ Aufgabe: Monatsabschluss</div>
-  <div class="chip" id="chip1">⬇ Aufgabe: Werbekampagne</div>
-  <div class="chip" id="chip2">⬇ Aufgabe: Teamsitzung</div>
+    <svg class="fig" id="gFIN" style="left:378px;top:124px;opacity:0" width="104" height="104" viewBox="0 0 104 104"><circle cx="52" cy="52" r="48" fill="none" stroke="#10B981" stroke-width="5"/></svg>
+    <svg class="fig" style="left:392px;top:138px" width="76" height="76" viewBox="0 0 120 120"><defs><clipPath id="cfin"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#ECFEFF"/><g clip-path="url(#cfin)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#334155"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#10B981"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+    <div class="lbl" style="left:350px;top:216px;width:160px;font-size:12px">Stabstelle Finanzen</div>
+
+    <svg class="fig" id="gKI" style="left:718px;top:124px;opacity:0" width="104" height="104" viewBox="0 0 104 104"><circle cx="52" cy="52" r="48" fill="none" stroke="#8B5CF6" stroke-width="5"/></svg>
+    <svg class="fig" style="left:732px;top:138px" width="76" height="76" viewBox="0 0 120 120"><defs><clipPath id="cki"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#cki)"><line x1="60" y1="34" x2="60" y2="24" stroke="#8B5CF6" stroke-width="3"/><circle cx="60" cy="21" r="5" fill="#8B5CF6"/><rect x="26" y="34" width="68" height="70" rx="20" fill="#FBFAFF" stroke="#8B5CF6" stroke-width="3"/><rect x="40" y="52" width="40" height="30" rx="11" fill="#fff" stroke="#8B5CF6" stroke-width="2"/><circle cx="52" cy="66" r="4.4" fill="#7C3AED"/><circle cx="68" cy="66" r="4.4" fill="#7C3AED"/><path d="M52 75 q8 6 16 0" fill="none" stroke="#A78BFA" stroke-width="2.6" stroke-linecap="round"/></g></svg>
+    <div class="lbl" style="left:690px;top:216px;width:160px;font-size:12px">KI «Dexi»</div>
+    <div class="role" style="left:690px;top:234px;width:160px;color:#7C3AED">unterstützt alle</div>
+
+    <svg class="fig" id="gTL" style="left:306px;top:256px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#60A5FA" stroke-width="5.5"/></svg>
+    <svg class="fig" style="left:320px;top:270px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="ctl"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EEF2F7"/><g clip-path="url(#ctl)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#475569"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#2563EB"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+    <div class="lbl" style="left:280px;top:354px;width:160px">Teamleiter</div>
+    <div class="role" style="left:280px;top:372px;width:160px;color:#475569">Innendienst · 3</div>
+
+    <svg class="fig" id="gPL" style="left:786px;top:256px;opacity:0" width="108" height="108" viewBox="0 0 108 108"><circle cx="54" cy="54" r="50" fill="none" stroke="#F59E0B" stroke-width="5.5"/></svg>
+    <svg class="fig" style="left:800px;top:270px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="cpl"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#ECFDF5"/><g clip-path="url(#cpl)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#0F766E"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#F59E0B"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#3A2A1A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+    <div class="lbl" style="left:760px;top:354px;width:160px">Projektleiter</div>
+    <div class="role" style="left:760px;top:372px;width:160px;color:#0F766E">Projekte · 4</div>
+
+  <svg class="fig" id="g0" style="left:129px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#38BDF8" stroke-width="5"/></svg>
+  <svg class="fig" id="g1" style="left:309px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#FBBF24" stroke-width="5"/></svg>
+  <svg class="fig" id="g2" style="left:489px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#5EEAD4" stroke-width="5"/></svg>
+  <svg class="fig" id="g3" style="left:649px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#34D399" stroke-width="5"/></svg>
+  <svg class="fig" id="g4" style="left:789px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#60A5FA" stroke-width="5"/></svg>
+  <svg class="fig" id="g5" style="left:929px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#A78BFA" stroke-width="5"/></svg>
+  <svg class="fig" id="g6" style="left:1069px;top:473px;opacity:0" width="102" height="102" viewBox="0 0 102 102"><circle cx="51" cy="51" r="47" fill="none" stroke="#F9A8D4" stroke-width="5"/></svg>
+  <svg class="fig" style="left:140px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm0"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EFF6FF"/><g clip-path="url(#mm0)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#0EA5E9"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#263347"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <svg class="fig" style="left:320px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm1"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#FEF3C7"/><g clip-path="url(#mm1)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#F59E0B"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#1E293B"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <svg class="fig" style="left:500px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm2"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#ECFEFF"/><g clip-path="url(#mm2)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#14B8A6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#3A2A1A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <svg class="fig" style="left:660px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm3"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#ECFDF5"/><g clip-path="url(#mm3)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#10B981"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#6B3F2A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <svg class="fig" style="left:800px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm4"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EFF6FF"/><g clip-path="url(#mm4)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#3B82F6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#4B2E2E"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <svg class="fig" style="left:940px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm5"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#mm5)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#8B5CF6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <svg class="fig" style="left:1080px;top:484px" width="80" height="80" viewBox="0 0 120 120"><defs><clipPath id="mm6"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#FCE7F3"/><g clip-path="url(#mm6)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#EC4899"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg>
+  <div class="mlabel" style="left:120px;top:568px">Buchhaltung</div>
+  <div class="mlabel" style="left:300px;top:568px">Mahnwesen</div>
+  <div class="mlabel" style="left:480px;top:568px">Korrespondenz</div>
+  <div class="mlabel" style="left:640px;top:568px">Verkauf</div>
+  <div class="mlabel" style="left:780px;top:568px">Einkauf</div>
+  <div class="mlabel" style="left:920px;top:568px">Technik</div>
+  <div class="mlabel" style="left:1060px;top:568px">Marketing</div>
+
+    <div id="panel">
+      <div class="ph">🗒 an den CEO<small>LIVE</small></div>
+      <div class="sub">Verkaufsstatistik</div>
+      <svg width="238" height="44" viewBox="0 0 238 44" style="display:block">
+        <rect id="bar0" x="6"   y="44" width="44" height="0" rx="3" fill="#60A5FA"/>
+        <rect id="bar1" x="64"  y="44" width="44" height="0" rx="3" fill="#3B82F6"/>
+        <rect id="bar2" x="122" y="44" width="44" height="0" rx="3" fill="#3B82F6"/>
+        <rect id="bar3" x="180" y="44" width="44" height="0" rx="3" fill="#2563EB"/>
+      </svg>
+      <div class="sub">Rapporte</div>
+      <div class="prow" id="r1" style="opacity:0"><span class="pi" style="color:#059669">✓</span>Monatsabschluss</div>
+      <div class="prow" id="r2" style="opacity:0"><span class="pi" style="color:#2563EB">✓</span>Rapport Teamsitzung</div>
+      <div class="prow" id="r3" style="opacity:0"><span class="pi" style="color:#EC4899">✓</span>Werbekampagne geplant</div>
+    </div>
+
+    <div class="chip" id="cA" style="background:#2563EB">⬇ Aufgabe: Monatsabschluss</div>
+    <div class="chip" id="cB" style="background:#0F766E">⬇ Aufgabe: Werbekampagne</div>
+    <div class="chip" id="cU" style="background:#059669">⬆ Verkaufsstatistik</div>
+  </div>
 
   <div id="config">
     <div class="ch">⚙ Mitarbeiter einrichten – von Ihnen</div>
@@ -116,50 +135,41 @@ function lerp(a,b,t){return a+(b-a)*Math.max(0,Math.min(1,t));}
 function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
 function cl(x){return Math.max(0,Math.min(1,x));}
 function fade(a,b,c,d,x){if(x<a||x>d)return 0;if(x<b)return (x-a)/(b-a);if(x>c)return 1-(x-c)/(d-c);return 1;}
-const BARS=[40,58,50,76,92];
-const CHIPS=[[2.8,4.4,[430,150],[80,466],'chip0'],[3.4,5.0,[430,150],[220,466],'chip1'],[4.0,5.6,[430,150],[430,300],'chip2']];
-const GL={1:[6.0,8.0],0:[7.8,9.5],2:[9.5,10.6],5:[12.2,13.4]}; // Mitglied-Glows
-const DREV=[7.8,9.3,9.6,11.0,12.6]; // Dashboard-Zeilen Einblendzeit
+function gl(id,a,b,t){if(t>=a&&t<b)$(id).style.opacity=(0.55+0.45*Math.abs(Math.sin(t*7)));}
+const BARS=[24,36,30,42];
+function chip(id,t0,t1,fx,fy,tx,ty,t){const el=$(id);const p=ease(cl((t-t0)/(t1-t0)));
+  if(t>=t0&&t<=t1+0.2){el.style.opacity=(p<0.15?p/0.15:(p>0.85?(1-p)/0.15:1));el.style.left=(lerp(fx,tx,p)-66)+'px';el.style.top=(lerp(fy,ty,p)-12)+'px';} else el.style.opacity=0;}
 function seek(t){
   t=Math.max(0,Math.min(T,t));
   $('progbar').style.width=(t/T*100)+'%';
-  // Einblenden Struktur
   $('config').style.opacity=fade(0,0.4,2.1,2.5,t);
-  const tlop=t<2.4?0:cl((t-2.4)/0.5);
-  ['ctl'].forEach(()=>{});
-  $('tllbl').style.opacity=tlop;$('tlrole').style.opacity=tlop;
-  document.querySelectorAll('svg.fig').forEach(()=>{});
-  $('dash').style.opacity=t<2.5?0:cl((t-2.5)/0.5);
+  $('org').style.opacity=t<2.5?0:cl((t-2.5)/0.6);
+  ['gFIN','gKI','gTL','gPL','g0','g1','g2','g3','g4','g5','g6'].forEach(i=>$(i).style.opacity=0);
   let cap='Ihr Team stellen Sie selbst zusammen';
-  // Phase: Aufgaben nach unten (2.6-6)
-  const down=t>=2.6&&t<6.0;
-  if(down)cap='Der CEO verteilt die Aufgaben nach unten';
-  CHIPS.forEach(c=>{const el=$(c[4]);const p=ease(cl((t-c[0])/(c[1]-c[0])));
-    if(t>=c[0]&&t<=c[1]+0.2){el.style.opacity=(p<0.15?p/0.15:(p>0.85?(1-p)/0.15:1));
-      el.style.left=(lerp(c[2][0],c[3][0],p)-70)+'px';el.style.top=(lerp(c[2][1],c[3][1],p)-14)+'px';}
-    else el.style.opacity=0;});
-  // Phase: Arbeit + Rapporte hoch (6-13.5)
-  const bg=cl((t-6.0)/2.0);
-  for(let i=0;i<5;i++){const h=BARS[i]*bg;const b=$('bar'+i);b.setAttribute('height',h);b.setAttribute('y',100-h);}
-  for(let i=0;i<5;i++) $('d'+i).style.opacity=(t>=DREV[i])?1:0;
-  for(const k in GL){const g=GL[k];$('glow'+k).style.opacity=(t>=g[0]&&t<g[1])?(0.55+0.45*Math.abs(Math.sin(t*7))):0;}
-  $('glowtl').style.opacity=(t>=10.6&&t<11.9)?(0.55+0.45*Math.abs(Math.sin(t*7))):0;
-  if(t>=6.0&&t<7.8)cap='Verkauf liefert die Verkaufsstatistik';
-  else if(t>=7.8&&t<9.5)cap='Buchhaltung macht den Monatsabschluss';
-  else if(t>=9.5&&t<10.6)cap='Mahnwesen überwacht die Zahlungen';
-  else if(t>=10.6&&t<11.9)cap='Teamleiter: Rapport der Teamsitzung';
-  else if(t>=11.9&&t<13.5)cap='Marketing plant die Werbekampagne';
-  // Org-Linien: runter (blau) bei Aufgaben, hoch (grün) bei Rapporten, Review blau
-  const ols=[$('olc')];for(let i=0;i<6;i++)ols.push($('ol'+i));
+  const down=t>=2.6&&t<6.5;
+  if(down)cap='Der CEO gibt Ziele und Aufgaben nach unten';
+  chip('cA',2.9,4.6,600,160,360,280,t);
+  chip('cB',3.5,5.3,600,160,840,280,t);
+  chip('cU',7.0,8.6,980,498,600,150,t);
+  const bg=cl((t-6.8)/2.0);
+  for(let i=0;i<4;i++){const h=BARS[i]*bg;const b=$('bar'+i);b.setAttribute('height',h);b.setAttribute('y',44-h);}
+  $('r1').style.opacity=t>=9.5?1:0; $('r2').style.opacity=t>=11.0?1:0; $('r3').style.opacity=t>=12.5?1:0;
+  gl('gTL',3.2,4.6,t); gl('gPL',3.2,4.6,t);
+  gl('gPL',6.5,9.0,t); gl('g3',6.5,9.0,t); gl('gKI',6.5,9.0,t);
+  gl('gTL',9.0,10.8,t); gl('gFIN',9.0,10.8,t); gl('g0',9.0,10.8,t);
+  gl('gTL',10.8,12.2,t); gl('gPL',10.8,12.2,t);
+  gl('gPL',12.2,13.5,t); gl('g6',12.2,13.5,t); gl('gKI',12.2,13.5,t);
+  if(t>=6.5&&t<9.0)cap='Projektleiter meldet die Verkaufsstatistik hoch';
+  else if(t>=9.0&&t<10.8)cap='Stabstelle Finanzen prüft den Monatsabschluss';
+  else if(t>=10.8&&t<12.2)cap='Die Leiter melden den Rapport der Teamsitzung';
+  else if(t>=12.2&&t<13.5)cap='Marketing plant mit der KI die Werbekampagne';
+  const ols=document.querySelectorAll('#org .ol');
   let col='#CBD5E1',dash='',off='',wd='2.5';
   if(down){col='#2563EB';dash='4 8';off=(-(t*46)%48).toFixed(1);wd='3';}
-  else if(t>=6.0&&t<13.5){col='#10B981';dash='4 8';off=((t*46)%48).toFixed(1);wd='3';}
+  else if(t>=6.5&&t<13.5){col='#10B981';dash='4 8';off=((t*46)%48).toFixed(1);wd='3';}
   else if(t>=13.5&&t<17){col='#2563EB';dash='4 8';off=(-(t*40)%48).toFixed(1);wd='3';}
-  ols.forEach(o=>{o.setAttribute('stroke',col);o.style.strokeDasharray=dash;o.style.strokeDashoffset=off;o.setAttribute('stroke-width',wd);});
-  // Review 13.5-17
-  if(t>=13.5&&t<17)cap='Sie entscheiden – das Team führt aus';
-  const ap=t>=15.0;const ic=$('d2ic');if(ap){ic.textContent='✓';ic.style.color='#059669';}else{ic.textContent='🔔';ic.style.color='#D97706';}
-  // Final
+  ols.forEach(o=>{if(o.classList.contains('stub')){o.setAttribute('stroke',col==='#CBD5E1'?'#CBD5E1':col);return;}o.setAttribute('stroke',col);o.style.strokeDasharray=dash;o.style.strokeDashoffset=off;o.setAttribute('stroke-width',wd);});
+  if(t>=13.5&&t<17)cap='Alle melden an den CEO – Sie entscheiden';
   const fin=t>=17.0;$('badge').style.opacity=fade(17.0,17.7,22,23,t);$('caption').style.opacity=fin?0:1;if(fin)cap='';
   $('caption').textContent=cap;
 }
