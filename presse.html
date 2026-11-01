@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DEXXUS – Presse &amp; Pressemappe</title>
+<meta name="description" content="Presse und Medien zu DEXXUS: Pressemappe zum Download, wichtigste Fakten und Kundenstimmen. Schweizer Büro-Software mit KI und Datenschutz, powered by avotec AG.">
+<style>
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("fonts/Inter-Regular.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("fonts/Inter-SemiBold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 800; font-display: swap; src: url("fonts/Inter-ExtraBold.woff") format("woff"); }
+:root { --bg: #F1F5F9; --surface: #FFFFFF; --ink: #0F172A; --muted: #64748B; --line: #E2E8F0; --accent: #3B82F6;
+  --wissen: #8B5CF6; --deep: #0F172A; --on-deep: #FFFFFF; --ok: #10B981; --mark: #FEF3C7; --mark-ink: #92400E;
+  --f: "Inter", "Segoe UI", Arial, sans-serif; --mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0B1120; --surface: #141C2F; --ink: #E2E8F0;
+  --muted: #94A3B8; --line: #24304A; --accent: #60A5FA; --wissen: #A78BFA; --deep: #060B17; --ok: #34D399; --mark: #4A3A12; --mark-ink: #FCD34D; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0B1120; --surface: #141C2F; --ink: #E2E8F0; --muted: #94A3B8; --line: #24304A; --accent: #60A5FA;
+  --wissen: #A78BFA; --deep: #060B17; --ok: #34D399; --mark: #4A3A12; --mark-ink: #FCD34D; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--f); }
+a { color: var(--accent); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+header.top { background: var(--deep); position: sticky; top: 0; z-index: 5; }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; flex-wrap: wrap; }
+.logo { text-decoration: none; display: grid; line-height: 1.1; }
+.logo b { color: #fff; font-weight: 800; font-size: 1.4rem; }
+.logo small { color: #60A5FA; font-size: .62rem; font-weight: 700; letter-spacing: .1em; }
+nav { display: flex; gap: 16px; flex-wrap: wrap; font-size: .92rem; }
+nav a { color: #94A3B8; text-decoration: none; }
+nav a:hover { color: #fff; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; margin: 0 0 12px; }
+h3 { margin: 0 0 6px; }
+section { padding-block: clamp(36px, 7vw, 68px); }
+section + section { border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+.lead { color: var(--muted); font-size: 1.1rem; margin: 14px 0 22px; max-width: 58ch; }
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(20px, 4vw, 44px); align-items: center; }
+.ph { font-family: var(--mono); font-size: .86em; background: var(--mark); color: var(--mark-ink); padding: 1px 5px; border-radius: 3px; white-space: nowrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 8px; font: 600 1rem var(--f);
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; text-decoration: none; }
+.btn.sek { background: transparent; color: var(--accent); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.knoepfe { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.demo { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: 0 18px 50px rgba(15,23,42,.10); }
+.demo .zeile { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.demo pre { margin: 0; font: .9rem/1.5 var(--mono); white-space: pre-wrap; word-break: break-word; color: var(--ink); }
+.demo .k { font-size: .72rem; font-family: var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.demo mark { background: var(--mark); color: var(--mark-ink); border-radius: 3px; padding: 0 2px; }
+.demo .pfeil { text-align: center; color: var(--muted); font-size: 1.2rem; }
+.editionen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.edition { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 20px; display: grid; gap: 6px; }
+.edition.hoch { border-left-color: var(--wissen); }
+.edition h3 { font-size: 1.1rem; }
+.edition .ziel { color: var(--muted); font-size: .9rem; }
+.edition .preis { margin-top: 8px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.edition .preis b { font-size: 1.7rem; font-weight: 800; }
+.edition .preis .alt { color: var(--muted); font-size: .9rem; }
+.edition .ab28 { color: var(--muted); font-size: .82rem; }
+.schritte { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; padding: 0; }
+.schritte li { list-style: none; display: grid; gap: 8px; align-content: start; }
+.schritte li::before { counter-increment: s; content: counter(s); font: 800 1.6rem var(--f); color: var(--accent); }
+.schritte p { color: var(--muted); font-size: .95rem; margin: 0; }
+.fakten { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.fakten div { padding: 16px; border-right: 1px solid var(--line); }
+.fakten div:last-child { border-right: 0; }
+.fakten b { display: block; font-size: 1.02rem; }
+.fakten span { color: var(--muted); font-size: .9rem; }
+.hinweis { color: var(--muted); font-size: .9rem; }
+ul.haken li::before { content:"✓"; color: var(--ok); font-weight:800; margin-right:10px; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+footer { background: var(--deep); color: #94A3B8; font-size: .88rem; padding-block: 24px; }
+footer a { color: #CBD5E1; margin-right: 16px; }
+@media (max-width: 860px) { .fakten, .schritte { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .hero, .editionen { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .fakten, .schritte { grid-template-columns: 1fr; } }
+
+
+.edition .ed-btn { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.edition .ed-btn .btn { padding:10px 16px; font-size:.95rem; }
+.edition .ed-klein { color:var(--muted); font-size:.82rem; margin-top:6px; }
+
+
+/* Ablauf-Flow */
+.flow-phase { margin-top:10px; }
+.flow-phase .lbl { font-family:var(--mono); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
+.flow-phase.nutzen .lbl { color:var(--wissen); }
+.flow { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:26px; }
+.flow .step { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px; position:relative; }
+.flow-phase.nutzen .flow .step { border-left:4px solid var(--wissen); }
+.flow-phase.einrichten .flow .step { border-left:4px solid var(--accent); }
+.flow .nr { width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:.95rem; display:flex; align-items:center; justify-content:center; }
+.flow-phase.nutzen .flow .nr { background:var(--wissen); }
+.flow .ic { font-size:1.7rem; margin:8px 0 6px; }
+.flow .step h4 { margin:0 0 4px; font-size:1rem; }
+.flow .step p { margin:0; color:var(--muted); font-size:.9rem; }
+.flow .step mark { background:var(--mark); color:var(--mark-ink); border-radius:3px; padding:0 3px; font-family:var(--mono); font-size:.86em; }
+.flow .step:not(:last-child)::after { content:"→"; position:absolute; right:-13px; top:40px; color:var(--accent); font-weight:800; font-size:1.1rem; z-index:1; }
+.flow-phase.nutzen .flow .step:not(:last-child)::after { color:var(--wissen); }
+@media (max-width:820px){ .flow{ grid-template-columns:1fr 1fr; } .flow .step:not(:last-child)::after{ display:none; } }
+@media (max-width:520px){ .flow{ grid-template-columns:1fr; } }
+
+/* KI-Banner (jede Seite) */
+.ki-banner { background: #1E3A8A; color: #FFFFFF; font-size: .9rem; line-height: 1.45; position: relative; }
+.ki-banner .kb-in { max-width: 1180px; margin: 0 auto; padding: 9px 44px 9px 16px; }
+.ki-banner b { color: #FDE68A; }
+.ki-banner a { color: #FFFFFF; font-weight: 700; white-space: nowrap; }
+.ki-banner button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: 0;
+  color: #FFFFFF; font-size: 1.3rem; line-height: 1; cursor: pointer; opacity: .75; padding: 6px; }
+.ki-banner button:hover, .ki-banner button:focus-visible { opacity: 1; outline: 2px solid #FDE68A; outline-offset: 2px; }
+.ki-banner[hidden] { display: none; }
+@media (max-width: 760px) { .ki-banner { font-size: .82rem; } .ki-banner .kb-mehr { display: none; } }
+
+.presse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+.pk{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;border-top:4px solid var(--accent);}
+.pk b{display:block;font-size:1rem;margin-bottom:4px;} .pk span{color:var(--muted);font-size:.92rem;}
+.mappe-box{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;}
+.dl{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 14px 34px rgba(15,23,42,.08);}
+.dl .ic{font-size:2rem;} .dl b{display:block;} .dl span{color:var(--muted);font-size:.9rem;}
+.stimmen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+.st{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:18px;position:relative;}
+.st .q{font-size:1.02rem;color:var(--ink);line-height:1.5;} .st .q::before{content:"\201C";color:var(--accent);font-weight:800;}
+.st .who{margin-top:10px;color:var(--muted);font-size:.9rem;} .st .tag{position:absolute;top:12px;right:12px;font:700 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#94A3B8;border:1px solid var(--line);border-radius:999px;padding:2px 8px;}
+@media(max-width:820px){.presse-grid,.stimmen{grid-template-columns:1fr 1fr;}.mappe-box{grid-template-columns:1fr;}}
+@media(max-width:520px){.presse-grid,.stimmen{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="ki-banner" id="ki-banner" role="note" aria-label="Hinweis Datenschutz">
+  <div class="kb-in">🔒 <b>KI nutzen – Personendaten behalten:</b> DEXXUS schwärzt Namen, Adressen und IBAN, bevor Text an eine Online-KI geht<span class="kb-mehr"> – an Claude direkt, an ChatGPT, Copilot, Gemini und DeepL per geschwärzter Kopie</span>. <a href="#kaufen">30 Tage gratis testen →</a></div>
+  <button type="button" aria-label="Hinweis schliessen" onclick="kiBannerZu()">×</button>
+</div>
+<script>
+(function(){try{var t=+localStorage.getItem('kiBannerZu2')||0;if(t&&Date.now()-t<30*864e5){document.getElementById('ki-banner').hidden=true;}}catch(e){}})();
+function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{localStorage.setItem('kiBannerZu2',String(Date.now()));}catch(e){}}
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><b>DEXXUS</b><small>DATA · WISSEN · RECHT · ERP</small></a>
+    <nav aria-label="Navigation">
+      <a href="index.html">Startseite</a>
+      <a href="mitarbeiter.html">Mitarbeiter</a>
+      <a href="shield.html">Shield</a>
+      <a href="#mappe">Pressemappe</a>
+      <a href="#stimmen">Kundenstimmen</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section id="start">
+  <div class="wrap">
+    <p class="eyebrow">Presse</p>
+    <h1>Presse &amp; Medien</h1>
+    <p class="lead">Informationen, Fakten und Material zu DEXXUS – der Schweizer Büro-Software mit KI und Datenschutz. Für Rückfragen: <a href="mailto:info@dexxus.ch">info@dexxus.ch</a>.</p>
+  </div>
+</section>
+
+<section id="mappe">
+  <div class="wrap">
+    <p class="eyebrow">Pressemappe</p>
+    <h2>Alles Wichtige auf einen Blick</h2>
+    <p class="lead">Die Pressemappe fasst DEXXUS, die wichtigsten Punkte, Pakete und den Kontakt zusammen – als PDF zum Download.</p>
+    <div class="mappe-box">
+      <div class="presse-grid" style="grid-template-columns:repeat(2,1fr)">
+      <article class="pk"><b>Datenschutz zuerst</b><span>Personendaten verlassen den PC nur als Platzhalter. Lokal, keine Cloud nötig.</span></article>
+      <article class="pk"><b>KI – mit jeder bekannten KI</b><span>Schwärzung für Claude, ChatGPT, Copilot, Gemini, DeepL – mit Vorschau vor dem Senden.</span></article>
+      <article class="pk"><b>Swiss made</b><span>QR-Rechnung, MWST 8.1 %, AHV-Nr., Fedlex, Schweizer Rechtschreibung.</span></article>
+      <article class="pk"><b>Kein Abo-Zwang</b><span>Lizenz einmal kaufen, ab CHF 19.90/Monat, 30 Tage gratis testen.</span></article>
+      <article class="pk"><b>DEXXUS Shield</b><span>Schwärzen für bexio, SelectLine, Abacus & Co. – einmalig ab CHF 49.–.</span></article>
+      <article class="pk"><b>Virtuelle Mitarbeiter</b><span>Ihr selbst zusammengestelltes KI-Team erledigt Routinearbeit und rapportiert an Sie.</span></article>
+      </div>
+      <a class="dl" href="media/DEXXUS_Pressemappe.pdf" download>
+        <span class="ic">📄</span>
+        <span><b>DEXXUS – Pressemappe (PDF)</b><span>Fakten, USP, Pakete, Kontakt · Stand November 2026</span></span>
+      </a>
+    </div>
+    <p class="hinweis" style="margin-top:16px">Weiteres Pressematerial (Logos, Screenshots) auf Anfrage an <a href="mailto:info@dexxus.ch">info@dexxus.ch</a>.</p>
+  </div>
+</section>
+
+<section id="stimmen">
+  <div class="wrap">
+    <p class="eyebrow">Kundenstimmen</p>
+    <h2>Was Kundinnen und Kunden sagen</h2>
+    <p class="lead">Echte Stimmen folgen hier laufend. Sie nutzen DEXXUS und möchten Ihre Erfahrung teilen? Schreiben Sie uns an <a href="mailto:info@dexxus.ch?subject=Meine%20Erfahrung%20mit%20DEXXUS">info@dexxus.ch</a>.</p>
+    <div class="stimmen">
+      <article class="st"><span class="tag">Platzhalter</span><p class="q">DEXXUS nimmt uns die Angst vor der KI – die Daten bleiben bei uns.&#8220;</p><p class="who">— Treuhand · Ostschweiz <em>(Beispiel – echte Stimme folgt)</em></p></article>
+      <article class="st"><span class="tag">Platzhalter</span><p class="q">Endlich Offerten und Rechnungen an einem Ort, ohne Abo.&#8220;</p><p class="who">— Handwerksbetrieb · Zürich <em>(Beispiel – echte Stimme folgt)</em></p></article>
+      <article class="st"><span class="tag">Platzhalter</span><p class="q">Die Schwärzung für ChatGPT spart mir täglich Zeit und schützt meine Mandanten.&#8220;</p><p class="who">— Kanzlei · Bern <em>(Beispiel – echte Stimme folgt)</em></p></article>
+    </div>
+    <p class="hinweis" style="margin-top:14px">Die oben gezeigten Zitate sind Platzhalter (Beispiele) und werden durch echte, freigegebene Kundenstimmen ersetzt.</p>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="box">
+      <h2>Pressekontakt</h2>
+      <p class="lead" style="margin-top:6px">avotec AG, Schweiz · Web: <a href="https://dexxus.ch">dexxus.ch</a> · E-Mail: <a href="mailto:info@dexxus.ch">info@dexxus.ch</a></p>
+      <p class="hinweis">ChatGPT, Claude, Copilot, Gemini, DeepL, bexio, SelectLine, Abacus und weitere Namen sind Marken ihrer Inhaber; DEXXUS ist mit diesen Anbietern nicht verbunden.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">Startseite</a><a href="index.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a><a href="impressum.html">Impressum</a>
+    <p style="margin:12px 0 0">DEXXUS Shield – ein Produkt der avotec AG, Schweiz. Alle Daten bleiben auf Ihrem PC.</p>
+  </div>
+</footer>
+<div id="lv-dlg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:9999;align-items:center;justify-content:center;padding:16px">
+ <div style="background:#fff;color:#0F172A;max-width:560px;width:100%;border-radius:14px;padding:22px;font:15px/1.5 system-ui,Segoe UI,Arial">
+  <h3 style="margin:0 0 8px">Lizenzbedingungen bestätigen</h3>
+  <p style="margin:0 0 12px">Vor dem Kauf bzw. Download bestätigen Sie die <a href="agb.html" target="_blank">Allgemeinen Geschäfts- und Lizenzbedingungen</a>. Kopieren, Weitergeben, Nachbauen (auch mit KI) und Umgehen des Lizenzschutzes sind verboten; bei Verletzung gilt eine Konventionalstrafe gemäss Ziffer 3.</p>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin:0 0 16px"><input type="checkbox" id="lv-cb" style="margin-top:4px"> <span>Ich habe die Lizenzbedingungen gelesen und akzeptiere sie, insbesondere die Konventionalstrafe.</span></label>
+  <div style="display:flex;gap:10px;justify-content:flex-end"><button id="lv-nein" style="padding:9px 16px;border-radius:8px;border:1px solid #CBD5E1;background:#fff">Abbrechen</button><button id="lv-ja" disabled style="padding:9px 16px;border-radius:8px;border:0;background:#2563EB;color:#fff;opacity:.5">Weiter</button></div>
+ </div>
+</div>
+<script>
+(function(){
+  var dlg=document.getElementById("lv-dlg"),cb=document.getElementById("lv-cb"),ja=document.getElementById("lv-ja"),ziel=null;
+  function zu(){dlg.style.display="none";ziel=null;}
+  cb.addEventListener("change",function(){ja.disabled=!cb.checked;ja.style.opacity=cb.checked?1:.5;});
+  document.getElementById("lv-nein").addEventListener("click",zu);
+  ja.addEventListener("click",function(){var z=ziel;try{localStorage.setItem("dexxus_lv","2026-11 "+new Date().toISOString());}catch(e){}zu();if(typeof z==="string"){location.href=z;}else if(z){window.open(z.href,z.target||"_self");}});
+  window.lvBestaetigen=function(url){ziel=url;cb.checked=false;ja.disabled=true;ja.style.opacity=.5;dlg.style.display="flex";};
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    if(!/payrexx\.com|dropbox\.com|paypal\.me/i.test(a.href)) return;
+    e.preventDefault(); ziel=a; cb.checked=false; ja.disabled=true; ja.style.opacity=.5; dlg.style.display="flex";
+  },true);
+  var SHOP={url:"https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};
+  var SHIELD={bexio:{paket:"DEXXUS Shield bexio",preis:49,name:"DEXXUS Shield f\u00fcr bexio"},
+              selectline:{paket:"DEXXUS Shield SelectLine",preis:120,name:"DEXXUS Shield f\u00fcr SelectLine"},
+              abacus:{paket:"DEXXUS Shield Abacus",preis:249,name:"DEXXUS Shield f\u00fcr Abacus"},
+              praxis:{paket:"DEXXUS Shield Praxis",preis:249,name:"DEXXUS Shield f\u00fcr Praxissoftware"}};
+  document.querySelectorAll("button.sh-kaufen").forEach(function(bt){bt.addEventListener("click",function(){
+    var e=SHIELD[bt.dataset.ed]; if(!e) return;
+    var q=new URLSearchParams({invoice_amount:e.preis.toFixed(2),invoice_currency:"1",
+      invoice_number:e.name+", unbefristet (Fixpreis)",contact_country:"204",
+      referenceId:["WEB",e.paket,"0",""].join("|")});
+    window.lvBestaetigen(SHOP.url+(SHOP.url.indexOf("?")>=0?"&":"?")+q.toString());
+  });});
+})();
+</script>
+</body>
+</html>
