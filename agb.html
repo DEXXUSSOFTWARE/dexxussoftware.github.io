@@ -245,6 +245,17 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 .total small { display: block; font: 400 .86rem var(--body); color: var(--muted); margin-top: 2px; }
 .aktion { background: var(--mark); color: var(--mark-ink); border-radius: 8px; padding: 10px 14px; font-size: .95rem; }
 @media (max-width: 680px) { .bestell { grid-template-columns: 1fr; } }
+
+/* KI-Banner (jede Seite) */
+.ki-banner { background: #1E3A8A; color: #FFFFFF; font-size: .9rem; line-height: 1.45; position: relative; }
+.ki-banner .kb-in { max-width: 1180px; margin: 0 auto; padding: 9px 44px 9px 16px; }
+.ki-banner b { color: #FDE68A; }
+.ki-banner a { color: #FFFFFF; font-weight: 700; white-space: nowrap; }
+.ki-banner button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: 0;
+  color: #FFFFFF; font-size: 1.3rem; line-height: 1; cursor: pointer; opacity: .75; padding: 6px; }
+.ki-banner button:hover, .ki-banner button:focus-visible { opacity: 1; outline: 2px solid #FDE68A; outline-offset: 2px; }
+.ki-banner[hidden] { display: none; }
+@media (max-width: 760px) { .ki-banner { font-size: .82rem; } .ki-banner .kb-mehr { display: none; } }
 </style>
 <style>
 .recht { max-width: 820px; margin: 0 auto; padding: 48px 16px 72px; }
@@ -256,6 +267,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 .recht .zurueck { display: inline-block; margin-top: 32px; }
 footer a { color: inherit; }
 </style>
+<div class="ki-banner" id="ki-banner" role="note" aria-label="Hinweis Datenschutz">
+  <div class="kb-in">🔒 <b>KI nutzen – Personendaten behalten:</b> DEXXUS schwärzt Namen, Adressen und IBAN, bevor Text an eine Online-KI geht<span class="kb-mehr"> – an Claude direkt, an ChatGPT, Copilot, Gemini und DeepL per geschwärzter Kopie</span>. <a href="index.html#test">30 Tage gratis testen →</a></div>
+  <button type="button" aria-label="Hinweis schliessen" onclick="kiBannerZu()">×</button>
+</div>
+<script>
+(function(){try{var t=+localStorage.getItem('kiBannerZu')||0;if(t&&Date.now()-t<30*864e5){document.getElementById('ki-banner').hidden=true;}}catch(e){}})();
+function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{localStorage.setItem('kiBannerZu',String(Date.now()));}catch(e){}}
+</script>
 <header class="top">
   <div class="wrap">
     <a class="logo" href="index.html"><b>DEXXUS</b><small>DATA · WISSEN · RECHT · ERP</small></a>

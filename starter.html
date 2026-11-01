@@ -56,9 +56,28 @@ ul.haken li::before { content: "✓"; color: var(--ok); font-weight: 800; margin
 footer { background: var(--deep); color: #94A3B8; font-size: .88rem; padding-block: 22px; }
 footer a { color: #CBD5E1; margin-right: 16px; }
 @media (max-width: 760px) { .hero, .grid { grid-template-columns: 1fr; } }
+
+/* KI-Banner (jede Seite) */
+.ki-banner { background: #1E3A8A; color: #FFFFFF; font-size: .9rem; line-height: 1.45; position: relative; }
+.ki-banner .kb-in { max-width: 1180px; margin: 0 auto; padding: 9px 44px 9px 16px; }
+.ki-banner b { color: #FDE68A; }
+.ki-banner a { color: #FFFFFF; font-weight: 700; white-space: nowrap; }
+.ki-banner button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: 0;
+  color: #FFFFFF; font-size: 1.3rem; line-height: 1; cursor: pointer; opacity: .75; padding: 6px; }
+.ki-banner button:hover, .ki-banner button:focus-visible { opacity: 1; outline: 2px solid #FDE68A; outline-offset: 2px; }
+.ki-banner[hidden] { display: none; }
+@media (max-width: 760px) { .ki-banner { font-size: .82rem; } .ki-banner .kb-mehr { display: none; } }
 </style>
 </head>
 <body>
+<div class="ki-banner" id="ki-banner" role="note" aria-label="Hinweis Datenschutz">
+  <div class="kb-in" data-t="kbanner">🔒 <b>KI nutzen – Personendaten behalten:</b> DEXXUS schwärzt Namen, Adressen und IBAN, bevor Text an eine Online-KI geht<span class="kb-mehr"> – an Claude direkt, an ChatGPT, Copilot, Gemini und DeepL per geschwärzter Kopie</span>. <a href="index.html#test">30 Tage gratis testen →</a></div>
+  <button type="button" aria-label="Hinweis schliessen" onclick="kiBannerZu()">×</button>
+</div>
+<script>
+(function(){try{var t=+localStorage.getItem('kiBannerZu')||0;if(t&&Date.now()-t<30*864e5){document.getElementById('ki-banner').hidden=true;}}catch(e){}})();
+function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{localStorage.setItem('kiBannerZu',String(Date.now()));}catch(e){}}
+</script>
 <header>
   <div class="wrap">
     <a class="logo" href="index.html"><b>DEXXUS</b><small>STARTER</small></a>
@@ -133,7 +152,8 @@ footer a { color: #CBD5E1; margin-right: 16px; }
 (() => {
   const SHOP = {aktiv: true, url: "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};   // wie index.html – aktiv erst mit Verkaufsstart
   const T = {
-    en: {aktion: "SPECIAL OFFER", h1: "Your office for CHF 19.90",
+    en: {kbanner: '🔒 <b>Use AI – keep personal data:</b> DEXXUS redacts names, addresses and IBAN before any text goes to an online AI<span class="kb-mehr"> – directly with Claude, and with ChatGPT, Copilot, Gemini and DeepL via a redacted copy</span>. <a href="index.html#test">Try 30 days free →</a>',
+      aktion: "SPECIAL OFFER", h1: "Your office for CHF 19.90",
       lead: "Quotes, delivery notes and invoices with Swiss QR payment slip – in just minutes. Pay once, no subscription.",
       einmalig: "one-time · incl. VAT · unlimited", kaufen: "Buy now", mehr: "What's included?",
       bedingungen: "Purchase from age 18 · for customers in Switzerland · 1 PC · Windows 10/11",
@@ -152,7 +172,8 @@ footer a { color: #CBD5E1; margin-right: 16px; }
       agbhinweis: 'The <a href="agb.html">terms and conditions</a> and the <a href="datenschutz.html">privacy policy</a> apply (German version is binding).',
       alle: "All packages", ds: "Privacy", imp: "Legal notice",
       bald: "Online purchase starts soon. Please check back shortly – or write to info@dexxus.ch."},
-    es: {aktion: "OFERTA", h1: "Tu oficina por CHF 19.90",
+    es: {kbanner: '🔒 <b>Usar IA sin ceder datos personales:</b> DEXXUS anonimiza nombres, direcciones e IBAN antes de enviar texto a una IA en línea<span class="kb-mehr"> – con Claude directamente, y con ChatGPT, Copilot, Gemini y DeepL mediante copia anonimizada</span>. <a href="index.html#test">Probar 30 días gratis →</a>',
+      aktion: "OFERTA", h1: "Tu oficina por CHF 19.90",
       lead: "Presupuestos, albaranes y facturas con boleta QR suiza – en pocos minutos. Pagas una vez, sin suscripción.",
       einmalig: "pago único · IVA incl. · sin caducidad", kaufen: "Comprar ahora", mehr: "¿Qué incluye?",
       bedingungen: "Compra a partir de 18 años · para clientes en Suiza · 1 PC · Windows 10/11",
