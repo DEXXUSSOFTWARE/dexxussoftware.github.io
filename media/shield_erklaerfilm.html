@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>DEXXUS Shield – Erklärfilm</title>
+<style>
+  :root{ --bg:#F1F5F9; --ink:#0F172A; --muted:#64748B; --line:#E2E8F0; --accent:#3B82F6; --wissen:#8B5CF6;
+         --deep:#0F172A; --mark:#FEF3C7; --markink:#92400E; --ok:#10B981; --surface:#FFFFFF;
+         --f:"Segoe UI",system-ui,Arial,sans-serif; --mono:ui-monospace,Consolas,Menlo,monospace; }
+  html,body{margin:0;background:var(--bg);font-family:var(--f);}
+  #stage{position:relative;width:1280px;height:720px;overflow:hidden;background:
+      radial-gradient(1200px 600px at 50% -10%, #ffffff, var(--bg));}
+  .lbl{font-size:15px;fill:var(--muted);}
+  .card{position:absolute;width:300px;background:var(--surface);border:1px solid var(--line);
+        border-radius:14px;box-shadow:0 14px 40px rgba(15,23,42,.14);padding:16px 18px;box-sizing:border-box;}
+  .card .k{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .card .t{font:15px/1.6 var(--f);color:var(--ink);white-space:pre-wrap;}
+  .card .t mark{background:var(--mark);color:var(--markink);border-radius:3px;padding:0 3px;font-family:var(--mono);font-size:.9em;}
+  .station{position:absolute;text-align:center;}
+  .pill{position:absolute;font:700 16px var(--f);color:#fff;padding:7px 16px;border-radius:999px;}
+  #titel{position:absolute;left:0;right:0;top:34px;text-align:center;font:800 30px var(--f);color:var(--deep);letter-spacing:-.01em;}
+  #titel small{display:block;font:600 15px var(--f);color:var(--muted);margin-top:4px;letter-spacing:.02em;}
+  #caption{position:absolute;left:0;right:0;bottom:46px;text-align:center;font:700 23px var(--f);color:var(--deep);}
+  #capnr{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;
+         align-items:center;justify-content:center;font-size:17px;margin-right:12px;vertical-align:middle;}
+  #progress{position:absolute;left:120px;right:120px;bottom:30px;height:4px;background:var(--line);border-radius:4px;}
+  #progbar{height:100%;width:0;background:var(--accent);border-radius:4px;}
+  .fig{position:absolute;}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="titel">DEXXUS&nbsp;Shield<small>KI nutzen – Personendaten behalten</small></div>
+
+  <!-- Stationen -->
+  <svg class="fig" id="person" style="left:70px;top:300px" width="150" height="230" viewBox="0 0 150 230">
+    <circle cx="75" cy="46" r="34" fill="#CBD5E1"/><circle cx="75" cy="44" r="30" fill="#E2E8F0"/>
+    <path d="M20 210 q0 -78 55 -78 q55 0 55 78 z" fill="#94A3B8"/>
+    <path d="M24 206 q0 -70 51 -70 q51 0 51 70 z" fill="#CBD5E1"/>
+    <text x="75" y="228" text-anchor="middle" class="lbl" style="font-weight:700;fill:#475569">Sie</text>
+  </svg>
+  <svg class="fig" id="bexio" style="left:60px;top:150px" width="200" height="130" viewBox="0 0 200 130">
+    <rect x="4" y="4" width="192" height="104" rx="12" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="4" y="4" width="192" height="26" rx="12" fill="#0F172A"/><rect x="4" y="18" width="192" height="12" fill="#0F172A"/>
+    <circle cx="18" cy="17" r="4" fill="#F87171"/><circle cx="32" cy="17" r="4" fill="#FBBF24"/><circle cx="46" cy="17" r="4" fill="#34D399"/>
+    <text x="100" y="66" text-anchor="middle" style="font:700 20px var(--f);fill:#475569">Ihre Software</text>
+    <text x="100" y="90" text-anchor="middle" class="lbl">bexio · SelectLine …</text>
+  </svg>
+
+  <div class="station" id="shieldbox" style="left:515px;top:250px;width:250px;">
+    <svg width="250" height="210" viewBox="0 0 250 210">
+      <rect x="2" y="2" width="246" height="206" rx="18" fill="#fff" stroke="#C7D2FE" stroke-width="2"/>
+      <path id="shieldglow" d="M125 36 l58 20 v44 q0 56 -58 78 q-58 -22 -58 -78 v-44 z" fill="#EEF2FF" stroke="#3B82F6" stroke-width="3"/>
+      <path d="M103 116 l15 15 l30 -34" fill="none" stroke="#3B82F6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="125" y="190" text-anchor="middle" style="font:800 19px var(--f);fill:#1E3A8A">DEXXUS Shield</text>
+    </svg>
+  </div>
+
+  <svg class="fig" id="robot" style="left:1050px;top:120px" width="200" height="200" viewBox="0 0 200 200">
+    <rect x="48" y="60" width="104" height="92" rx="16" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="3"/>
+    <rect x="70" y="84" width="60" height="30" rx="8" fill="#fff" stroke="#8B5CF6" stroke-width="2"/>
+    <circle id="eyeL" cx="88" cy="99" r="7" fill="#8B5CF6"/><circle id="eyeR" cx="112" cy="99" r="7" fill="#8B5CF6"/>
+    <rect x="84" y="126" width="32" height="7" rx="3" fill="#C4B5FD"/>
+    <line x1="100" y1="60" x2="100" y2="44" stroke="#8B5CF6" stroke-width="3"/><circle cx="100" cy="40" r="6" fill="#8B5CF6"/>
+    <text x="100" y="176" text-anchor="middle" style="font:700 15px var(--f);fill:#6D28D9">Online-KI</text>
+    <text x="100" y="193" text-anchor="middle" class="lbl">ChatGPT · Claude · Gemini</text>
+  </svg>
+
+  <!-- bewegliche Dokumentenkarte -->
+  <div class="card" id="doc" style="left:300px;top:360px;">
+    <div class="k" id="dock">Aus Ihrer Software</div>
+    <div class="t" id="doct"></div>
+  </div>
+
+  <div id="caption"><span id="capnr">1</span><span id="captext"></span></div>
+  <div id="progress"><div id="progbar"></div></div>
+</div>
+
+<script>
+const T = 18; // Sekunden
+const REAL = 'Mahnung an <b>Muster Bau AG</b>,\nFrau <b>Erika Muster</b>,\n<b>Bahnhofstrasse 12, 8001 Zürich</b>,\nIBAN <b>CH06 0900 0000 …</b>';
+const MASK = 'Mahnung an <mark>[Firma 1]</mark>,\nFrau <mark>[Person 1]</mark>,\n<mark>[Adresse 1]</mark>, <mark>[Ort 1]</mark>,\nIBAN <mark>[IBAN 1]</mark>';
+const ANSW_MASK = 'Sehr geehrte <mark>[Person 1]</mark>,\nwir bitten Sie, den offenen\nBetrag auf <mark>[IBAN 1]</mark> zu\nüberweisen. Freundliche Grüsse';
+const ANSW_REAL = 'Sehr geehrte <b>Frau Muster</b>,\nwir bitten Sie, den offenen\nBetrag auf <b>CH06 0900 …</b> zu\nüberweisen. Freundliche Grüsse';
+
+const doc=document.getElementById('doc'), doct=document.getElementById('doct'), dock=document.getElementById('dock');
+const capnr=document.getElementById('capnr'), captext=document.getElementById('captext');
+const progbar=document.getElementById('progbar'), eyeL=document.getElementById('eyeL'), eyeR=document.getElementById('eyeR');
+const glow=document.getElementById('shieldglow');
+
+function lerp(a,b,t){return a+(b-a)*Math.max(0,Math.min(1,t));}
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+// Segmente: [bis-Sekunde, xZiel, yZiel, caption, nr, farbe]
+const POS = [
+  // t, x, y
+  [0.0, 300,360],[2.2,300,360],   // bei Software
+  [3.6, 560,330],                 // zu Shield
+  [7.0, 560,330],                 // bleibt (schwärzen)
+  [9.0, 880,360],                 // zur KI
+  [12.0,880,360],                 // bei KI
+  [14.0,560,330],                 // zurück zu Shield
+  [16.0,300,360],                 // zurück zur Software
+  [18.0,300,360]
+];
+function posAt(t){
+  for(let i=0;i<POS.length-1;i++){
+    const a=POS[i],b=POS[i+1];
+    if(t>=a[0]&&t<=b[0]){const f=ease((t-a[0])/(b[0]-a[0]||1));return [lerp(a[1],b[1],f),lerp(a[2],b[2],f)];}
+  }
+  const l=POS[POS.length-1];return [l[1],l[2]];
+}
+function seek(t){
+  t=Math.max(0,Math.min(T,t));
+  const [x,y]=posAt(t); doc.style.left=x+'px'; doc.style.top=y+'px';
+  progbar.style.width=(t/T*100)+'%';
+  // Inhalt je Phase
+  let html=REAL, kopf='Aus Ihrer Software', cap='In Ihrer Software kopieren', nr='1', col='var(--accent)';
+  if(t>=2.2&&t<3.6){cap='Text kopieren';nr='1';}
+  if(t>=3.6&&t<7){
+    kopf='DEXXUS Shield';
+    // Schwärzen-Sweep zwischen 4.2 und 6.2
+    const p=(t-4.2)/2; html = p<=0?REAL:(p>=1?MASK:(Math.floor(t*6)%2?MASK:REAL));
+    cap='DEXXUS schwärzt die Daten'; nr='2';
+  }
+  if(t>=7&&t<9){html=MASK;kopf='Geschwärzt';cap='Nur Platzhalter gehen hinaus';nr='2';}
+  if(t>=9&&t<12){html=ANSW_MASK;kopf='Antwort der KI';cap='Die KI sieht nie echte Namen';nr='3';col='var(--wissen)';}
+  if(t>=12&&t<14){html=ANSW_MASK;kopf='Antwort der KI';cap='Antwort zurück ins Shield';nr='3';col='var(--wissen)';}
+  if(t>=14&&t<16){
+    kopf='Echte Angaben eingesetzt';
+    const p=(t-14.3)/1.4; html=p>=1?ANSW_REAL:(Math.floor(t*6)%2?ANSW_REAL:ANSW_MASK);
+    cap='Echte Namen wieder einsetzen';nr='4';
+  }
+  if(t>=16){html=ANSW_REAL;kopf='Fertig – zurück in Ihrer Software';cap='Fertig – Daten blieben auf Ihrem PC';nr='✓';col='var(--ok)';}
+  doct.innerHTML=html; dock.textContent=kopf; captext.textContent=cap; capnr.textContent=nr; capnr.style.background=col;
+  // Shield-Glow beim Schwärzen, Roboter-Augen bei KI
+  glow.setAttribute('stroke-width', (t>=3.6&&t<7)?(4+2*Math.abs(Math.sin(t*6))):3);
+  const blink=(t>=9&&t<12)?(2+3*Math.abs(Math.sin(t*8))):7; eyeL.setAttribute('r',blink); eyeR.setAttribute('r',blink);
+}
+window.seek=seek;
+// Autoplay (Loop) für die Live-Ansicht
+let start=null;
+function frame(ts){ if(!start)start=ts; let t=((ts-start)/1000)%(T+1.2); seek(t); requestAnimationFrame(frame); }
+if(!location.search.includes('static')) requestAnimationFrame(frame); else seek(parseFloat(new URLSearchParams(location.search).get('t')||0));
+</script>
+</body>
+</html>
