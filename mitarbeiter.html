@@ -137,6 +137,21 @@ footer a { color: #CBD5E1; margin-right: 16px; }
 .tag .txt b{display:block;}
 .tag .txt span{color:var(--muted);font-size:.95rem;}
 @media(max-width:860px){.team-grid{grid-template-columns:1fr;}.team-usp{grid-template-columns:1fr 1fr;}}
+
+.cfg{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(15,23,42,.10);padding:18px 20px;}
+.cfg-h{font:800 15px var(--f);color:var(--ink);margin-bottom:10px;}
+.cfg-row{display:flex;gap:10px;font-size:14px;margin:8px 0;}
+.cfg-row b{min-width:110px;color:var(--muted);font-weight:700;}
+.cfg-pill{background:#EFF6FF;border:1px solid #DBEAFE;border-radius:6px;padding:1px 8px;font-weight:700;color:#2563EB;}
+.cfg-you{margin-top:12px;font:700 13px var(--f);color:#059669;}
+.selbst-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;margin-top:8px;}
+.bsp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px;}
+.bsp{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;border-top:4px solid var(--accent);}
+.bsp-k{font:800 1.05rem var(--f);margin-bottom:10px;}
+.bsp ul{margin:0;padding-left:18px;display:grid;gap:7px;color:var(--muted);font-size:.94rem;}
+.bsp ul li b{color:var(--ink);}
+.film-box{width:100%;max-width:900px;border-radius:16px;box-shadow:0 20px 50px rgba(15,23,42,.14);background:#EEF2F8;}
+@media(max-width:760px){.bsp-grid{grid-template-columns:1fr;}.selbst-wrap{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -155,6 +170,8 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
     <nav aria-label="Navigation">
       <a href="index.html">Startseite</a>
       <a href="#team">Das Team</a>
+      <a href="#film">Film</a>
+      <a href="#praxis">Beispiele</a>
       <a href="#tag">Ein Tag</a>
       <a href="#kontrolle">Kontrolle</a>
       <a href="#preise">Verfügbarkeit</a>
@@ -202,6 +219,85 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
       <article class="tm"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="c5"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#c5)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#8B5CF6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">Kanzlei</div><h3>Virtuelle Fristen- & Kanzleiassistenz</h3></div></div><ul><li>überwacht Fristen und Termine</li><li>führt das Aktenverzeichnis</li><li>erinnert rechtzeitig vor Ablauf</li></ul></article>
       <article class="tm ki"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="crob"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#crob)"><line x1="60" y1="34" x2="60" y2="24" stroke="#8B5CF6" stroke-width="3"/><circle cx="60" cy="21" r="5" fill="#8B5CF6"/><rect x="18" y="56" width="11" height="30" rx="6" fill="#E9E0FD" stroke="#8B5CF6" stroke-width="2.5"/><rect x="91" y="56" width="11" height="30" rx="6" fill="#E9E0FD" stroke="#8B5CF6" stroke-width="2.5"/><rect x="26" y="34" width="68" height="70" rx="20" fill="#FBFAFF" stroke="#8B5CF6" stroke-width="3"/><rect x="40" y="52" width="40" height="30" rx="11" fill="#fff" stroke="#8B5CF6" stroke-width="2"/><circle cx="52" cy="66" r="4.4" fill="#7C3AED"/><circle cx="68" cy="66" r="4.4" fill="#7C3AED"/><path d="M52 75 q8 6 16 0" fill="none" stroke="#A78BFA" stroke-width="2.6" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">KI-Assistent</div><h3>KI-Assistent «Dexi»</h3></div></div><ul><li>beantwortet Fragen zu Ihren Dokumenten</li><li>entwirft Briefe und Texte</li><li>recherchiert – lokal auf Ihrem PC</li></ul></article>
     </div>
+  </div>
+</section>
+
+<section id="film">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow">Film ansehen</p>
+    <h2>Ihr Team in 20 Sekunden</h2>
+    <p class="lead" style="margin:0 auto 22px;max-width:680px">Sie stellen Ihr Team selbst zusammen, es erledigt die Büroarbeit und rapportiert an Sie als CEO – Sie entscheiden nur die Ausnahmen.</p>
+    <figure style="margin:0"><video controls playsinline preload="none" poster="media/DEXXUS_Virtuelle_Mitarbeiter_poster.jpg" class="film-box"><source src="media/DEXXUS_Virtuelle_Mitarbeiter_Film.mp4" type="video/mp4"></video></figure>
+  </div>
+</section>
+
+<section id="selbst">
+  <div class="wrap">
+    <span class="nur-dexxus">★ Der eigentliche Unterschied</span>
+    <h2 style="margin-top:12px">Sie bestimmen, wer was tut</h2>
+    <p class="lead">Kein fixes Schema von der Stange. Sie wählen die Rollen, die Sie brauchen, und legen für jeden virtuellen Mitarbeiter selbst fest, was er darf – <b>Funktion, Kompetenzen und Pflichtenheft bestimmen Sie</b>, zugeschnitten auf Ihren Betrieb.</p>
+    <div class="selbst-wrap">
+      <ul class="haken" style="list-style:none;padding:0;margin:0;display:grid;gap:12px">
+        <li><b>Rollen wählen:</b> nur die Mitarbeiter, die Sie wirklich brauchen.</li>
+        <li><b>Kompetenzen festlegen:</b> worauf jeder zugreifen und was er tun darf.</li>
+        <li><b>Pflichtenheft schreiben:</b> wann er handelt, wann er Sie fragt – und was ohne Ihre Freigabe nie passiert.</li>
+        <li><b>Jederzeit anpassbar:</b> Rollen dazunehmen, ändern oder pausieren.</li>
+      </ul>
+      <figure class="cfg">
+        <div class="cfg-h">⚙ Mitarbeiter einrichten – von Ihnen</div>
+        <div class="cfg-row"><b>Funktion</b><span class="cfg-pill">Mahnwesen</span></div>
+        <div class="cfg-row"><b>Kompetenzen</b><span>offene Rechnungen prüfen, mahnen</span></div>
+        <div class="cfg-row"><b>Pflichtenheft</b><span>ab 30 Tagen · Stufe 1–3 · erst nach Ihrem OK senden</span></div>
+        <div class="cfg-you">✓ Funktion, Kompetenzen &amp; Pflichtenheft bestimmen Sie selbst</div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="praxis">
+  <div class="wrap">
+    <p class="eyebrow">Beispiele aus der Praxis</p>
+    <h2>So richtet sich jeder Betrieb sein Team ein</h2>
+    <p class="lead">Jeder stellt genau die Mitarbeiter zusammen, die zu seiner Arbeit passen – hier ein paar Beispiele.</p>
+    <div class="bsp-grid">
+      <article class="bsp">
+        <div class="bsp-k">🔨 Bodenleger / Handwerksbetrieb</div>
+        <ul>
+          <li><b>Offert-Nachfass:</b> fasst offene Offerten für Verlegearbeiten nach</li>
+          <li><b>Einkauf:</b> überwacht Material-Bestellungen, meldet Lieferverzug</li>
+          <li><b>Rechnung:</b> stellt Rechnungen nach Ausmass und Baufortschritt</li>
+          <li><b>Service:</b> erinnert an Garantie- und Unterhaltstermine</li>
+        </ul>
+      </article>
+      <article class="bsp">
+        <div class="bsp-k">💼 Dienstleister / Agentur</div>
+        <ul>
+          <li><b>Zeiterfassung:</b> macht aus erfassten Stunden fertige Rechnungen</li>
+          <li><b>Abo/Retainer:</b> stellt wiederkehrende Monatsrechnungen</li>
+          <li><b>Verkauf:</b> fasst Offerten nach und erinnert an Angebote</li>
+          <li><b>Mahnwesen:</b> behält offene Zahlungen im Blick</li>
+        </ul>
+      </article>
+      <article class="bsp">
+        <div class="bsp-k">📊 Treuhand / Kanzlei</div>
+        <ul>
+          <li><b>Fristen:</b> überwacht Termine und meldet rechtzeitig</li>
+          <li><b>Honorar:</b> stellt Mandats- und Honorarrechnungen</li>
+          <li><b>Dokumente:</b> ordnet Post und Belege den Mandaten zu</li>
+          <li><b>Mahnwesen:</b> überwacht offene Honorarnoten</li>
+        </ul>
+      </article>
+      <article class="bsp">
+        <div class="bsp-k">🛒 Handel / Onlineshop</div>
+        <ul>
+          <li><b>Einkauf:</b> überwacht Bestellungen und Lagerbestand</li>
+          <li><b>Rechnung:</b> stellt Rechnungen und Lieferscheine</li>
+          <li><b>Mahnwesen:</b> erinnert an offene Zahlungen</li>
+          <li><b>Nachbestellung:</b> meldet, wenn ein Artikel ausgeht</li>
+        </ul>
+      </article>
+    </div>
+    <p class="hinweis" style="margin-top:16px">Sie brauchen eine andere Rolle? Sie richten jeden Mitarbeiter frei ein – Funktion, Kompetenzen und Pflichtenheft bestimmen Sie.</p>
   </div>
 </section>
 
