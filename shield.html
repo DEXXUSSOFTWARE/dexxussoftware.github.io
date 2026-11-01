@@ -75,6 +75,11 @@ footer a { color: #CBD5E1; margin-right: 16px; }
 @media (max-width: 760px) { .hero, .editionen { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .fakten, .schritte { grid-template-columns: 1fr; } }
 
+
+.edition .ed-btn { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.edition .ed-btn .btn { padding:10px 16px; font-size:.95rem; }
+.edition .ed-klein { color:var(--muted); font-size:.82rem; margin-top:6px; }
+
 /* KI-Banner (jede Seite) */
 .ki-banner { background: #1E3A8A; color: #FFFFFF; font-size: .9rem; line-height: 1.45; position: relative; }
 .ki-banner .kb-in { max-width: 1180px; margin: 0 auto; padding: 9px 44px 9px 16px; }
@@ -161,24 +166,32 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
         <div class="ziel">Für Nutzer von bexio, KLARA, Abaninja (Cloud-KMU)</div>
         <div class="preis"><b>CHF 49.–</b><span class="alt">Einführungspreis 2027</span></div>
         <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 79.–</div>
+        <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="bexio">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/f2jatmtciz7p0g0mdr184/DEXXUS_Testversion_V20.52_2026-10-31.zip?rlkey=gw56v5811wf44oa8krj81bpbm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
+        <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
       <div class="edition">
         <h3>DEXXUS Shield für SelectLine</h3>
         <div class="ziel">Für Nutzer von SelectLine, Sage, Infoniqa (Gewerbe, Handel)</div>
         <div class="preis"><b>CHF 120.–</b><span class="alt">Einführungspreis 2027</span></div>
         <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 240.–</div>
+        <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="selectline">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/f2jatmtciz7p0g0mdr184/DEXXUS_Testversion_V20.52_2026-10-31.zip?rlkey=gw56v5811wf44oa8krj81bpbm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
+        <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
       <div class="edition hoch">
         <h3>DEXXUS Shield für Abacus</h3>
         <div class="ziel">Für Nutzer von Abacus, Vertec, ProConcept, Opacc (grössere KMU, Anwälte, Industrie)</div>
         <div class="preis"><b>CHF 249.–</b><span class="alt">Einführungspreis 2027</span></div>
         <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 360.–</div>
+        <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="abacus">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/f2jatmtciz7p0g0mdr184/DEXXUS_Testversion_V20.52_2026-10-31.zip?rlkey=gw56v5811wf44oa8krj81bpbm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
+        <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
       <div class="edition hoch">
         <h3>DEXXUS Shield für Praxissoftware</h3>
         <div class="ziel">Für Arztpraxen und Labore (vitomed, TriaMed u.a.)</div>
         <div class="preis"><b>CHF 249.–</b><span class="alt">Einführungspreis 2027</span></div>
         <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 360.–</div>
+        <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="praxis">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/f2jatmtciz7p0g0mdr184/DEXXUS_Testversion_V20.52_2026-10-31.zip?rlkey=gw56v5811wf44oa8krj81bpbm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
+        <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
     </div>
     <p class="hinweis" style="margin-top:16px">Nutzen Sie eine andere Software? DEXXUS Shield funktioniert mit jeder – fragen Sie uns nach der passenden Ausgabe: <a href="mailto:info@dexxus.ch">info@dexxus.ch</a>.</p>
@@ -225,5 +238,40 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
     <p style="margin:12px 0 0">DEXXUS Shield – ein Produkt der avotec AG, Schweiz. Alle Daten bleiben auf Ihrem PC.</p>
   </div>
 </footer>
+<div id="lv-dlg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:9999;align-items:center;justify-content:center;padding:16px">
+ <div style="background:#fff;color:#0F172A;max-width:560px;width:100%;border-radius:14px;padding:22px;font:15px/1.5 system-ui,Segoe UI,Arial">
+  <h3 style="margin:0 0 8px">Lizenzbedingungen bestätigen</h3>
+  <p style="margin:0 0 12px">Vor dem Kauf bzw. Download bestätigen Sie die <a href="agb.html" target="_blank">Allgemeinen Geschäfts- und Lizenzbedingungen</a>. Kopieren, Weitergeben, Nachbauen (auch mit KI) und Umgehen des Lizenzschutzes sind verboten; bei Verletzung gilt eine Konventionalstrafe gemäss Ziffer 3.</p>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin:0 0 16px"><input type="checkbox" id="lv-cb" style="margin-top:4px"> <span>Ich habe die Lizenzbedingungen gelesen und akzeptiere sie, insbesondere die Konventionalstrafe.</span></label>
+  <div style="display:flex;gap:10px;justify-content:flex-end"><button id="lv-nein" style="padding:9px 16px;border-radius:8px;border:1px solid #CBD5E1;background:#fff">Abbrechen</button><button id="lv-ja" disabled style="padding:9px 16px;border-radius:8px;border:0;background:#2563EB;color:#fff;opacity:.5">Weiter</button></div>
+ </div>
+</div>
+<script>
+(function(){
+  var dlg=document.getElementById("lv-dlg"),cb=document.getElementById("lv-cb"),ja=document.getElementById("lv-ja"),ziel=null;
+  function zu(){dlg.style.display="none";ziel=null;}
+  cb.addEventListener("change",function(){ja.disabled=!cb.checked;ja.style.opacity=cb.checked?1:.5;});
+  document.getElementById("lv-nein").addEventListener("click",zu);
+  ja.addEventListener("click",function(){var z=ziel;try{localStorage.setItem("dexxus_lv","2026-11 "+new Date().toISOString());}catch(e){}zu();if(typeof z==="string"){location.href=z;}else if(z){window.open(z.href,z.target||"_self");}});
+  window.lvBestaetigen=function(url){ziel=url;cb.checked=false;ja.disabled=true;ja.style.opacity=.5;dlg.style.display="flex";};
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    if(!/payrexx\.com|dropbox\.com|paypal\.me/i.test(a.href)) return;
+    e.preventDefault(); ziel=a; cb.checked=false; ja.disabled=true; ja.style.opacity=.5; dlg.style.display="flex";
+  },true);
+  var SHOP={url:"https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};
+  var SHIELD={bexio:{paket:"DEXXUS Shield bexio",preis:49,name:"DEXXUS Shield f\u00fcr bexio"},
+              selectline:{paket:"DEXXUS Shield SelectLine",preis:120,name:"DEXXUS Shield f\u00fcr SelectLine"},
+              abacus:{paket:"DEXXUS Shield Abacus",preis:249,name:"DEXXUS Shield f\u00fcr Abacus"},
+              praxis:{paket:"DEXXUS Shield Praxis",preis:249,name:"DEXXUS Shield f\u00fcr Praxissoftware"}};
+  document.querySelectorAll("button.sh-kaufen").forEach(function(bt){bt.addEventListener("click",function(){
+    var e=SHIELD[bt.dataset.ed]; if(!e) return;
+    var q=new URLSearchParams({invoice_amount:e.preis.toFixed(2),invoice_currency:"1",
+      invoice_number:e.name+", unbefristet (Fixpreis)",contact_country:"204",
+      referenceId:["WEB",e.paket,"0",""].join("|")});
+    window.lvBestaetigen(SHOP.url+(SHOP.url.indexOf("?")>=0?"&":"?")+q.toString());
+  });});
+})();
+</script>
 </body>
 </html>
