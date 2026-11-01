@@ -321,6 +321,16 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 .ki-chips a:hover { border-color: var(--accent); }
 @media (max-width: 900px) { .ki-alle { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .ki-alle { grid-template-columns: 1fr; } }
+
+/* Schwärzung: Was & Wo */
+.sw-tags { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 2px; }
+.sw-tags span { background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:4px 12px; font-size:.9rem; }
+.sw-gruppe { font-weight:600; font-size:.95rem; margin:14px 0 2px; }
+.sw-wo { list-style:none; padding:0; margin:6px 0 0; display:grid; gap:10px; }
+.sw-wo li { padding-left:28px; position:relative; }
+.sw-wo li::before { content:"🛡"; position:absolute; left:0; }
+.sw-wo b { font-weight:600; }
+.sw-heikel { color:var(--muted); font-size:.95rem; }
 </style>
 
 <div class="ki-banner" id="ki-banner" role="note" aria-label="Hinweis Datenschutz">
@@ -481,6 +491,31 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
       <li><h3>Zurücksetzen</h3><p>In der Antwort stehen wieder die richtigen Namen. Jede Übermittlung wird protokolliert.</p></li>
     </ol>
     <p class="hinweis">Im strengen Datenschutz-Modus verlassen persönliche Daten den PC gar nicht – dann beantwortet die lokale KI alles selbst.</p>
+    <div class="stack">
+      <p class="eyebrow">Was wird geschwärzt</p><h3>Diese Personendaten erkennt DEXXUS</h3>
+      <div class="sw-gruppe">Personen &amp; Firmen</div>
+      <div class="sw-tags"><span>Namen &amp; Vornamen</span><span>mit Titel/Rolle (Herr, Frau, Dr., Rechtsanwalt …)</span><span>Firmennamen</span></div>
+      <div class="sw-gruppe">Kontakt &amp; Ort</div>
+      <div class="sw-tags"><span>Adresse</span><span>Ort / PLZ</span><span>Telefon</span><span>E-Mail</span><span>@-Benutzernamen</span></div>
+      <div class="sw-gruppe">Finanzen</div>
+      <div class="sw-tags"><span>IBAN</span><span>Kontonummer</span></div>
+      <div class="sw-gruppe">Amtliches &amp; Nummern</div>
+      <div class="sw-tags"><span>AHV-Nummer</span><span>Autokennzeichen</span><span>Vertrags-Nr.</span><span>Aktenzeichen</span><span>Behörde</span></div>
+      <div class="sw-gruppe">Weiteres</div>
+      <div class="sw-tags"><span>Geburtsdatum / Jahrgang</span><span>Objekt (Immobilien)</span><span>Datum / Uhrzeit (optional)</span></div>
+      <p class="sw-heikel" style="margin-top:14px">Zusätzlich erkennt DEXXUS Ihre bekannten Namen aus der Datenbank (Kunden, Gegenparteien, Fall-Parteien). Bei besonders heiklen Themen – <b>Gesundheit, Strafverfahren, Sozialhilfe, Religion, Politik/Gewerkschaft, Intimsphäre/Herkunft</b> – warnt DEXXUS und empfiehlt, nur lokal zu verarbeiten.</p>
+    </div>
+    <div class="stack">
+      <p class="eyebrow">Wo die Schwärzung greift</p><h3>Überall, wo Daten Richtung KI gehen</h3>
+      <ul class="sw-wo">
+        <li><b>DEXXUS Shield / «Für jede KI schwärzen»:</b> Text aus jeder Software (bexio, SelectLine, Abacus …) für ChatGPT, Claude, Copilot, Gemini oder DeepL.</li>
+        <li><b>KI-Assistent – Analyse Ihrer Dokumente mit Claude:</b> bevor Dokumente oder Fragen an Claude gehen, werden sie geschwärzt.</li>
+        <li><b>Online-Recherche mit Claude:</b> die Suchanfrage wird geschwärzt, bevor sie ins Internet geht.</li>
+        <li><b>Vorschau vor dem Senden:</b> zeigt genau, was hinausgeht, und warnt bei heiklen Themen.</li>
+        <li><b>Strenger Datenschutz-Modus:</b> persönliche Daten verlassen den PC gar nicht – die lokale KI beantwortet alles.</li>
+      </ul>
+      <p class="hinweis" style="margin-top:12px">Die Erkennung ist sehr gut, aber nicht garantiert vollständig – darum zeigt DEXXUS immer die Vorschau, die Sie vor dem Senden prüfen und ergänzen können.</p>
+    </div>
     <div class="stack" id="ki-alle"><p class="eyebrow">Für jede Online-KI</p><h3>Die Schwärzung funktioniert mit jeder bekannten KI</h3>
       <p class="lead">Sie arbeiten schon mit ChatGPT, Copilot oder Gemini? Kein Problem: DEXXUS ist nicht an einen Anbieter gebunden. Claude ist direkt eingebaut. Für alle anderen gibt es «🛡 Für jede KI schwärzen» im KI-Assistenten: Text einfügen oder Dokument laden, geschwärzt kopieren, in der KI Ihrer Wahl einfügen – und die Antwort zurück in DEXXUS. Dort stehen wieder die echten Namen.</p></div>
     <div class="ki-alle">
