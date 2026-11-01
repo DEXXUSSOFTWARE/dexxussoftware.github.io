@@ -285,6 +285,15 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 .total small { display: block; font: 400 .86rem var(--body); color: var(--muted); margin-top: 2px; }
 .aktion { background: var(--mark); color: var(--mark-ink); border-radius: 8px; padding: 10px 14px; font-size: .95rem; }
 @media (max-width: 680px) { .bestell { grid-template-columns: 1fr; } }
+
+.sw-fall{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 12px}
+.sw-fall summary{cursor:pointer;font-size:16px}
+.sw-warn{color:#B45309;font-size:14px}
+.sw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.sw-grid h4{margin:0 0 6px;font-size:14px}.sw-grid h4 small{font-weight:400;color:var(--muted)}
+.sw-grid pre{white-space:pre-wrap;word-break:break-word;font:12.5px/1.45 ui-monospace,Consolas,monospace;background:var(--bg);border-radius:8px;padding:10px;margin:0;max-height:320px;overflow:auto}
+.sw-grid mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 2px}
+@media (max-width:760px){.sw-grid{grid-template-columns:1fr}}
 </style>
 
 <header class="top">
@@ -468,6 +477,210 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
       <li>Ein Claude-Abo (claude.ai) wird in DEXXUS nicht verwendet – dafür gibt es den Schlüssel aus Ihrem Anthropic-Konto.</li>
       <li>Im Paket Starter ist Claude nicht vorgesehen; die Testversion arbeitet ohne Claude.</li>
     </ul>
+    <h3 id="schwaerzung-beispiele">Beispiele: So schwärzt DEXXUS</h3>
+    <p>Drei Testanfragen mit erfundenen Daten – Arztbericht, Strafbefehl und Immobilien-Offerte. Sie sehen jeweils das Original, was an Claude geht, die Antwort von Claude und was beim Kunden ankommt. Bei Gesundheits- und Strafverfahrensthemen warnt DEXXUS vor dem Senden und empfiehlt die lokale KI.</p>
+      <details class="sw-fall" open>
+        <summary><b>Beispiel 1:</b> Arztbericht – Blutwerte erklären · <span class="sw-warn">DEXXUS warnt: Gesundheit</span></summary>
+        <div class="sw-grid">
+          <div><h4>1 · Original beim Kunden <small>(bleibt auf dem PC)</small></h4><pre>Laborbericht Praxis Dr. med. Sabine Keller, Seestrasse 41, 8708 Männedorf, Tel. 044 920 33 10
+Patient: Herr Thomas Brunner, geb. 14.06.1968, AHV 756.4410.2231.07, Rebweg 3, 8706 Meilen
+Blutentnahme vom 28.10.2026
+Hämoglobin 11.2 g/dl (Norm 13.5–17.5) tief
+Ferritin 12 µg/l (Norm 30–400) tief
+CRP 18 mg/l (Norm &lt; 5) erhöht
+Leukozyten 11.8 G/l (Norm 4–10) leicht erhöht
+HbA1c 6.4 % (Norm &lt; 5.7) erhöht
+LDL-Cholesterin 4.2 mmol/l (Ziel &lt; 3.0) erhöht
+TSH 3.1 mU/l (Norm 0.3–4.0) normal
+Beurteilung: Eisenmangelanämie, Entzündungszeichen, Prädiabetes. Kontrolle in 6 Wochen. Herr Brunner wurde telefonisch informiert.
+
+AUFTRAG: Erkläre mir diese Blutwerte in einfacher Sprache und sag mir, worauf ich achten soll.</pre></div>
+          <div><h4>2 · Das sieht Claude <small>(geschwärzt)</small></h4><pre>Laborbericht Praxis Dr. med. <mark>[Person 2]</mark>, <mark>[Adresse 1]</mark>, <mark>[Ort 1]</mark>, Tel. <mark>[Telefon 1]</mark>
+Patient: Herr <mark>[Person 1]</mark>, <mark>[Geburtsdatum 1]</mark>, AHV <mark>[AHV-Nr. 1]</mark>, <mark>[Adresse 2]</mark>, <mark>[Ort 2]</mark>
+Blutentnahme vom <mark>[Datum 1]</mark>
+Hämoglobin 11.2 g/dl (Norm 13.5–17.5) tief
+Ferritin 12 µg/l (Norm 30–400) tief
+CRP 18 mg/l (Norm &lt; 5) erhöht
+Leukozyten 11.8 G/l (Norm 4–10) leicht erhöht
+HbA1c 6.4 % (Norm &lt; 5.7) erhöht
+LDL-Cholesterin 4.2 mmol/l (Ziel &lt; 3.0) erhöht
+TSH 3.1 mU/l (Norm 0.3–4.0) normal
+Beurteilung: Eisenmangelanämie, Entzündungszeichen, Prädiabetes. Kontrolle in 6 Wochen. Herr <mark>[Person 1]</mark> wurde telefonisch informiert.
+
+AUFTRAG: Erkläre mir diese Blutwerte in einfacher Sprache und sag mir, worauf ich achten soll.</pre></div>
+          <div><h4>3 · Antwort von Claude <small>(nur Platzhalter)</small></h4><pre>Guten Tag Herr <mark>[Person 1]</mark>
+
+Hier die Werte aus dem Laborbericht von Dr. med. <mark>[Person 2]</mark> vom <mark>[Datum 1]</mark> in einfacher Sprache:
+
+• Hämoglobin 11.2 (tief): Der rote Blutfarbstoff transportiert Sauerstoff. Zu wenig davon nennt man Blutarmut (Anämie) – das kann müde, blass und kurzatmig machen.
+• Ferritin 12 (tief): Das ist der Eisenspeicher. Er ist fast leer. Das erklärt die Blutarmut: Es ist eine Eisenmangel-Anämie.
+• CRP 18 und Leukozyten 11.8 (erhöht): Zeichen, dass im Körper gerade eine Entzündung oder ein Infekt läuft.
+• HbA1c 6.4 % (erhöht): Langzeit-Zuckerwert der letzten 2–3 Monate. 5.7–6.4 % heisst Vorstufe von Diabetes (Prädiabetes). Ab 6.5 % spricht man von Diabetes.
+• LDL-Cholesterin 4.2 (erhöht): «Schlechtes» Cholesterin, ein Risiko für Herz und Gefässe.
+• TSH 3.1 (normal): Die Schilddrüse arbeitet normal.
+
+Worauf achten:
+1. Die Kontrolle in 6 Wochen unbedingt wahrnehmen.
+2. Fragen Sie die Praxis, woher der Eisenmangel kommt (z. B. Blutverlust, Ernährung) und ob Eisen als Tablette oder Infusion sinnvoll ist.
+3. Wenig Zucker und Weissmehl, mehr Bewegung – das senkt Zucker- und Cholesterinwert.
+4. Bei Fieber, starker Müdigkeit, Atemnot oder schwarzem Stuhl sofort die Praxis anrufen (Tel. <mark>[Telefon 1]</mark>).
+
+Hinweis: Das ist eine allgemeine Erklärung, keine ärztliche Beratung. Massgebend ist Dr. med. <mark>[Person 2]</mark>.</pre></div>
+          <div><h4>4 · Antwort beim Kunden <small>(DEXXUS setzt die Daten wieder ein)</small></h4><pre>Guten Tag Herr Thomas Brunner
+
+Hier die Werte aus dem Laborbericht von Dr. med. Sabine Keller vom 28.10.2026 in einfacher Sprache:
+
+• Hämoglobin 11.2 (tief): Der rote Blutfarbstoff transportiert Sauerstoff. Zu wenig davon nennt man Blutarmut (Anämie) – das kann müde, blass und kurzatmig machen.
+• Ferritin 12 (tief): Das ist der Eisenspeicher. Er ist fast leer. Das erklärt die Blutarmut: Es ist eine Eisenmangel-Anämie.
+• CRP 18 und Leukozyten 11.8 (erhöht): Zeichen, dass im Körper gerade eine Entzündung oder ein Infekt läuft.
+• HbA1c 6.4 % (erhöht): Langzeit-Zuckerwert der letzten 2–3 Monate. 5.7–6.4 % heisst Vorstufe von Diabetes (Prädiabetes). Ab 6.5 % spricht man von Diabetes.
+• LDL-Cholesterin 4.2 (erhöht): «Schlechtes» Cholesterin, ein Risiko für Herz und Gefässe.
+• TSH 3.1 (normal): Die Schilddrüse arbeitet normal.
+
+Worauf achten:
+1. Die Kontrolle in 6 Wochen unbedingt wahrnehmen.
+2. Fragen Sie die Praxis, woher der Eisenmangel kommt (z. B. Blutverlust, Ernährung) und ob Eisen als Tablette oder Infusion sinnvoll ist.
+3. Wenig Zucker und Weissmehl, mehr Bewegung – das senkt Zucker- und Cholesterinwert.
+4. Bei Fieber, starker Müdigkeit, Atemnot oder schwarzem Stuhl sofort die Praxis anrufen (Tel. 044 920 33 10).
+
+Hinweis: Das ist eine allgemeine Erklärung, keine ärztliche Beratung. Massgebend ist Dr. med. Sabine Keller.</pre></div>
+        </div>
+      </details>
+      <details class="sw-fall">
+        <summary><b>Beispiel 2:</b> Gerichtsakte – Verkehrsdelikt zusammenfassen · <span class="sw-warn">DEXXUS warnt: Strafverfahren</span></summary>
+        <div class="sw-grid">
+          <div><h4>1 · Original beim Kunden <small>(bleibt auf dem PC)</small></h4><pre>Staatsanwaltschaft Limmattal / Albis, Geschäfts-Nr. ST.2026.4471
+Strafbefehl
+gegen Frau Laura Meier-Huber, geb. 03.02.1991, von Dietikon, wohnhaft Bachstrasse 17, 8953 Dietikon
+betreffend grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG)
+Sachverhalt: Die Beschuldigte lenkte am 12. September 2026 um 23:40 Uhr den Personenwagen VW Polo, Kontrollschild ZH 482 117, in Schlieren auf der Badenerstrasse innerorts mit 82 km/h statt der erlaubten 50 km/h (nach Abzug der Sicherheitsmarge 77 km/h, Überschreitung 27 km/h). Die Messung erfolgte durch Polizist Wm Daniel Frei, Stadtpolizei Schlieren.
+Strafe: bedingte Geldstrafe von 30 Tagessätzen zu CHF 90.–, Probezeit 2 Jahre, Busse CHF 600.–, Gebühren CHF 800.–.
+Gegen diesen Strafbefehl kann innert 10 Tagen seit Zustellung schriftlich Einsprache erhoben werden. Zugestellt am 20.10.2026.
+Staatsanwalt lic. iur. Marco Rüegg
+
+AUFTRAG: Fasse zusammen, was ihm vorgeworfen wird, welche Strafe droht und welche Fristen er beachten muss.</pre></div>
+          <div><h4>2 · Das sieht Claude <small>(geschwärzt)</small></h4><pre><mark>[Behörde 1]</mark> / Albis, <mark>[Aktenzeichen 1]</mark>
+Strafbefehl
+gegen Frau <mark>[Person 1]</mark>, <mark>[Geburtsdatum 1]</mark>, von <mark>[Ort 2]</mark>, wohnhaft <mark>[Adresse 1]</mark>, <mark>[Ort 1]</mark>
+betreffend grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG)
+Sachverhalt: Die Beschuldigte lenkte am <mark>[Datum 1]</mark> um <mark>[Zeit 1]</mark> den Personenwagen VW Polo, Kontrollschild <mark>[Kontrollschild 1]</mark>, in <mark>[Ort 3]</mark> auf der Badenerstrasse innerorts mit 82 km/h statt der erlaubten 50 km/h (nach Abzug der Sicherheitsmarge 77 km/h, Überschreitung 27 km/h). Die Messung erfolgte durch Polizist Wm <mark>[Person 2]</mark>, Stadtpolizei <mark>[Ort 3]</mark>.
+Strafe: bedingte Geldstrafe von 30 Tagessätzen zu CHF 90.–, Probezeit 2 Jahre, Busse CHF 600.–, Gebühren CHF 800.–.
+Gegen diesen Strafbefehl kann innert 10 Tagen seit Zustellung schriftlich Einsprache erhoben werden. Zugestellt am <mark>[Datum 2]</mark>.
+Staatsanwalt lic. iur. <mark>[Person 3]</mark>
+
+AUFTRAG: Fasse zusammen, was ihm vorgeworfen wird, welche Strafe droht und welche Fristen er beachten muss.</pre></div>
+          <div><h4>3 · Antwort von Claude <small>(nur Platzhalter)</small></h4><pre>Zusammenfassung zum Strafbefehl <mark>[Aktenzeichen 1]</mark> der <mark>[Behörde 1]</mark>
+
+(Hinweis: Im Auftrag steht «ihm», im Strafbefehl ist es aber Frau <mark>[Person 1]</mark>.)
+
+Vorwurf:
+Frau <mark>[Person 1]</mark> ist am <mark>[Datum 1]</mark> um <mark>[Zeit 1]</mark> in <mark>[Ort 3]</mark> mit dem VW Polo <mark>[Kontrollschild 1]</mark> innerorts zu schnell gefahren: gemessen 82 km/h, nach Abzug der Sicherheitsmarge 77 km/h statt 50 km/h, also 27 km/h zu schnell. Ab 25 km/h innerorts gilt das als grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG).
+
+Strafe:
+• Geldstrafe 30 Tagessätze à CHF 90.– = CHF 2&#x27;700.–, bedingt: muss nur bezahlt werden, wenn sie in der Probezeit von 2 Jahren wieder straffällig wird.
+• Busse CHF 600.– und Gebühren CHF 800.– = CHF 1&#x27;400.–, sind sofort zu bezahlen.
+• Separat: Das Strassenverkehrsamt eröffnet in solchen Fällen in der Regel ein eigenes Verfahren zum Führerausweis-Entzug (bei einer schweren Widerhandlung mindestens 3 Monate).
+
+Fristen:
+• Einsprache: innert 10 Tagen ab Zustellung am <mark>[Datum 2]</mark>, schriftlich an die <mark>[Behörde 1]</mark>. Ohne Einsprache wird der Strafbefehl rechtskräftig.
+• Probezeit: 2 Jahre ab Rechtskraft.
+
+Hinweis: Das ist keine Rechtsberatung. Bei einer Einsprache lohnt sich eine Anwältin oder ein Anwalt.</pre></div>
+          <div><h4>4 · Antwort beim Kunden <small>(DEXXUS setzt die Daten wieder ein)</small></h4><pre>Zusammenfassung zum Strafbefehl Geschäfts-Nr. ST.2026.4471 der Staatsanwaltschaft Limmattal
+
+(Hinweis: Im Auftrag steht «ihm», im Strafbefehl ist es aber Frau Laura Meier-Huber.)
+
+Vorwurf:
+Frau Laura Meier-Huber ist am 12. September 2026 um 23:40 Uhr in Schlieren mit dem VW Polo ZH 482 117 innerorts zu schnell gefahren: gemessen 82 km/h, nach Abzug der Sicherheitsmarge 77 km/h statt 50 km/h, also 27 km/h zu schnell. Ab 25 km/h innerorts gilt das als grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG).
+
+Strafe:
+• Geldstrafe 30 Tagessätze à CHF 90.– = CHF 2&#x27;700.–, bedingt: muss nur bezahlt werden, wenn sie in der Probezeit von 2 Jahren wieder straffällig wird.
+• Busse CHF 600.– und Gebühren CHF 800.– = CHF 1&#x27;400.–, sind sofort zu bezahlen.
+• Separat: Das Strassenverkehrsamt eröffnet in solchen Fällen in der Regel ein eigenes Verfahren zum Führerausweis-Entzug (bei einer schweren Widerhandlung mindestens 3 Monate).
+
+Fristen:
+• Einsprache: innert 10 Tagen ab Zustellung am 20.10.2026, schriftlich an die Staatsanwaltschaft Limmattal. Ohne Einsprache wird der Strafbefehl rechtskräftig.
+• Probezeit: 2 Jahre ab Rechtskraft.
+
+Hinweis: Das ist keine Rechtsberatung. Bei einer Einsprache lohnt sich eine Anwältin oder ein Anwalt.</pre></div>
+        </div>
+      </details>
+      <details class="sw-fall">
+        <summary><b>Beispiel 3:</b> Offerte Immobilienprojekt – prüfen</summary>
+        <div class="sw-grid">
+          <div><h4>1 · Original beim Kunden <small>(bleibt auf dem PC)</small></h4><pre>Offerte Nr. 2026-118 · Neubau Mehrfamilienhaus «Sonnenrain», Parzelle Kat.-Nr. 2241, Sonnenrain 8, 8645 Jona
+Bauherrschaft: Familie Peter und Anna Gerber, Lindenhof 2, 8640 Rapperswil, peter.gerber@bluewin.ch
+Architekt: Stefan Huber, Huber Architekten AG, Zürcherstrasse 120, 8640 Rapperswil, Tel. 055 211 44 90
+Baumeisterarbeiten: Bau AG Kälin, Bruno Kälin, Einsiedeln – CHF 1&#x27;480&#x27;000.–
+Elektroinstallationen: Elektro Brändli GmbH, Martin Brändli, 8645 Jona – CHF 186&#x27;500.–
+Sanitär/Heizung: Wyss Haustechnik AG, Reto Wyss, Uznach – CHF 242&#x27;000.–
+Schreinerarbeiten: Schreinerei Kühne, Hans Kühne, Eschenbach – CHF 128&#x27;700.–
+Malerarbeiten: noch offen
+Honorar Architekt 11 % der Bausumme
+Zahlung: 30 % bei Auftrag auf IBAN CH56 0681 4580 1234 5678 9, Rest nach Baufortschritt.
+Gültig bis 31.12.2026. Stefan Huber
+
+AUFTRAG: Prüfe diese Offerte auf Vollständigkeit, fasse die Kosten nach Gewerk zusammen und nenne mir offene Punkte.</pre></div>
+          <div><h4>2 · Das sieht Claude <small>(geschwärzt)</small></h4><pre>Offerte Nr. 2026-118 · Neubau Mehrfamilienhaus «Sonnenrain», <mark>[Objekt 1]</mark>, <mark>[Adresse 1]</mark>, <mark>[Ort 1]</mark>
+Bauherrschaft: Familie <mark>[Person 7]</mark> und <mark>[Person 4]</mark>, <mark>[Adresse 2]</mark>, <mark>[Ort 2]</mark>, <mark>[E-Mail 1]</mark>
+Architekt: <mark>[Person 2]</mark>, <mark>[Firma 4]</mark>, <mark>[Adresse 3]</mark>, <mark>[Ort 2]</mark>, Tel. <mark>[Telefon 1]</mark>
+Baumeisterarbeiten: <mark>[Firma 5]</mark> <mark>[Person 3]</mark>, <mark>[Person 3]</mark>, <mark>[Ort 3]</mark> – CHF 1&#x27;480&#x27;000.–
+Elektroinstallationen: <mark>[Firma 1]</mark>, <mark>[Person 1]</mark>, <mark>[Ort 1]</mark> – CHF 186&#x27;500.–
+Sanitär/Heizung: <mark>[Person 6]</mark> <mark>[Firma 2]</mark>, <mark>[Person 6]</mark>, <mark>[Ort 4]</mark> – CHF 242&#x27;000.–
+Schreinerarbeiten: <mark>[Firma 3]</mark>, <mark>[Person 5]</mark>, <mark>[Ort 5]</mark> – CHF 128&#x27;700.–
+Malerarbeiten: noch offen
+Honorar Architekt 11 % der Bausumme
+Zahlung: 30 % bei Auftrag auf IBAN <mark>[IBAN 1]</mark>, Rest nach Baufortschritt.
+Gültig bis <mark>[Datum 1]</mark>. <mark>[Person 2]</mark>
+
+AUFTRAG: Prüfe diese Offerte auf Vollständigkeit, fasse die Kosten nach Gewerk zusammen und nenne mir offene Punkte.</pre></div>
+          <div><h4>3 · Antwort von Claude <small>(nur Platzhalter)</small></h4><pre>Prüfung der Offerte Nr. 2026-118, Neubau MFH «Sonnenrain», <mark>[Objekt 1]</mark>, <mark>[Ort 1]</mark>
+
+Kosten nach Gewerk:
+• Baumeister (<mark>[Firma 5]</mark> <mark>[Person 3]</mark>, <mark>[Ort 3]</mark>): CHF 1&#x27;480&#x27;000
+• Elektro (<mark>[Firma 1]</mark>, <mark>[Ort 1]</mark>): CHF 186&#x27;500
+• Sanitär/Heizung (<mark>[Firma 2]</mark>, <mark>[Ort 4]</mark>): CHF 242&#x27;000
+• Schreiner (<mark>[Firma 3]</mark>, <mark>[Ort 5]</mark>): CHF 128&#x27;700
+• Maler: offen
+Zwischentotal Gewerke: CHF 2&#x27;037&#x27;200
++ Honorar Architekt <mark>[Person 2]</mark> (<mark>[Firma 4]</mark>) 11 %: ca. CHF 224&#x27;092
+Total bekannt: ca. CHF 2&#x27;261&#x27;292 (ohne Maler)
+
+Offene Punkte:
+1. Malerarbeiten fehlen ganz – Offerte einholen.
+2. Nicht klar, ob die Beträge inkl. oder exkl. MWST sind.
+3. «11 % der Bausumme»: welche Bausumme genau (mit/ohne Maler, Nebenkosten, MWST)?
+4. Es fehlen: Umgebung/Garten, Bodenbeläge, Küchen, Lift, Baunebenkosten (Gebühren, Anschlüsse, Versicherung), Reserve für Unvorhergesehenes (meist 5–10 %).
+5. Kein Terminplan und keine Angabe zur Kostengenauigkeit (± %).
+6. Zahlung 30 % bei Auftrag ist hoch – Bankgarantie oder Zahlungsplan nach Baufortschritt verlangen, bevor auf <mark>[IBAN 1]</mark> bezahlt wird.
+7. Gültig bis <mark>[Datum 1]</mark> – rechtzeitig entscheiden.
+
+Nächster Schritt: Rückfragen per E-Mail an Familie <mark>[Person 7]</mark> und <mark>[Person 4]</mark> (<mark>[E-Mail 1]</mark>) bzw. an <mark>[Person 2]</mark>, Tel. <mark>[Telefon 1]</mark>.</pre></div>
+          <div><h4>4 · Antwort beim Kunden <small>(DEXXUS setzt die Daten wieder ein)</small></h4><pre>Prüfung der Offerte Nr. 2026-118, Neubau MFH «Sonnenrain», Parzelle Kat.-Nr. 2241, 8645 Jona
+
+Kosten nach Gewerk:
+• Baumeister (Bau AG Bruno Kälin, Einsiedeln): CHF 1&#x27;480&#x27;000
+• Elektro (Elektro Brändli GmbH, 8645 Jona): CHF 186&#x27;500
+• Sanitär/Heizung (Haustechnik AG, Uznach): CHF 242&#x27;000
+• Schreiner (Schreinerei Kühne, Eschenbach): CHF 128&#x27;700
+• Maler: offen
+Zwischentotal Gewerke: CHF 2&#x27;037&#x27;200
++ Honorar Architekt Stefan Huber (Huber Architekten AG) 11 %: ca. CHF 224&#x27;092
+Total bekannt: ca. CHF 2&#x27;261&#x27;292 (ohne Maler)
+
+Offene Punkte:
+1. Malerarbeiten fehlen ganz – Offerte einholen.
+2. Nicht klar, ob die Beträge inkl. oder exkl. MWST sind.
+3. «11 % der Bausumme»: welche Bausumme genau (mit/ohne Maler, Nebenkosten, MWST)?
+4. Es fehlen: Umgebung/Garten, Bodenbeläge, Küchen, Lift, Baunebenkosten (Gebühren, Anschlüsse, Versicherung), Reserve für Unvorhergesehenes (meist 5–10 %).
+5. Kein Terminplan und keine Angabe zur Kostengenauigkeit (± %).
+6. Zahlung 30 % bei Auftrag ist hoch – Bankgarantie oder Zahlungsplan nach Baufortschritt verlangen, bevor auf CH56 0681 4580 1234 5678 9 bezahlt wird.
+7. Gültig bis 31.12.2026 – rechtzeitig entscheiden.
+
+Nächster Schritt: Rückfragen per E-Mail an Familie Peter und Anna Gerber (peter.gerber@bluewin.ch) bzw. an Stefan Huber, Tel. 055 211 44 90.</pre></div>
+        </div>
+      </details>
+    <p><a href="media/DEXXUS_Schwaerzung_Beispiele.pdf" target="_blank">Alle drei Beispiele als PDF</a> · Testdaten erfunden, Stand 1. November 2026. In unseren Tests wurden die Personendaten nahezu vollständig erkannt; eine lückenlose Erkennung in jedem Einzelfall ist technisch nicht möglich.</p>
     <p class="hinweis">Claude ist eine freiwillige Fremdleistung von Anthropic (USA) mit eigenen Bedingungen. Die Einrichtung erledigen Sie selbst mit dem Assistenten; für das Anthropic-Konto bieten wir keinen Support. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
   </div>
 </section>
