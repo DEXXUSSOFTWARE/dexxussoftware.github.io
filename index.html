@@ -331,6 +331,30 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
 .sw-wo li::before { content:"🛡"; position:absolute; left:0; }
 .sw-wo b { font-weight:600; }
 .sw-heikel { color:var(--muted); font-size:.95rem; }
+
+/* ===== Virtuelle Mitarbeiter (Team) ===== */
+#team { background: linear-gradient(180deg, var(--surface), var(--bg)); padding-block: 8px; }
+.team-kopf { display:flex; flex-wrap:wrap; align-items:flex-end; gap:16px 28px; }
+.nur-dexxus { align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(90deg,var(--accent),var(--wissen)); padding:6px 12px; border-radius:999px; font-weight:700; }
+.chef { display:flex; align-items:center; gap:18px; background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:16px; padding:16px 20px; box-shadow:0 10px 30px rgba(15,23,42,.06); }
+.chef .av { width:72px; height:72px; flex:0 0 auto; }
+.chef b { font-size:1.05rem; } .chef p { color:var(--muted); font-size:.95rem; }
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.tm { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:12px; transition:transform .15s ease, box-shadow .15s ease; }
+.tm:hover { transform:translateY(-3px); box-shadow:0 14px 34px rgba(15,23,42,.08); }
+.tm-top { display:flex; align-items:center; gap:14px; }
+.tm .av { width:64px; height:64px; flex:0 0 auto; }
+.tm-rolle { font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); }
+.tm h3 { font-size:1.02rem; margin-top:2px; }
+.tm ul { margin:0; padding-left:18px; color:var(--muted); font-size:.92rem; display:flex; flex-direction:column; gap:4px; }
+.tm ul li::marker { color:var(--accent); }
+.tm.ki { border-color:var(--wissen); } .tm.ki .tm-rolle { color:var(--wissen); } .tm.ki ul li::marker { color:var(--wissen); }
+.team-usp { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.team-usp div { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+.team-usp b { display:block; font-size:.98rem; } .team-usp span { color:var(--muted); font-size:.88rem; }
+.team-ehrlich { font-size:.9rem; color:var(--muted); background:var(--surface); border:1px dashed var(--line); border-radius:12px; padding:12px 16px; }
+.team-ehrlich b { color:var(--ink); }
+@media (max-width:860px){ .team-grid{grid-template-columns:1fr;} .team-usp{grid-template-columns:1fr 1fr;} }
 </style>
 
 <div class="ki-banner" id="ki-banner" role="note" aria-label="Hinweis Datenschutz">
@@ -346,6 +370,7 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
     <a class="logo" href="#start"><b>DEXXUS</b><small>DATA · WISSEN · RECHT · ERP</small></a>
     <nav aria-label="Hauptnavigation">
       <a href="#funktionen">Funktionen</a>
+      <a href="#team">Mitarbeiter</a>
       <a href="#filme">Filme</a>
       <a href="#datenschutz">Datenschutz</a>
       <a href="#claude">KI &amp; Kosten</a>
@@ -395,6 +420,39 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
       <div><b>Swiss made</b><span>Entwickelt und betreut in der Schweiz, Support per E-Mail</span></div>
       <div><b>Ein Programm</b><span>ERP, Akten, Wissen und KI statt fünf Insellösungen</span></div>
     </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap stack" style="gap:26px">
+    <div class="team-kopf">
+      <div class="stack" style="gap:12px; flex:1 1 420px; min-width:0">
+        <span class="nur-dexxus">★ Einzigartig · nur bei DEXXUS</span>
+        <h2>Ihre eigene Firma. Mit eigenen Mitarbeitern.</h2>
+        <p class="lead">DEXXUS arbeitet nicht nur für Sie – es arbeitet <em>mit</em> Ihnen. Ein ganzes Team virtueller Mitarbeiter erledigt die wiederkehrende Büroarbeit, rund um die Uhr, und rapportiert an Sie. Sie geben das Pflichtenheft vor und entscheiden nur die Ausnahmen.</p>
+      </div>
+      <div class="chef"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="cchef"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#E0ECFF"/><g clip-path="url(#cchef)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#1E3A8A"/><path d="M60 76 l-9 10 h18 z" fill="#fff"/><path d="M55 86 l5 9 l5 -9 z" fill="#DC2626"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F2C9A0"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#3A2A1A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><b>Sie – Chefin / Chef</b><p>geben vor, was zu tun ist,<br>und entscheiden die Ausnahmen.</p></div></div>
+    </div>
+
+    <div class="team-grid">
+      <article class="tm"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="c1"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EFF6FF"/><g clip-path="url(#c1)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#0EA5E9"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#263347"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">Buchhaltung</div><h3>Virtuelle Buchhaltung</h3></div></div><ul><li>bucht Belege und Zahlungen</li><li>stellt wiederkehrende Rechnungen automatisch</li><li>bereitet die MWST-Abrechnung vor</li></ul></article>
+      <article class="tm"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="c2"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#ECFDF5"/><g clip-path="url(#c2)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#10B981"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#6B3F2A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">Verkauf</div><h3>Virtuelle Verkaufsassistenz</h3></div></div><ul><li>fasst offene Offerten nach</li><li>erinnert an auslaufende Angebote</li><li>hält Preislisten aktuell</li></ul></article>
+      <article class="tm"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="c3"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#FEF3C7"/><g clip-path="url(#c3)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#F59E0B"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#1E293B"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">Mahnwesen</div><h3>Virtuelles Mahnwesen</h3></div></div><ul><li>überwacht offene Rechnungen</li><li>schreibt Mahnungen in Stufen</li><li>meldet Zahlungseingänge</li></ul></article>
+      <article class="tm"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="c4"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#EFF6FF"/><g clip-path="url(#c4)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#3B82F6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#4B2E2E"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">Einkauf</div><h3>Virtueller Einkauf & Technik</h3></div></div><ul><li>überwacht Bestellungen</li><li>meldet ausbleibende Lieferungen</li><li>erinnert an Wartung und Garantien</li></ul></article>
+      <article class="tm"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="c5"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#c5)"><path d="M24 120 q0 -44 36 -44 q36 0 36 44 z" fill="#8B5CF6"/><path d="M48 80 l12 13 l12 -13 q7 3 10 10 l-22 22 l-22 -22 q3 -7 10 -10 z" fill="#ffffff" opacity=".22"/><rect x="51" y="54" width="18" height="22" rx="8" fill="#F7D0A6"/><circle cx="60" cy="44" r="22" fill="#F7D0A6"/><path d="M37 44 q-1 -28 23 -28 q24 0 23 28 q-10 -11 -23 -11 q-13 0 -23 11 z" fill="#2B2B3A"/><circle cx="52" cy="45" r="2.3" fill="#263347"/><circle cx="68" cy="45" r="2.3" fill="#263347"/><path d="M53 52 q7 5 14 0" fill="none" stroke="#B9814E" stroke-width="1.9" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">Kanzlei</div><h3>Virtuelle Fristen- & Kanzleiassistenz</h3></div></div><ul><li>überwacht Fristen und Termine</li><li>führt das Aktenverzeichnis</li><li>erinnert rechtzeitig vor Ablauf</li></ul></article>
+      <article class="tm ki"><div class="tm-top"><svg viewBox="0 0 120 120" class="av" aria-hidden="true"><defs><clipPath id="crob"><circle cx="60" cy="60" r="58"/></clipPath></defs><circle cx="60" cy="60" r="58" fill="#F3EEFE"/><g clip-path="url(#crob)"><line x1="60" y1="34" x2="60" y2="24" stroke="#8B5CF6" stroke-width="3"/><circle cx="60" cy="21" r="5" fill="#8B5CF6"/><rect x="18" y="56" width="11" height="30" rx="6" fill="#E9E0FD" stroke="#8B5CF6" stroke-width="2.5"/><rect x="91" y="56" width="11" height="30" rx="6" fill="#E9E0FD" stroke="#8B5CF6" stroke-width="2.5"/><rect x="26" y="34" width="68" height="70" rx="20" fill="#FBFAFF" stroke="#8B5CF6" stroke-width="3"/><rect x="40" y="52" width="40" height="30" rx="11" fill="#fff" stroke="#8B5CF6" stroke-width="2"/><circle cx="52" cy="66" r="4.4" fill="#7C3AED"/><circle cx="68" cy="66" r="4.4" fill="#7C3AED"/><path d="M52 75 q8 6 16 0" fill="none" stroke="#A78BFA" stroke-width="2.6" stroke-linecap="round"/></g></svg><div><div class="tm-rolle">KI-Assistent</div><h3>KI-Assistent «Dexi»</h3></div></div><ul><li>beantwortet Fragen zu Ihren Dokumenten</li><li>entwirft Briefe und Texte</li><li>recherchiert – lokal auf Ihrem PC</li></ul></article>
+    </div>
+
+    <div class="team-usp">
+      <div><b>Rund um die Uhr</b><span>arbeiten Tag und Nacht, ohne Pause</span></div>
+      <div><b>Kein Lohn, keine Abgaben</b><span>keine Sozialabgaben, keine Ferien, kein Abo</span></div>
+      <div><b>Rapport an Sie</b><span>jeder Schritt protokolliert – Sie behalten die Kontrolle</span></div>
+      <div><b>Ab Paket KMU</b><span>inklusive – jederzeit dazunehmbar</span></div>
+    </div>
+
+    <p class="team-ehrlich"><b>Ehrlich gesagt:</b> Virtuelle Mitarbeiter sind Software-Assistenten – keine echten Personen. Sie arbeiten nach Ihren Regeln, fragen bei Ausnahmen nach und erledigen nichts Wichtiges ohne Ihre Freigabe. In dieser Form gibt es das nur bei DEXXUS.</p>
+
+    <div class="ctas"><a class="btn primary" href="#test">30 Tage gratis testen</a><a class="btn" href="#filme">Film ansehen</a></div>
   </div>
 </section>
 
