@@ -362,8 +362,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wr
   <button type="button" aria-label="Hinweis schliessen" onclick="kiBannerZu()">×</button>
 </div>
 <script>
-(function(){try{var t=+localStorage.getItem('kiBannerZu')||0;if(t&&Date.now()-t<30*864e5){document.getElementById('ki-banner').hidden=true;}}catch(e){}})();
-function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{localStorage.setItem('kiBannerZu',String(Date.now()));}catch(e){}}
+(function(){try{var t=+localStorage.getItem('kiBannerZu2')||0;if(t&&Date.now()-t<30*864e5){document.getElementById('ki-banner').hidden=true;}}catch(e){}})();
+function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{localStorage.setItem('kiBannerZu2',String(Date.now()));}catch(e){}}
 </script>
 <header class="top">
   <div class="wrap">
@@ -845,7 +845,6 @@ Nächster Schritt: Rückfragen per E-Mail an Familie Peter und Anna Gerber (pete
     <div class="stack"><h2>Pakete &amp; Preise</h2>
       <p class="lead">Alle Preise in CHF inkl. 8.1 % MWST. Abos für 1, 2 oder 3 Jahre (5 % bzw. 10 % Laufzeitrabatt), zahlbar im Voraus; sie verlängern sich um dieselbe Laufzeit. Die Lizenzgebühr bezahlen Sie nur einmal – bei der Verlängerung nur noch das Abo. Updates mit Fehlerkorrekturen sind während der ganzen Laufzeit inbegriffen.</p></div>
     <div class="shop-kopf">
-      <p class="aktion"><b>Einführungsangebot bis 31. März 2027:</b> 20 % auf das erste Abo-Jahr mit dem Code aus unserem Video – zusätzlich zum Laufzeitrabatt.</p>
       <label class="code-feld">Rabattcode <input id="s-code" autocomplete="off" placeholder="falls vorhanden" style="text-transform:uppercase"></label>
       <span class="code-info" id="s-code-info" aria-live="polite"></span>
     </div>
