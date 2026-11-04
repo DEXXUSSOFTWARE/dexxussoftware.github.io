@@ -246,6 +246,12 @@ ul.liste b { color: var(--ink); }
 .sprachen span { font-family: var(--mono); font-size: .78rem; border: 1px solid var(--line); border-radius: 4px; padding: 3px 8px; color: var(--muted); }
 .sprachen span.aktiv { border-color: var(--accent); color: var(--accent); }
 @media (max-width: 860px) { .schweiz { grid-template-columns: 1fr; } }
+.ds-bild { margin: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #FFFFFF; }
+.ds-bild img { display: block; width: 100%; height: auto; }
+.ds-bild figcaption { padding: 10px 14px; font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); background: var(--bg, #fff); }
+.ds-liste { grid-template-columns: 1fr 1fr 1fr; }
+@media (max-width: 860px) { .ds-liste { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .ds-liste { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .ch-liste { grid-template-columns: 1fr; } .zahlteil { grid-template-columns: 1fr; } }
 
 footer { border-top: 1px solid var(--line); padding-block: 32px; font-size: .88rem; color: var(--muted); }
@@ -501,10 +507,31 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
       <div class="eintrag"><span class="reiter">Tickets</span><div class="stack" style="gap:4px"><h3>Kundenanfragen als Ticket</h3><p>Support-Anfragen Ihrer Kunden landen als Ticket statt im E-Mail-Chaos – mit Status, Priorität und dem Ticket-Service Ihres virtuellen Teams. Ab Paket KMU Plus inklusive.</p></div></div>
       <div class="eintrag"><span class="reiter" style="color:var(--wissen)">Shield</span><div class="stack" style="gap:4px"><h3>Schwärzung auch für bexio &amp; Co.</h3><p>DEXXUS Shield schwärzt Namen, Adressen und IBAN auch für Ihre bestehenden Büroanwendungen – bexio, SelectLine, Abacus, Praxis-Software. Per Kopieren/Einfügen, einmalig ab CHF 49.–. <a href="shield.html">Mehr zu Shield →</a></p></div></div>
       <div class="eintrag"><span class="reiter">Datentresor</span><div class="stack" style="gap:4px"><h3>Verschlüsselte Ablage</h3><p>Ausweise, Verträge und Passwörter in einem verschlüsselten Tresor, mit Passwort-Generator.</p></div></div>
-      <div class="eintrag"><span class="reiter">DataSweep</span><div class="stack" style="gap:4px"><h3>Ordnung auf dem PC</h3><p>Doppelte Dateien finden, Ablage ordnen, Speicher freigeben – ohne Systemordner anzutasten.</p></div></div>
+      <div class="eintrag"><span class="reiter">DataSweep</span><div class="stack" style="gap:4px"><h3>Ordnung auf dem PC</h3><p>Doppelte Dateien finden, Ablage ordnen, Speicher freigeben – ohne Systemordner anzutasten. <a href="#datasweep">Mehr zu DataSweep →</a></p></div></div>
       <div class="eintrag"><span class="reiter">Projekte</span><div class="stack" style="gap:4px"><h3>Aufträge im Griff</h3><p>Projekte mit Garantien, Fotos und den passenden E-Mails aus Outlook.</p></div></div>
       <div class="eintrag"><span class="reiter">To-do</span><div class="stack" style="gap:4px"><h3>Aufgaben mit Erinnerung</h3><p>Aufgaben zu Kunden und Fällen, fällig heute, morgen oder in drei Wochen.</p></div></div>
     </div>
+  </div>
+</section>
+
+<section id="datasweep">
+  <div class="wrap stack" style="gap:28px">
+    <div class="stack"><p class="eyebrow">DataSweep · Ordnung auf dem PC</p><h2>Doppelte Dateien weg, Speicher frei – sicher und rückgängig</h2>
+      <p class="lead">Über die Jahre sammeln sich auf jedem PC dieselben Fotos, Rechnungen und Downloads mehrfach an. DataSweep findet sie, zeigt Ihnen genau, was bleibt und was weg kann – und löscht nichts, ohne dass Sie es freigeben.</p></div>
+    <div class="ch-liste ds-liste">
+      <div><b>Dubletten finden</b><span>inhaltsgleiche Dateien – auch unter anderem Namen oder in einem anderen Ordner</span></div>
+      <div><b>Sie bestimmen, was bleibt</b><span>die älteste, die neueste oder die mit dem kürzesten Pfad</span></div>
+      <div><b>Quarantäne statt Löschen</b><span>alles kommt zuerst in eine Quarantäne und ist mit einem Klick rückgängig</span></div>
+      <div><b>Chronologisch ablegen</b><span>Fotos und Dokumente nach Jahr und Monat ordnen – mit Vorschau vor dem Ausführen</span></div>
+      <div><b>Übersicht auf einen Blick</b><span>Dateiarten, Jahre, grösste Dateien und wie viel Speicher frei wird</span></div>
+      <div><b>Systemordner bleiben tabu</b><span>Windows, Programme, AppData und Ihre DEXXUS-Daten werden nie angefasst; Cloud-Ordner nur auf Wunsch</span></div>
+    </div>
+    <figure class="ds-bild">
+      <img src="media/DEXXUS_DataSweep_Dubletten.jpg" width="1400" height="807" loading="lazy" alt="DEXXUS DataSweep: Liste der gefundenen Dubletten – grün bleibt, rot kommt in die Quarantäne">
+      <figcaption>Beispiel mit Musterdateien: 26 Dateien analysiert, 9 Dubletten-Gruppen gefunden – grün bleibt, rot kommt in die Quarantäne.</figcaption>
+    </figure>
+    <p class="hinweis">Läuft vollständig auf Ihrem PC, nichts geht ins Internet. In allen Paketen ab DEXXUS Privat inklusive.</p>
+    <div class="ctas"><a class="btn primary" href="#test">30 Tage gratis testen</a><a class="btn" href="#preise">Pakete vergleichen</a></div>
   </div>
 </section>
 
