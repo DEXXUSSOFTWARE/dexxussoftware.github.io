@@ -234,24 +234,24 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
       <div class="edition">
         <h3>DEXXUS Shield für SelectLine</h3>
         <div class="ziel">Für Nutzer von SelectLine, Sage, Infoniqa (Gewerbe, Handel)</div>
-        <div class="preis"><b>CHF 120.–</b><span class="alt">Einführungspreis 2027</span></div>
-        <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 240.–</div>
+        <div class="preis"><b>CHF 49.–</b><span class="alt">Einführungspreis 2027</span></div>
+        <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 79.–</div>
         <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="selectline">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/p5yim97ljefsdpv1vnirj/DEXXUS_Shield_2026-11-03.zip?rlkey=23ipg85ht76ubhftqkd16j3gm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
         <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
       <div class="edition hoch">
         <h3>DEXXUS Shield für Abacus</h3>
         <div class="ziel">Für Nutzer von Abacus, Vertec, ProConcept, Opacc (grössere KMU, Anwälte, Industrie)</div>
-        <div class="preis"><b>CHF 249.–</b><span class="alt">Einführungspreis 2027</span></div>
-        <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 360.–</div>
+        <div class="preis"><b>CHF 49.–</b><span class="alt">Einführungspreis 2027</span></div>
+        <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 79.–</div>
         <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="abacus">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/p5yim97ljefsdpv1vnirj/DEXXUS_Shield_2026-11-03.zip?rlkey=23ipg85ht76ubhftqkd16j3gm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
         <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
       <div class="edition hoch">
         <h3>DEXXUS Shield für Praxissoftware</h3>
         <div class="ziel">Für Arztpraxen und Labore (vitomed, TriaMed u.a.)</div>
-        <div class="preis"><b>CHF 249.–</b><span class="alt">Einführungspreis 2027</span></div>
-        <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 360.–</div>
+        <div class="preis"><b>CHF 49.–</b><span class="alt">Einführungspreis 2027</span></div>
+        <div class="ab28">Fixpreis, einmalig – kein Abo, keine Jahresgebühr · ab 2028: CHF 79.–</div>
         <div class="ed-btn"><button type="button" class="btn sh-kaufen" data-ed="praxis">Jetzt kaufen</button><a class="btn sek" href="https://www.dropbox.com/scl/fi/p5yim97ljefsdpv1vnirj/DEXXUS_Shield_2026-11-03.zip?rlkey=23ipg85ht76ubhftqkd16j3gm&dl=1" rel="nofollow">Zuerst 30 Tage gratis testen</a></div>
         <div class="ed-klein">Vorauskasse über Payrexx (TWINT, Karte …). Nach der Zahlung erhalten Sie automatisch eine E-Mail mit Lizenz und Download – installieren, Lizenz einlesen, fertig.</div>
       </div>
@@ -323,9 +323,9 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
   },true);
   var SHOP={url:"https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};
   var SHIELD={bexio:{paket:"DEXXUS Shield bexio",preis:49,name:"DEXXUS Shield f\u00fcr bexio"},
-              selectline:{paket:"DEXXUS Shield SelectLine",preis:120,name:"DEXXUS Shield f\u00fcr SelectLine"},
-              abacus:{paket:"DEXXUS Shield Abacus",preis:249,name:"DEXXUS Shield f\u00fcr Abacus"},
-              praxis:{paket:"DEXXUS Shield Praxis",preis:249,name:"DEXXUS Shield f\u00fcr Praxissoftware"}};
+              selectline:{paket:"DEXXUS Shield SelectLine",preis:49,name:"DEXXUS Shield f\u00fcr SelectLine"},
+              abacus:{paket:"DEXXUS Shield Abacus",preis:49,name:"DEXXUS Shield f\u00fcr Abacus"},
+              praxis:{paket:"DEXXUS Shield Praxis",preis:49,name:"DEXXUS Shield f\u00fcr Praxissoftware"}};
   document.querySelectorAll("button.sh-kaufen").forEach(function(bt){bt.addEventListener("click",function(){
     var e=SHIELD[bt.dataset.ed]; if(!e) return;
     var q=new URLSearchParams({invoice_amount:e.preis.toFixed(2),invoice_currency:"1",
