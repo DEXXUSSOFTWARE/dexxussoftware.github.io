@@ -384,9 +384,9 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
   },true);
   var SHOP={url:"https://autoteileexpress.payrexx.com/pay?tid=86ce70f3"};
   var SHIELD={bexio:{paket:"DEXXUS Shield bexio",preis:49,name:"DEXXUS Shield f\u00fcr bexio"},
-              selectline:{paket:"DEXXUS Shield SelectLine",preis:120,name:"DEXXUS Shield f\u00fcr SelectLine"},
-              abacus:{paket:"DEXXUS Shield Abacus",preis:249,name:"DEXXUS Shield f\u00fcr Abacus"},
-              praxis:{paket:"DEXXUS Shield Praxis",preis:249,name:"DEXXUS Shield f\u00fcr Praxissoftware"}};
+              selectline:{paket:"DEXXUS Shield SelectLine",preis:49,name:"DEXXUS Shield f\u00fcr SelectLine"},
+              abacus:{paket:"DEXXUS Shield Abacus",preis:49,name:"DEXXUS Shield f\u00fcr Abacus"},
+              praxis:{paket:"DEXXUS Shield Praxis",preis:49,name:"DEXXUS Shield f\u00fcr Praxissoftware"}};
   document.querySelectorAll("button.sh-kaufen").forEach(function(bt){bt.addEventListener("click",function(){
     var e=SHIELD[bt.dataset.ed]; if(!e) return;
     var q=new URLSearchParams({invoice_amount:e.preis.toFixed(2),invoice_currency:"1",
