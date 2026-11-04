@@ -161,6 +161,24 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
   </div>
 </section>
 
+<section id="zuerichfilm">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow">Werbefilm</p>
+    <h2>KI? Ja. Meine Daten? Nein.</h2>
+    <p class="lead" style="margin:0 auto 22px;max-width:760px">Gedreht in Zürich: warum DEXXUS Shield Ihre Personendaten schützt, bevor sie eine Online-KI erreicht.</p>
+    <figure class="zf" style="margin:0 auto;max-width:1180px;position:relative">
+      <video id="zfVideo" playsinline preload="none" poster="media/DEXXUS_Shield_Zuerich_poster.jpg" style="width:100%;display:block;border-radius:18px;box-shadow:0 24px 60px rgba(15,23,42,.22);background:#0F172A"><source src="media/DEXXUS_Shield_Zuerich_Film.mp4" type="video/mp4"></video>
+      <button id="zfPlay" type="button" aria-label="Film abspielen" style="position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:transparent;display:flex;align-items:center;justify-content:center;border-radius:18px"><svg class="zfyt" width="120" height="84" viewBox="0 0 68 48" aria-hidden="true"><path class="zfbg" d="M66.5 7.7c-.8-2.9-3-5.1-5.9-5.9C55.3.4 34 .4 34 .4s-21.3 0-26.6 1.4C4.5 2.6 2.3 4.8 1.5 7.7.1 13 .1 24 .1 24s0 11 1.4 16.3c.8 2.9 3 5.1 5.9 5.9 5.3 1.4 26.6 1.4 26.6 1.4s21.3 0 26.6-1.4c2.9-.8 5.1-3 5.9-5.9C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0000"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></button>
+<style>#zfPlay:hover .zfbg,#zfPlay:focus .zfbg{fill:#CC0000}.zfyt{transition:transform .15s}#zfPlay:hover .zfyt{transform:scale(1.06)}@media(max-width:600px){.zfyt{width:84px;height:59px}}</style>
+    </figure>
+  </div>
+</section>
+<script>
+(function(){var v=document.getElementById("zfVideo"),b=document.getElementById("zfPlay");if(!v||!b)return;
+b.addEventListener("click",function(){b.style.display="none";v.setAttribute("controls","");v.play();});
+v.addEventListener("ended",function(){v.removeAttribute("controls");v.load();b.style.display="flex";});})();
+</script>
+
 <section id="film">
   <div class="wrap" style="text-align:center">
     <p class="eyebrow">Film ansehen</p>
