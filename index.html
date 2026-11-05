@@ -581,7 +581,7 @@ function kiBannerZu(){document.getElementById('ki-banner').hidden=true;try{local
       <p class="lead">Für Recherchen und anspruchsvolle Texte kann DEXXUS ab Paket Privat optional Claude von Anthropic nutzen – mit Ihrem eigenen Anthropic-Konto. Bevor etwas hinausgeht, durchläuft der Text diese Schritte:</p></div>
     <ol class="schritte">
       <li><h3>Erkennen</h3><p>Namen, Vornamen, Adressen, Orte, Firmen, Telefon, E-Mail, IBAN, AHV-Nr., Kontrollschilder, Policen- und Aktenzeichen.</p></li>
-      <li><h3>Ersetzen</h3><p>Aus «Reto Caduff, Im Bungert 7, 8810 Horgen» wird <span class="ph">[Person 1]</span>, <span class="ph">[Adresse 1]</span>, <span class="ph">[Ort 1]</span>. Die Zuordnung bleibt nur im Arbeitsspeicher.</p></li>
+      <li><h3>Ersetzen</h3><p>Aus «Hans Beispiel, Musterweg 7, 8810 Horgen» wird <span class="ph">[Person 1]</span>, <span class="ph">[Adresse 1]</span>, <span class="ph">[Ort 1]</span>. Die Zuordnung bleibt nur im Arbeitsspeicher.</p></li>
       <li><h3>Zeigen</h3><p>Sie sehen vor dem Senden, was hinausgeht. Bei Gesundheits- oder Strafsachen warnt DEXXUS und empfiehlt die lokale KI.</p></li>
       <li><h3>Zurücksetzen</h3><p>In der Antwort stehen wieder die richtigen Namen. Jede Übermittlung wird protokolliert.</p></li>
     </ol>
@@ -735,7 +735,7 @@ Hinweis: Das ist eine allgemeine Erklärung, keine ärztliche Beratung. Massgebe
         <div class="sw-grid">
           <div><h4>1 · Original beim Kunden <small>(bleibt auf dem PC)</small></h4><pre>Staatsanwaltschaft Limmattal / Albis, Geschäfts-Nr. ST.2026.4471
 Strafbefehl
-gegen Frau Laura Meier-Huber, geb. 03.02.1991, von Dietikon, wohnhaft Bachstrasse 17, 8953 Dietikon
+gegen Frau Erika Muster, geb. 03.02.1991, von Dietikon, wohnhaft Bachstrasse 17, 8953 Dietikon
 betreffend grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG)
 Sachverhalt: Die Beschuldigte lenkte am 12. September 2026 um 23:40 Uhr den Personenwagen VW Polo, Kontrollschild ZH 482 117, in Schlieren auf der Badenerstrasse innerorts mit 82 km/h statt der erlaubten 50 km/h (nach Abzug der Sicherheitsmarge 77 km/h, Überschreitung 27 km/h). Die Messung erfolgte durch Polizist Wm Daniel Frei, Stadtpolizei Schlieren.
 Strafe: bedingte Geldstrafe von 30 Tagessätzen zu CHF 90.–, Probezeit 2 Jahre, Busse CHF 600.–, Gebühren CHF 800.–.
@@ -772,10 +772,10 @@ Fristen:
 Hinweis: Das ist keine Rechtsberatung. Bei einer Einsprache lohnt sich eine Anwältin oder ein Anwalt.</pre></div>
           <div><h4>4 · Antwort beim Kunden <small>(DEXXUS setzt die Daten wieder ein)</small></h4><pre>Zusammenfassung zum Strafbefehl Geschäfts-Nr. ST.2026.4471 der Staatsanwaltschaft Limmattal
 
-(Hinweis: Im Auftrag steht «ihm», im Strafbefehl ist es aber Frau Laura Meier-Huber.)
+(Hinweis: Im Auftrag steht «ihm», im Strafbefehl ist es aber Frau Erika Muster.)
 
 Vorwurf:
-Frau Laura Meier-Huber ist am 12. September 2026 um 23:40 Uhr in Schlieren mit dem VW Polo ZH 482 117 innerorts zu schnell gefahren: gemessen 82 km/h, nach Abzug der Sicherheitsmarge 77 km/h statt 50 km/h, also 27 km/h zu schnell. Ab 25 km/h innerorts gilt das als grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG).
+Frau Erika Muster ist am 12. September 2026 um 23:40 Uhr in Schlieren mit dem VW Polo ZH 482 117 innerorts zu schnell gefahren: gemessen 82 km/h, nach Abzug der Sicherheitsmarge 77 km/h statt 50 km/h, also 27 km/h zu schnell. Ab 25 km/h innerorts gilt das als grobe Verletzung der Verkehrsregeln (Art. 90 Abs. 2 SVG).
 
 Strafe:
 • Geldstrafe 30 Tagessätze à CHF 90.– = CHF 2&#x27;700.–, bedingt: muss nur bezahlt werden, wenn sie in der Probezeit von 2 Jahren wieder straffällig wird.
@@ -1132,9 +1132,9 @@ Nächster Schritt: Rückfragen per E-Mail an Familie Peter und Anna Gerber (pete
 <script>
 (function () {
   const satz = [
-    ["Sehr geehrte Frau ", null], ["Brigitte Hälg-Zimmermann", "[Person 1]"],
-    ["\n\nWir vertreten Herrn ", null], ["Reto Caduff", "[Person 2]"], [", wohnhaft ", null],
-    ["Im Bungert 7", "[Adresse 1]"], [", ", null], ["8810 Horgen", "[Ort 1]"],
+    ["Sehr geehrte Frau ", null], ["Erika Muster", "[Person 1]"],
+    ["\n\nWir vertreten Herrn ", null], ["Hans Beispiel", "[Person 2]"], [", wohnhaft ", null],
+    ["Musterweg 7", "[Adresse 1]"], [", ", null], ["8810 Horgen", "[Ort 1]"],
     [". Bitte überweisen Sie die Entschädigung auf ", null], ["CH93 0076 2011 6238 5295 7", "[IBAN 1]"],
     [". Sie erreichen ihn unter ", null], ["079 412 33 21", "[Telefon 1]"], [".", null]
   ];
@@ -1306,7 +1306,7 @@ Nächster Schritt: Rückfragen per E-Mail an Familie Peter und Anna Gerber (pete
 })();
 </script>
 
-<!-- Lizenzvereinbarung per Klick vor Kauf/Download (freigegeben von Markus Steiger, 01.11.2026) -->
+<!-- Lizenzvereinbarung per Klick vor Kauf/Download (freigegeben 01.11.2026) -->
 <div id="lv-dlg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:9999;align-items:center;justify-content:center;padding:16px">
  <div style="background:#fff;color:#0F172A;max-width:560px;width:100%;border-radius:14px;padding:22px;font:15px/1.5 system-ui,Segoe UI,Arial">
   <h3 style="margin:0 0 8px">Lizenzbedingungen bestätigen</h3>
