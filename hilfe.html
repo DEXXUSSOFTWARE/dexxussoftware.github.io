@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEXXUS Hilfe und Anleitungsvideos</title>
+<meta name="description" content="18 kurze Anleitungsvideos zu DEXXUS.">
+<link rel="canonical" href="https://dexxus.ch/hilfe.html">
+<meta property="og:title" content="DEXXUS Hilfe und Anleitungsvideos">
+<meta property="og:description" content="18 kurze Anleitungsvideos zu DEXXUS.">
+<meta property="og:url" content="https://dexxus.ch/hilfe.html">
+<meta property="og:type" content="website">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body { margin: 0; background: #FFFFFF; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0F172A; -webkit-font-smoothing: antialiased; }
+
+  .dxw-top { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid #E2E8F0; }
+  .dxw-top .in { max-width: 1120px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; gap: 24px; }
+  .dxw-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A; font-weight: 700; letter-spacing: .02em; }
+  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #fff; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
+  .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .dxw-menu a:hover { color: #0F172A; }
+  .dxw-sp { flex: 1; }
+  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #fff !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-btn:hover { background: #1D4ED8; }
+  .dxw-foot { border-top: 1px solid #E2E8F0; background: #FFFFFF; }
+  .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
+  .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
+  .dxw-foot a:hover { color: #0F172A; }
+  .dxw-vorschau { background: #FFFBEB; color: #92400E; text-align: center; font-size: 12.5px; font-weight: 600; padding: 6px 16px; border-bottom: 1px solid #FDE68A; }
+  @media (max-width: 860px) { .dxw-menu { display: none; } }
+
+#w-hilfe {
+    --white: #FFFFFF; --panel: #F8F9FA; --line: #E2E8F0; --line-soft: #F1F5F9;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --re: #4F46E5; --sh: #0891B2; --vm: #7C3AED;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-hilfe * { box-sizing: border-box; }
+#w-hilfe { margin: 0; }
+#w-hilfe { background: var(--white); color: var(--text); font: 15px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+#w-hilfe .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 16px 80px; }
+#w-hilfe .head { max-width: 680px; margin-bottom: 28px; }
+#w-hilfe .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--db); margin-bottom: 8px; }
+#w-hilfe h1 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-hilfe .lead { margin: 12px 0 0; font-size: 16px; color: var(--text-2); }
+#w-hilfe .jump { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 36px; }
+#w-hilfe .jump a { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; border: 1px solid var(--line); border-radius: 99px; color: var(--text-2); font-size: 14px; font-weight: 600; text-decoration: none; }
+#w-hilfe .jump a:hover { border-color: #CBD5E1; color: var(--text); }
+#w-hilfe .mod { flex: none; width: 40px; height: 40px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+#w-hilfe .mod.sm { width: 24px; height: 24px; border-radius: 6px; font-size: 10.5px; }
+#w-hilfe .mod.db { background: var(--db); }
+#w-hilfe .mod.re { background: var(--re); }
+#w-hilfe .mod.sh { background: var(--sh); }
+#w-hilfe .mod.vm { background: var(--vm); }
+#w-hilfe .block { margin-bottom: 40px; }
+#w-hilfe .b-head { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+#w-hilfe .b-head h2 { margin: 0; font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
+#w-hilfe .b-head p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+#w-hilfe .videos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+#w-hilfe .video { display: flex; gap: 16px; align-items: flex-start; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+#w-hilfe .play { flex: none; width: 120px; height: 72px; border-radius: 9px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+#w-hilfe .play:hover { background: #EEF2FF; border-color: #C7D2FE; }
+#w-hilfe .play:focus-visible { outline: 2px solid var(--db); outline-offset: 2px; }
+#w-hilfe .tri { width: 36px; height: 36px; border-radius: 50%; background: var(--db); position: relative; box-shadow: 0 4px 12px rgba(37, 99, 235, .25); }
+#w-hilfe .tri::after { content: ""; position: absolute; left: 14px; top: 11px; border-left: 11px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+#w-hilfe #block-re .tri { background: var(--re); }
+#w-hilfe #block-sh .tri { background: var(--sh); }
+#w-hilfe #block-vm .tri { background: var(--vm); }
+#w-hilfe .v-body { flex: 1; min-width: 0; }
+#w-hilfe .v-top { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+#w-hilfe .v-num { font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+#w-hilfe .v-dauer { margin-left: auto; background: var(--line-soft); padding: 1px 8px; border-radius: 99px; font-variant-numeric: tabular-nums; }
+#w-hilfe .video h3 { margin: 4px 0 4px; font-size: 16px; font-weight: 650; }
+#w-hilfe .v-sum { margin: 0; color: var(--text-2); font-size: 14px; }
+#w-hilfe .v-skript { margin-top: 10px; border-top: 1px solid var(--line-soft); padding-top: 8px; }
+#w-hilfe .v-skript summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--db); list-style: none; }
+#w-hilfe .v-skript summary::-webkit-details-marker { display: none; }
+#w-hilfe .v-skript summary::before { content: "+ "; }
+#w-hilfe .v-skript[open] summary::before { content: "– "; }
+#w-hilfe .v-skript p { margin: 8px 0 0; font-size: 13.5px; color: var(--text-2); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+@media (max-width: 900px) {
+#w-hilfe .videos { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+#w-hilfe .video { flex-direction: column; }
+#w-hilfe .play { width: 100%; height: 120px; }
+#w-hilfe h1 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<header class="dxw-top"><div class="in">
+  <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
+  <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html#funktionen">Funktionen</a>
+    <a href="index.html#faq">Häufige Fragen</a>
+    <a href="preise.html">Preise</a>
+    <a href="partner.html">Partner</a>
+    <a href="hilfe.html">Hilfe</a>
+  </nav>
+  <div class="dxw-sp"></div>
+  <a class="dxw-btn" href="index.html#download">Kostenlos testen</a>
+</div></header>
+<main>
+<div id="w-hilfe">
+
+<main class="wrap">
+  <div class="head">
+    <span class="eyebrow">Hilfe-Center</span>
+    <h1>Anleitungsvideos</h1>
+    <p class="lead">18 kurze Videos – jedes unter einer Minute. Ohne lange Einleitung, direkt zum Ziel.</p>
+  </div>
+  <nav class="jump" aria-label="Themen">
+    <a href="#block-db"><span class="mod sm db">DB</span>Die ersten Schritte</a>
+    <a href="#block-re"><span class="mod sm re">RE</span>Verkauf &amp; Finanzen</a>
+    <a href="#block-sh"><span class="mod sm sh">SH</span>KI-Assistent &amp; Datenschutz</a>
+    <a href="#block-vm"><span class="mod sm vm">VM</span>Die Helfer</a>
+  </nav>
+    <section class="block" id="block-db" aria-labelledby="t-db">
+      <div class="b-head"><span class="mod db" aria-hidden="true">DB</span><div><h2 id="t-db">Die ersten Schritte</h2><p>Installation, Lizenz, E-Mail und KI einrichten · 4 Videos</p></div></div>
+      <div class="videos">
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 1 abspielen: Installation und Musterfirma"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 1</span><span class="v-dauer">0:45</span></div>
+            <h3>Installation und Musterfirma</h3>
+            <p class="v-sum">DEXXUS per Doppelklick installieren und mit der Musterfirma starten.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Entpacken Sie die ZIP-Datei und doppelklicken Sie auf «INSTALLIEREN.bat». Nach wenigen Minuten erscheint auf dem Desktop das Symbol «DEXXUS». Beim ersten Start ist die Musterfirma bereits geladen – so können Sie sofort alles ausprobieren.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 2 abspielen: Lizenzbedingungen bestätigen"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 2</span><span class="v-dauer">0:40</span></div>
+            <h3>Lizenzbedingungen bestätigen</h3>
+            <p class="v-sum">Beim ersten Start die Lizenzbedingungen lesen und bestätigen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Beim ersten Start erscheint das Fenster «Lizenzbedingungen bestätigen». Lesen Sie den Text, setzen Sie das Häkchen und klicken Sie auf «Weiter». Erst dann öffnet sich DEXXUS – ohne Bestätigung wird das Programm beendet.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 3 abspielen: E-Mail-Konto verbinden"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 3</span><span class="v-dauer">0:55</span></div>
+            <h3>E-Mail-Konto verbinden</h3>
+            <p class="v-sum">Ihr bestehendes Mailkonto einrichten – ganz ohne Microsoft Office.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Einstellungen» und dann «E-Mail». Tragen Sie Ihre E-Mail-Adresse und das Passwort Ihres Mailkontos ein, zum Beispiel Bluewin, Gmail oder Hostpoint. Klicken Sie auf «Verbindung testen» – fertig, ab jetzt versendet DEXXUS Ihre Belege direkt.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 4 abspielen: Claude von Anthropic einrichten"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 4</span><span class="v-dauer">0:50</span></div>
+            <h3>Claude von Anthropic einrichten</h3>
+            <p class="v-sum">Die optionale Online-KI in vier Schritten mit Ihrem API-Schlüssel verbinden.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Erstens: Konto bei Anthropic eröffnen. Zweitens: dort einen API-Schlüssel erstellen. Drittens: in DEXXUS unter «Einstellungen», «KI & Datenschutz» den Schlüssel einfügen. Viertens: «Testen» klicken. DEXXUS Shield schwärzt ab jetzt jede Anfrage automatisch.»</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="block" id="block-re" aria-labelledby="t-re">
+      <div class="b-head"><span class="mod re" aria-hidden="true">RE</span><div><h2 id="t-re">Verkauf &amp; Finanzen</h2><p>Kunden, Artikel, Offerten, Rechnungen und Mahnungen · 5 Videos</p></div></div>
+      <div class="videos">
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 5 abspielen: Kundenkartei anlegen und importieren"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 5</span><span class="v-dauer">0:55</span></div>
+            <h3>Kundenkartei anlegen und importieren</h3>
+            <p class="v-sum">Kunden erfassen, filtern und ganze Listen aus Excel oder CSV übernehmen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Klicken Sie in «Kunden» auf «+ Kunde anlegen» und füllen Sie die Felder aus. Haben Sie bereits eine Liste, wählen Sie «Kundenliste importieren» und Ihre Excel- oder CSV-Datei. Mit den Filtern oben finden Sie jeden Kunden in Sekunden.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 6 abspielen: Artikel und Preislisten"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 6</span><span class="v-dauer">0:50</span></div>
+            <h3>Artikel und Preislisten</h3>
+            <p class="v-sum">Artikelstamm einrichten und mehrere Preislisten verwalten.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Artikel» und klicken Sie auf «+ Artikel» oder «Importieren». Jeder Artikel kann einer Preisliste zugeordnet werden, zum Beispiel für verschiedene Lieferanten. Mit den Filtern oben wechseln Sie zwischen den Listen.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 7 abspielen: Erste Offerte erstellen und senden"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 7</span><span class="v-dauer">0:60</span></div>
+            <h3>Erste Offerte erstellen und senden</h3>
+            <p class="v-sum">Eine Schweizer Offerte erstellen und als PDF oder Word per E-Mail senden.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Wählen Sie «Beleg anlegen» und als Art «Offerte». Kunde wählen, Betreff eingeben, Positionen hinzufügen – die MWST rechnet DEXXUS selbst. Im letzten Schritt klicken Sie auf «In DEXXUS speichern» und danach auf «Per E-Mail senden».»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 8 abspielen: Offerte in Rechnung umwandeln"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 8</span><span class="v-dauer">0:40</span></div>
+            <h3>Offerte in Rechnung umwandeln</h3>
+            <p class="v-sum">Aus einer angenommenen Offerte mit einem Klick eine QR-Rechnung machen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Belege» und wählen Sie die Offerte. Klicken Sie auf «Beleg umwandeln» und dann auf «Rechnung». DEXXUS übernimmt alle Positionen und erstellt die Rechnung mit Schweizer QR-Zahlteil.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 9 abspielen: Mahnungen und fällige Posten"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 9</span><span class="v-dauer">0:50</span></div>
+            <h3>Mahnungen und fällige Posten</h3>
+            <p class="v-sum">Überfällige Rechnungen erkennen und Mahnungen in Stufen erstellen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«In «Rechnungen» sind überfällige Posten rot markiert. Wählen Sie die Rechnung und klicken Sie auf «Mahnung erstellen». DEXXUS wählt die nächste Mahnstufe und übernimmt Betrag und Fälligkeit automatisch.»</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="block" id="block-sh" aria-labelledby="t-sh">
+      <div class="b-head"><span class="mod sh" aria-hidden="true">SH</span><div><h2 id="t-sh">KI-Assistent &amp; Datenschutz</h2><p>Dokumente, lokale KI und DEXXUS Shield · 4 Videos</p></div></div>
+      <div class="videos">
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 10 abspielen: Dokumente importieren"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 10</span><span class="v-dauer">0:45</span></div>
+            <h3>Dokumente importieren</h3>
+            <p class="v-sum">PDFs, Scans und E-Mails einlesen – mit automatischer Texterkennung.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Dokumente importieren» und ziehen Sie Dateien oder ganze Ordner in das Feld. Gescannte PDFs werden automatisch gelesen. In der Liste sehen Sie, welche Dokumente fertig sind.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 11 abspielen: Lokalen KI-Assistenten befragen"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 11</span><span class="v-dauer">0:45</span></div>
+            <h3>Lokalen KI-Assistenten befragen</h3>
+            <p class="v-sum">In Ihren Dokumenten suchen und Fragen stellen – direkt auf dem PC.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «KI-Suche» und stellen Sie Ihre Frage in eigenen Worten, zum Beispiel: «Welche Verträge laufen 2027 aus?» Die lokale KI antwortet mit Quellenangabe. Ihre Dokumente verlassen dabei den PC nicht.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 12 abspielen: DEXXUS Shield nutzen"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 12</span><span class="v-dauer">0:55</span></div>
+            <h3>DEXXUS Shield nutzen</h3>
+            <p class="v-sum">Personendaten werden vor jeder Online-Anfrage automatisch geschwärzt.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Laden Sie ein Dokument in «DEXXUS Shield». Links sehen Sie das Original, rechts die geschwärzte Fassung mit Platzhaltern. Prüfen Sie die Vorschau und klicken Sie auf «Geschwärzt senden». Die Antwort setzt DEXXUS lokal wieder mit den echten Daten zusammen.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 13 abspielen: Für jede KI schwärzen"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 13</span><span class="v-dauer">0:40</span></div>
+            <h3>Für jede KI schwärzen</h3>
+            <p class="v-sum">Text geschwärzt kopieren und in ChatGPT, Copilot oder Gemini einfügen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Fügen Sie Ihren Text in «Für jede KI schwärzen» ein. DEXXUS ersetzt Namen, Adressen und Nummern durch Platzhalter. Klicken Sie auf «Geschwärzt kopieren» und fügen Sie den Text in Ihre gewohnte KI ein.»</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="block" id="block-vm" aria-labelledby="t-vm">
+      <div class="b-head"><span class="mod vm" aria-hidden="true">VM</span><div><h2 id="t-vm">Die Helfer</h2><p>Virtuelles Team, Buchhaltung, Tresor, DataSweep, Zeiterfassung · 5 Videos</p></div></div>
+      <div class="videos">
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 14 abspielen: Virtuelles Team einrichten"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 14</span><span class="v-dauer">0:55</span></div>
+            <h3>Virtuelles Team einrichten</h3>
+            <p class="v-sum">Software-Assistenten einrichten und ihnen Pflichtenhefte zuteilen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Virtuelles Team» und wählen Sie einen Assistenten. Unter «Pflichtenheft» legen Sie fest, was er erledigen darf und was Ihre Freigabe braucht. Alles, was nach aussen geht, bleibt ein Entwurf, bis Sie zustimmen.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 15 abspielen: Export für den Treuhänder"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 15</span><span class="v-dauer">0:40</span></div>
+            <h3>Export für den Treuhänder</h3>
+            <p class="v-sum">Belege und Zahlungen als Excel oder CSV für den Treuhänder exportieren.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Buchhaltung &amp; Export» und wählen Sie den Zeitraum, zum Beispiel das letzte Quartal. Klicken Sie auf «Export erstellen» und wählen Sie Excel oder CSV. Die Datei können Sie direkt Ihrem Treuhänder senden.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 16 abspielen: Datentresor nutzen"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 16</span><span class="v-dauer">0:45</span></div>
+            <h3>Datentresor nutzen</h3>
+            <p class="v-sum">Kennwörter, Ausweise und Verträge mit AES-256 verschlüsselt ablegen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Öffnen Sie «Datentresor» und geben Sie Ihr Tresor-Passwort ein. Ziehen Sie Dateien hinein oder erfassen Sie Kennwörter. Beim Schliessen wird alles verschlüsselt – ohne Passwort kann niemand die Daten lesen.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 17 abspielen: DataSweep: Dubletten finden"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 17</span><span class="v-dauer">0:50</span></div>
+            <h3>DataSweep: Dubletten finden</h3>
+            <p class="v-sum">Doppelte Dateien finden und Speicherplatz sicher freigeben.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Wählen Sie in «DataSweep» einen Ordner und klicken Sie auf «Suchen». DEXXUS zeigt doppelte Dateien in Gruppen. Markierte Dubletten kommen zuerst in die Quarantäne und lassen sich jederzeit zurückholen.»</p>
+            </details>
+          </div>
+        </article>
+        <article class="video">
+          <button class="play" type="button" aria-label="Video 18 abspielen: Zeiterfassung und Honorarnote"><span class="tri" aria-hidden="true"></span></button>
+          <div class="v-body">
+            <div class="v-top"><span class="v-num">Video 18</span><span class="v-dauer">0:45</span></div>
+            <h3>Zeiterfassung und Honorarnote</h3>
+            <p class="v-sum">Zeit per Stoppuhr erfassen und direkt verrechnen.</p>
+            <details class="v-skript">
+              <summary>Sprechertext</summary>
+              <p>«Wählen Sie in «Zeiterfassung» den Kunden, geben Sie den Grund ein und klicken Sie auf «Start». Beim Stopp wird die Zeit beim Kunden eingetragen. Über «Aktionen» übernehmen Sie die offenen Zeiten direkt in eine Rechnung.»</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+</main>
+
+</div>
+</main>
+<footer class="dxw-foot"><div class="in">
+  <span>© 2026 avotec AG · 8602 Wangen ZH</span>
+  <span style="flex:1"></span>
+  <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+</div></footer>
+</body>
+</html>

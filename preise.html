@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEXXUS Preise und Pakete</title>
+<meta name="description" content="DEXXUS Preise: Starter und Privat einmalig, KMU Pro und Enterprise im Abo – inkl. 8.1 % MWST.">
+<link rel="canonical" href="https://dexxus.ch/preise.html">
+<meta property="og:title" content="DEXXUS Preise und Pakete">
+<meta property="og:description" content="DEXXUS Preise: Starter und Privat einmalig, KMU Pro und Enterprise im Abo – inkl. 8.1 % MWST.">
+<meta property="og:url" content="https://dexxus.ch/preise.html">
+<meta property="og:type" content="website">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body { margin: 0; background: #FFFFFF; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0F172A; -webkit-font-smoothing: antialiased; }
+
+  .dxw-top { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid #E2E8F0; }
+  .dxw-top .in { max-width: 1120px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; gap: 24px; }
+  .dxw-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A; font-weight: 700; letter-spacing: .02em; }
+  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #fff; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
+  .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .dxw-menu a:hover { color: #0F172A; }
+  .dxw-sp { flex: 1; }
+  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #fff !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-btn:hover { background: #1D4ED8; }
+  .dxw-foot { border-top: 1px solid #E2E8F0; background: #FFFFFF; }
+  .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
+  .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
+  .dxw-foot a:hover { color: #0F172A; }
+  .dxw-vorschau { background: #FFFBEB; color: #92400E; text-align: center; font-size: 12.5px; font-weight: 600; padding: 6px 16px; border-bottom: 1px solid #FDE68A; }
+  @media (max-width: 860px) { .dxw-menu { display: none; } }
+
+#w-preise {
+    --white: #FFFFFF; --canvas: #F8F9FA; --line: #E2E8F0; --line-soft: #F1F5F9;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --re: #4F46E5; --qs: #059669; --tr: #D97706; --sh: #0891B2; --bh: #C53030; --vm: #7C3AED; --ze: #65A30D; --ti: #DC2626; --ma: #57534E;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-preise * { box-sizing: border-box; }
+#w-preise { margin: 0; }
+#w-preise { background: var(--canvas); color: var(--text); font: 15px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+#w-preise .hero { background: var(--white); border-bottom: 1px solid var(--line); }
+#w-preise .hero .in { max-width: 1160px; margin: 0 auto; padding: 64px 16px 40px; text-align: center; }
+#w-preise .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #047857; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 4px 12px; border-radius: 99px; }
+#w-preise .hero h1 { margin: 18px auto 0; max-width: 760px; font-size: 42px; line-height: 1.12; font-weight: 750; letter-spacing: -.03em; }
+#w-preise .hero p.l { margin: 16px auto 0; max-width: 640px; font-size: 17.5px; color: var(--text-2); }
+#w-preise .mwst { margin-top: 10px; font-size: 13px; color: var(--muted); }
+#w-preise .laufzeit { margin: 28px auto 0; display: inline-flex; align-items: center; gap: 4px; padding: 4px; background: var(--canvas); border: 1px solid var(--line); border-radius: 12px; }
+#w-preise .laufzeit button { position: relative; height: 40px; padding: 0 18px; border: 0; border-radius: 9px; background: transparent; font: 600 14.5px var(--font); color: var(--text-2); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+#w-preise .laufzeit button:hover { color: var(--text); }
+#w-preise .laufzeit button[aria-checked="true"] { background: var(--white); color: var(--text); box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 0 0 1px var(--line); }
+#w-preise .laufzeit button:focus-visible { outline: 2px solid var(--db); outline-offset: 2px; }
+#w-preise .rabatt { font-size: 11.5px; font-weight: 700; color: #047857; background: #ECFDF5; padding: 1px 7px; border-radius: 99px; }
+#w-preise .laufzeit-info { margin-top: 10px; font-size: 13px; color: var(--muted); min-height: 20px; }
+#w-preise .raster { max-width: 1160px; margin: 0 auto; padding: 40px 16px 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+#w-preise .paket { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 26px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+#w-preise .paket.top { border: 2px solid var(--db); box-shadow: 0 18px 44px rgba(37,99,235,.14); }
+#w-preise .band { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--db); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .07em; padding: 4px 12px; border-radius: 99px; white-space: nowrap; }
+#w-preise .paket h2 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+#w-preise .art { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+#w-preise .hook { margin: 0; font-size: 14px; color: var(--text-2); min-height: 66px; }
+#w-preise .preis { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+#w-preise .preis .betrag { font-size: 34px; font-weight: 750; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+#w-preise .preis .einheit { font-size: 14px; color: var(--muted); }
+#w-preise .preis .alt { font-size: 14px; color: var(--muted); text-decoration: line-through; }
+#w-preise .vorauszahlung { font-size: 13px; color: var(--text-2); background: var(--canvas); border: 1px solid var(--line-soft); border-radius: 9px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+#w-preise .vorauszahlung b { color: var(--text); }
+#w-preise .anrechnung { font-size: 12.5px; color: #047857; font-weight: 600; }
+#w-preise .cta { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 11px; font-weight: 650; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--white); }
+#w-preise .cta:hover { background: var(--canvas); }
+#w-preise .cta.primaer { background: var(--db); border-color: var(--db); color: #fff; }
+#w-preise .cta.primaer:hover { background: #1D4ED8; }
+#w-preise .cta:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+#w-preise .liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; border-top: 1px solid var(--line-soft); padding-top: 14px; }
+#w-preise .liste li { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--text-2); }
+#w-preise .liste li b { color: var(--text); font-weight: 600; }
+#w-preise .liste .plus { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+#w-preise .mod { flex: none; width: 24px; height: 24px; border-radius: 6px; color: #fff; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+#w-preise .mod.db { background: var(--db); }
+#w-preise .mod.re { background: var(--re); }
+#w-preise .mod.qs { background: var(--qs); }
+#w-preise .mod.tr { background: var(--tr); }
+#w-preise .mod.sh { background: var(--sh); }
+#w-preise .mod.bh { background: var(--bh); }
+#w-preise .mod.vm { background: var(--vm); }
+#w-preise .mod.ze { background: var(--ze); }
+#w-preise .mod.ti { background: var(--ti); }
+#w-preise .mod.ma { background: var(--ma); }
+#w-preise .haken { flex: none; width: 24px; height: 24px; border-radius: 6px; background: #ECFDF5; color: #047857; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+#w-preise .unten { max-width: 1160px; margin: 0 auto; padding: 8px 16px 72px; display: grid; gap: 18px; }
+#w-preise .karte { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; }
+#w-preise .karte h3 { margin: 0 0 8px; font-size: 18px; }
+#w-preise .klein { font-size: 12.5px; color: var(--muted); }
+@media (max-width: 1080px) {
+#w-preise .raster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+#w-preise .raster { grid-template-columns: 1fr; }
+#w-preise .hero h1 { font-size: 30px; }
+#w-preise .hero .in { padding-top: 44px; }
+#w-preise .laufzeit { display: flex; width: 100%; }
+#w-preise .laufzeit button { flex: 1; justify-content: center; padding: 0 8px; }
+#w-preise .hook { min-height: 0; }
+}#w-sicher {
+    --white: #FFFFFF; --panel: #F8FAFC; --line: #E2E8F0;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --sh: #0891B2; --tr: #D97706;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-sicher * { box-sizing: border-box; }
+#w-sicher { margin: 0; }
+#w-sicher { background: var(--panel); color: var(--text); font: 15px/1.65 var(--font); -webkit-font-smoothing: antialiased; }
+#w-sicher .section { padding: 72px 16px 80px; }
+#w-sicher .wrap { max-width: 1080px; margin: 0 auto; }
+#w-sicher .card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+#w-sicher .head { padding: 40px 40px 28px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start; }
+#w-sicher .badge { width: 56px; height: 56px; border-radius: 14px; background: var(--sh); color: #fff; font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; justify-content: center; }
+#w-sicher .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--sh); margin-bottom: 6px; }
+#w-sicher h2 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-sicher .lead { margin: 12px 0 0; font-size: 17px; color: var(--text-2); max-width: 720px; }
+#w-sicher .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#w-sicher .item { padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 12px; }
+#w-sicher .item + .item { border-left: 1px solid var(--line); }
+#w-sicher .top { display: flex; align-items: center; gap: 12px; }
+#w-sicher .mod { flex: none; width: 38px; height: 38px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; }
+#w-sicher .mod.db { background: var(--db); }
+#w-sicher .mod.sh { background: var(--sh); }
+#w-sicher .mod.tr { background: var(--tr); }
+#w-sicher .item h3 { margin: 0; font-size: 17.5px; line-height: 1.35; font-weight: 650; }
+#w-sicher .item p { margin: 0; color: var(--text-2); }
+#w-sicher .item ul { margin: 2px 0 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+#w-sicher .item li { position: relative; padding-left: 20px; font-size: 14.5px; color: var(--text-2); }
+#w-sicher .item li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: var(--sh); }
+#w-sicher .item.db li::before { background: var(--db); }
+#w-sicher .item.tr li::before { background: var(--tr); }
+#w-sicher .flow { margin: 0 40px 32px; padding: 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; font-size: 14px; font-weight: 600; }
+#w-sicher .flow .box { padding: 7px 14px; background: #fff; border: 1px solid var(--line); border-radius: 9px; }
+#w-sicher .flow .box.sh { border-color: #A5F3FC; background: #ECFEFF; color: #155E75; }
+#w-sicher .flow .pfeil { color: var(--muted); }
+#w-sicher .foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 22px 40px; border-top: 1px solid var(--line); }
+#w-sicher .foot p { margin: 0; flex: 1; min-width: 260px; font-size: 13px; color: var(--muted); }
+#w-sicher .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 12px; background: var(--db); color: #fff; font-weight: 650; font-size: 15px; text-decoration: none; }
+#w-sicher .btn:hover { background: #1D4ED8; }
+#w-sicher .btn:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+@media (max-width: 900px) {
+#w-sicher .grid { grid-template-columns: 1fr; }
+#w-sicher .item + .item { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 600px) {
+#w-sicher .head { grid-template-columns: 1fr; padding: 28px 20px 22px; }
+#w-sicher .item { padding: 24px 20px; }
+#w-sicher .flow { margin: 0 20px 24px; }
+#w-sicher .foot { padding: 20px; }
+#w-sicher h2 { font-size: 26px; }
+}#w-mehrplatz { --white: #FFFFFF; --panel: #F8FAFC; --line: #E2E8F0; --text: #1E293B; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --bh: #C53030; --tr: #D97706; --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; }
+#w-mehrplatz * { box-sizing: border-box; }
+#w-mehrplatz { margin: 0; }
+#w-mehrplatz { background: var(--white); color: var(--text); font: 15px/1.65 var(--font); -webkit-font-smoothing: antialiased; }
+#w-mehrplatz .section { padding: 72px 16px 80px; }
+#w-mehrplatz .wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 22px; }
+#w-mehrplatz .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--db); margin-bottom: 8px; }
+#w-mehrplatz h2 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-mehrplatz .lead { margin: 12px 0 0; font-size: 17px; color: var(--text-2); max-width: 720px; }
+#w-mehrplatz .mod { flex: none; width: 40px; height: 40px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+#w-mehrplatz .mod.db { background: var(--db); }
+#w-mehrplatz .mod.bh { background: var(--bh); }
+#w-mehrplatz .mod.tr { background: var(--tr); }
+#w-mehrplatz .heute { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+#w-mehrplatz .heute-kopf { padding: 18px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+#w-mehrplatz .heute-kopf b { font-size: 17px; }
+#w-mehrplatz .pill { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 99px; }
+#w-mehrplatz .pill.gruen { background: #ECFDF5; color: #047857; }
+#w-mehrplatz .pill.amber { background: #FFFBEB; color: #B45309; }
+#w-mehrplatz .schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#w-mehrplatz .schritt { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+#w-mehrplatz .schritt + .schritt { border-left: 1px solid var(--line); }
+#w-mehrplatz .schritt .top { display: flex; align-items: center; gap: 12px; }
+#w-mehrplatz .schritt .nr { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+#w-mehrplatz .schritt h3 { margin: 0; font-size: 17px; }
+#w-mehrplatz .schritt p { margin: 0; color: var(--text-2); font-size: 14.5px; }
+#w-mehrplatz .zwei { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+#w-mehrplatz .karte { border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; background: var(--white); }
+#w-mehrplatz .karte h3 { margin: 0 0 8px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+#w-mehrplatz .karte ul { margin: 0; padding-left: 18px; color: var(--text-2); display: grid; gap: 5px; font-size: 14.5px; }
+#w-mehrplatz .hinweis { border: 1px solid #FDE68A; border-left: 3px solid var(--tr); background: #FFFBEB; border-radius: 12px; padding: 16px 20px; color: #78350F; }
+#w-mehrplatz .hinweis b { display: block; margin-bottom: 4px; color: #92400E; }
+#w-mehrplatz .download { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; background: var(--panel); }
+#w-mehrplatz .download .titel { font-weight: 700; }
+#w-mehrplatz .download .meta { font-size: 13px; color: var(--muted); }
+#w-mehrplatz .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 11px; background: var(--tr); color: #fff; font-weight: 650; font-size: 15px; text-decoration: none; white-space: nowrap; }
+#w-mehrplatz .btn:hover { background: #B45309; }
+#w-mehrplatz .btn:focus-visible { outline: 3px solid #FCD34D; outline-offset: 3px; }
+#w-mehrplatz .preise-mp { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+#w-mehrplatz .preise-mp .kopf { padding: 18px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+#w-mehrplatz .preise-mp .kopf b { font-size: 17px; }
+#w-mehrplatz .pakete-mp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#w-mehrplatz .pk { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; }
+#w-mehrplatz .pk + .pk { border-left: 1px solid var(--line); }
+#w-mehrplatz .pk h3 { margin: 0; font-size: 17px; }
+#w-mehrplatz .pk .preis { font-size: 26px; font-weight: 750; letter-spacing: -.02em; }
+#w-mehrplatz .pk .preis small { font-size: 13px; font-weight: 500; color: var(--muted); }
+#w-mehrplatz .pk p { margin: 0; color: var(--text-2); font-size: 14px; }
+#w-mehrplatz .pk.einmal { background: var(--panel); }
+#w-mehrplatz table.bsp { width: 100%; border-collapse: collapse; font-size: 14px; }
+#w-mehrplatz table.bsp th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; padding: 10px 24px; background: #FBFBFC; border-top: 1px solid var(--line); border-bottom: 1px solid #F1F5F9; }
+#w-mehrplatz table.bsp td { padding: 11px 24px; border-bottom: 1px solid #F1F5F9; }
+#w-mehrplatz table.bsp .r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#w-mehrplatz .klein { font-size: 12.5px; color: var(--muted); padding: 12px 24px 16px; margin: 0; }
+#w-mehrplatz .it { border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+#w-mehrplatz .it h3 { margin: 0 0 10px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+#w-mehrplatz .it .spalten { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+#w-mehrplatz .it h4 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+#w-mehrplatz .it ul { margin: 0; padding-left: 18px; color: var(--text-2); display: grid; gap: 5px; font-size: 14.5px; }
+@media (max-width: 900px) {
+#w-mehrplatz .pakete-mp, #w-mehrplatz .it .spalten { grid-template-columns: 1fr; }
+#w-mehrplatz .pk + .pk { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 900px) {
+#w-mehrplatz .schritte, #w-mehrplatz .zwei { grid-template-columns: 1fr; }
+#w-mehrplatz .schritt + .schritt { border-left: 0; border-top: 1px solid var(--line); }
+#w-mehrplatz .download { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+#w-mehrplatz h2 { font-size: 26px; }
+#w-mehrplatz .section { padding-top: 48px; }
+}
+</style>
+</head>
+<body>
+<header class="dxw-top"><div class="in">
+  <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
+  <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html#funktionen">Funktionen</a>
+    <a href="index.html#faq">Häufige Fragen</a>
+    <a href="preise.html">Preise</a>
+    <a href="partner.html">Partner</a>
+    <a href="hilfe.html">Hilfe</a>
+  </nav>
+  <div class="dxw-sp"></div>
+  <a class="dxw-btn" href="index.html#download">Kostenlos testen</a>
+</div></header><main><div id="w-preise">
+
+
+<!-- ================= TEIL 1: KOPFBEREICH UND LAUFZEIT-UMSCHALTER ================= -->
+<header class="hero">
+  <div class="in">
+    <span class="eyebrow">Schweizer Bürosoftware · Ihre Daten bleiben auf Ihrem PC</span>
+    <h1>Mehr Module. Tieferer Preis. Volle Datenhoheit.</h1>
+    <p class="l">Offerten, QR-Rechnungen, lokale KI, DEXXUS Shield und virtuelle Mitarbeiter – in einem Programm, das auf Ihrem eigenen Computer läuft.</p>
+    <p class="mwst">Alle Preise in CHF inkl. 8.1 % MWST.</p>
+
+    <div class="laufzeit" role="radiogroup" aria-label="Laufzeit der Abos wählen" id="laufzeit">
+      <button type="button" role="radio" aria-checked="true" data-jahre="1" data-rabatt="0">1 Jahr</button>
+      <button type="button" role="radio" aria-checked="false" data-jahre="2" data-rabatt="5">2 Jahre <span class="rabatt">−5 %</span></button>
+      <button type="button" role="radio" aria-checked="false" data-jahre="3" data-rabatt="10">3 Jahre <span class="rabatt">−10 %</span></button>
+    </div>
+    <p class="laufzeit-info" id="laufzeit-info" aria-live="polite">Laufzeit gilt für die Abos KMU Pro und KMU Enterprise.</p>
+  </div>
+</header>
+
+<!-- ================= TEIL 2: PAKETE ================= -->
+<main>
+<section class="raster" aria-label="Pakete">
+  <article class="paket">
+    <span class="art">Einmalig · Fixpreis</span>
+    <h2>DEXXUS Starter</h2>
+    <p class="hook">Ideal für Selbständige und kleine Betriebe. Wird beim Wechsel auf ein grösseres Paket innert 3 Monaten voll angerechnet.</p>
+    <div class="preis"><span class="betrag">CHF 19.90</span><span class="einheit">einmalig</span></div>
+    <span class="anrechnung">Voll anrechenbar innert 3 Monaten</span>
+    <a class="cta" href="#download">Starter kaufen</a>
+    <ul class="liste">
+      <li><span class="mod re">RE</span><span><b>ERP</b> – Offerten, Lieferscheine, Schweizer QR-Rechnung</span></li>
+      <li><span class="mod db">DB</span><span><b>Dashboard</b> mit To-do</span></li>
+      <li><span class="haken">✓</span><span>Kunden- und Artikelkartei</span></li>
+      <li><span class="mod ma">MA</span><span>Fall- und Aktenverwaltung</span></li>
+    </ul>
+  </article>
+
+  <article class="paket">
+    <span class="art">Einmalig · Fixpreis</span>
+    <h2>DEXXUS Privat</h2>
+    <p class="hook">Maximaler Datenschutz für Fachleute und Privatpersonen. Wird beim Wechsel innert 3 Monaten voll angerechnet.</p>
+    <div class="preis"><span class="betrag">CHF 79.–</span><span class="einheit">einmalig</span></div>
+    <span class="anrechnung">Voll anrechenbar innert 3 Monaten</span>
+    <a class="cta" href="#download">Privat kaufen</a>
+    <ul class="liste">
+      <li class="plus">Alles aus Starter, plus:</li>
+      <li><span class="mod qs">QS</span><span><b>KI-Dokumentensuche</b> – PDFs und Scans lokal auswerten</span></li>
+      <li><span class="mod tr">TR</span><span><b>Datentresor</b> – AES-256 verschlüsselt</span></li>
+    </ul>
+  </article>
+
+  <article class="paket top" data-abo="29">
+    <span class="band">BESTSELLER · EMPFEHLUNG</span>
+    <span class="art">Abo</span>
+    <h2>DEXXUS KMU Pro</h2>
+    <p class="hook">Der Beschleuniger für Ihr Geschäft – starkes Preis-Leistungs-Verhältnis für Schweizer KMU.</p>
+    <div class="preis"><span class="alt" data-alt></span><span class="betrag" data-monat>CHF 29.–</span><span class="einheit">/ Monat</span></div>
+    <div class="vorauszahlung" data-total></div>
+    <a class="cta primaer" href="#download">KMU Pro wählen</a>
+    <ul class="liste">
+      <li class="plus">Alles aus Privat, plus:</li>
+      <li><span class="mod sh">SH</span><span><b>DEXXUS Shield</b> – Personendaten vor jeder KI-Anfrage schwärzen</span></li>
+      <li><span class="mod bh">BH</span><span><b>Buchhaltung &amp; Treuhand-Export</b></span></li>
+      <li><span class="mod vm">VM</span><span><b>Virtuelle Mitarbeiter</b> – Rechnungen, Mahnungen, Offerten nachfassen</span></li>
+    </ul>
+  </article>
+
+  <article class="paket" data-abo="49">
+    <span class="art">Abo</span>
+    <h2>DEXXUS KMU Enterprise</h2>
+    <p class="hook">Das umfassende Betriebssystem für Ihr Unternehmen.</p>
+    <div class="preis"><span class="alt" data-alt></span><span class="betrag" data-monat>CHF 49.–</span><span class="einheit">/ Monat</span></div>
+    <div class="vorauszahlung" data-total></div>
+    <a class="cta" href="#download">Enterprise wählen</a>
+    <ul class="liste">
+      <li class="plus">Alles aus KMU Pro, plus:</li>
+      <li><span class="mod ze">ZE</span><span><b>Zeiterfassung</b> – direkt in die Rechnung</span></li>
+      <li><span class="mod ti">TI</span><span><b>Ticket-Service</b> für Kundenanfragen</span></li>
+      <li><span class="haken">✓</span><span>Unbegrenzt Briefpapiere und Absender-Postfächer</span></li>
+    </ul>
+  </article>
+</section>
+
+<!-- ================= TEIL 3: HINWEISE UND PREISRECHNER ================= -->
+<section class="unten">
+  <div class="karte">
+    <h3>Gut zu wissen</h3>
+    <p class="klein" style="font-size:14px;color:var(--text-2);margin:0">Alle Preise in CHF inkl. 8.1 % MWST. Abos werden für die gewählte Laufzeit im Voraus bezahlt; bei 2 Jahren gilt 5 %, bei 3 Jahren 10 % Rabatt auf den Monatspreis. Testversion 30 Tage kostenlos, ohne Kreditkarte.</p>
+  </div>
+  <p class="klein">Stand November 2026 · Preise und Leistungen gemäss aktueller Preisliste der avotec AG.</p>
+</section>
+</main>
+
+<script>
+  (function () {
+    function chf(x) { var t = x.toFixed(2); return "CHF " + t.replace(/\B(?=(\d{3})+(?!\d)(?=\.))/g, "'").replace(/\.00$/, ".–"); }
+    function chfGenau(x) { return "CHF " + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
+    var knoepfe = document.querySelectorAll("#laufzeit button");
+    function rechnen(jahre, rabatt) {
+      document.querySelectorAll("[data-abo]").forEach(function (p) {
+        var basis = parseFloat(p.getAttribute("data-abo"));
+        var monat = Math.round(basis * (1 - rabatt / 100) * 100) / 100;
+        var total = Math.round(monat * 12 * jahre * 100) / 100;
+        p.querySelector("[data-monat]").textContent = rabatt ? chfGenau(monat) : chf(monat);
+        p.querySelector("[data-alt]").textContent = rabatt ? chf(basis) : "";
+        p.querySelector("[data-total]").innerHTML = "Vorauszahlung " + jahre + (jahre === 1 ? " Jahr" : " Jahre") + ": <b>" + chfGenau(total) + "</b>" +
+          (rabatt ? " · Sie sparen " + chfGenau(basis * 12 * jahre - total) : "");
+      });
+      document.getElementById("laufzeit-info").textContent = rabatt ? "Laufzeit " + jahre + " Jahre: " + rabatt + " % Rabatt auf die Abos KMU Pro und KMU Enterprise." : "Laufzeit gilt für die Abos KMU Pro und KMU Enterprise.";
+    }
+    knoepfe.forEach(function (b) {
+      b.addEventListener("click", function () {
+        knoepfe.forEach(function (x) { x.setAttribute("aria-checked", x === b ? "true" : "false"); });
+        rechnen(parseInt(b.getAttribute("data-jahre"), 10), parseFloat(b.getAttribute("data-rabatt")));
+      });
+      b.addEventListener("keydown", function (e) {
+        var i = [].indexOf.call(knoepfe, b);
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); var n = knoepfe[(i + (e.key === "ArrowRight" ? 1 : knoepfe.length - 1)) % knoepfe.length]; n.focus(); n.click(); }
+      });
+    });
+    rechnen(1, 0);
+  })();
+</script>
+
+</div><div id="w-mehrplatz">
+
+<section class="section" id="mehrplatz" aria-labelledby="mp-titel">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Mehrplatz &amp; Netzwerk</span>
+      <h2 id="mp-titel">DEXXUS im Netzwerk: gemeinsam arbeiten – ohne Cloud.</h2>
+      <p class="lead">Mehrere Arbeitsplätze greifen auf dieselben Kunden, Belege und Rechnungen zu – auf einem Server in Ihrem eigenen Firmennetzwerk.</p>
+    </div>
+
+    <div class="heute">
+      <div class="heute-kopf"><b>So funktioniert es heute</b><span class="pill gruen">verfügbar</span><span style="color:var(--muted);font-size:13.5px">Windows-Server mit Remotedesktop</span></div>
+      <div class="schritte">
+        <article class="schritt">
+          <div class="top"><span class="mod bh" aria-hidden="true">BH</span><span class="nr">Schritt 1</span></div>
+          <h3>Zentraler Server</h3>
+          <p>Ihre IT richtet einen Windows-Server oder einen immer eingeschalteten Haupt-PC mit Remotedesktop-Diensten ein. Dort liegen Programm und Datenbank – in Ihrem Büro, nicht in einer Cloud.</p>
+        </article>
+        <article class="schritt">
+          <div class="top"><span class="mod db" aria-hidden="true">DB</span><span class="nr">Schritt 2</span></div>
+          <h3>DEXXUS auf dem Server</h3>
+          <p>DEXXUS wird einmal auf dem Server installiert. Alle Daten – Kunden, Artikel, Belege, Dokumente – bleiben an einem Ort.</p>
+        </article>
+        <article class="schritt">
+          <div class="top"><span class="mod tr" aria-hidden="true">TR</span><span class="nr">Schritt 3</span></div>
+          <h3>Arbeitsplätze verbinden</h3>
+          <p>Die Mitarbeitenden melden sich per Remotedesktop am Server an und arbeiten mit derselben DEXXUS-Installation. Neue Kunden und Rechnungen sind sofort für alle sichtbar.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="zwei">
+      <div class="karte">
+        <h3>Voraussetzungen bei Ihnen</h3>
+        <ul>
+          <li>Windows-Server bzw. Haupt-PC mit Remotedesktop-Diensten und den nötigen Windows-Lizenzen</li>
+          <li>Stabiles Firmennetzwerk (LAN) oder sichere VPN-Verbindung für Aussenstellen</li>
+          <li>Regelmässige Datensicherung des Servers</li>
+          <li>Ein DEXXUS-Netzwerk-Paket (3 oder 4–8 Arbeitsplätze) zu KMU Pro oder KMU Enterprise</li>
+        </ul>
+      </div>
+      <div class="karte">
+        <h3>In Vorbereitung <span class="pill amber">geplant</span></h3>
+        <ul>
+          <li>Zentrale Datenbank im Firmennetz – DEXXUS direkt auf jedem PC installiert</li>
+          <li>Benutzer und Rechte pro Mitarbeitende</li>
+          <li>Hinweis, wenn ein Beleg gerade von jemand anderem bearbeitet wird</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="preise-mp" id="netzwerk-preise">
+      <div class="kopf"><span class="mod db" aria-hidden="true">DB</span><b>Netzwerk-Pakete</b><span style="color:var(--muted);font-size:13.5px">zu DEXXUS KMU Pro oder KMU Enterprise · Preise in CHF inkl. 8.1 % MWST</span></div>
+      <div class="pakete-mp">
+        <article class="pk einmal">
+          <h3>Netzwerklizenz</h3>
+          <div class="preis">CHF 290.– <small>einmalig</small></div>
+          <p>Freischaltung des Mehrplatz-Betriebs, einmal pro Firma.</p>
+        </article>
+        <article class="pk">
+          <h3>Netzwerk 3</h3>
+          <div class="preis">+ CHF 38.– <small>/ Monat</small></div>
+          <p>3 Arbeitsplätze: Grundgebühr Ihres Pakets plus 2 Arbeitsplätze zu je CHF 19.–.</p>
+        </article>
+        <article class="pk">
+          <h3>Netzwerk 4–8</h3>
+          <div class="preis">+ CHF 38.– <small>/ Monat</small></div>
+          <p>Grundgebühr plus 2 Arbeitsplätze zu je CHF 19.–, jeder weitere Arbeitsplatz (3. bis 7. zusätzlicher) CHF 12.–.</p>
+        </article>
+      </div>
+      <table class="bsp">
+        <thead><tr><th>Beispiel pro Monat</th><th class="r">mit KMU Pro (CHF 29.–)</th><th class="r">mit KMU Enterprise (CHF 49.–)</th></tr></thead>
+        <tbody>
+          <tr><td>3 Arbeitsplätze</td><td class="r">CHF 67.–</td><td class="r">CHF 87.–</td></tr>
+          <tr><td>4 Arbeitsplätze</td><td class="r">CHF 79.–</td><td class="r">CHF 99.–</td></tr>
+          <tr><td>5 Arbeitsplätze</td><td class="r">CHF 91.–</td><td class="r">CHF 111.–</td></tr>
+          <tr><td>6 Arbeitsplätze</td><td class="r">CHF 103.–</td><td class="r">CHF 123.–</td></tr>
+          <tr><td>8 Arbeitsplätze</td><td class="r">CHF 127.–</td><td class="r">CHF 147.–</td></tr>
+        </tbody>
+      </table>
+      <p class="klein">Grundgebühr = Monatspreis Ihres Pakets (KMU Pro CHF 29.– bzw. KMU Enterprise CHF 49.–); Laufzeit-Rabatt (2 Jahre −5 %, 3 Jahre −10 %) gilt auf das Paket. Dazu einmalig die Netzwerklizenz CHF 290.–. Mehr als 8 Arbeitsplätze auf Anfrage.</p>
+    </div>
+
+    <div class="it" id="installation-it">
+      <h3><span class="mod bh" aria-hidden="true">BH</span>Installation und Betreuung durch Ihre IT</h3>
+      <div class="spalten">
+        <div>
+          <h4>Das übernimmt Ihre IT bzw. Ihr IT-Partner</h4>
+          <ul>
+            <li>Bereitstellen von Server bzw. Haupt-PC (Windows) und Netzwerk</li>
+            <li>Installation von DEXXUS auf dem Server und Einrichten der Arbeitsplätze</li>
+            <li>Benutzerkonten, Freigaben, Firewall und VPN für Aussenstellen</li>
+            <li>Datensicherung, Updates von Windows und Virenschutz</li>
+            <li>Störungen an Netzwerk, Router, Server oder Arbeitsplätzen</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Das übernimmt DEXXUS</h4>
+          <ul>
+            <li>Software und Lizenz für die gewählten Arbeitsplätze</li>
+            <li>Anleitung für Ihre IT (Unterlagen per E-Mail anfordern)</li>
+            <li>Support per E-Mail für Fragen zu den Software-Funktionen</li>
+            <li>Keine Installation, keine Einrichtung und keinen Support vor Ort oder per Fernwartung</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hinweis" role="note">
+      <b>Support und Zuständigkeit</b>
+      Der Support von DEXXUS erfolgt ausschliesslich per E-Mail für die Software-Kernfunktionen. Die Installation, Einrichtung, Wartung und Absicherung von Server, Arbeitsplätzen, Netzwerk und Netzlaufwerken erfolgt durch Sie selbst oder Ihren lokalen IT-Partner. DEXXUS bietet dafür keinen Support – weder vor Ort noch per Fernwartung.
+    </div>
+
+    <div class="download">
+      <span class="mod tr" aria-hidden="true">TR</span>
+      <div>
+        <div class="titel">Dokumentation für IT-Dienstleister &amp; Systemhäuser</div>
+        <div class="meta">Unterlagen für die Einrichtung der DEXXUS-Mehrplatz-Umgebung im Firmennetzwerk · Deutsch (CH)</div>
+      </div>
+      <a class="btn" href="mailto:info@dexxus.ch?subject=IT-Partner-Unterlagen%20DEXXUS%20Mehrplatz">Unterlagen anfordern</a>
+    </div>
+  </div>
+</section>
+
+</div><div id="w-sicher">
+
+  <section class="section" id="sicherheit" aria-labelledby="sicherheit-titel">
+    <div class="wrap">
+      <div class="card">
+        <div class="head">
+          <span class="badge" aria-hidden="true">SH</span>
+          <div>
+            <span class="eyebrow">Sicherheits-Garantie</span>
+            <h2 id="sicherheit-titel">Warum nicht einfach auf die Cloud warten?</h2>
+            <p class="lead">Weil Datenschutz bei DEXXUS keine Zusatzfunktion ist, sondern die Bauweise. Ihre Daten liegen auf Ihrem PC – und bevor etwas eine KI im Internet erreicht, schwärzt DEXXUS Shield die Personendaten lokal.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="item db">
+            <div class="top"><span class="mod db" aria-hidden="true">DB</span><h3>Lokale Hoheit statt Cloud-Pflicht</h3></div>
+            <p>Cloud-Lösungen verarbeiten Ihre Daten auf den Servern des Anbieters – das gehört zu ihrer Bauweise. DEXXUS ist von Grund auf für den Betrieb auf Ihrem eigenen Computer gebaut.</p>
+            <ul>
+              <li>Programm, Datenbank und lokale KI auf Ihrem PC</li>
+              <li>Arbeiten auch ohne Internetverbindung</li>
+              <li>Kein Konto bei einem Cloud-Anbieter nötig</li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div class="top"><span class="mod sh" aria-hidden="true">SH</span><h3>Shield schützt auch Ihre anderen Programme</h3></div>
+            <p>DEXXUS Shield ist nicht nur Teil des ERP. Texte aus bexio, Abacus, SelectLine, Word oder E-Mails werden eingefügt, lokal geschwärzt und erst dann weitergegeben.</p>
+            <ul>
+              <li>Namen, Adressen, AHV-Nummern und IBAN werden zu Platzhaltern</li>
+              <li>Vorschau zeigt genau, was hinausgeht</li>
+              <li>Antwort wird lokal wieder mit den echten Daten ergänzt</li>
+            </ul>
+          </article>
+
+          <article class="item tr">
+            <div class="top"><span class="mod tr" aria-hidden="true">TR</span><h3>Keine Bindung an einen KI-Anbieter</h3></div>
+            <p>Heute Claude, morgen ChatGPT oder Gemini: Die Schwärzung geschieht auf Ihrem PC und funktioniert unabhängig davon, welche KI Sie danach verwenden.</p>
+            <ul>
+              <li>Geschwärzt kopieren und in jede KI einfügen</li>
+              <li>Lokale KI für vertrauliche Fragen ganz ohne Internet</li>
+              <li>Sie entscheiden – nicht der Anbieter</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="flow" aria-label="So schützt DEXXUS Shield Ihre Daten">
+          <span class="box">Ihr Text aus jedem Programm</span><span class="pfeil" aria-hidden="true">→</span>
+          <span class="box sh">DEXXUS Shield schwärzt lokal</span><span class="pfeil" aria-hidden="true">→</span>
+          <span class="box">KI Ihrer Wahl</span><span class="pfeil" aria-hidden="true">→</span>
+          <span class="box sh">Echte Daten lokal wieder eingesetzt</span>
+        </div>
+
+        <div class="foot">
+          <p>Hinweis: Eine automatische Schwärzung erkennt nicht jede Angabe in jedem Zusammenhang. Prüfen Sie die Vorschau vor dem Senden – besonders bei Gesundheits- oder Strafverfahrensdaten.</p>
+          <a class="btn" href="#download">30 Tage kostenlos testen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div></main><footer class="dxw-foot"><div class="in">
+  <span>© 2026 avotec AG · 8602 Wangen ZH</span>
+  <span style="flex:1"></span>
+  <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+</div></footer>
+</body>
+</html>
