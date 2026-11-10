@@ -96,6 +96,12 @@
 @media (max-width: 1080px) {
 #w-preise .raster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+#w-preise .laufzeit button, #w-preise .rabatt { white-space: nowrap; }
+@media (max-width: 420px) {
+#w-preise .laufzeit { display: flex; width: 100%; max-width: 360px; }
+#w-preise .laufzeit button { flex: 1 1 auto; padding: 0 8px; gap: 5px; font-size: 13.5px; justify-content: center; }
+#w-preise .rabatt { font-size: 10.5px; padding: 1px 5px; }
+}
 @media (max-width: 620px) {
 #w-preise .raster { grid-template-columns: 1fr; }
 #w-preise .hero h1 { font-size: 30px; }
@@ -226,6 +232,14 @@
 @media (max-width: 600px) {
 #w-mehrplatz h2 { font-size: 26px; }
 #w-mehrplatz .section { padding-top: 48px; }
+}
+@media (max-width: 600px) {
+#w-mehrplatz table.bsp { font-size: 13px; }
+#w-mehrplatz table.bsp th, #w-mehrplatz table.bsp td { padding: 9px 10px; }
+#w-mehrplatz table.bsp th { font-size: 10.5px; letter-spacing: .02em; }
+#w-mehrplatz table.bsp th.r { white-space: normal; }
+#w-mehrplatz table.bsp td:first-child { word-break: normal; }
+#w-mehrplatz .preise-mp .kopf { padding: 14px 14px; }
 }
 </style>
 </head>
