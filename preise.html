@@ -26,6 +26,7 @@
   .dxw-sp { flex: 1; }
   .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #fff !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
   .dxw-btn:hover { background: #1D4ED8; }
+  @media (max-width: 380px) { .dxw-btn { height: 36px; padding: 0 12px; font-size: 13px; } .dxw-logo span { font-size: 15px; } }   /* 12.11.2026: Handy schmal / grosse Schrift */
   .dxw-foot { border-top: 1px solid #2563EB; background: #FAFAFF; }
   .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
   .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
@@ -267,6 +268,10 @@
 
 /* 12.11.2026: alle 4 Kästchen im Fluss in der Farbe des SH-Symbols */
 #w-sicher .flow .box, #w-sicher .flow .box.sh { background: #0891B2 !important; border-color: #0891B2 !important; color: #FAFAFF !important; font-weight: 600; }
+
+/* 12.11.2026: sehr schmale Handys / grosse Schrift */
+#w-mehrplatz .wrap { grid-template-columns: minmax(0, 1fr); } #w-mehrplatz .wrap > * { min-width: 0; } #w-mehrplatz { overflow-wrap: break-word; }
+@media (max-width: 360px) { #w-mehrplatz table.bsp { font-size: 12px; } #w-mehrplatz table.bsp th, #w-mehrplatz table.bsp td { padding: 8px 6px; } #w-mehrplatz table.bsp .r { white-space: normal; } }
 </style>
 </head>
 <body>
