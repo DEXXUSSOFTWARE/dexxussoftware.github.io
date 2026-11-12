@@ -162,6 +162,24 @@
 #w-funktionen .card { background: #FAFAFF !important; }
 #w-funktionen .tag, #w-funktionen .card.feature .tag { background: #FAFAFF !important; border: 1px solid #2563EB !important; }
 #w-faq .item { background: #FAFAFF !important; }
+
+/* 12.11.2026: Shield-Karte (unser Kern) + Klick auf Karte zeigt die Seite aus DEXXUS */
+#w-funktionen .mod.sh { background: #0891B2; }
+#w-funktionen .card.voll { grid-column: 1 / -1; }
+#w-funktionen .card[data-seite] { cursor: pointer; position: relative; }
+#w-funktionen .card[data-seite]:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+#w-funktionen .ansehen { font-size: 13.5px; font-weight: 700; color: #2563EB; }
+#w-funktionen .card[data-seite]:hover .ansehen { text-decoration: underline; }
+#w-funktionen .kern { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #FAFAFF; background: #0891B2; border-radius: 99px; padding: 2px 10px; vertical-align: middle; }
+.dx-lb { position: fixed; inset: 0; z-index: 9000; background: rgba(15,23,42,.6); display: none; align-items: center; justify-content: center; padding: 16px; }
+.dx-lb.an { display: flex; }
+.dx-lb-box { background: #FAFAFF; border-radius: 16px; width: 100%; max-width: 1120px; max-height: calc(100vh - 32px); overflow: auto; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.dx-lb-kopf { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #2563EB; }
+.dx-lb-kopf b { flex: 1; font-size: 17px; }
+.dx-lb-kopf .m { width: 34px; height: 34px; border-radius: 9px; color: #FAFAFF; font-weight: 800; font-size: 12.5px; display: grid; place-items: center; }
+.dx-lb-zu { border: 0; background: #DBEAFE; color: #1D4ED8; border-radius: 9px; height: 36px; padding: 0 14px; font: 600 14px inherit; cursor: pointer; }
+.dx-lb img { display: block; width: 100%; height: auto; }
+.dx-lb-fuss { padding: 12px 16px; font-size: 14.5px; color: #334155; }
 </style>
 </head>
 <body>
@@ -218,47 +236,53 @@
       <div class="head">
         <span class="eyebrow">Funktionsübersicht</span>
         <h2 id="funktionen-titel">Ein Programm für Ihr ganzes Büro</h2>
-        <p class="lead">Offerten, Rechnungen, Dokumente und Routinearbeit – vereint in DEXXUS. Direkt auf Ihrem PC, Ihre Daten bleiben bei Ihnen.</p>
+        <p class="lead">Offerten, Rechnungen, Dokumente und Routinearbeit – vereint in DEXXUS. Direkt auf Ihrem PC, Ihre Daten bleiben bei Ihnen. Klicken Sie auf eine Funktion – Sie sehen die Seite direkt aus DEXXUS.</p>
       </div>
 
       <div class="grid">
-        <article class="card feature">
+        <article class="card feature voll" data-seite="sh" data-titel="DEXXUS Shield" data-farbe="#0891B2" data-text="Links Ihr Text, rechts genau das, was an die Online-KI geht – Namen, Adressen und Nummern automatisch geschwärzt. Die Antwort bekommt die echten Angaben zurück.">
+          <div class="top"><span class="mod sh" aria-hidden="true">SH</span><h3>DEXXUS Shield <span class="kern">UNSER KERN</span></h3></div>
+          <p>ChatGPT, Copilot, Gemini &amp; Co. sicher nutzen: Shield schwärzt Namen, Adressen, AHV- und Kontonummern automatisch, bevor etwas Ihren PC verlässt – und setzt die echten Angaben in der Antwort wieder ein.</p>
+          <div class="tags"><span class="tag">automatisch schwärzen</span><span class="tag">jede Online-KI</span><span class="tag">nDSG-konform</span><span class="tag">bleibt auf dem PC</span></div>
+        </article>
+
+        <article class="card feature" data-seite="re" data-titel="ERP &amp; Offerten" data-farbe="#4F46E5" data-text="Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.">
           <div class="top"><span class="mod re" aria-hidden="true">RE</span><h3>ERP &amp; Offerten</h3></div>
           <p>Von der Offerte bis zur Mahnung. Schweizer QR-Rechnungen, Lieferscheine und Belege erstellen und direkt per E-Mail versenden.</p>
           <div class="tags"><span class="tag">Offerte</span><span class="tag">Auftrag</span><span class="tag">Lieferschein</span><span class="tag">QR-Rechnung</span><span class="tag">Mahnung</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="qs" data-titel="KI-Dokumentensuche" data-farbe="#059669" data-text="Frage eintippen, «KI fragen» – die lokale KI antwortet aus Ihren eigenen Dokumenten. Nichts geht ins Internet.">
           <div class="top"><span class="mod qs" aria-hidden="true">QS</span><h3>KI-Dokumentensuche</h3></div>
           <p>PDFs, Scans, Word-Dateien und E-Mails in Sekunden durchsuchen und in eigenen Worten befragen.</p>
           <div class="tags"><span class="tag">lokale KI</span><span class="tag">Texterkennung</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="vm" data-titel="Virtuelles Team" data-farbe="#7C3AED" data-text="Ihre Software-Assistenten mit Rolle und Status – Entwürfe landen im Postkorb, Sie geben frei.">
           <div class="top"><span class="mod vm" aria-hidden="true">VM</span><h3>Virtuelles Team</h3></div>
           <p>Software-Assistenten für Buchhaltung und Verkauf erledigen Routinearbeiten nach Ihren Regeln – Sie geben frei.</p>
           <div class="tags"><span class="tag">Pflichtenheft</span><span class="tag">Freigabe</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="bh" data-titel="Virtuelle Buchhaltung" data-farbe="#C53030" data-text="Debitoren, Kreditoren, MWST und Export für den Treuhänder – auf einen Blick.">
           <div class="top"><span class="mod bh" aria-hidden="true">BH</span><h3>Virtuelle Buchhaltung</h3></div>
           <p>Online-Zahlungen per TWINT oder Karte werden automatisch den Rechnungen zugeordnet. Die Unterlagen für Ihren Treuhänder sind vorbereitet.</p>
           <div class="tags"><span class="tag">TWINT</span><span class="tag">Treuhand-Export</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="tr" data-titel="Datentresor" data-farbe="#D97706" data-text="Gesperrt, bis Sie das Passwort eingeben – AES-256 verschlüsselt auf Ihrer Festplatte.">
           <div class="top"><span class="mod tr" aria-hidden="true">TR</span><h3>Datentresor</h3></div>
           <p>Ausweise, Verträge und Passwörter mit AES-256 verschlüsselt direkt auf Ihrer Festplatte sichern.</p>
           <div class="tags"><span class="tag">AES-256</span><span class="tag">nur lokal</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="ds" data-titel="DataSweep" data-farbe="#E11D48" data-text="Ordner wählen, analysieren, Dubletten sicher in die Quarantäne – mit Rückgängig.">
           <div class="top"><span class="mod ds" aria-hidden="true">DS</span><h3>DataSweep</h3></div>
           <p>Doppelte Dateien finden, Ordnung auf dem PC schaffen und Speicherplatz sicher freigeben – mit Quarantäne und Rückgängig.</p>
           <div class="tags"><span class="tag">Dubletten</span><span class="tag">Quarantäne</span></div>
         </article>
 
-        <article class="card feature">
+        <article class="card feature" data-seite="ze" data-titel="Zeiterfassung" data-farbe="#65A30D" data-text="Stoppuhr starten, Kunde wählen, erfasste Zeiten direkt in die Rechnung übernehmen.">
           <div class="top"><span class="mod ze" aria-hidden="true">ZE</span><h3>Zeiterfassung</h3></div>
           <p>Support-Stunden per Stoppuhr erfassen und mit einem Klick in die Honorarnote oder QR-Rechnung übernehmen.</p>
           <div class="tags"><span class="tag">Stoppuhr</span><span class="tag">Honorarnote</span><span class="tag">QR-Rechnung</span></div>
@@ -353,5 +377,35 @@
   <span style="flex:1"></span>
   <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
+
+<div class="dx-lb" id="dx-lb" role="dialog" aria-modal="true" aria-labelledby="dx-lb-titel"><div class="dx-lb-box">
+  <div class="dx-lb-kopf"><span class="m" id="dx-lb-m"></span><b id="dx-lb-titel"></b><button class="dx-lb-zu" type="button" id="dx-lb-zu">Schliessen</button></div>
+  <img id="dx-lb-bild" alt="">
+  <div class="dx-lb-fuss"><span id="dx-lb-text"></span> <span style="color:#64748B;font-size:13px">(Musterdaten)</span></div>
+</div></div>
+<script>
+(function () {
+  var lb = document.getElementById("dx-lb"), zuletzt = null;
+  function auf(c) {
+    var k = c.getAttribute("data-seite"), m = document.getElementById("dx-lb-m");
+    document.getElementById("dx-lb-bild").src = "media/seiten/" + k + ".jpg";
+    document.getElementById("dx-lb-bild").alt = c.getAttribute("data-titel") + " in DEXXUS";
+    document.getElementById("dx-lb-titel").textContent = c.getAttribute("data-titel") + " – so sieht es in DEXXUS aus";
+    document.getElementById("dx-lb-text").textContent = c.getAttribute("data-text");
+    m.textContent = k.toUpperCase(); m.style.background = getComputedStyle(c.querySelector(".mod")).backgroundColor;
+    zuletzt = c; lb.classList.add("an"); document.getElementById("dx-lb-zu").focus();
+  }
+  function zu() { lb.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
+  document.querySelectorAll("#w-funktionen .card[data-seite]").forEach(function (c) {
+    c.setAttribute("tabindex", "0"); c.setAttribute("role", "button");
+    c.insertAdjacentHTML("beforeend", '<span class="ansehen">Seite ansehen ›</span>');
+    c.addEventListener("click", function () { auf(c); });
+    c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); auf(c); } });
+  });
+  document.getElementById("dx-lb-zu").addEventListener("click", zu);
+  lb.addEventListener("click", function (e) { if (e.target === lb) { zu(); } });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && lb.classList.contains("an")) { zu(); } });
+})();
+</script>
 </body>
 </html>

@@ -252,6 +252,18 @@
 #w-preise .laufzeit { background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; gap: 8px; }
 #w-preise .laufzeit button { background: #FAFAFF !important; border: 2px solid #2563EB !important; box-shadow: none !important; }
 #w-preise .laufzeit button[aria-checked="true"] { color: #2563EB !important; box-shadow: 0 6px 16px rgba(37,99,235,.18) !important; }
+
+/* 12.11.2026: Laufzeit unten in jeder Abo-Karte (Wunsch Markus) */
+#w-preise .lz-unten { margin-top: auto; padding-top: 16px; border-top: 1px solid #2563EB; }
+#w-preise .paket .liste { margin-bottom: 18px; }
+#w-preise .lz-titel { margin: 0 0 8px; font-size: 13px; font-weight: 700; color: var(--text-2); }
+#w-preise .lz-unten .laufzeit { display: flex !important; width: 100%; max-width: none; margin: 0 !important; gap: 6px; }
+#w-preise .lz-unten .laufzeit button { flex: 1 1 0; height: 46px; padding: 0 4px; font-size: 13.5px; justify-content: center; flex-direction: column; gap: 1px; line-height: 1.15; }
+#w-preise .lz-unten .laufzeit button[aria-checked="true"] { background: #2563EB !important; color: #FAFAFF !important; }
+#w-preise .lz-unten .laufzeit button[aria-checked="true"] .rabatt { background: transparent; color: #FAFAFF; }
+#w-preise .paket[data-abo] .preis { flex-wrap: wrap; }
+#w-preise .paket[data-abo] .alt:not(:empty) { flex-basis: 100%; }
+#w-preise .verkauf { margin: 12px 0 0; text-align: center; font-weight: 700; font-size: 14.5px; color: #1D4ED8; }
 </style>
 </head>
 <body>
@@ -269,7 +281,7 @@
 </div></header><main><div id="w-preise">
 
 
-<!-- ================= TEIL 1: KOPFBEREICH UND LAUFZEIT-UMSCHALTER ================= -->
+<!-- ================= TEIL 1: KOPFBEREICH ================= -->
 <header class="hero">
   <div class="in">
     <span class="eyebrow">Schweizer Bürosoftware · Ihre Daten bleiben auf Ihrem PC</span>
@@ -277,12 +289,6 @@
     <p class="l">Offerten, QR-Rechnungen, lokale KI, DEXXUS Shield und virtuelle Mitarbeiter – in einem Programm, das auf Ihrem eigenen Computer läuft.</p>
     <p class="mwst">Alle Preise in CHF inkl. 8.1 % MWST.</p>
 
-    <div class="laufzeit" role="radiogroup" aria-label="Laufzeit der Abos wählen" id="laufzeit">
-      <button type="button" role="radio" aria-checked="true" data-jahre="1" data-rabatt="0">1 Jahr</button>
-      <button type="button" role="radio" aria-checked="false" data-jahre="2" data-rabatt="5">2 Jahre <span class="rabatt">−5 %</span></button>
-      <button type="button" role="radio" aria-checked="false" data-jahre="3" data-rabatt="10">3 Jahre <span class="rabatt">−10 %</span></button>
-    </div>
-    <p class="laufzeit-info" id="laufzeit-info" aria-live="polite">Laufzeit gilt für die Abos KMU Pro und KMU Enterprise.</p>
   </div>
 </header>
 
@@ -332,6 +338,15 @@
       <li><span class="mod bh">BH</span><span><b>Buchhaltung &amp; Treuhand-Export</b></span></li>
       <li><span class="mod vm">VM</span><span><b>Virtuelle Mitarbeiter</b> – Rechnungen, Mahnungen, Offerten nachfassen</span></li>
     </ul>
+    <div class="lz-unten">
+      <p class="lz-titel">Laufzeit wählen</p>
+      <div class="laufzeit" role="radiogroup" aria-label="Laufzeit KMU Pro wählen">
+        <button type="button" role="radio" aria-checked="true" data-jahre="1" data-rabatt="0">1 Jahr</button>
+        <button type="button" role="radio" aria-checked="false" data-jahre="2" data-rabatt="5">2 Jahre <span class="rabatt">−5 %</span></button>
+        <button type="button" role="radio" aria-checked="false" data-jahre="3" data-rabatt="10">3 Jahre <span class="rabatt">−10 %</span></button>
+      </div>
+      <p class="verkauf">Jetzt Abo kaufen und vom Einführungspreis profitieren.</p>
+    </div>
   </article>
 
   <article class="paket" data-abo="49">
@@ -347,6 +362,15 @@
       <li><span class="mod ti">TI</span><span><b>Ticket-Service</b> für Kundenanfragen</span></li>
       <li><span class="haken">✓</span><span>Unbegrenzt Briefpapiere und Absender-Postfächer</span></li>
     </ul>
+    <div class="lz-unten">
+      <p class="lz-titel">Laufzeit wählen</p>
+      <div class="laufzeit" role="radiogroup" aria-label="Laufzeit KMU Enterprise wählen">
+        <button type="button" role="radio" aria-checked="true" data-jahre="1" data-rabatt="0">1 Jahr</button>
+        <button type="button" role="radio" aria-checked="false" data-jahre="2" data-rabatt="5">2 Jahre <span class="rabatt">−5 %</span></button>
+        <button type="button" role="radio" aria-checked="false" data-jahre="3" data-rabatt="10">3 Jahre <span class="rabatt">−10 %</span></button>
+      </div>
+      <p class="verkauf">Jetzt Abo kaufen und vom Einführungspreis profitieren.</p>
+    </div>
   </article>
 </section>
 
@@ -364,30 +388,30 @@
   (function () {
     function chf(x) { var t = x.toFixed(2); return "CHF " + t.replace(/\B(?=(\d{3})+(?!\d)(?=\.))/g, "'").replace(/\.00$/, ".–"); }
     function chfGenau(x) { return "CHF " + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
-    var knoepfe = document.querySelectorAll("#laufzeit button");
-    function rechnen(jahre, rabatt) {
-      document.querySelectorAll("[data-abo]").forEach(function (p) {
-        var basis = parseFloat(p.getAttribute("data-abo"));
+    /* 12.11.2026: jede Abo-Karte hat ihre eigene Laufzeit-Auswahl */
+    document.querySelectorAll("[data-abo]").forEach(function (p) {
+      var basis = parseFloat(p.getAttribute("data-abo"));
+      var knoepfe = p.querySelectorAll(".laufzeit button");
+      function rechnen(jahre, rabatt) {
         var monat = Math.round(basis * (1 - rabatt / 100) * 100) / 100;
         var total = Math.round(monat * 12 * jahre * 100) / 100;
         p.querySelector("[data-monat]").textContent = rabatt ? chfGenau(monat) : chf(monat);
         p.querySelector("[data-alt]").textContent = rabatt ? chf(basis) : "";
         p.querySelector("[data-total]").innerHTML = "Vorauszahlung " + jahre + (jahre === 1 ? " Jahr" : " Jahre") + ": <b>" + chfGenau(total) + "</b>" +
           (rabatt ? " · Sie sparen " + chfGenau(basis * 12 * jahre - total) : "");
+      }
+      knoepfe.forEach(function (b) {
+        b.addEventListener("click", function () {
+          knoepfe.forEach(function (x) { x.setAttribute("aria-checked", x === b ? "true" : "false"); });
+          rechnen(parseInt(b.getAttribute("data-jahre"), 10), parseFloat(b.getAttribute("data-rabatt")));
+        });
+        b.addEventListener("keydown", function (e) {
+          var i = [].indexOf.call(knoepfe, b);
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); var n = knoepfe[(i + (e.key === "ArrowRight" ? 1 : knoepfe.length - 1)) % knoepfe.length]; n.focus(); n.click(); }
+        });
       });
-      document.getElementById("laufzeit-info").textContent = rabatt ? "Laufzeit " + jahre + " Jahre: " + rabatt + " % Rabatt auf die Abos KMU Pro und KMU Enterprise." : "Laufzeit gilt für die Abos KMU Pro und KMU Enterprise.";
-    }
-    knoepfe.forEach(function (b) {
-      b.addEventListener("click", function () {
-        knoepfe.forEach(function (x) { x.setAttribute("aria-checked", x === b ? "true" : "false"); });
-        rechnen(parseInt(b.getAttribute("data-jahre"), 10), parseFloat(b.getAttribute("data-rabatt")));
-      });
-      b.addEventListener("keydown", function (e) {
-        var i = [].indexOf.call(knoepfe, b);
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); var n = knoepfe[(i + (e.key === "ArrowRight" ? 1 : knoepfe.length - 1)) % knoepfe.length]; n.focus(); n.click(); }
-      });
+      rechnen(1, 0);
     });
-    rechnen(1, 0);
   })();
 </script>
 
