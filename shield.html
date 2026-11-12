@@ -393,6 +393,10 @@
 #w-shp .vorteile b { display: block; color: var(--text); font-size: 16px; margin-bottom: 4px; }
 #w-shp .film { max-width: 880px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 44px rgba(37,99,235,.14); background: #0F172A; }
 #w-shp .film video { display: block; width: 100%; height: auto; }
+#w-shp .filme { display: grid; grid-template-columns: 3fr 2fr; gap: 20px; align-items: start; max-width: 1040px; margin: 0 auto; }
+#w-shp .filme .film { max-width: none; margin: 0; }
+#w-shp .filme figcaption { margin-top: 8px; font-size: 14px; color: var(--text-2); text-align: center; }
+@media (max-width: 760px) { #w-shp .filme { grid-template-columns: 1fr; } }
 #w-shp .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 10px; }
 #w-shp .faq details { background: #FAFAFF; border-radius: 12px; box-shadow: 0 10px 30px rgba(37,99,235,.08); padding: 14px 18px; }
 #w-shp .faq summary { cursor: pointer; font-weight: 650; } #w-shp .faq p { margin: 10px 0 0; color: var(--text-2); }
@@ -461,8 +465,11 @@
 
 <section class="sec"><div class="in2">
   <span class="eyebrow">Film</span>
-  <h2>DEXXUS Shield in einer Minute</h2>
-  <div class="film"><video controls preload="none" poster="media/DEXXUS_Shield_Erklaerfilm_poster.jpg"><source src="media/DEXXUS_Shield_Erklaerfilm.mp4" type="video/mp4"></video></div>
+  <h2>DEXXUS Shield im Film</h2>
+  <div class="filme">
+    <figure style="margin:0"><div class="film"><video controls preload="none" poster="media/DEXXUS_Shield_Erklaerfilm_poster.jpg"><source src="media/DEXXUS_Shield_Erklaerfilm.mp4" type="video/mp4"></video></div><figcaption>Erklärfilm – so funktioniert Shield</figcaption></figure>
+    <figure style="margin:0"><div class="film"><video controls preload="none" poster="media/DEXXUS_Shield_Roboter_Spot_poster.jpg"><source src="media/DEXXUS_Shield_Roboter_Spot.mp4" type="video/mp4"></video></div><figcaption>Werbespot 15 Sekunden – «KI nutzen – Ihre Daten bleiben Ihre Daten.» · Szenen KI-generiert</figcaption></figure>
+  </div>
 </div></section>
 
 <section class="sec"><div class="in2">
