@@ -1,8 +1,567 @@
 <!DOCTYPE html>
-<html lang="de-CH"><head><meta charset="utf-8"><title>DEXXUS – Preise</title>
-<meta name="robots" content="noindex">
-<link rel="canonical" href="https://dexxus.ch/preise.html">
-<meta http-equiv="refresh" content="0; url=preise.html">
-</head><body style="font-family:Segoe UI,Arial,sans-serif;padding:40px">
-<p>Diese Seite ist umgezogen: <a href="preise.html">weiter zu Preise</a>.</p>
-</body></html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEXXUS Shield – KI nutzen ohne Personendaten</title>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="7a0ae6f3-3157-462a-adf0-4d28d2832ae1"></script>
+<meta name="description" content="DEXXUS Shield schwärzt Namen, Adressen, IBAN und Nummern automatisch, bevor ein Text an ChatGPT, Copilot oder Gemini geht – lokal auf Ihrem PC. CHF 49.– einmalig.">
+<link rel="canonical" href="https://dexxus.ch/shield.html">
+<meta property="og:title" content="DEXXUS Shield – KI nutzen ohne Personendaten">
+<meta property="og:description" content="DEXXUS Shield schwärzt Namen, Adressen, IBAN und Nummern automatisch, bevor ein Text an ChatGPT, Copilot oder Gemini geht – lokal auf Ihrem PC. CHF 49.– einmalig.">
+<meta property="og:url" content="https://dexxus.ch/shield.html">
+<meta property="og:type" content="website">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body { margin: 0; background: #FAFAFF; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0F172A; -webkit-font-smoothing: antialiased; }
+
+  .dxw-top { position: sticky; top: 0; z-index: 20; background: rgba(250,250,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid #2563EB; }
+  .dxw-top .in { max-width: 1120px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; gap: 24px; }
+  .dxw-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A; font-weight: 700; letter-spacing: .02em; }
+  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #fff; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
+  .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .dxw-menu a:hover { color: #0F172A; }
+  .dxw-sp { flex: 1; }
+  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #fff !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-btn:hover { background: #1D4ED8; }
+  @media (max-width: 380px) { .dxw-btn { height: 36px; padding: 0 12px; font-size: 13px; } .dxw-logo span { font-size: 15px; } }   /* 12.11.2026: Handy schmal / grosse Schrift */
+  .dxw-foot { border-top: 1px solid #2563EB; background: #FAFAFF; }
+  .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
+  .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
+  .dxw-foot a:hover { color: #0F172A; }
+  .dxw-vorschau { background: #FFFBEB; color: #92400E; text-align: center; font-size: 12.5px; font-weight: 600; padding: 6px 16px; border-bottom: 1px solid #FDE68A; }
+  @media (max-width: 860px) { .dxw-menu { display: none; } }
+
+#w-preise {
+    --white: #FAFAFF; --canvas: #FAFAFF; --line: #E2E8F0; --line-soft: #F1F5F9;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --re: #4F46E5; --qs: #059669; --tr: #D97706; --sh: #0891B2; --bh: #C53030; --vm: #7C3AED; --ze: #65A30D; --ti: #DC2626; --ma: #57534E;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-preise * { box-sizing: border-box; }
+#w-preise { margin: 0; }
+#w-preise { background: var(--canvas); color: var(--text); font: 15px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+#w-preise .hero { background: var(--white); border-bottom: 1px solid var(--line); }
+#w-preise .hero .in { max-width: 1160px; margin: 0 auto; padding: 64px 16px 40px; text-align: center; }
+#w-preise .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #047857; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 4px 12px; border-radius: 99px; }
+#w-preise .hero h1 { margin: 18px auto 0; max-width: 760px; font-size: 42px; line-height: 1.12; font-weight: 750; letter-spacing: -.03em; }
+#w-preise .hero p.l { margin: 16px auto 0; max-width: 640px; font-size: 17.5px; color: var(--text-2); }
+#w-preise .mwst { margin-top: 10px; font-size: 13px; color: var(--muted); }
+#w-preise .laufzeit { margin: 28px auto 0; display: inline-flex; align-items: center; gap: 4px; padding: 4px; background: var(--canvas); border: 1px solid var(--line); border-radius: 12px; }
+#w-preise .laufzeit button { position: relative; height: 40px; padding: 0 18px; border: 0; border-radius: 9px; background: transparent; font: 600 14.5px var(--font); color: var(--text-2); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+#w-preise .laufzeit button:hover { color: var(--text); }
+#w-preise .laufzeit button[aria-checked="true"] { background: var(--white); color: var(--text); box-shadow: 0 1px 3px rgba(15,23,42,.08), 0 0 0 1px var(--line); }
+#w-preise .laufzeit button:focus-visible { outline: 2px solid var(--db); outline-offset: 2px; }
+#w-preise .rabatt { font-size: 11.5px; font-weight: 700; color: #047857; background: #ECFDF5; padding: 1px 7px; border-radius: 99px; }
+#w-preise .laufzeit-info { margin-top: 10px; font-size: 13px; color: var(--muted); min-height: 20px; }
+#w-preise .raster { max-width: 1160px; margin: 0 auto; padding: 40px 16px 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+#w-preise .paket { position: relative; background: var(--white); border: 2px solid var(--db); box-shadow: 0 18px 44px rgba(37,99,235,.14); border-radius: 16px; padding: 26px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+#w-preise .paket.top { border: 2px solid var(--db); box-shadow: 0 18px 44px rgba(37,99,235,.14); }
+#w-preise .band { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--db); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .07em; padding: 4px 12px; border-radius: 99px; white-space: nowrap; }
+#w-preise .paket h2 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+#w-preise .art { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+#w-preise .hook { margin: 0; font-size: 14px; color: var(--text-2); min-height: 66px; }
+#w-preise .preis { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+#w-preise .preis .betrag { font-size: 34px; font-weight: 750; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+#w-preise .preis .einheit { font-size: 14px; color: var(--muted); }
+#w-preise .preis .alt { font-size: 14px; color: var(--muted); text-decoration: line-through; }
+#w-preise .vorauszahlung { font-size: 13px; color: var(--text-2); background: var(--canvas); border: 1px solid var(--line-soft); border-radius: 9px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+#w-preise .vorauszahlung b { color: var(--text); }
+#w-preise .anrechnung { font-size: 12.5px; color: #047857; font-weight: 600; }
+#w-preise .cta { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 11px; font-weight: 650; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--white); }
+#w-preise .cta:hover { background: var(--canvas); }
+#w-preise .cta.primaer { background: var(--db); border-color: var(--db); color: #fff; }
+#w-preise .cta.primaer:hover { background: #1D4ED8; }
+#w-preise .cta:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+#w-preise .liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; border-top: 1px solid var(--line-soft); padding-top: 14px; }
+#w-preise .liste li { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--text-2); }
+#w-preise .liste li b { color: var(--text); font-weight: 600; }
+#w-preise .liste .plus { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+#w-preise .mod { flex: none; width: 24px; height: 24px; border-radius: 6px; color: #fff; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+#w-preise .mod.db { background: var(--db); }
+#w-preise .mod.re { background: var(--re); }
+#w-preise .mod.qs { background: var(--qs); }
+#w-preise .mod.tr { background: var(--tr); }
+#w-preise .mod.sh { background: var(--sh); }
+#w-preise .mod.bh { background: var(--bh); }
+#w-preise .mod.vm { background: var(--vm); }
+#w-preise .mod.ze { background: var(--ze); }
+#w-preise .mod.ti { background: var(--ti); }
+#w-preise .mod.ma { background: var(--ma); }
+#w-preise .haken { flex: none; width: 24px; height: 24px; border-radius: 6px; background: #ECFDF5; color: #047857; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+#w-preise .unten { max-width: 1160px; margin: 0 auto; padding: 8px 16px 72px; display: grid; gap: 18px; }
+#w-preise .karte { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; }
+#w-preise .karte h3 { margin: 0 0 8px; font-size: 18px; }
+#w-preise .klein { font-size: 12.5px; color: var(--muted); }
+@media (max-width: 1080px) {
+#w-preise .raster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+#w-preise .laufzeit button, #w-preise .rabatt { white-space: nowrap; }
+@media (max-width: 420px) {
+#w-preise .laufzeit { display: flex; width: 100%; max-width: 360px; }
+#w-preise .laufzeit button { flex: 1 1 auto; padding: 0 8px; gap: 5px; font-size: 13.5px; justify-content: center; }
+#w-preise .rabatt { font-size: 10.5px; padding: 1px 5px; }
+}
+@media (max-width: 620px) {
+#w-preise .raster { grid-template-columns: 1fr; }
+#w-preise .hero h1 { font-size: 30px; }
+#w-preise .hero .in { padding-top: 44px; }
+#w-preise .laufzeit { display: flex; width: 100%; }
+#w-preise .laufzeit button { flex: 1; justify-content: center; padding: 0 8px; }
+#w-preise .hook { min-height: 0; }
+}#w-sicher {
+    --white: #FAFAFF; --panel: #FAFAFF; --line: #E2E8F0;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --sh: #0891B2; --tr: #D97706;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-sicher * { box-sizing: border-box; }
+#w-sicher { margin: 0; }
+#w-sicher { background: var(--panel); color: var(--text); font: 15px/1.65 var(--font); -webkit-font-smoothing: antialiased; }
+#w-sicher .section { padding: 72px 16px 80px; }
+#w-sicher .wrap { max-width: 1080px; margin: 0 auto; }
+#w-sicher .card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+#w-sicher .head { padding: 40px 40px 28px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start; }
+#w-sicher .badge { width: 56px; height: 56px; border-radius: 14px; background: var(--sh); color: #fff; font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; justify-content: center; }
+#w-sicher .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--sh); margin-bottom: 6px; }
+#w-sicher h2 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-sicher .lead { margin: 12px 0 0; font-size: 17px; color: var(--text-2); max-width: 720px; }
+#w-sicher .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#w-sicher .item { padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 12px; }
+#w-sicher .item + .item { border-left: 1px solid var(--line); }
+#w-sicher .top { display: flex; align-items: center; gap: 12px; }
+#w-sicher .mod { flex: none; width: 38px; height: 38px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; }
+#w-sicher .mod.db { background: var(--db); }
+#w-sicher .mod.sh { background: var(--sh); }
+#w-sicher .mod.tr { background: var(--tr); }
+#w-sicher .item h3 { margin: 0; font-size: 17.5px; line-height: 1.35; font-weight: 650; }
+#w-sicher .item p { margin: 0; color: var(--text-2); }
+#w-sicher .item ul { margin: 2px 0 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+#w-sicher .item li { position: relative; padding-left: 20px; font-size: 14.5px; color: var(--text-2); }
+#w-sicher .item li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: var(--sh); }
+#w-sicher .item.db li::before { background: var(--db); }
+#w-sicher .item.tr li::before { background: var(--tr); }
+#w-sicher .flow { margin: 0 40px 32px; padding: 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; font-size: 14px; font-weight: 600; }
+#w-sicher .flow .box { padding: 7px 14px; background: #FAFAFF; border: 1px solid var(--line); border-radius: 9px; }
+#w-sicher .flow .box.sh { border-color: #A5F3FC; background: #ECFEFF; color: #155E75; }
+#w-sicher .flow .pfeil { color: var(--muted); }
+#w-sicher .foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 22px 40px; border-top: 1px solid var(--line); }
+#w-sicher .foot p { margin: 0; flex: 1; min-width: 260px; font-size: 13px; color: var(--muted); }
+#w-sicher .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 12px; background: var(--db); color: #fff; font-weight: 650; font-size: 15px; text-decoration: none; }
+#w-sicher .btn:hover { background: #1D4ED8; }
+#w-sicher .btn:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+@media (max-width: 900px) {
+#w-sicher .grid { grid-template-columns: 1fr; }
+#w-sicher .item + .item { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 600px) {
+#w-sicher .head { grid-template-columns: 1fr; padding: 28px 20px 22px; }
+#w-sicher .item { padding: 24px 20px; }
+#w-sicher .flow { margin: 0 20px 24px; }
+#w-sicher .foot { padding: 20px; }
+#w-sicher h2 { font-size: 26px; }
+}#w-mehrplatz { --white: #FAFAFF; --panel: #FAFAFF; --line: #E2E8F0; --text: #1E293B; --text-2: #475569; --muted: #64748B;
+    --db: #2563EB; --bh: #C53030; --tr: #D97706; --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; }
+#w-mehrplatz * { box-sizing: border-box; }
+#w-mehrplatz { margin: 0; }
+#w-mehrplatz { background: var(--white); color: var(--text); font: 15px/1.65 var(--font); -webkit-font-smoothing: antialiased; }
+#w-mehrplatz .section { padding: 72px 16px 80px; }
+#w-mehrplatz .wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 22px; }
+#w-mehrplatz .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--db); margin-bottom: 8px; }
+#w-mehrplatz h2 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-mehrplatz .lead { margin: 12px 0 0; font-size: 17px; color: var(--text-2); max-width: 720px; }
+#w-mehrplatz .mod { flex: none; width: 40px; height: 40px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+#w-mehrplatz .mod.db { background: var(--db); }
+#w-mehrplatz .mod.bh { background: var(--bh); }
+#w-mehrplatz .mod.tr { background: var(--tr); }
+#w-mehrplatz .heute { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+#w-mehrplatz .heute-kopf { padding: 18px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+#w-mehrplatz .heute-kopf b { font-size: 17px; }
+#w-mehrplatz .pill { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 99px; }
+#w-mehrplatz .pill.gruen { background: #ECFDF5; color: #047857; }
+#w-mehrplatz .pill.amber { background: #FFFBEB; color: #B45309; }
+#w-mehrplatz .schritte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#w-mehrplatz .schritt { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+#w-mehrplatz .schritt + .schritt { border-left: 1px solid var(--line); }
+#w-mehrplatz .schritt .top { display: flex; align-items: center; gap: 12px; }
+#w-mehrplatz .schritt .nr { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+#w-mehrplatz .schritt h3 { margin: 0; font-size: 17px; }
+#w-mehrplatz .schritt p { margin: 0; color: var(--text-2); font-size: 14.5px; }
+#w-mehrplatz .zwei { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+#w-mehrplatz .karte { border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; background: var(--white); }
+#w-mehrplatz .karte h3 { margin: 0 0 8px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+#w-mehrplatz .karte ul { margin: 0; padding-left: 18px; color: var(--text-2); display: grid; gap: 5px; font-size: 14.5px; }
+#w-mehrplatz .hinweis { border: 1px solid #FDE68A; border-left: 3px solid var(--tr); background: #FFFBEB; border-radius: 12px; padding: 16px 20px; color: #78350F; }
+#w-mehrplatz .hinweis b { display: block; margin-bottom: 4px; color: #92400E; }
+#w-mehrplatz .download { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; background: var(--panel); }
+#w-mehrplatz .download .titel { font-weight: 700; }
+#w-mehrplatz .download .meta { font-size: 13px; color: var(--muted); }
+#w-mehrplatz .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 11px; background: var(--tr); color: #fff; font-weight: 650; font-size: 15px; text-decoration: none; white-space: nowrap; }
+#w-mehrplatz .btn:hover { background: #B45309; }
+#w-mehrplatz .btn:focus-visible { outline: 3px solid #FCD34D; outline-offset: 3px; }
+#w-mehrplatz .preise-mp { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+#w-mehrplatz .preise-mp .kopf { padding: 18px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+#w-mehrplatz .preise-mp .kopf b { font-size: 17px; }
+#w-mehrplatz .pakete-mp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#w-mehrplatz .pk { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; }
+#w-mehrplatz .pk + .pk { border-left: 1px solid var(--line); }
+#w-mehrplatz .pk h3 { margin: 0; font-size: 17px; }
+#w-mehrplatz .pk .preis { font-size: 26px; font-weight: 750; letter-spacing: -.02em; }
+#w-mehrplatz .pk .preis small { font-size: 13px; font-weight: 500; color: var(--muted); }
+#w-mehrplatz .pk p { margin: 0; color: var(--text-2); font-size: 14px; }
+#w-mehrplatz .pk.einmal { background: var(--panel); }
+#w-mehrplatz table.bsp { width: 100%; border-collapse: collapse; font-size: 14px; }
+#w-mehrplatz table.bsp th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; padding: 10px 24px; background: #FAFAFF; border-top: 1px solid var(--line); border-bottom: 1px solid #F1F5F9; }
+#w-mehrplatz table.bsp td { padding: 11px 24px; border-bottom: 1px solid #F1F5F9; }
+#w-mehrplatz table.bsp .r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#w-mehrplatz .klein { font-size: 12.5px; color: var(--muted); padding: 12px 24px 16px; margin: 0; }
+#w-mehrplatz .it { border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+#w-mehrplatz .it h3 { margin: 0 0 10px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+#w-mehrplatz .it .spalten { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+#w-mehrplatz .it h4 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+#w-mehrplatz .it ul { margin: 0; padding-left: 18px; color: var(--text-2); display: grid; gap: 5px; font-size: 14.5px; }
+@media (max-width: 900px) {
+#w-mehrplatz .pakete-mp, #w-mehrplatz .it .spalten { grid-template-columns: 1fr; }
+#w-mehrplatz .pk + .pk { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 900px) {
+#w-mehrplatz .schritte, #w-mehrplatz .zwei { grid-template-columns: 1fr; }
+#w-mehrplatz .schritt + .schritt { border-left: 0; border-top: 1px solid var(--line); }
+#w-mehrplatz .download { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+#w-mehrplatz h2 { font-size: 26px; }
+#w-mehrplatz .section { padding-top: 48px; }
+}
+@media (max-width: 600px) {
+#w-mehrplatz table.bsp { font-size: 13px; }
+#w-mehrplatz table.bsp th, #w-mehrplatz table.bsp td { padding: 9px 10px; }
+#w-mehrplatz table.bsp th { font-size: 10.5px; letter-spacing: .02em; }
+#w-mehrplatz table.bsp th.r { white-space: normal; }
+#w-mehrplatz table.bsp td:first-child { word-break: normal; }
+#w-mehrplatz .preise-mp .kopf { padding: 14px 14px; }
+}
+/* Blaue Ränder nur: kleine Kärtchen, Antworten «Gut zu wissen», Laufzeit-Knöpfe einzeln (11.11.2026) */
+#w-preise .karte, #w-preise .cta, #w-sicher .card, #w-mehrplatz .heute, #w-mehrplatz .karte, #w-mehrplatz .download, #w-mehrplatz .preise-mp, #w-mehrplatz .it { box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
+#w-sicher .card { background: #FAFAFF !important; }
+#w-sicher .flow, #w-sicher .flow .box, #w-sicher .flow .box.sh { background: #FAFAFF !important; }
+#w-mehrplatz .pakete-mp { gap: 14px; padding: 16px; }
+#w-mehrplatz .pk, #w-mehrplatz .pk.einmal { background: #FAFAFF !important; border: 2px solid #2563EB !important; border-radius: 16px; box-shadow: 0 18px 44px rgba(37,99,235,.14); }
+#w-mehrplatz .pk + .pk { border-left: 2px solid #2563EB !important; border-top: 2px solid #2563EB !important; }
+#w-preise .laufzeit { background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; gap: 8px; }
+#w-preise .laufzeit button { background: #FAFAFF !important; border: 2px solid #2563EB !important; box-shadow: none !important; }
+#w-preise .laufzeit button[aria-checked="true"] { color: #2563EB !important; box-shadow: 0 6px 16px rgba(37,99,235,.18) !important; }
+
+/* 12.11.2026: Laufzeit unten in jeder Abo-Karte (Wunsch Markus) */
+#w-preise .lz-unten { margin-top: auto; padding-top: 16px; border-top: 1px solid #2563EB; }
+#w-preise .paket .liste { margin-bottom: 18px; }
+#w-preise .lz-titel { margin: 0 0 8px; font-size: 13px; font-weight: 700; color: var(--text-2); }
+#w-preise .lz-unten .laufzeit { display: flex !important; width: 100%; max-width: none; margin: 0 !important; gap: 6px; }
+#w-preise .lz-unten .laufzeit button { flex: 1 1 0; height: 46px; padding: 0 4px; font-size: 13.5px; justify-content: center; flex-direction: column; gap: 1px; line-height: 1.15; }
+#w-preise .lz-unten .laufzeit button[aria-checked="true"] { background: #2563EB !important; color: #FAFAFF !important; }
+#w-preise .lz-unten .laufzeit button[aria-checked="true"] .rabatt { background: transparent; color: #FAFAFF; }
+#w-preise .paket[data-abo] .preis { flex-wrap: wrap; }
+#w-preise .paket[data-abo] .alt:not(:empty) { flex-basis: 100%; }
+#w-preise .verkauf { margin: 12px 0 0; text-align: center; font-weight: 700; font-size: 14.5px; color: #1D4ED8; }
+
+/* 12.11.2026: alle 4 Kästchen im Fluss in der Farbe des SH-Symbols */
+#w-sicher .flow .box, #w-sicher .flow .box.sh { background: #0891B2 !important; border-color: #0891B2 !important; color: #FAFAFF !important; font-weight: 600; }
+
+/* 12.11.2026: sehr schmale Handys / grosse Schrift */
+#w-mehrplatz .wrap { grid-template-columns: minmax(0, 1fr); } #w-mehrplatz .wrap > * { min-width: 0; } #w-mehrplatz { overflow-wrap: break-word; }
+@media (max-width: 360px) { #w-mehrplatz table.bsp { font-size: 12px; } #w-mehrplatz table.bsp th, #w-mehrplatz table.bsp td { padding: 8px 6px; } #w-mehrplatz table.bsp .r { white-space: normal; } }
+
+/* 12.11.2026: DEXXUS Shield allein (Band) + Kauf-Fenster */
+#w-preise .shband { max-width: 1128px; margin: 32px auto 0; display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center;
+  background: #FAFAFF; border: 2px solid #0891B2; border-radius: 16px; padding: 20px 24px; box-shadow: 0 18px 44px rgba(8,145,178,.14); }
+#w-preise .shband .ic { width: 56px; height: 56px; border-radius: 14px; background: #0891B2; color: #FAFAFF; font-weight: 800; font-size: 18px; display: grid; place-items: center; }
+#w-preise .shband h2 { margin: 2px 0 4px; font-size: 21px; }
+#w-preise .shband p { margin: 0; color: var(--text-2); font-size: 14.5px; }
+#w-preise .shband .tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+#w-preise .shband .tag { font-size: 12px; border: 1px solid #0891B2; color: #155E75; border-radius: 99px; padding: 1px 9px; background: #FAFAFF; }
+#w-preise .shband .rechts { text-align: right; }
+#w-preise .shband .pr { font-size: 30px; font-weight: 800; white-space: nowrap; } #w-preise .shband .pr small { font-size: 14px; color: var(--muted); font-weight: 400; }
+#w-preise .shband .anr { font-size: 12.5px; color: #047857; margin: 2px 0 10px; }
+#w-preise .shband .cta { background: #0891B2; border-color: #0891B2; color: #FAFAFF; padding: 0 22px; }
+@media (max-width: 860px) { #w-preise .shband { grid-template-columns: 1fr; margin: 24px 16px 0; } #w-preise .shband .rechts { text-align: left; } }
+.dk-ov { position: fixed; inset: 0; z-index: 9500; background: rgba(226,232,240,.72); backdrop-filter: blur(3px); display: none; align-items: center; justify-content: center; padding: 16px; }
+.dk-ov.an { display: flex; }
+.dk { background: #FAFAFF; border: 2px solid #2563EB; border-radius: 16px; width: 100%; max-width: 480px; max-height: calc(100vh - 32px); overflow: auto;
+  box-shadow: 0 24px 60px rgba(37,99,235,.25); font-family: inherit; }
+.dk-kopf { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid #2563EB; }
+.dk-kopf .m { width: 34px; height: 34px; border-radius: 9px; color: #FAFAFF; font-weight: 800; font-size: 12.5px; display: grid; place-items: center; }
+.dk-kopf b { flex: 1; font-size: 17px; }
+.dk-zu { border: 0; background: #DBEAFE; color: #1D4ED8; border-radius: 9px; height: 34px; padding: 0 12px; font: 600 13.5px inherit; cursor: pointer; }
+.dk-inh { padding: 16px 18px 18px; display: grid; gap: 12px; }
+.dk-z { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; } .dk-z span:first-child { color: #334155; }
+.dk-lab { font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px; }
+.dk-lz { display: flex; gap: 6px; } .dk-lz button { flex: 1; height: 44px; border: 2px solid #2563EB; border-radius: 10px; background: #FAFAFF; font: 600 13.5px inherit; color: #334155;
+  cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; }
+.dk-lz button[aria-checked="true"] { background: #2563EB; color: #FAFAFF; } .dk-lz small { font-size: 11px; font-weight: 700; color: #047857; } .dk-lz button[aria-checked="true"] small { color: #FAFAFF; }
+.dk-summe { border-top: 1px solid #E2E8F0; padding-top: 10px; display: flex; justify-content: space-between; font-size: 17px; font-weight: 800; }
+.dk-agb { font-size: 13px; color: #334155; display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+.dk-agb a { color: #2563EB; }
+.dk-los { width: 100%; min-height: 48px; border: 0; border-radius: 11px; background: #2563EB; color: #FAFAFF; font: 700 15.5px inherit; cursor: pointer; }
+.dk-los:disabled { opacity: .45; cursor: default; }
+.dk-fuss { font-size: 12.5px; color: #64748B; text-align: center; }
+
+/* 12.11.2026: Paketvergleich und Systemanforderungen */
+#w-pv{--blau:#2563EB;--text:#0F172A;--text2:#334155;--muted:#64748B;--line:#E2E8F0;--ok:#047857;}
+#w-pv .pv-sec{padding:56px 16px 24px}#w-pv .pv-in{max-width:1120px;margin:0 auto}
+#w-pv .eyebrow{display:block;text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#2563EB}
+#w-pv h2{text-align:center;font-size:32px;margin:6px 0 10px;letter-spacing:-.02em}
+#w-pv .lead{text-align:center;max-width:740px;margin:0 auto 26px;color:#334155;font-size:16.5px}
+#w-pv .karte{background:#FAFAFF;border-radius:16px;box-shadow:0 18px 44px rgba(37,99,235,.10);overflow:hidden}
+#w-pv .scroll{overflow-x:auto}
+#w-pv table.pv{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;min-width:720px}
+#w-pv .pv th,#w-pv .pv td{padding:10px 14px;border-bottom:1px solid #EEF2F7;text-align:center;vertical-align:middle}
+#w-pv .pv td:first-child,#w-pv .pv th:first-child{text-align:left}
+#w-pv .pv thead th{position:sticky;top:0;background:#FAFAFF;z-index:1;padding:16px 14px 12px;border-bottom:2px solid var(--blau)}
+#w-pv .pv thead th b{display:block;font-size:15.5px}
+#w-pv .pv thead th .pr{display:block;font-size:20px;font-weight:800;margin-top:4px}
+#w-pv .pv thead th .ei{display:block;font-size:12px;color:var(--muted);font-weight:400}
+#w-pv .pv thead th.top{background:#EEF4FF}
+#w-pv .pv thead th .band{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;color:#FAFAFF;background:var(--blau);border-radius:99px;padding:2px 8px;margin-bottom:4px}
+#w-pv .pv tr.grp td{background:#FAFAFF;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#1E3A8A;padding-top:18px;border-bottom:1px solid var(--blau)}
+#w-pv .pv td.top{background:#F5F8FF}
+#w-pv .ja{color:var(--ok);font-weight:800;font-size:16px}
+#w-pv .nein{color:#CBD5E1;font-size:16px}
+#w-pv .mod{display:inline-flex;width:22px;height:22px;border-radius:6px;color:#FAFAFF;font-size:9.5px;font-weight:800;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle}
+#w-pv .pv .lz td{font-size:13px}
+#w-pv .pv .cta td{border-bottom:0;padding:16px 10px}
+#w-pv .btn{display:inline-block;height:38px;line-height:38px;padding:0 14px;border-radius:9px;font-weight:700;font-size:13.5px;text-decoration:none;border:2px solid var(--blau);color:var(--blau)}
+#w-pv .btn.p{background:var(--blau);color:#FAFAFF}
+#w-pv .fuss{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+#w-pv .zwei{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#w-pv .sys{padding:20px 22px}
+#w-pv .sys h3{margin:0 0 4px;font-size:18px;display:flex;align-items:center;gap:10px}
+#w-pv .sys .unter{color:var(--muted);font-size:13.5px;margin:0 0 12px}
+#w-pv .sys table{width:100%;border-collapse:collapse;font-size:14px}
+#w-pv .sys td{padding:8px 0;border-bottom:1px solid #EEF2F7;vertical-align:top}
+#w-pv .sys td:first-child{width:38%;color:var(--text2);font-weight:600;padding-right:12px}
+#w-pv .ic{width:34px;height:34px;border-radius:9px;background:var(--blau);color:#FAFAFF;display:grid;place-items:center;font-size:17px}
+#w-pv .kurz{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+#w-pv .kurz div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:14px 16px;font-size:14px}
+#w-pv .kurz b{display:block;font-size:15.5px;margin-bottom:2px}
+#w-pv .gut{margin-top:22px;padding:18px 22px}
+#w-pv .gut h3{margin:0 0 8px;font-size:16px}
+#w-pv .gut ul{margin:0;padding-left:18px;color:var(--text2);font-size:14px}
+#w-pv .gut li{margin-bottom:6px}
+#w-pv .vk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#w-pv .vk div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:18px;font-size:14.5px;color:var(--text2)}
+#w-pv .vk b{display:block;font-size:16px;color:var(--text);margin:8px 0 4px}
+#w-pv .vk .vi{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#DBEAFE;font-size:19px}
+#w-pv table.vg{min-width:600px}
+#w-pv .vg td{text-align:left}
+#w-pv .vg td.top{font-weight:600}
+#w-pv .vk{grid-template-columns:1fr}
+#w-pv .zwei,#w-pv .kurz{grid-template-columns:1fr}
+@media(max-width:800px){#w-pv .zwei,#w-pv .kurz,#w-pv .vk{grid-template-columns:1fr}#w-pv h2{font-size:26px}}
+
+/* Seite DEXXUS Shield (12.11.2026) */
+#w-shp { --sh: #0891B2; --text: #0F172A; --text-2: #334155; --muted: #64748B; --line: #E2E8F0; }
+#w-shp .sec { padding: 56px 16px; } #w-shp .in2 { max-width: 1120px; margin: 0 auto; }
+#w-shp .eyebrow { display: block; text-align: center; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--sh); }
+#w-shp h2 { text-align: center; font-size: 32px; margin: 6px 0 10px; letter-spacing: -.02em; }
+#w-shp .lead { text-align: center; max-width: 740px; margin: 0 auto 28px; color: var(--text-2); font-size: 16.5px; }
+#w-shp .held { padding: 64px 16px 40px; text-align: center; }
+#w-shp .held .badge { width: 64px; height: 64px; border-radius: 16px; background: var(--sh); color: #FAFAFF; font-weight: 800; font-size: 21px; display: inline-grid; place-items: center; box-shadow: 0 12px 30px rgba(8,145,178,.3); }
+#w-shp .held h1 { font-size: 44px; line-height: 1.12; letter-spacing: -.025em; margin: 18px auto 14px; max-width: 820px; }
+#w-shp .held p.l { max-width: 720px; margin: 0 auto; color: var(--text-2); font-size: 18px; }
+#w-shp .knoepfe { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+#w-shp .k { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border-radius: 12px; font-weight: 700; font-size: 16px; text-decoration: none; }
+#w-shp .k.sh { background: var(--sh); color: #FAFAFF; box-shadow: 0 8px 22px rgba(8,145,178,.28); }
+#w-shp .k.rand { border: 2px solid #2563EB; color: #0F172A; background: #FAFAFF; }
+#w-shp .klein { margin-top: 14px; color: var(--muted); font-size: 13.5px; }
+#w-shp .vg { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#w-shp .sp { background: #FAFAFF; border-radius: 14px; box-shadow: 0 18px 44px rgba(37,99,235,.10); padding: 18px 20px; }
+#w-shp .sp h4 { margin: 0 0 10px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+#w-shp .sp .t { font-size: 15.5px; line-height: 1.75; }
+#w-shp .pill { font-size: 11px; font-weight: 800; letter-spacing: .05em; padding: 2px 9px; border-radius: 99px; color: #FAFAFF; }
+#w-shp .pill.v { background: #64748B; } #w-shp .pill.n { background: var(--sh); }
+#w-shp .ph { font-family: Consolas, ui-monospace, monospace; font-size: .88em; background: #FEF3C7; color: #92400E; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+#w-shp .schritte { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+#w-shp .schritt { background: #FAFAFF; border-radius: 14px; box-shadow: 0 18px 44px rgba(37,99,235,.08); padding: 18px; }
+#w-shp .schritt .n { width: 32px; height: 32px; border-radius: 99px; background: var(--sh); color: #FAFAFF; font-weight: 800; display: grid; place-items: center; }
+#w-shp .schritt h3 { margin: 10px 0 4px; font-size: 16px; } #w-shp .schritt p { margin: 0; color: var(--text-2); font-size: 14.5px; }
+#w-shp .erkennt { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 900px; margin: 0 auto; }
+#w-shp .erkennt span { border: 1px solid var(--sh); color: #155E75; border-radius: 99px; padding: 5px 14px; font-size: 14px; background: #FAFAFF; }
+#w-shp .vorteile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
+#w-shp .vorteile div { background: #FAFAFF; border-radius: 14px; box-shadow: 0 18px 44px rgba(37,99,235,.08); padding: 18px; color: var(--text-2); font-size: 14.5px; }
+#w-shp .vorteile b { display: block; color: var(--text); font-size: 16px; margin-bottom: 4px; }
+#w-shp .film { max-width: 880px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 44px rgba(37,99,235,.14); background: #0F172A; }
+#w-shp .film video { display: block; width: 100%; height: auto; }
+#w-shp .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 10px; }
+#w-shp .faq details { background: #FAFAFF; border-radius: 12px; box-shadow: 0 10px 30px rgba(37,99,235,.08); padding: 14px 18px; }
+#w-shp .faq summary { cursor: pointer; font-weight: 650; } #w-shp .faq p { margin: 10px 0 0; color: var(--text-2); }
+#w-shp .shband { margin-top: 0; }
+@media (max-width: 860px) { #w-shp .vg, #w-shp .schritte, #w-shp .vorteile { grid-template-columns: 1fr; } #w-shp .held h1 { font-size: 32px; } #w-shp h2 { font-size: 26px; } }
+
+#w-shp .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+</style>
+</head>
+<body>
+<header class="dxw-top"><div class="in">
+  <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
+  <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html#funktionen">Funktionen</a>
+    <a href="index.html#vorteile">Vorteile</a>
+    <a href="shield.html">Shield</a>
+    <a href="index.html#faq">Häufige Fragen</a>
+    <a href="preise.html">Preise</a>
+    <a href="partner.html">Partner</a>
+    <a href="hilfe.html">Hilfe</a>
+  </nav>
+  <div class="dxw-sp"></div>
+  <a class="dxw-btn" href="index.html#download">Kostenlos testen</a>
+</div></header><main><div id="w-preise"><div id="w-shp">
+<section class="held">
+  <span class="badge" aria-hidden="true">SH</span>
+  <h1>KI nutzen – ohne Personendaten preiszugeben</h1>
+  <p class="l">DEXXUS Shield schwärzt Namen, Adressen, IBAN, AHV- und Telefonnummern automatisch, bevor ein Text an ChatGPT, Copilot, Gemini &amp; Co. geht. Die Antwort bekommt die echten Angaben zurück – alles lokal auf Ihrem PC.</p>
+  <div class="knoepfe"><a class="k sh" href="#kaufen" data-kauf="DEXXUS Shield">Shield kaufen – CHF 49.–</a><a class="k rand" href="index.html#download">30 Tage kostenlos testen</a></div>
+  <p class="klein">Einmalig, unbefristet · 1 Arbeitsplatz · in Privat, KMU Pro und KMU Enterprise bereits enthalten</p>
+</section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">Vorher / Nachher</span>
+  <h2>So sieht die Schwärzung aus</h2>
+  <p class="lead">Links Ihr Text, wie er in Ihrem Dokument steht. Rechts genau das, was an die Online-KI geht.</p>
+  <div class="vg">
+    <div class="sp"><h4><span class="pill v">VORHER</span> Ihr Text – bleibt auf Ihrem PC</h4>
+      <div class="t">Sehr geehrte Frau Erika Muster<br><br>Wir vertreten Herrn Hans Beispiel, wohnhaft Musterweg 7, 8810 Horgen. Bitte überweisen Sie die Entschädigung auf CH93 0076 2011 6238 5295 7. Sie erreichen ihn unter 079 412 33 21.</div></div>
+    <div class="sp"><h4><span class="pill n">NACHHER</span> Das sieht die Online-KI</h4>
+      <div class="t">Sehr geehrte Frau <span class="ph">[Person 1]</span><br><br>Wir vertreten Herrn <span class="ph">[Person 2]</span>, wohnhaft <span class="ph">[Adresse 1]</span>, <span class="ph">[Ort 1]</span>. Bitte überweisen Sie die Entschädigung auf <span class="ph">[IBAN 1]</span>. Sie erreichen ihn unter <span class="ph">[Telefon 1]</span>.</div></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">So funktioniert es</span>
+  <h2>In vier Schritten zur sicheren KI-Antwort</h2>
+  <div class="schritte">
+    <article class="schritt"><span class="n">1</span><h3>Text oder Dokument einfügen</h3><p>Aus Word, E-Mails, PDF oder Ihrem bisherigen Büroprogramm – per Einfügen oder «Doku Einfügen».</p></article>
+    <article class="schritt"><span class="n">2</span><h3>Shield schwärzt lokal</h3><p>Personendaten werden zu Platzhaltern. Sie sehen genau, was hinausgeht, und können nachbessern.</p></article>
+    <article class="schritt"><span class="n">3</span><h3>Online-KI Ihrer Wahl</h3><p>ChatGPT, Claude, Copilot, Gemini, DeepSeek, Mistral – der geschwärzte Text geht in den Zwischenspeicher.</p></article>
+    <article class="schritt"><span class="n">4</span><h3>Echte Daten zurück</h3><p>Antwort einfügen – Shield setzt die echten Namen und Nummern wieder ein. Auch Tage später.</p></article>
+  </div>
+</div></section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">Was Shield erkennt</span>
+  <h2>Diese Angaben verlassen Ihren PC nie</h2>
+  <div class="erkennt"><span>Personen</span><span>Adressen und Orte</span><span>IBAN und Kontonummern</span><span>Telefonnummern</span><span>E-Mail-Adressen</span><span>AHV-Nummern</span><span>Geburtsdaten</span><span>Kontrollschilder</span><span>Aktenzeichen</span><span>Firmennamen</span></div>
+  <div class="vorteile">
+    <div><b>Für jedes Programm</b>Shield funktioniert mit Texten aus jeder Software – Sie müssen Ihr Büroprogramm nicht wechseln.</div>
+    <div><b>Warnung bei heiklen Themen</b>Bei Gesundheits- und Strafverfahrensthemen warnt DEXXUS vor dem Senden und empfiehlt die lokale KI.</div>
+    <div><b>Verlauf 30 Tage</b>Jede Schwärzung wird gemerkt – die Antwort der KI kann auch Tage später eingefügt werden.</div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">Film</span>
+  <h2>DEXXUS Shield in einer Minute</h2>
+  <div class="film"><video controls preload="none" poster="media/DEXXUS_Shield_Erklaerfilm_poster.jpg"><source src="media/DEXXUS_Shield_Erklaerfilm.mp4" type="video/mp4"></video></div>
+</div></section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">Preis</span>
+  <h2>Shield allein oder im Paket</h2>
+  <p class="lead">Shield allein für CHF 49.– einmalig – oder inklusive in den Paketen Privat, KMU Pro und KMU Enterprise. <a href="preise.html">Alle Pakete ansehen</a></p>
+<div class="shband" aria-label="DEXXUS Shield allein">
+  <div class="ic" aria-hidden="true">SH</div>
+  <div>
+    <span class="art">Einmalig · nur Schwärzen</span>
+    <h2>DEXXUS Shield – für jedes Programm</h2>
+    <p>Sie haben schon eine Bürosoftware und wollen nur KI sicher nutzen? Shield schwärzt Personendaten aus jedem Text – aus Word, E-Mails oder Ihrem bisherigen Programm – bevor sie an ChatGPT, Copilot, Gemini &amp; Co. gehen.</p>
+    <div class="tags"><span class="tag">jede Online-KI</span><span class="tag">Datei oder Text einfügen</span><span class="tag">Antwort mit echten Daten</span><span class="tag">1 Arbeitsplatz</span></div>
+  </div>
+  <div class="rechts">
+    <div class="pr">CHF 49.– <small>einmalig</small></div>
+    <div class="anr">In Privat, KMU Pro und KMU Enterprise bereits enthalten</div>
+    <a class="cta" href="#kaufen" data-kauf="DEXXUS Shield">Shield kaufen</a>
+  </div>
+</div>
+</div></section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">Häufige Fragen</span>
+  <h2>Fragen zu DEXXUS Shield</h2>
+  <div class="faq">
+    <details><summary>Brauche ich dafür die ganze DEXXUS-Software?</summary><p>Nein. DEXXUS Shield gibt es allein für CHF 49.– einmalig. Sie fügen Texte aus jedem Programm ein und geben sie geschwärzt an die KI weiter.</p></details>
+    <details><summary>Geht mein Text über einen fremden Server?</summary><p>Nein. Die Schwärzung passiert lokal auf Ihrem PC. An die Online-KI geht nur der geschwärzte Text – und nur dann, wenn Sie ihn selbst weitergeben.</p></details>
+    <details><summary>Welche KIs kann ich verwenden?</summary><p>Jede Online-KI, in die man Text einfügen kann – zum Beispiel ChatGPT, Claude, Microsoft Copilot, Google Gemini, DeepSeek oder Mistral Le Chat.</p></details>
+    <details><summary>Erkennt Shield wirklich alle Personendaten?</summary><p>In unseren Tests wurden die Personendaten nahezu vollständig erkannt. Eine lückenlose Erkennung in jedem Einzelfall ist technisch nicht möglich – darum sehen Sie vor dem Senden genau, was hinausgeht, und können nachbessern.</p></details>
+  </div>
+</div></section>
+</div>
+</div></main><footer class="dxw-foot"><div class="in">
+  <span>© 2026 avotec AG · 8602 Wangen ZH</span>
+  <span style="flex:1"></span>
+  <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+</div></footer>
+
+<div class="dk-ov" id="dk-ov" role="dialog" aria-modal="true" aria-labelledby="dk-titel"><div class="dk">
+  <div class="dk-kopf"><span class="m" id="dk-m"></span><b id="dk-titel"></b><button class="dk-zu" type="button" id="dk-zu">Schliessen</button></div>
+  <div class="dk-inh">
+    <div class="dk-z"><span>Paket</span><b id="dk-paket"></b></div>
+    <div id="dk-lz-box"><div class="dk-lab">Laufzeit</div>
+      <div class="dk-lz" role="radiogroup" aria-label="Laufzeit">
+        <button type="button" role="radio" data-j="1" data-r="0">1 Jahr<small>&nbsp;</small></button>
+        <button type="button" role="radio" data-j="2" data-r="5">2 Jahre<small>−5 %</small></button>
+        <button type="button" role="radio" data-j="3" data-r="10">3 Jahre<small>−10 %</small></button>
+      </div></div>
+    <div class="dk-z" id="dk-einm"><span>Laufzeit</span><b>unbefristet</b></div>
+    <div class="dk-z" id="dk-rech"><span id="dk-rech-t"></span><span id="dk-rech-b"></span></div>
+    <div class="dk-summe"><span>Total inkl. 8.1 % MWST</span><span id="dk-total"></span></div>
+    <label class="dk-agb"><input type="checkbox" id="dk-agb"> <span>Ich akzeptiere die <a href="agb.html" target="_blank">AGB / Lizenzbedingungen</a> und die Datenschutzerklärung. Kauf ab 18 Jahren.</span></label>
+    <button class="dk-los" type="button" id="dk-los" disabled>Weiter zur Zahlung</button>
+    <div class="dk-fuss">TWINT · PostFinance · Karte – sichere Zahlung über Payrexx (Schweiz). Die Lizenz kommt nach der Zahlung per E-Mail.</div>
+  </div>
+</div></div>
+<script>
+(function () {
+  var ZAHLUNG = "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3";   // Payrexx-Seite «DEXXUS – Lizenz kaufen» (wie alte Webseite)
+  var P = {"DEXXUS Shield": {e: 49, f: "#0891B2", k: "SH"}, "DEXXUS Starter": {e: 19.90, f: "#4F46E5", k: "ST"}, "DEXXUS Privat": {e: 79, f: "#059669", k: "PR"},
+           "KMU Pro": {m: 29, f: "#2563EB", k: "KP"}, "KMU Enterprise": {m: 49, f: "#1E3A8A", k: "KE"}};
+  var ov = document.getElementById("dk-ov"), lzk = ov.querySelectorAll(".dk-lz button"), agb = document.getElementById("dk-agb"), los = document.getElementById("dk-los");
+  var akt = null, jahre = 1, rabatt = 0, zuletzt = null;
+  function chf(x) { return "CHF " + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
+  function betrag() { var p = P[akt]; if (!p.m) { return p.e; } return Math.round(p.m * 12 * jahre * (1 - rabatt / 100) * 20) / 20; }
+  function zeigen() {
+    var p = P[akt], abo = !!p.m;
+    document.getElementById("dk-lz-box").style.display = abo ? "" : "none";
+    document.getElementById("dk-einm").style.display = abo ? "none" : "";
+    document.getElementById("dk-rech").style.display = abo ? "" : "none";
+    lzk.forEach(function (b) { b.setAttribute("aria-checked", String(+b.getAttribute("data-j") === jahre)); });
+    if (abo) { document.getElementById("dk-rech-t").textContent = jahre + (jahre > 1 ? " Jahre" : " Jahr") + " × " + chf(p.m * 12) + (rabatt ? " (−" + rabatt + " %)" : ""); document.getElementById("dk-rech-b").textContent = chf(betrag()); }
+    document.getElementById("dk-total").textContent = chf(betrag());
+    los.disabled = !agb.checked;
+  }
+  function auf(paket, knopf) {
+    akt = paket; zuletzt = knopf; agb.checked = false;
+    var karte = knopf.closest("[data-abo]"), gew = karte && karte.querySelector('.laufzeit button[aria-checked="true"]');
+    jahre = gew ? +gew.getAttribute("data-jahre") : 1; rabatt = gew ? +gew.getAttribute("data-rabatt") : 0;
+    var m = document.getElementById("dk-m"); m.textContent = P[paket].k; m.style.background = P[paket].f;
+    document.getElementById("dk-titel").textContent = (paket.indexOf("DEXXUS") === 0 ? paket : "DEXXUS " + paket) + " kaufen";
+    document.getElementById("dk-paket").textContent = paket + " · 1 Arbeitsplatz";
+    zeigen(); ov.classList.add("an"); document.getElementById("dk-zu").focus();
+  }
+  function zu() { ov.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
+  document.querySelectorAll("[data-kauf]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); auf(b.getAttribute("data-kauf"), b); }); });
+  lzk.forEach(function (b) { b.addEventListener("click", function () { jahre = +b.getAttribute("data-j"); rabatt = +b.getAttribute("data-r"); zeigen(); }); });
+  agb.addEventListener("change", zeigen);
+  los.addEventListener("click", function () {
+    var p = P[akt], zweck = (akt.indexOf("DEXXUS") === 0 ? akt : "DEXXUS " + akt) + (p.m ? ", " + (jahre * 12) + " Monate" : ", unbefristet");
+    if (!ZAHLUNG) { alert("Layout: hier geht es weiter zur Zahlung (" + zweck + ", " + chf(betrag()) + ")."); return; }
+    var q = new URLSearchParams({invoice_amount: betrag().toFixed(2), invoice_currency: "1", invoice_number: zweck, contact_country: "204", referenceId: ["WEB", akt, p.m ? jahre * 12 : 0].join("|")});
+    location.href = ZAHLUNG + (ZAHLUNG.indexOf("?") > -1 ? "&" : "?") + q.toString();
+  });
+  document.getElementById("dk-zu").addEventListener("click", zu);
+  ov.addEventListener("click", function (e) { if (e.target === ov) { zu(); } });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("an")) { zu(); } });
+})();
+</script>
+</body>
+</html>

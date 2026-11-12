@@ -272,6 +272,94 @@
 /* 12.11.2026: sehr schmale Handys / grosse Schrift */
 #w-mehrplatz .wrap { grid-template-columns: minmax(0, 1fr); } #w-mehrplatz .wrap > * { min-width: 0; } #w-mehrplatz { overflow-wrap: break-word; }
 @media (max-width: 360px) { #w-mehrplatz table.bsp { font-size: 12px; } #w-mehrplatz table.bsp th, #w-mehrplatz table.bsp td { padding: 8px 6px; } #w-mehrplatz table.bsp .r { white-space: normal; } }
+
+/* 12.11.2026: DEXXUS Shield allein (Band) + Kauf-Fenster */
+#w-preise .shband { max-width: 1128px; margin: 32px auto 0; display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center;
+  background: #FAFAFF; border: 2px solid #0891B2; border-radius: 16px; padding: 20px 24px; box-shadow: 0 18px 44px rgba(8,145,178,.14); }
+#w-preise .shband .ic { width: 56px; height: 56px; border-radius: 14px; background: #0891B2; color: #FAFAFF; font-weight: 800; font-size: 18px; display: grid; place-items: center; }
+#w-preise .shband h2 { margin: 2px 0 4px; font-size: 21px; }
+#w-preise .shband p { margin: 0; color: var(--text-2); font-size: 14.5px; }
+#w-preise .shband .tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+#w-preise .shband .tag { font-size: 12px; border: 1px solid #0891B2; color: #155E75; border-radius: 99px; padding: 1px 9px; background: #FAFAFF; }
+#w-preise .shband .rechts { text-align: right; }
+#w-preise .shband .pr { font-size: 30px; font-weight: 800; white-space: nowrap; } #w-preise .shband .pr small { font-size: 14px; color: var(--muted); font-weight: 400; }
+#w-preise .shband .anr { font-size: 12.5px; color: #047857; margin: 2px 0 10px; }
+#w-preise .shband .cta { background: #0891B2; border-color: #0891B2; color: #FAFAFF; padding: 0 22px; }
+@media (max-width: 860px) { #w-preise .shband { grid-template-columns: 1fr; margin: 24px 16px 0; } #w-preise .shband .rechts { text-align: left; } }
+.dk-ov { position: fixed; inset: 0; z-index: 9500; background: rgba(226,232,240,.72); backdrop-filter: blur(3px); display: none; align-items: center; justify-content: center; padding: 16px; }
+.dk-ov.an { display: flex; }
+.dk { background: #FAFAFF; border: 2px solid #2563EB; border-radius: 16px; width: 100%; max-width: 480px; max-height: calc(100vh - 32px); overflow: auto;
+  box-shadow: 0 24px 60px rgba(37,99,235,.25); font-family: inherit; }
+.dk-kopf { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid #2563EB; }
+.dk-kopf .m { width: 34px; height: 34px; border-radius: 9px; color: #FAFAFF; font-weight: 800; font-size: 12.5px; display: grid; place-items: center; }
+.dk-kopf b { flex: 1; font-size: 17px; }
+.dk-zu { border: 0; background: #DBEAFE; color: #1D4ED8; border-radius: 9px; height: 34px; padding: 0 12px; font: 600 13.5px inherit; cursor: pointer; }
+.dk-inh { padding: 16px 18px 18px; display: grid; gap: 12px; }
+.dk-z { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; } .dk-z span:first-child { color: #334155; }
+.dk-lab { font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 6px; }
+.dk-lz { display: flex; gap: 6px; } .dk-lz button { flex: 1; height: 44px; border: 2px solid #2563EB; border-radius: 10px; background: #FAFAFF; font: 600 13.5px inherit; color: #334155;
+  cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; }
+.dk-lz button[aria-checked="true"] { background: #2563EB; color: #FAFAFF; } .dk-lz small { font-size: 11px; font-weight: 700; color: #047857; } .dk-lz button[aria-checked="true"] small { color: #FAFAFF; }
+.dk-summe { border-top: 1px solid #E2E8F0; padding-top: 10px; display: flex; justify-content: space-between; font-size: 17px; font-weight: 800; }
+.dk-agb { font-size: 13px; color: #334155; display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+.dk-agb a { color: #2563EB; }
+.dk-los { width: 100%; min-height: 48px; border: 0; border-radius: 11px; background: #2563EB; color: #FAFAFF; font: 700 15.5px inherit; cursor: pointer; }
+.dk-los:disabled { opacity: .45; cursor: default; }
+.dk-fuss { font-size: 12.5px; color: #64748B; text-align: center; }
+
+/* 12.11.2026: Paketvergleich und Systemanforderungen */
+#w-pv{--blau:#2563EB;--text:#0F172A;--text2:#334155;--muted:#64748B;--line:#E2E8F0;--ok:#047857;}
+#w-pv .pv-sec{padding:56px 16px 24px}#w-pv .pv-in{max-width:1120px;margin:0 auto}
+#w-pv .eyebrow{display:block;text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#2563EB}
+#w-pv h2{text-align:center;font-size:32px;margin:6px 0 10px;letter-spacing:-.02em}
+#w-pv .lead{text-align:center;max-width:740px;margin:0 auto 26px;color:#334155;font-size:16.5px}
+#w-pv .karte{background:#FAFAFF;border-radius:16px;box-shadow:0 18px 44px rgba(37,99,235,.10);overflow:hidden}
+#w-pv .scroll{overflow-x:auto}
+#w-pv table.pv{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;min-width:720px}
+#w-pv .pv th,#w-pv .pv td{padding:10px 14px;border-bottom:1px solid #EEF2F7;text-align:center;vertical-align:middle}
+#w-pv .pv td:first-child,#w-pv .pv th:first-child{text-align:left}
+#w-pv .pv thead th{position:sticky;top:0;background:#FAFAFF;z-index:1;padding:16px 14px 12px;border-bottom:2px solid var(--blau)}
+#w-pv .pv thead th b{display:block;font-size:15.5px}
+#w-pv .pv thead th .pr{display:block;font-size:20px;font-weight:800;margin-top:4px}
+#w-pv .pv thead th .ei{display:block;font-size:12px;color:var(--muted);font-weight:400}
+#w-pv .pv thead th.top{background:#EEF4FF}
+#w-pv .pv thead th .bs-pv{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;color:#FAFAFF;background:var(--blau);border-radius:99px;padding:2px 8px;margin-bottom:4px}
+#w-pv .pv tr.grp td{background:#FAFAFF;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#1E3A8A;padding-top:18px;border-bottom:1px solid var(--blau)}
+#w-pv .pv td.top{background:#F5F8FF}
+#w-pv .ja{color:var(--ok);font-weight:800;font-size:16px}
+#w-pv .nein{color:#CBD5E1;font-size:16px}
+#w-pv .mod{display:inline-flex;width:22px;height:22px;border-radius:6px;color:#FAFAFF;font-size:9.5px;font-weight:800;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle}
+#w-pv .pv .lz td{font-size:13px}
+#w-pv .pv .cta td{border-bottom:0;padding:16px 10px}
+#w-pv .btn{display:inline-block;height:38px;line-height:38px;padding:0 14px;border-radius:9px;font-weight:700;font-size:13.5px;text-decoration:none;border:2px solid var(--blau);color:var(--blau)}
+#w-pv .btn.p{background:var(--blau);color:#FAFAFF}
+#w-pv .fuss{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+#w-pv .zwei{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#w-pv .sys{padding:20px 22px}
+#w-pv .sys h3{margin:0 0 4px;font-size:18px;display:flex;align-items:center;gap:10px}
+#w-pv .sys .unter{color:var(--muted);font-size:13.5px;margin:0 0 12px}
+#w-pv .sys table{width:100%;border-collapse:collapse;font-size:14px}
+#w-pv .sys td{padding:8px 0;border-bottom:1px solid #EEF2F7;vertical-align:top}
+#w-pv .sys td:first-child{width:38%;color:var(--text2);font-weight:600;padding-right:12px}
+#w-pv .ic{width:34px;height:34px;border-radius:9px;background:var(--blau);color:#FAFAFF;display:grid;place-items:center;font-size:17px}
+#w-pv .kurz{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+#w-pv .kurz div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:14px 16px;font-size:14px}
+#w-pv .kurz b{display:block;font-size:15.5px;margin-bottom:2px}
+#w-pv .gut{margin-top:22px;padding:18px 22px}
+#w-pv .gut h3{margin:0 0 8px;font-size:16px}
+#w-pv .gut ul{margin:0;padding-left:18px;color:var(--text2);font-size:14px}
+#w-pv .gut li{margin-bottom:6px}
+#w-pv .vk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#w-pv .vk div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:18px;font-size:14.5px;color:var(--text2)}
+#w-pv .vk b{display:block;font-size:16px;color:var(--text);margin:8px 0 4px}
+#w-pv .vk .vi{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#DBEAFE;font-size:19px}
+#w-pv table.vg{min-width:600px}
+#w-pv .vg td{text-align:left}
+#w-pv .vg td.top{font-weight:600}
+@media(max-width:800px){#w-pv .zwei,#w-pv .kurz,#w-pv .vk{grid-template-columns:1fr}#w-pv h2{font-size:26px}}
+
+#w-pv .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+#w-pv .pv thead th{position:static}
 </style>
 </head>
 <body>
@@ -279,6 +367,8 @@
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
     <a href="index.html#funktionen">Funktionen</a>
+    <a href="index.html#vorteile">Vorteile</a>
+    <a href="shield.html">Shield</a>
     <a href="index.html#faq">Häufige Fragen</a>
     <a href="preise.html">Preise</a>
     <a href="partner.html">Partner</a>
@@ -302,6 +392,20 @@
 
 <!-- ================= TEIL 2: PAKETE ================= -->
 <main>
+<div class="shband" aria-label="DEXXUS Shield allein">
+  <div class="ic" aria-hidden="true">SH</div>
+  <div>
+    <span class="art">Einmalig · nur Schwärzen</span>
+    <h2>DEXXUS Shield – für jedes Programm</h2>
+    <p>Sie haben schon eine Bürosoftware und wollen nur KI sicher nutzen? Shield schwärzt Personendaten aus jedem Text – aus Word, E-Mails oder Ihrem bisherigen Programm – bevor sie an ChatGPT, Copilot, Gemini &amp; Co. gehen.</p>
+    <div class="tags"><span class="tag">jede Online-KI</span><span class="tag">Datei oder Text einfügen</span><span class="tag">Antwort mit echten Daten</span><span class="tag">1 Arbeitsplatz</span></div>
+  </div>
+  <div class="rechts">
+    <div class="pr">CHF 49.– <small>einmalig</small></div>
+    <div class="anr">In Privat, KMU Pro und KMU Enterprise bereits enthalten</div>
+    <a class="cta" href="#kaufen" data-kauf="DEXXUS Shield">Shield kaufen</a>
+  </div>
+</div>
 <section class="raster" aria-label="Pakete">
   <article class="paket">
     <span class="art">Einmalig · Fixpreis</span>
@@ -309,12 +413,11 @@
     <p class="hook">Ideal für Selbständige und kleine Betriebe. Wird beim Wechsel auf ein grösseres Paket innert 3 Monaten voll angerechnet.</p>
     <div class="preis"><span class="betrag">CHF 19.90</span><span class="einheit">einmalig</span></div>
     <span class="anrechnung">Voll anrechenbar innert 3 Monaten</span>
-    <a class="cta" href="#download">Starter kaufen</a>
+    <a class="cta" href="#kaufen" data-kauf="DEXXUS Starter">Starter kaufen</a>
     <ul class="liste">
       <li><span class="mod re">RE</span><span><b>ERP</b> – Offerten, Lieferscheine, Schweizer QR-Rechnung</span></li>
       <li><span class="mod db">DB</span><span><b>Dashboard</b> mit To-do</span></li>
       <li><span class="haken">✓</span><span>Kunden- und Artikelkartei</span></li>
-      <li><span class="mod ma">MA</span><span>Fall- und Aktenverwaltung</span></li>
     </ul>
   </article>
 
@@ -324,11 +427,12 @@
     <p class="hook">Maximaler Datenschutz für Fachleute und Privatpersonen. Wird beim Wechsel innert 3 Monaten voll angerechnet.</p>
     <div class="preis"><span class="betrag">CHF 79.–</span><span class="einheit">einmalig</span></div>
     <span class="anrechnung">Voll anrechenbar innert 3 Monaten</span>
-    <a class="cta" href="#download">Privat kaufen</a>
+    <a class="cta" href="#kaufen" data-kauf="DEXXUS Privat">Privat kaufen</a>
     <ul class="liste">
       <li class="plus">Alles aus Starter, plus:</li>
       <li><span class="mod qs">QS</span><span><b>KI-Dokumentensuche</b> – PDFs und Scans lokal auswerten</span></li>
       <li><span class="mod tr">TR</span><span><b>Datentresor</b> – AES-256 verschlüsselt</span></li>
+      <li><span class="mod sh">SH</span><span><b>DEXXUS Shield</b> – Personendaten vor jeder KI-Anfrage schwärzen</span></li>
     </ul>
   </article>
 
@@ -339,12 +443,12 @@
     <p class="hook">Der Beschleuniger für Ihr Geschäft – starkes Preis-Leistungs-Verhältnis für Schweizer KMU.</p>
     <div class="preis"><span class="alt" data-alt></span><span class="betrag" data-monat>CHF 29.–</span><span class="einheit">/ Monat</span></div>
     <div class="vorauszahlung" data-total></div>
-    <a class="cta primaer" href="#download">KMU Pro wählen</a>
+    <a class="cta primaer" href="#kaufen" data-kauf="KMU Pro">KMU Pro wählen</a>
     <ul class="liste">
       <li class="plus">Alles aus Privat, plus:</li>
-      <li><span class="mod sh">SH</span><span><b>DEXXUS Shield</b> – Personendaten vor jeder KI-Anfrage schwärzen</span></li>
       <li><span class="mod bh">BH</span><span><b>Buchhaltung &amp; Treuhand-Export</b></span></li>
       <li><span class="mod vm">VM</span><span><b>Virtuelle Mitarbeiter</b> – Rechnungen, Mahnungen, Offerten nachfassen</span></li>
+      <li><span class="haken">✓</span><span>Lieferanten, Einkauf, Projekte, Auftragsbestätigungen, TWINT-Zahlungslink</span></li>
     </ul>
     <div class="lz-unten">
       <p class="lz-titel">Laufzeit wählen</p>
@@ -363,11 +467,12 @@
     <p class="hook">Das umfassende Betriebssystem für Ihr Unternehmen.</p>
     <div class="preis"><span class="alt" data-alt></span><span class="betrag" data-monat>CHF 49.–</span><span class="einheit">/ Monat</span></div>
     <div class="vorauszahlung" data-total></div>
-    <a class="cta" href="#download">Enterprise wählen</a>
+    <a class="cta" href="#kaufen" data-kauf="KMU Enterprise">Enterprise wählen</a>
     <ul class="liste">
       <li class="plus">Alles aus KMU Pro, plus:</li>
       <li><span class="mod ze">ZE</span><span><b>Zeiterfassung</b> – direkt in die Rechnung</span></li>
       <li><span class="mod ti">TI</span><span><b>Ticket-Service</b> für Kundenanfragen</span></li>
+      <li><span class="mod ma">MA</span><span><b>Mandate &amp; Akten</b> und Werbung &amp; Verkauf</span></li>
       <li><span class="haken">✓</span><span>Unbegrenzt Briefpapiere und Absender-Postfächer</span></li>
     </ul>
     <div class="lz-unten">
@@ -390,6 +495,117 @@
   </div>
   <p class="klein">Stand November 2026 · Preise und Leistungen gemäss aktueller Preisliste der avotec AG.</p>
 </section>
+
+<div id="w-pv">
+<section class="pv-sec" id="vergleich" aria-labelledby="pv-titel"><div class="pv-in">
+<span class="eyebrow">Paketvergleich</span>
+<h2 id="pv-titel">Was ist in welchem Paket enthalten?</h2>
+<p class="lead">Alle Pakete laufen lokal auf Ihrem PC. Jedes grössere Paket enthält alles aus dem kleineren. Preise in CHF inkl. 8.1 % MWST.</p>
+<div class="karte"><div class="scroll">
+<table class="pv">
+<thead><tr>
+  <th style="width:36%">Funktion</th>
+  <th><b>Starter</b><span class="pr">19.90</span><span class="ei">einmalig</span></th>
+  <th><b>Privat</b><span class="pr">79.–</span><span class="ei">einmalig</span></th>
+  <th class="top"><span class="bs-pv">BESTSELLER</span><b>KMU Pro</b><span class="pr">29.–</span><span class="ei">pro Monat</span></th>
+  <th><b>KMU Enterprise</b><span class="pr">49.–</span><span class="ei">pro Monat</span></th>
+</tr></thead>
+<tbody>
+<tr class="grp"><td colspan="5">Grundlagen</td></tr>
+<tr><td>Abrechnung</td><td>einmalig</td><td>einmalig</td><td class="top">Abo</td><td>Abo</td></tr>
+<tr><td>Arbeitsplätze im Preis</td><td>1</td><td>1</td><td class="top">1</td><td>1</td></tr>
+<tr><td>Netzwerk: 3–8 Arbeitsplätze (Zusatzpaket, je Platz CHF 19.– / Monat)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Updates mit Fehlerkorrekturen</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Hilfe auf jeder Seite, Bedienungsanleitung</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+
+<tr class="grp"><td colspan="5">Büro &amp; Verkauf</td></tr>
+<tr><td><span class="mod" style="background:#4F46E5">RE</span>Offerten, Lieferscheine, Rechnungen mit QR-Einzahlungsschein</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Kunden- und Artikelkartei, Import aus Excel/CSV</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Korrespondenz (Briefe auf Ihrem Briefpapier)</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Mahnungen mit Mahnstufen</td><td><span class="nein">–</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Auswertungen (Umsatz, offene Posten)</td><td><span class="nein">–</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Auftragsbestätigungen</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Online-Zahlungslink auf Rechnungen (TWINT, Karte)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#C53030">BH</span>Buchhaltung &amp; Treuhand-Export</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Lieferanten und Einkauf (Anfrage → Bestellung → Wareneingang)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Projekte</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#65A30D">ZE</span>Zeiterfassung – direkt in die Rechnung</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="nein">–</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#DC2626">TI</span>Ticket-Service für Kundenanfragen</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="nein">–</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#57534E">MA</span>Mandate &amp; Akten (Fallverwaltung)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="nein">–</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Werbung &amp; Verkauf</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="nein">–</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Briefpapiere und Absender-Postfächer</td><td>1</td><td>1</td><td class="top">1</td><td>unbegrenzt</td></tr>
+
+<tr class="grp"><td colspan="5">KI &amp; Datenschutz</td></tr>
+<tr><td><span class="mod" style="background:#0891B2">SH</span>DEXXUS Shield – Personendaten vor jeder KI-Anfrage schwärzen</td><td><span class="nein">–</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#059669">QS</span>KI-Dokumentensuche – PDFs und Scans lokal auswerten</td><td><span class="nein">–</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#D97706">TR</span>Datentresor – AES-256 verschlüsselt</td><td><span class="nein">–</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#7C3AED">VM</span>Virtuelle Mitarbeiter – Rechnungen, Mahnungen, Offerten nachfassen</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Marktdaten (Kurse Vortag, Zinsen)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+
+<tr class="grp"><td colspan="5">Werkzeuge</td></tr>
+<tr><td><span class="mod" style="background:#2563EB">DB</span>Dashboard mit To-do und Erinnerung</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td><span class="mod" style="background:#E11D48">DS</span>DataSweep – Ordnung auf dem PC, Dubletten</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+
+<tr class="grp"><td colspan="5">Laufzeit</td></tr>
+<tr class="lz"><td>Laufzeit</td><td>unbefristet</td><td>unbefristet</td><td class="top">1, 2 oder 3 Jahre<br>(−5 % / −10 %)</td><td>1, 2 oder 3 Jahre<br>(−5 % / −10 %)</td></tr>
+<tr class="cta"><td></td><td><a class="btn" href="#kaufen" data-kauf="DEXXUS Starter">Kaufen</a></td><td><a class="btn" href="#kaufen" data-kauf="DEXXUS Privat">Kaufen</a></td><td class="top"><a class="btn p" href="#kaufen" data-kauf="KMU Pro">Wählen</a></td><td><a class="btn" href="#kaufen" data-kauf="KMU Enterprise">Wählen</a></td></tr>
+</tbody></table>
+</div></div>
+<p class="fuss">Alle Pakete 30 Tage kostenlos testen – mit Musterfirma, ohne Kreditkarte. Auf dem Handy lässt sich die Tabelle seitlich schieben.</p>
+
+</div></section>
+<section class="pv-sec" id="systemanforderungen" aria-labelledby="sys-titel"><div class="pv-in">
+<span class="eyebrow">Systemanforderungen</span>
+<h2 id="sys-titel">Was Ihr PC und Ihr Server brauchen</h2>
+<p class="lead">DEXXUS läuft auf einem normalen Windows-PC. Microsoft Office ist nicht nötig. Alle Daten und die KI bleiben auf Ihrem Gerät bzw. in Ihrem Firmennetz.</p>
+<div class="kurz">
+  <div><b>Windows 11 + 16 GB</b>Ein aktueller Windows-PC mit 16 GB Arbeitsspeicher genügt – auch für die lokale KI.</div>
+  <div><b>Kein Office nötig</b>DEXXUS liest und schreibt Word- und Excel-Dateien selbst. E-Mails direkt über Ihr Konto.</div>
+  <div><b>Keine Cloud</b>Mehrere Arbeitsplätze über einen Server im eigenen Büro – kein Remotedesktop nötig.</div>
+</div>
+
+<div class="zwei">
+  <div class="karte sys">
+    <h3><span class="ic">🖥</span>Arbeitsplatz-PC</h3>
+    <p class="unter">Für alle Pakete – Einzelplatz oder Arbeitsplatz im Netzwerk</p>
+    <table>
+      <tr><td>Betriebssystem</td><td>Windows 11, 64-Bit (empfohlen) · Windows 10 22H2 nur mit Sicherheitsupdates (ESU)</td></tr>
+      <tr><td>Arbeitsspeicher</td><td>mindestens 8 GB · empfohlen 16 GB oder mehr (lokale KI)</td></tr>
+      <tr><td>Speicherplatz</td><td>20 GB frei · empfohlen SSD mit 50 GB frei</td></tr>
+      <tr><td>Grafikkarte</td><td>nicht nötig · mit NVIDIA oder AMD antwortet die KI schneller</td></tr>
+      <tr><td>Browser</td><td>Microsoft Edge (in Windows vorinstalliert)</td></tr>
+      <tr><td>E-Mail</td><td>Ihr E-Mail-Konto (IMAP/SMTP, z. B. Bluewin, Hostpoint, Gmail, Microsoft 365)</td></tr>
+      <tr><td>Internet</td><td>für Installation, Updates, Lizenz und Marktdaten – die Arbeit mit Ihren Daten und der KI geht auch ohne</td></tr>
+      <tr><td>Apple Mac</td><td>derzeit nicht unterstützt</td></tr>
+    </table>
+  </div>
+  <div class="karte sys">
+    <h3><span class="ic">🗄</span>Server (Netzwerk, 3–8 Arbeitsplätze)</h3>
+    <p class="unter">Nur mit Zusatzpaket «DEXXUS Netzwerk» zu KMU Pro oder KMU Enterprise</p>
+    <table>
+      <tr><td>Rechner</td><td>Windows 10/11 Pro oder Windows Server 2019 oder neuer – auch ein immer eingeschalteter Büro-PC</td></tr>
+      <tr><td>Arbeitsspeicher</td><td>16 GB empfohlen (lokale KI)</td></tr>
+      <tr><td>Speicher</td><td>SSD, genug Platz für Datenbank, Belege und tägliche Sicherung</td></tr>
+      <tr><td>Betrieb</td><td>während der Arbeitszeit eingeschaltet · bestehender Windows-Server: DEXXUS startet automatisch beim Systemstart</td></tr>
+      <tr><td>Netzwerk</td><td>alle Geräte im selben Firmennetz · Firewall-Freigabe für DEXXUS richtet das Programm selbst ein (Administratorrechte)</td></tr>
+      <tr><td>Aussenstellen</td><td>nur über ein VPN Ihrer Firma – den Server nie direkt ins Internet freigeben</td></tr>
+      <tr><td>Datensicherung</td><td>tägliche Kopie der Datenbank auf dem Server (14 Tage) – zusätzlich in Ihre normale Datensicherung aufnehmen</td></tr>
+      <tr><td>Einrichtung</td><td>durch Ihre IT bzw. Ihren IT-Partner · <a href="unterlagen/DEXXUS_Netzwerk_Merkblatt_IT-Partner.pdf" target="_blank">Merkblatt für IT-Partner (PDF)</a></td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="karte gut">
+  <h3>Gut zu wissen</h3>
+  <ul>
+    <li><b>Windows 10:</b> Ohne Anmeldung für erweiterte Sicherheitsupdates (ESU) gibt es keine Updates mehr. Wir empfehlen Windows 11.</li>
+    <li><b>Neues Outlook:</b> lässt sich nicht mit anderen Programmen verbinden – verbinden Sie DEXXUS darum direkt mit Ihrem E-Mail-Konto (funktioniert mit jedem Anbieter).</li>
+    <li><b>Office-Version:</b> spielt für DEXXUS keine Rolle. Für Ihre Sicherheit schon: Office 2016, 2019 und 2021 erhalten keine Updates mehr.</li>
+  </ul>
+</div>
+
+</div></section>
+</div>
 </main>
 
 <script>
@@ -616,5 +832,67 @@
   <span style="flex:1"></span>
   <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
+
+<div class="dk-ov" id="dk-ov" role="dialog" aria-modal="true" aria-labelledby="dk-titel"><div class="dk">
+  <div class="dk-kopf"><span class="m" id="dk-m"></span><b id="dk-titel"></b><button class="dk-zu" type="button" id="dk-zu">Schliessen</button></div>
+  <div class="dk-inh">
+    <div class="dk-z"><span>Paket</span><b id="dk-paket"></b></div>
+    <div id="dk-lz-box"><div class="dk-lab">Laufzeit</div>
+      <div class="dk-lz" role="radiogroup" aria-label="Laufzeit">
+        <button type="button" role="radio" data-j="1" data-r="0">1 Jahr<small>&nbsp;</small></button>
+        <button type="button" role="radio" data-j="2" data-r="5">2 Jahre<small>−5 %</small></button>
+        <button type="button" role="radio" data-j="3" data-r="10">3 Jahre<small>−10 %</small></button>
+      </div></div>
+    <div class="dk-z" id="dk-einm"><span>Laufzeit</span><b>unbefristet</b></div>
+    <div class="dk-z" id="dk-rech"><span id="dk-rech-t"></span><span id="dk-rech-b"></span></div>
+    <div class="dk-summe"><span>Total inkl. 8.1 % MWST</span><span id="dk-total"></span></div>
+    <label class="dk-agb"><input type="checkbox" id="dk-agb"> <span>Ich akzeptiere die <a href="agb.html" target="_blank">AGB / Lizenzbedingungen</a> und die Datenschutzerklärung. Kauf ab 18 Jahren.</span></label>
+    <button class="dk-los" type="button" id="dk-los" disabled>Weiter zur Zahlung</button>
+    <div class="dk-fuss">TWINT · PostFinance · Karte – sichere Zahlung über Payrexx (Schweiz). Die Lizenz kommt nach der Zahlung per E-Mail.</div>
+  </div>
+</div></div>
+<script>
+(function () {
+  var ZAHLUNG = "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3";   // Payrexx-Seite «DEXXUS – Lizenz kaufen» (wie alte Webseite)
+  var P = {"DEXXUS Shield": {e: 49, f: "#0891B2", k: "SH"}, "DEXXUS Starter": {e: 19.90, f: "#4F46E5", k: "ST"}, "DEXXUS Privat": {e: 79, f: "#059669", k: "PR"},
+           "KMU Pro": {m: 29, f: "#2563EB", k: "KP"}, "KMU Enterprise": {m: 49, f: "#1E3A8A", k: "KE"}};
+  var ov = document.getElementById("dk-ov"), lzk = ov.querySelectorAll(".dk-lz button"), agb = document.getElementById("dk-agb"), los = document.getElementById("dk-los");
+  var akt = null, jahre = 1, rabatt = 0, zuletzt = null;
+  function chf(x) { return "CHF " + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
+  function betrag() { var p = P[akt]; if (!p.m) { return p.e; } return Math.round(p.m * 12 * jahre * (1 - rabatt / 100) * 20) / 20; }
+  function zeigen() {
+    var p = P[akt], abo = !!p.m;
+    document.getElementById("dk-lz-box").style.display = abo ? "" : "none";
+    document.getElementById("dk-einm").style.display = abo ? "none" : "";
+    document.getElementById("dk-rech").style.display = abo ? "" : "none";
+    lzk.forEach(function (b) { b.setAttribute("aria-checked", String(+b.getAttribute("data-j") === jahre)); });
+    if (abo) { document.getElementById("dk-rech-t").textContent = jahre + (jahre > 1 ? " Jahre" : " Jahr") + " × " + chf(p.m * 12) + (rabatt ? " (−" + rabatt + " %)" : ""); document.getElementById("dk-rech-b").textContent = chf(betrag()); }
+    document.getElementById("dk-total").textContent = chf(betrag());
+    los.disabled = !agb.checked;
+  }
+  function auf(paket, knopf) {
+    akt = paket; zuletzt = knopf; agb.checked = false;
+    var karte = knopf.closest("[data-abo]"), gew = karte && karte.querySelector('.laufzeit button[aria-checked="true"]');
+    jahre = gew ? +gew.getAttribute("data-jahre") : 1; rabatt = gew ? +gew.getAttribute("data-rabatt") : 0;
+    var m = document.getElementById("dk-m"); m.textContent = P[paket].k; m.style.background = P[paket].f;
+    document.getElementById("dk-titel").textContent = (paket.indexOf("DEXXUS") === 0 ? paket : "DEXXUS " + paket) + " kaufen";
+    document.getElementById("dk-paket").textContent = paket + " · 1 Arbeitsplatz";
+    zeigen(); ov.classList.add("an"); document.getElementById("dk-zu").focus();
+  }
+  function zu() { ov.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
+  document.querySelectorAll("[data-kauf]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); auf(b.getAttribute("data-kauf"), b); }); });
+  lzk.forEach(function (b) { b.addEventListener("click", function () { jahre = +b.getAttribute("data-j"); rabatt = +b.getAttribute("data-r"); zeigen(); }); });
+  agb.addEventListener("change", zeigen);
+  los.addEventListener("click", function () {
+    var p = P[akt], zweck = (akt.indexOf("DEXXUS") === 0 ? akt : "DEXXUS " + akt) + (p.m ? ", " + (jahre * 12) + " Monate" : ", unbefristet");
+    if (!ZAHLUNG) { alert("Layout: hier geht es weiter zur Zahlung (" + zweck + ", " + chf(betrag()) + ")."); return; }
+    var q = new URLSearchParams({invoice_amount: betrag().toFixed(2), invoice_currency: "1", invoice_number: zweck, contact_country: "204", referenceId: ["WEB", akt, p.m ? jahre * 12 : 0].join("|")});
+    location.href = ZAHLUNG + (ZAHLUNG.indexOf("?") > -1 ? "&" : "?") + q.toString();
+  });
+  document.getElementById("dk-zu").addEventListener("click", zu);
+  ov.addEventListener("click", function (e) { if (e.target === ov) { zu(); } });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("an")) { zu(); } });
+})();
+</script>
 </body>
 </html>
