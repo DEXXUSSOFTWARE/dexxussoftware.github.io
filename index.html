@@ -180,6 +180,22 @@
 .dx-lb-zu { border: 0; background: #DBEAFE; color: #1D4ED8; border-radius: 9px; height: 36px; padding: 0 14px; font: 600 14px inherit; cursor: pointer; }
 .dx-lb img { display: block; width: 100%; height: auto; }
 .dx-lb-fuss { padding: 12px 16px; font-size: 14.5px; color: #334155; }
+
+/* 12.11.2026: «So sieht die Schwärzung aus» – vorher/nachher mit gelben Platzhaltern (Variante B) */
+#w-funktionen .sw-block { grid-column: 1 / -1; padding: 6px 0 10px; }
+#w-funktionen .sw-block h3.sw-titel { margin: 0 0 4px; font-size: 20px; text-align: center; }
+#w-funktionen .sw-block p.sw-lead { margin: 0 auto 16px; max-width: 720px; text-align: center; color: var(--text-2); }
+#w-funktionen .sw-vergleich { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#w-funktionen .sw-spalte { background: #FAFAFF; border-radius: 14px; box-shadow: 0 18px 44px rgba(37,99,235,.10); padding: 18px 20px; }
+#w-funktionen .sw-spalte h4 { margin: 0 0 10px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+#w-funktionen .sw-spalte .t { font-size: 15.5px; line-height: 1.75; color: var(--text); }
+#w-funktionen .sw-pill { font-size: 11px; font-weight: 800; letter-spacing: .05em; padding: 2px 9px; border-radius: 99px; color: #FAFAFF; }
+#w-funktionen .sw-pill.v { background: #64748B; } #w-funktionen .sw-pill.n { background: #0891B2; }
+#w-funktionen .ph { font-family: Consolas, ui-monospace, monospace; font-size: .88em; background: #FEF3C7; color: #92400E; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+#w-funktionen .sw-flow { margin-top: 16px; padding: 14px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; box-shadow: 0 18px 44px rgba(37,99,235,.07); }
+#w-funktionen .sw-flow .box { padding: 7px 14px; border-radius: 9px; background: #0891B2; color: #FAFAFF; font-weight: 600; font-size: 14px; }
+#w-funktionen .sw-flow .pfeil { color: var(--muted); }
+@media (max-width: 760px) { #w-funktionen .sw-vergleich { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -245,6 +261,19 @@
           <p>ChatGPT, Copilot, Gemini &amp; Co. sicher nutzen: Shield schwärzt Namen, Adressen, AHV- und Kontonummern automatisch, bevor etwas Ihren PC verlässt – und setzt die echten Angaben in der Antwort wieder ein.</p>
           <div class="tags"><span class="tag">automatisch schwärzen</span><span class="tag">jede Online-KI</span><span class="tag">nDSG-konform</span><span class="tag">bleibt auf dem PC</span></div>
         </article>
+
+        <div class="sw-block" aria-labelledby="sw-titel">
+          <h3 class="sw-titel" id="sw-titel">So sieht die Schwärzung aus</h3>
+          <p class="sw-lead">Ihr Text bleibt auf Ihrem PC. An die Online-KI gehen Namen, Adressen, IBAN und Telefonnummern nur als Platzhalter – in der Antwort setzt DEXXUS die echten Angaben wieder ein.</p>
+          <div class="sw-vergleich">
+            <div class="sw-spalte"><h4><span class="sw-pill v">VORHER</span> Ihr Text – bleibt auf Ihrem PC</h4>
+              <div class="t">Sehr geehrte Frau Erika Muster<br><br>Wir vertreten Herrn Hans Beispiel, wohnhaft Musterweg 7, 8810 Horgen. Bitte überweisen Sie die Entschädigung auf CH93 0076 2011 6238 5295 7. Sie erreichen ihn unter 079 412 33 21.</div></div>
+            <div class="sw-spalte"><h4><span class="sw-pill n">NACHHER</span> Das sieht die Online-KI</h4>
+              <div class="t">Sehr geehrte Frau <span class="ph">[Person 1]</span><br><br>Wir vertreten Herrn <span class="ph">[Person 2]</span>, wohnhaft <span class="ph">[Adresse 1]</span>, <span class="ph">[Ort 1]</span>. Bitte überweisen Sie die Entschädigung auf <span class="ph">[IBAN 1]</span>. Sie erreichen ihn unter <span class="ph">[Telefon 1]</span>.</div></div>
+          </div>
+          <div class="sw-flow" aria-label="So schützt DEXXUS Shield Ihre Daten"><span class="box">Ihr Text aus jedem Programm</span><span class="pfeil" aria-hidden="true">→</span><span class="box">DEXXUS Shield schwärzt lokal</span><span class="pfeil" aria-hidden="true">→</span><span class="box">KI Ihrer Wahl</span><span class="pfeil" aria-hidden="true">→</span><span class="box">Echte Daten lokal wieder eingesetzt</span></div>
+        </div>
+
 
         <article class="card feature" data-seite="re" data-titel="ERP &amp; Offerten" data-farbe="#4F46E5" data-text="Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.">
           <div class="top"><span class="mod re" aria-hidden="true">RE</span><h3>ERP &amp; Offerten</h3></div>
