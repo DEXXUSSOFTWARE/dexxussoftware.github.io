@@ -95,6 +95,19 @@
 #w-hilfe .jump a { background: #FAFAFF !important; border: 2px solid #2563EB !important; }
 #w-hilfe .play { border: 0 !important; background: #FAFAFF !important; }
 #w-hilfe .video { box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
+/* 13.11.2026: Support-Anfrage (wird im DEXXUS-Master automatisch ein Ticket) */
+#w-hilfe .su-form { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px; box-shadow: 0 18px 44px rgba(37,99,235,.14); }
+#w-hilfe .su-g { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+#w-hilfe .su-g .voll { grid-column: 1 / -1; }
+#w-hilfe .su-l { display: block; font-size: 13.5px; font-weight: 600; color: var(--text-2); margin-bottom: 5px; }
+#w-hilfe .su-form input, #w-hilfe .su-form select, #w-hilfe .su-form textarea { font: inherit; font-size: 15px; color: var(--text); background: var(--white); border: 1px solid #CBD5E1; border-radius: 10px; padding: 10px 12px; width: 100%; }
+#w-hilfe .su-form input:focus, #w-hilfe .su-form select:focus, #w-hilfe .su-form textarea:focus { outline: 3px solid #BFDBFE; border-color: var(--db); }
+#w-hilfe .su-fehler { color: #B91C1C; font-size: 13.5px; font-weight: 600; min-height: 20px; }
+#w-hilfe .su-danke { display: none; background: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; border-radius: 12px; padding: 14px 16px; font-size: 14.5px; }
+#w-hilfe .su-btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 12px; background: var(--db); color: #FAFAFF; font: 650 15.5px var(--font); cursor: pointer; }
+#w-hilfe .su-btn:hover { background: #1D4ED8; }
+#w-hilfe .su-hin { font-size: 13px; color: var(--muted); margin: 0; }
+@media (max-width: 640px) { #w-hilfe .su-g { grid-template-columns: 1fr; } #w-hilfe .su-form { padding: 20px 16px; } }
 </style>
 </head>
 <body>
@@ -126,6 +139,7 @@
     <a href="#block-re"><span class="mod sm re">RE</span>Verkauf &amp; Finanzen</a>
     <a href="#block-sh"><span class="mod sm sh">SH</span>KI-Assistent &amp; Datenschutz</a>
     <a href="#block-vm"><span class="mod sm vm">VM</span>Die Helfer</a>
+    <a href="#support"><span class="mod sm db">?</span>Support-Anfrage</a>
   </nav>
     <section class="block" id="block-db" aria-labelledby="t-db">
       <div class="b-head"><span class="mod db" aria-hidden="true">DB</span><div><h2 id="t-db">Die ersten Schritte</h2><p>Installation, Lizenz, E-Mail und KI einrichten · 4 Videos</p></div></div>
@@ -363,6 +377,28 @@
         </article>
       </div>
     </section>
+    <section class="block" id="support" aria-labelledby="t-support">
+      <span class="eyebrow">Support</span>
+      <h2 id="t-support" style="margin:0 0 6px;font-size:26px">Frage oder Problem? Support-Anfrage senden</h2>
+      <p class="lead" style="margin:0 0 18px">Für Interessenten und Kunden. Sie erhalten eine Ticketnummer per E-Mail und in der Regel innert eines Arbeitstages eine Antwort. Kunden können die Anfrage auch direkt im Programm senden: Hilfe → «Support-Anfrage».</p>
+      <form class="su-form" id="su-form" novalidate onsubmit="return suSenden(event)">
+        <div class="su-g">
+          <div class="voll"><label class="su-l" for="su-titel">Thema *</label><input type="text" id="su-titel" maxlength="80" placeholder="z. B. Frage zur Netzwerklizenz"></div>
+          <div><label class="su-l" for="su-bereich">Bereich</label><select id="su-bereich"><option>Allgemeine Frage</option><option>Kauf und Lizenz</option><option>Installation</option><option>Offerten und Rechnungen</option><option>KI-Suche und Rechtsfall</option><option>DEXXUS Shield</option><option>Netzwerk und Server</option><option>Hardware</option><option>Sonstiges</option></select></div>
+          <div><label class="su-l" for="su-dring">Dringlichkeit</label><select id="su-dring"><option>normal</option><option>hoch</option></select></div>
+          <div class="voll"><label class="su-l" for="su-text">Beschreibung *</label><textarea id="su-text" rows="6" placeholder="Was möchten Sie wissen oder was ist passiert? Bei einem Fehler: Wortlaut der Meldung."></textarea></div>
+          <div><label class="su-l" for="su-name">Ihr Name *</label><input type="text" id="su-name" autocomplete="name"></div>
+          <div><label class="su-l" for="su-firma">Firma</label><input type="text" id="su-firma" autocomplete="organization"></div>
+          <div><label class="su-l" for="su-mail">E-Mail *</label><input type="email" id="su-mail" autocomplete="email"></div>
+          <div><label class="su-l" for="su-tel">Telefon</label><input type="tel" id="su-tel" autocomplete="tel"></div>
+          <div><label class="su-l" for="su-lizenz">Lizenznummer (falls Kunde)</label><input type="text" id="su-lizenz" placeholder="L-2026-…"></div>
+          <div class="voll"><p class="su-hin">Bitte keine Kunden-, Bank- oder Gesundheitsdaten in die Beschreibung schreiben. Ihre Angaben verwenden wir nur zur Bearbeitung Ihrer Anfrage (<a href="rechtliches.html#datenschutz">Datenschutz</a>).</p></div>
+          <div class="voll su-fehler" id="su-fehler" role="alert"></div>
+          <div class="voll"><button type="submit" class="su-btn">Anfrage senden</button></div>
+          <div class="voll su-danke" id="su-danke">Danke! Ihr E-Mail-Programm hat sich mit der fertigen Anfrage an info@dexxus.ch geöffnet – bitte dort noch auf «Senden» klicken. Danach erhalten Sie Ihre Ticketnummer per E-Mail. Öffnet sich nichts: Der Text ist kopiert, fügen Sie ihn in eine E-Mail an info@dexxus.ch ein.</div>
+        </div>
+      </form>
+    </section>
 </main>
 
 </div>
@@ -372,5 +408,23 @@
   <span style="flex:1"></span>
   <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
+<script>
+/* 13.11.2026: Support-Anfrage – gleicher Aufbau wie im Programm («DEXXUS-Support …»), daraus macht der Master ein Ticket */
+function suSenden(e) {
+  e.preventDefault();
+  var v = function (id) { return document.getElementById(id).value.trim(); }, f = document.getElementById("su-fehler"), fehlt = [];
+  if (!v("su-titel")) fehlt.push("Thema"); if (v("su-text").length < 10) fehlt.push("Beschreibung (mind. 10 Zeichen)");
+  if (!v("su-name")) fehlt.push("Name"); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("su-mail"))) fehlt.push("gültige E-Mail");
+  if (fehlt.length) { f.textContent = "Bitte noch ausfüllen: " + fehlt.join(", ") + "."; return false; }
+  f.textContent = "";
+  var text = "DEXXUS-Support\nTitel: " + v("su-titel") + "\nModul: " + v("su-bereich") + "\nDringlichkeit: " + v("su-dring") +
+    "\nBeschreibung:\n" + v("su-text") + "\n---\nName: " + v("su-name") + "\nFirma: " + v("su-firma") + "\nE-Mail: " + v("su-mail") +
+    "\nTelefon: " + v("su-tel") + "\nLizenz: " + (v("su-lizenz") || "– (Webseite)") + "\nVersion: Webseite dexxus.ch\n";
+  try { navigator.clipboard && navigator.clipboard.writeText(text); } catch (x) {}
+  window.location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("DEXXUS-Support: " + v("su-titel").slice(0, 80)) + "&body=" + encodeURIComponent(text);
+  document.getElementById("su-danke").style.display = "block";
+  return false;
+}
+</script>
 </body>
 </html>
