@@ -93,6 +93,34 @@
 }
 /* Blaue Ränder nur: kleine Kärtchen, Antworten «Gut zu wissen», Laufzeit-Knöpfe einzeln (11.11.2026) */
 #w-partner .card, #w-partner .steps, #w-partner .cta { box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
+/* 13.11.2026: Support-Partner (Liste + Anmeldung) */
+#w-partner .sp-sec { margin-top: 64px; }
+#w-partner .sp-sec h2.t { margin: 0 0 6px; font-size: 26px; font-weight: 700; letter-spacing: -.01em; }
+#w-partner .sp-sec .lead { margin: 0 0 18px; color: var(--text-2); }
+#w-partner .sp-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+#w-partner select, #w-partner input[type=text], #w-partner input[type=email], #w-partner input[type=tel], #w-partner input[type=url], #w-partner textarea { font: inherit; font-size: 15px; color: var(--text); background: var(--white); border: 1px solid #CBD5E1; border-radius: 10px; padding: 10px 12px; width: 100%; }
+#w-partner select:focus, #w-partner input:focus, #w-partner textarea:focus { outline: 3px solid #BFDBFE; border-color: var(--db); }
+#w-partner .sp-bar select { width: auto; min-width: 220px; }
+#w-partner .sp-liste { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+#w-partner .sp-k { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; box-shadow: 0 18px 44px rgba(37,99,235,.10); font-size: 14px; color: var(--text-2); }
+#w-partner .sp-k b { display: block; color: var(--text); font-size: 16px; }
+#w-partner .sp-k .tg { display: inline-block; font-size: 12px; font-weight: 600; color: #1D4ED8; background: #DBEAFE; border-radius: 99px; padding: 2px 9px; margin: 6px 6px 0 0; }
+#w-partner .sp-k a { color: var(--db); font-weight: 600; text-decoration: none; }
+#w-partner .sp-leer { background: var(--panel); border: 1px dashed #CBD5E1; border-radius: 14px; padding: 22px; text-align: center; color: var(--muted); }
+#w-partner .sp-form { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 28px; box-shadow: 0 18px 44px rgba(37,99,235,.14); }
+#w-partner .sp-g { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+#w-partner .sp-g .voll { grid-column: 1 / -1; }
+#w-partner .f { display: block; font-size: 13.5px; font-weight: 600; color: var(--text-2); margin-bottom: 5px; }
+#w-partner .sp-wahl { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px 12px; font-size: 14px; }
+#w-partner .sp-wahl.k { grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); }
+#w-partner .sp-wahl label { display: flex; gap: 7px; align-items: center; cursor: pointer; }
+#w-partner .sp-ok { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-2); }
+#w-partner .sp-ok input { margin-top: 4px; }
+#w-partner .sp-fehler { color: #B91C1C; font-size: 13.5px; font-weight: 600; min-height: 20px; }
+#w-partner .sp-danke { display: none; background: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; border-radius: 12px; padding: 14px 16px; font-size: 14.5px; }
+#w-partner button.btn { border: 0; cursor: pointer; font-family: inherit; }
+@media (max-width: 960px) { #w-partner .sp-liste { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { #w-partner .sp-liste, #w-partner .sp-g { grid-template-columns: 1fr; } #w-partner .sp-form { padding: 20px 16px; } #w-partner .sp-bar select { width: 100%; } }
 </style>
 </head>
 <body>
@@ -158,7 +186,7 @@
       </div>
 
       <div class="steps" aria-label="So werden Sie Partner">
-        <div class="step"><span class="num">1</span><div><b>Anfrage senden</b><span>Kurze E-Mail mit Ihrem Unternehmen und Ihren Mandanten.</span></div></div>
+        <div class="step"><span class="num">1</span><div><b>Anfrage senden</b><span>Formular «Als IT-Support-Partner anmelden» ausfüllen.</span></div></div>
         <div class="step"><span class="num">2</span><div><b>Kennenlernen</b><span>Wir zeigen Ihnen DEXXUS und besprechen die Zusammenarbeit.</span></div></div>
         <div class="step"><span class="num">3</span><div><b>Mandanten begleiten</b><span>Sie richten DEXXUS bei Ihren Kunden ein – mit unserer Unterstützung.</span></div></div>
       </div>
@@ -168,12 +196,44 @@
           <h2>Werden Sie DEXXUS Partner.</h2>
           <p>Sichern Sie sich Einrichtungspakete für Ihre Mandanten und profitieren Sie von unserem Schweizer Partnernetzwerk.</p>
         </div>
-        <a class="btn" href="mailto:info@dexxus.ch?subject=Partner-Anfrage%20DEXXUS">
+        <a class="btn" href="#anmeldung">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          Partner-Anfrage per E-Mail senden
+          Zur Partner-Anmeldung
         </a>
       </div>
       <p class="note">avotec AG · 8602 Wangen ZH · Schweiz</p>
+
+      <section class="sp-sec" id="support-partner" aria-labelledby="sp-titel">
+        <span class="eyebrow">Support-Partner</span>
+        <h2 class="t" id="sp-titel">Support-Partner für Hardware und Installation</h2>
+        <p class="lead">Diese IT-Firmen liefern und installieren DEXXUS-Hardware in Ihrer Region – vom Einzelplatz bis zum Server im Büronetz.</p>
+        <div class="sp-bar"><label class="f" for="sp-kanton" style="margin:0">Kanton</label>
+          <select id="sp-kanton" onchange="spListe()"><option value="">Alle Kantone</option><option value="AG">AG</option><option value="AI">AI</option><option value="AR">AR</option><option value="BE">BE</option><option value="BL">BL</option><option value="BS">BS</option><option value="FR">FR</option><option value="GE">GE</option><option value="GL">GL</option><option value="GR">GR</option><option value="JU">JU</option><option value="LU">LU</option><option value="NE">NE</option><option value="NW">NW</option><option value="OW">OW</option><option value="SG">SG</option><option value="SH">SH</option><option value="SO">SO</option><option value="SZ">SZ</option><option value="TG">TG</option><option value="TI">TI</option><option value="UR">UR</option><option value="VD">VD</option><option value="VS">VS</option><option value="ZG">ZG</option><option value="ZH">ZH</option></select></div>
+        <div id="sp-liste"></div>
+      </section>
+
+      <section class="sp-sec" id="anmeldung" aria-labelledby="an-titel">
+        <span class="eyebrow">Anmeldung</span>
+        <h2 class="t" id="an-titel">Als IT-Support-Partner anmelden</h2>
+        <p class="lead">Sie bieten in Ihrer Region IT-Support an? Melden Sie sich an. Nach einem kurzen Gespräch und unserer Freigabe erscheinen Sie in der Liste oben.</p>
+        <form class="sp-form" id="sp-form" novalidate onsubmit="return spSenden(event)">
+          <div class="sp-g">
+            <div><label class="f" for="sp-firma">Firma *</label><input type="text" id="sp-firma" autocomplete="organization" required></div>
+            <div><label class="f" for="sp-person">Ansprechperson *</label><input type="text" id="sp-person" autocomplete="name" required></div>
+            <div><label class="f" for="sp-mail">E-Mail *</label><input type="email" id="sp-mail" autocomplete="email" required></div>
+            <div><label class="f" for="sp-tel">Telefon *</label><input type="tel" id="sp-tel" autocomplete="tel" required></div>
+            <div><label class="f" for="sp-ort">PLZ und Ort *</label><input type="text" id="sp-ort" required></div>
+            <div><label class="f" for="sp-web">Webseite</label><input type="url" id="sp-web" placeholder="https://"></div>
+            <div class="voll"><span class="f">Region – in welchen Kantonen bieten Sie Support an? *</span><div class="sp-wahl k"><label><input type="checkbox" name="kt" value="AG"> AG</label><label><input type="checkbox" name="kt" value="AI"> AI</label><label><input type="checkbox" name="kt" value="AR"> AR</label><label><input type="checkbox" name="kt" value="BE"> BE</label><label><input type="checkbox" name="kt" value="BL"> BL</label><label><input type="checkbox" name="kt" value="BS"> BS</label><label><input type="checkbox" name="kt" value="FR"> FR</label><label><input type="checkbox" name="kt" value="GE"> GE</label><label><input type="checkbox" name="kt" value="GL"> GL</label><label><input type="checkbox" name="kt" value="GR"> GR</label><label><input type="checkbox" name="kt" value="JU"> JU</label><label><input type="checkbox" name="kt" value="LU"> LU</label><label><input type="checkbox" name="kt" value="NE"> NE</label><label><input type="checkbox" name="kt" value="NW"> NW</label><label><input type="checkbox" name="kt" value="OW"> OW</label><label><input type="checkbox" name="kt" value="SG"> SG</label><label><input type="checkbox" name="kt" value="SH"> SH</label><label><input type="checkbox" name="kt" value="SO"> SO</label><label><input type="checkbox" name="kt" value="SZ"> SZ</label><label><input type="checkbox" name="kt" value="TG"> TG</label><label><input type="checkbox" name="kt" value="TI"> TI</label><label><input type="checkbox" name="kt" value="UR"> UR</label><label><input type="checkbox" name="kt" value="VD"> VD</label><label><input type="checkbox" name="kt" value="VS"> VS</label><label><input type="checkbox" name="kt" value="ZG"> ZG</label><label><input type="checkbox" name="kt" value="ZH"> ZH</label></div></div>
+            <div class="voll"><span class="f">Leistungen *</span><div class="sp-wahl"><label><input type="checkbox" name="ls" value="Hardware-Lieferung"> Hardware-Lieferung</label><label><input type="checkbox" name="ls" value="Installation Einzelplatz"> Installation Einzelplatz</label><label><input type="checkbox" name="ls" value="Netzwerk und Server"> Netzwerk und Server</label><label><input type="checkbox" name="ls" value="Vor-Ort-Support"> Vor-Ort-Support</label><label><input type="checkbox" name="ls" value="Fernwartung"> Fernwartung</label><label><input type="checkbox" name="ls" value="Schulung"> Schulung</label></div></div>
+            <div class="voll"><label class="f" for="sp-text">Bemerkungen (Zertifizierungen, Anzahl Mitarbeitende …)</label><textarea id="sp-text" rows="3"></textarea></div>
+            <div class="voll"><label class="sp-ok"><input type="checkbox" id="sp-einv"> <span>Ich bin einverstanden, dass DEXXUS nach der Freigabe Firma, Ort, Kantone, Leistungen, Telefon und Webseite in der Liste der Support-Partner veröffentlicht. Die Einwilligung kann ich jederzeit per E-Mail widerrufen. *</span></label></div>
+            <div class="voll sp-fehler" id="sp-fehler" role="alert"></div>
+            <div class="voll"><button type="submit" class="btn">Anmeldung senden</button></div>
+            <div class="voll sp-danke" id="sp-danke">Danke! Ihr E-Mail-Programm hat sich mit der fertigen Anmeldung an info@dexxus.ch geöffnet – bitte dort noch auf «Senden» klicken. Öffnet sich nichts: Der Text ist kopiert, fügen Sie ihn in eine E-Mail an info@dexxus.ch ein.</div>
+          </div>
+        </form>
+      </section>
 
     </div>
   </section>
@@ -185,5 +245,40 @@
   <span style="flex:1"></span>
   <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
+<script>
+/* 13.11.2026: Support-Partner. Neue Partner nach Freigabe hier eintragen:
+   { firma: "...", ort: "PLZ Ort", kantone: ["ZH","AG"], leistungen: ["Installation Einzelplatz"], tel: "...", web: "https://..." } */
+var DX_PARTNER = [];
+function spEsc(s) { return String(s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function spListe() {
+  var k = document.getElementById("sp-kanton").value, el = document.getElementById("sp-liste");
+  var l = DX_PARTNER.filter(function (p) { return !k || p.kantone.indexOf(k) >= 0; });
+  if (!l.length) { el.innerHTML = '<div class="sp-leer">' + (DX_PARTNER.length ? "In diesem Kanton gibt es noch keinen Support-Partner." : "Die ersten Support-Partner werden zurzeit aufgenommen.") + ' <a href="#anmeldung" style="color:#2563EB;font-weight:600">Als Partner anmelden</a></div>'; return; }
+  el.innerHTML = '<div class="sp-liste">' + l.map(function (p) {
+    return '<div class="sp-k"><b>' + spEsc(p.firma) + '</b>' + spEsc(p.ort) + '<div>' + p.kantone.map(function (x) { return '<span class="tg">' + spEsc(x) + '</span>'; }).join("") + '</div>' +
+      '<p style="margin:8px 0 6px">' + spEsc((p.leistungen || []).join(" · ")) + '</p>' + (p.tel ? spEsc(p.tel) : "") + (p.web ? ' · <a href="' + spEsc(p.web) + '" target="_blank" rel="noopener">Webseite</a>' : "") + '</div>';
+  }).join("") + '</div>';
+}
+function spWerte(n) { return [].slice.call(document.querySelectorAll('#sp-form input[name="' + n + '"]:checked')).map(function (x) { return x.value; }); }
+function spSenden(e) {
+  e.preventDefault();
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  var kt = spWerte("kt"), ls = spWerte("ls"), f = document.getElementById("sp-fehler"), fehlt = [];
+  if (!v("sp-firma")) fehlt.push("Firma"); if (!v("sp-person")) fehlt.push("Ansprechperson");
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("sp-mail"))) fehlt.push("gültige E-Mail"); if (!v("sp-tel")) fehlt.push("Telefon");
+  if (!v("sp-ort")) fehlt.push("PLZ und Ort"); if (!kt.length) fehlt.push("mindestens ein Kanton"); if (!ls.length) fehlt.push("mindestens eine Leistung");
+  if (!document.getElementById("sp-einv").checked) fehlt.push("Einverständnis");
+  if (fehlt.length) { f.textContent = "Bitte noch ausfüllen: " + fehlt.join(", ") + "."; return false; }
+  f.textContent = "";
+  var text = "Anmeldung als DEXXUS Support-Partner\n\nFirma: " + v("sp-firma") + "\nAnsprechperson: " + v("sp-person") + "\nE-Mail: " + v("sp-mail") +
+    "\nTelefon: " + v("sp-tel") + "\nPLZ/Ort: " + v("sp-ort") + "\nWebseite: " + (v("sp-web") || "–") + "\nKantone: " + kt.join(", ") +
+    "\nLeistungen: " + ls.join(", ") + "\nBemerkungen: " + (v("sp-text") || "–") + "\nEinverständnis zur Veröffentlichung: ja\n";
+  try { navigator.clipboard && navigator.clipboard.writeText(text); } catch (x) {}
+  window.location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Anmeldung Support-Partner: " + v("sp-firma")) + "&body=" + encodeURIComponent(text);
+  document.getElementById("sp-danke").style.display = "block";
+  return false;
+}
+spListe();
+</script>
 </body>
 </html>
