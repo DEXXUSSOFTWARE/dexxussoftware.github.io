@@ -373,6 +373,36 @@
 #w-pv .vier .vi{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#DBEAFE;font-size:18px}
 @media (max-width:900px){#w-pv .vier{grid-template-columns:1fr 1fr}}
 @media (max-width:420px){#w-pv .vier{grid-template-columns:1fr}}
+/* 13.11.2026: DEXXUS-geprüfte Hardware */
+#w-pv .hw3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#w-pv .hw2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+#w-pv .hwk{background:#FAFAFF;border-radius:16px;box-shadow:0 18px 44px rgba(37,99,235,.10);padding:22px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--text2)}
+#w-pv .hwk.top{outline:2px solid var(--blau)}
+#w-pv .hwk .st{display:inline-block;width:max-content;font-size:10.5px;font-weight:800;letter-spacing:.06em;border-radius:99px;padding:3px 10px;background:#DBEAFE;color:#1D4ED8}
+#w-pv .hwk.top .st{background:var(--blau);color:#FAFAFF}
+#w-pv .hwk h3{margin:6px 0 0;font-size:18px;color:var(--text)}
+#w-pv .hwk .fu{color:var(--muted);font-size:13px}
+#w-pv .hwk .pr{font-size:26px;font-weight:800;color:var(--text);margin-top:6px}
+#w-pv .hwk ul{margin:8px 0 6px;padding-left:18px;line-height:1.6}
+#w-pv .hwk .btn{margin-top:auto;text-align:center}
+#w-pv .hw-bsp{margin-top:18px;background:#EEF4FF;border-radius:14px;padding:16px 20px;font-size:14.5px;color:var(--text2);text-align:center}
+@media (max-width:960px){#w-pv .hw3{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){#w-pv .hw3,#w-pv .hw2{grid-template-columns:1fr}}
+#w-pv .hw-wahl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
+#w-pv .hw-wahl div{background:#EEF4FF;border-radius:14px;padding:14px 16px;font-size:14px;color:var(--text2)}
+#w-pv .hw-wahl b{display:block;color:var(--text);font-size:15.5px;margin:4px 0 2px}
+#w-pv .hw-h3{font-size:20px;margin:30px 0 12px;color:var(--text)}
+#w-pv .hwk .pr small{font-size:13px;font-weight:600;color:var(--muted);margin-left:6px}
+#w-pv .hw2.s3{grid-template-columns:repeat(3,1fr)}@media (max-width:960px){#w-pv .hw2.s3{grid-template-columns:1fr 1fr}}@media (max-width:640px){#w-pv .hw2.s3{grid-template-columns:1fr}}
+#w-pv .hw-netz{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:18px 20px;font-size:14.5px;color:var(--text2);line-height:1.6}
+#w-pv .abo{width:100%;border-collapse:collapse;font-size:14.5px}
+#w-pv .abo td{padding:9px 0;border-bottom:1px solid #EEF2F7}
+#w-pv .abo td:last-child{text-align:right;white-space:nowrap;font-weight:600;color:var(--text)}
+#w-pv .abo tr.hb td{font-weight:700;color:var(--text)}
+@media (max-width:900px){#w-pv .hw-wahl{grid-template-columns:1fr}}
+
+
+
 @media(max-width:800px){#w-pv .zwei,#w-pv .kurz,#w-pv .vk{grid-template-columns:1fr}#w-pv h2{font-size:26px}}
 
 #w-pv .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
@@ -531,7 +561,7 @@
 <tr class="grp"><td colspan="5">Grundlagen</td></tr>
 <tr><td>Abrechnung</td><td>einmalig</td><td>einmalig</td><td class="top">Abo</td><td>Abo</td></tr>
 <tr><td>Arbeitsplätze im Preis</td><td>1</td><td>1</td><td class="top">1</td><td>1</td></tr>
-<tr><td>Netzwerk: 3–8 Arbeitsplätze (Zusatzpaket, je Platz CHF 19.– / Monat)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
+<tr><td>Netzwerk: 2–8 Arbeitsplätze (Zusatzpaket, je Platz CHF 19.– / Monat)</td><td><span class="nein">–</span></td><td><span class="nein">–</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
 <tr><td>Updates mit Fehlerkorrekturen</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
 <tr><td>Hilfe auf jeder Seite, Bedienungsanleitung</td><td><span class="ja">✓</span></td><td><span class="ja">✓</span></td><td class="top"><span class="ja">✓</span></td><td><span class="ja">✓</span></td></tr>
 
@@ -597,7 +627,7 @@
     </table>
   </div>
   <div class="karte sys">
-    <h3><span class="ic">🗄</span>Server (Netzwerk, 3–8 Arbeitsplätze)</h3>
+    <h3><span class="ic">🗄</span>Server (Netzwerk, 2–8 Arbeitsplätze)</h3>
     <p class="unter">Nur mit Zusatzpaket «DEXXUS Netzwerk» zu KMU Pro oder KMU Enterprise</p>
     <table>
       <tr><td>Rechner</td><td>Windows 10/11 Pro oder Windows Server 2019 oder neuer – auch ein immer eingeschalteter Büro-PC</td></tr>
@@ -621,6 +651,75 @@
   </ul>
 </div>
 
+</div></section>
+<section class="pv-sec" id="hardware" aria-labelledby="hw-titel"><div class="pv-in">
+<span class="eyebrow">DEXXUS-geprüfte Hardware</span>
+<h2 id="hw-titel">Der passende PC gleich dazu</h2>
+<p class="lead">Getestet mit DEXXUS, eher mehr Leistung als zu wenig, Netzteile höchstens zu rund zwei Dritteln ausgelastet. <b>Alle Preise in den Karten sind Hardware-Preise</b> – die DEXXUS-Software finden Sie unten unter «DEXXUS-Abos für 1 Jahr». Lieferung durch DEXXUS, Installation auf Wunsch durch einen <a href="partner.html#support-partner">Support-Partner</a>.</p>
+
+<h3 class="hw-h3">1 · Welche Lösung passt?</h3>
+<div class="hw-wahl">
+  <div>🖥<b>1 Arbeitsplatz</b>Ein PC mit KI-Grafikkarte, eigene Daten. Keine Netzwerklizenz nötig.</div>
+  <div>🖥🖥<b>2 Arbeitsplätze</b>Der Master-PC ist zugleich Server und rechnet die KI für beide. Kein eigener Server nötig.</div>
+  <div>🗄<b>3–8 Arbeitsplätze</b>Ein KI-Server rechnet für alle – die Arbeitsplätze brauchen keine Grafikkarte.</div>
+</div>
+
+<h3 class="hw-h3">2 · Einzelplatz-PCs</h3>
+<div class="hw3">
+  <div class="hwk"><span class="st">START</span><h3>Büro-PC mit KI-Grafik</h3><span class="fu">KMU Pro · Einzelplatz</span>
+    <div class="pr">CHF 2'264.–<small>Hardware</small></div>
+    <ul><li>AMD Ryzen 5 9600X · 32 GB DDR5 · 1 TB SSD</li><li>NVIDIA RTX 5060 Ti 16 GB</li><li>Netzteil 650 W · Last ca. 50 %</li><li>Windows 11 Pro · interne Suche ca. 8–15 Sek.</li></ul>
+    <a class="btn" href="mailto:info@dexxus.ch?subject=Offerte%20Hardware%3A%20PC%20Start">Offerte anfordern</a></div>
+  <div class="hwk top"><span class="st">EMPFOHLEN</span><h3>Leistungs-PC</h3><span class="fu">KMU Enterprise · auch als KI-Server</span>
+    <div class="pr">CHF 4'658.–<small>Hardware</small></div>
+    <ul><li>AMD Ryzen 7 7800X3D · 64 GB DDR5 · 1 TB SSD</li><li>NVIDIA RTX 5080 16 GB</li><li>Corsair RM850x, 80 PLUS Gold · Last ca. 65 %</li><li>Windows 11 Pro · interne Suche ca. 5–10 Sek.</li></ul>
+    <a class="btn p" href="mailto:info@dexxus.ch?subject=Offerte%20Hardware%3A%20Leistungs-PC">Offerte anfordern</a></div>
+  <div class="hwk"><span class="st">HÖCHSTLEISTUNG</span><h3>KI-Workstation</h3><span class="fu">Kanzlei, Treuhand · auch als starker KI-Server</span>
+    <div class="pr">CHF 9'843.–<small>Hardware</small></div>
+    <ul><li>Intel Core Ultra 9 285K · 64 GB DDR5 · 4 TB SSD</li><li>NVIDIA RTX 5090 32 GB</li><li>Netzteil mind. 1200 W – vor Lieferung geprüft</li><li>Windows 11 Pro · 4 Jahre Garantie · ca. 3–8 Sek.</li></ul>
+    <a class="btn" href="mailto:info@dexxus.ch?subject=Offerte%20Hardware%3A%20KI-Workstation">Offerte anfordern</a></div>
+</div>
+<div class="hw2 s3">
+  <div class="hwk"><span class="st">ZU JEDEM PC</span><h3>Arbeitsplatz-Set</h3><div class="pr">CHF 436.–<small>kein PC enthalten</small></div>
+    <ul><li>Dell Pro Plus P2725DE · 27" WQHD, höhenverstellbar, USB-C</li><li>Logitech MX Keys S Combo · CH-Layout, kabellos</li></ul></div>
+  <div class="hwk"><span class="st">ARBEITSPLATZ IM NETZ</span><h3>Büro-PC kompakt</h3><div class="pr">CHF 1'101.–<small>Hardware</small></div>
+    <ul><li>Lenovo ThinkCentre neo 50s Gen 5 · Intel Core i7-14700</li><li>16 GB · 512 GB SSD · Windows 11 Pro</li><li>ohne KI-Grafik – die KI rechnet der Server</li></ul></div>
+  <div class="hwk"><span class="st">DATENSICHERUNG</span><h3>NAS für die Sicherung</h3><div class="pr">CHF 838.–<small>Hardware</small></div>
+    <ul><li>Synology DiskStation DS225+</li><li>2 × 4 TB, gespiegelt – 4 TB nutzbar</li><li>tägliche Kopie von Datenbank, Belegen und Dokumenten</li></ul></div>
+</div>
+
+<h3 class="hw-h3">3 · Mehrere Arbeitsplätze – die KI rechnet zentral</h3>
+<div class="hw3">
+  <div class="hwk top"><span class="st">2 PLÄTZE · KLEINBÜRO</span><h3>Master + Zweitplatz + NAS</h3><span class="fu">Kein Server nötig – der Master ist der Server</span>
+    <div class="pr">CHF 7'469.–<small>Hardware</small></div>
+    <ul><li><b>2 PCs:</b> Master Leistungs-PC (CHF 4'658.–) + Büro-PC kompakt (CHF 1'101.–)</li><li>2 Arbeitsplatz-Sets (CHF 872.–)</li><li>NAS Synology DS225+ 2 × 4 TB für die Datensicherung (CHF 838.–)</li><li>KI an beiden Plätzen ca. 5–10 Sek.</li></ul>
+    <a class="btn p" href="mailto:info@dexxus.ch?subject=Offerte%20Hardware%3A%20Kleinb%C3%BCro%202%20Pl%C3%A4tze%20mit%20NAS">Offerte anfordern</a></div>
+  <div class="hwk"><span class="st">3–4 PLÄTZE</span><h3>Büro mit KI-Server</h3><span class="fu">Beispiel mit 4 Arbeitsplätzen</span>
+    <div class="pr">CHF 12'221.–<small>Hardware</small></div>
+    <ul><li>KI-Server: Leistungs-PC RTX 5080 (CHF 4'658.–)</li><li>USV APC 1500 VA / 1500 W (CHF 1'415.–)</li><li>je Arbeitsplatz Büro-PC kompakt + Set: CHF 1'537.–</li><li>NAS für die Sicherung empfohlen: + CHF 838.–</li></ul>
+    <a class="btn" href="mailto:info@dexxus.ch?subject=Offerte%20Hardware%3A%20B%C3%BCro%20mit%20KI-Server%203-4%20Pl%C3%A4tze">Offerte anfordern</a></div>
+  <div class="hwk"><span class="st">5–8 PLÄTZE</span><h3>Büro mit starkem KI-Server</h3><span class="fu">Beispiel mit 5 Arbeitsplätzen</span>
+    <div class="pr">CHF 18'943.–<small>Hardware</small></div>
+    <ul><li>KI-Server: Workstation RTX 5090 (CHF 9'843.–)</li><li>USV APC 1500 VA / 1500 W (CHF 1'415.–)</li><li>je Arbeitsplatz Büro-PC kompakt + Set: CHF 1'537.–</li><li>NAS für die Sicherung empfohlen: + CHF 838.–</li></ul>
+    <a class="btn" href="mailto:info@dexxus.ch?subject=Offerte%20Hardware%3A%20B%C3%BCro%20mit%20starkem%20KI-Server%205-8%20Pl%C3%A4tze">Offerte anfordern</a></div>
+</div>
+<p class="fuss">Klassischer Server ohne KI (HPE ProLiant, RAID, Windows Server) für Firmen mit eigener IT auf Anfrage – die KI läuft dann über «Externe Suche mit Shield».</p>
+
+<h3 class="hw-h3">4 · Wann brauche ich die Netzwerklizenz?</h3>
+<div class="hw-netz">Sobald <b>zwei oder mehr PCs mit denselben Daten</b> arbeiten – egal, ob die Daten auf einem Server oder auf dem Master-PC liegen. Die Netzwerklizenz schaltet den Server-Modus frei: Kunden, Offerten, Rechnungen und die KI stehen allen Plätzen zur Verfügung.<br><b>Ohne Netzwerklizenz</b> hat jeder PC eine eigene, getrennte DEXXUS-Installation: Eine Rechnung vom ersten PC sieht der zweite nicht, und die KI läuft nur dort, wo die Grafikkarte steckt.<br><b>Warum kein NAS als Server?</b> DEXXUS ist ein Windows-Programm mit Datenbank und KI – ein NAS kann beides nicht. Als Datensicherung ist es ideal.</div>
+
+<h3 class="hw-h3">5 · DEXXUS-Abos für 1 Jahr</h3>
+<div class="hw-netz"><table class="abo">
+<tr><td>DEXXUS Shield · Schwärzen für jede KI</td><td>CHF 49.– einmalig</td></tr>
+<tr><td>DEXXUS Starter</td><td>CHF 19.90 einmalig</td></tr>
+<tr><td>DEXXUS Privat</td><td>CHF 79.– einmalig</td></tr>
+<tr class="hb"><td>DEXXUS KMU Pro · 12 × CHF 29.–</td><td>CHF 348.– / Jahr</td></tr>
+<tr class="hb"><td>DEXXUS KMU Enterprise · 12 × CHF 49.–</td><td>CHF 588.– / Jahr</td></tr>
+<tr><td>Netzwerklizenz (zu KMU Pro oder Enterprise, ab 2 Plätzen)</td><td>CHF 290.– einmalig</td></tr>
+<tr><td>jeder weitere Arbeitsplatz · 12 × CHF 19.–</td><td>CHF 228.– / Jahr</td></tr>
+</table>
+<p style="margin:10px 0 0;font-size:13.5px">1. Jahr Kleinbüro mit KMU Pro: 348 + 228 + 290 = <b>CHF 866.–</b> · 1. Jahr 5 Plätze mit KMU Enterprise: 588 + 4 × 228 + 290 = <b>CHF 1'790.–</b> · bei 2 Jahren −5 %, bei 3 Jahren −10 % auf den Monatspreis.</p></div>
+<p class="fuss">Preise in CHF inkl. 8.1 % MWST, Stand 13.11.2026, Preisänderungen und Verfügbarkeit vorbehalten. Zu jedem Server empfehlen wir zusätzlich eine tägliche Sicherung auf NAS oder externe Festplatte.</p>
 </div></section>
 <section class="pv-sec" id="antwortzeiten" aria-labelledby="az-titel"><div class="pv-in">
 <span class="eyebrow">Antwortzeiten der KI</span>
