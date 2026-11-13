@@ -356,6 +356,23 @@
 #w-pv table.vg{min-width:600px}
 #w-pv .vg td{text-align:left}
 #w-pv .vg td.top{font-weight:600}
+/* 13.11.2026: Antwortzeiten der KI */
+#w-pv table.az{min-width:680px}
+#w-pv .az td,#w-pv .az th{text-align:left}
+#w-pv .az td small{display:block;color:var(--muted);font-size:12.5px;font-weight:400}
+#w-pv .az tr.schnell td{background:#EEF4FF}
+#w-pv .az .bs-az{display:block;width:max-content;font-size:10px;font-weight:800;letter-spacing:.06em;color:#FAFAFF;background:var(--blau);border-radius:99px;padding:2px 8px;margin-bottom:4px}
+#w-pv .zt{display:inline-block;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:700;white-space:nowrap}
+#w-pv .zt.r{background:#FEE2E2;color:#B91C1C}#w-pv .zt.y{background:#FEF3C7;color:#92400E}#w-pv .zt.g{background:#D1FAE5;color:#047857}#w-pv .zt.b{background:#DBEAFE;color:#1D4ED8}
+#w-pv .az-leg{font-size:12.5px;color:var(--muted);text-align:center;margin:10px 0 0}
+#w-pv .az-leg .zt{font-size:11.5px;padding:2px 8px}
+#w-pv .az-h3{text-align:center;font-size:20px;margin:30px 0 14px}
+#w-pv .vier{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+#w-pv .vier div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:16px;font-size:14px;color:var(--text2)}
+#w-pv .vier b{display:block;font-size:15.5px;color:var(--text);margin:8px 0 2px}
+#w-pv .vier .vi{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#DBEAFE;font-size:18px}
+@media (max-width:900px){#w-pv .vier{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){#w-pv .vier{grid-template-columns:1fr}}
 @media(max-width:800px){#w-pv .zwei,#w-pv .kurz,#w-pv .vk{grid-template-columns:1fr}#w-pv h2{font-size:26px}}
 
 #w-pv .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
@@ -559,7 +576,7 @@
 <h2 id="sys-titel">Was Ihr PC und Ihr Server brauchen</h2>
 <p class="lead">DEXXUS läuft auf einem normalen Windows-PC. Microsoft Office ist nicht nötig. Alle Daten und die KI bleiben auf Ihrem Gerät bzw. in Ihrem Firmennetz.</p>
 <div class="kurz">
-  <div><b>Windows 11 + 16 GB</b>Ein aktueller Windows-PC mit 16 GB Arbeitsspeicher genügt – auch für die lokale KI.</div>
+  <div><b>Windows 11 + 32 GB</b>Empfohlen sind 32 GB Arbeitsspeicher für die interne KI. Mit 16 GB läuft DEXXUS auch – die KI-Antworten dann am besten über «Externe Suche mit Shield».</div>
   <div><b>Kein Office nötig</b>DEXXUS liest und schreibt Word- und Excel-Dateien selbst. E-Mails direkt über Ihr Konto.</div>
   <div><b>Keine Cloud</b>Mehrere Arbeitsplätze über einen Server im eigenen Büro – kein Remotedesktop nötig.</div>
 </div>
@@ -570,9 +587,9 @@
     <p class="unter">Für alle Pakete – Einzelplatz oder Arbeitsplatz im Netzwerk</p>
     <table>
       <tr><td>Betriebssystem</td><td>Windows 11, 64-Bit (empfohlen) · Windows 10 22H2 nur mit Sicherheitsupdates (ESU)</td></tr>
-      <tr><td>Arbeitsspeicher</td><td>mindestens 8 GB · empfohlen 16 GB oder mehr (lokale KI)</td></tr>
+      <tr><td>Arbeitsspeicher</td><td>mindestens 16 GB · empfohlen 32 GB (interne KI-Suche ohne Verlangsamung)</td></tr>
       <tr><td>Speicherplatz</td><td>20 GB frei · empfohlen SSD mit 50 GB frei</td></tr>
-      <tr><td>Grafikkarte</td><td>nicht nötig · mit NVIDIA oder AMD antwortet die KI schneller</td></tr>
+      <tr><td>Grafikkarte</td><td>nicht nötig · mit eigener NVIDIA-Grafikkarte (ab 8 GB Grafikspeicher) antwortet die interne KI in Sekunden statt Minuten</td></tr>
       <tr><td>Browser</td><td>Microsoft Edge (in Windows vorinstalliert)</td></tr>
       <tr><td>E-Mail</td><td>Ihr E-Mail-Konto (IMAP/SMTP, z. B. Bluewin, Hostpoint, Gmail, Microsoft 365)</td></tr>
       <tr><td>Internet</td><td>für Installation, Updates, Lizenz und Marktdaten – die Arbeit mit Ihren Daten und der KI geht auch ohne</td></tr>
@@ -584,7 +601,7 @@
     <p class="unter">Nur mit Zusatzpaket «DEXXUS Netzwerk» zu KMU Pro oder KMU Enterprise</p>
     <table>
       <tr><td>Rechner</td><td>Windows 10/11 Pro oder Windows Server 2019 oder neuer – auch ein immer eingeschalteter Büro-PC</td></tr>
-      <tr><td>Arbeitsspeicher</td><td>16 GB empfohlen (lokale KI)</td></tr>
+      <tr><td>Arbeitsspeicher</td><td>mindestens 16 GB · empfohlen 32 GB (interne KI-Suche)</td></tr>
       <tr><td>Speicher</td><td>SSD, genug Platz für Datenbank, Belege und tägliche Sicherung</td></tr>
       <tr><td>Betrieb</td><td>während der Arbeitszeit eingeschaltet · bestehender Windows-Server: DEXXUS startet automatisch beim Systemstart</td></tr>
       <tr><td>Netzwerk</td><td>alle Geräte im selben Firmennetz · Firewall-Freigabe für DEXXUS richtet das Programm selbst ein (Administratorrechte)</td></tr>
@@ -604,6 +621,30 @@
   </ul>
 </div>
 
+</div></section>
+<section class="pv-sec" id="antwortzeiten" aria-labelledby="az-titel"><div class="pv-in">
+<span class="eyebrow">Antwortzeiten der KI</span>
+<h2 id="az-titel">Wie schnell antwortet DEXXUS?</h2>
+<p class="lead">Sie wählen bei jeder Frage selbst: <b>Interne Suche</b> – nichts verlässt Ihren PC – oder <b>Externe Suche mit Shield</b> – DEXXUS Shield schwärzt Namen und Adressen, bevor die Frage hinausgeht. Richtwerte für eine KI-Frage mit einer Antwort von rund 300 Wörtern.</p>
+<div class="karte"><div class="scroll">
+<table class="pv az">
+<thead><tr><th>Ihr PC</th><th>🖥 Interne Suche</th><th>🛡 Externe Suche mit Shield</th><th>Geeignet für</th></tr></thead>
+<tbody>
+<tr><td><b>16 GB, ohne Grafikkarte</b><small>üblicher Büro-PC</small></td><td><span class="zt r">1–4 Min.</span></td><td><span class="zt g">10–30 Sek.</span></td><td>Rechnungen, Offerten – KI-Fragen am besten über Shield</td></tr>
+<tr><td><b>32 GB, ohne Grafikkarte</b><small>empfohlen</small></td><td><span class="zt y">1–2 Min.</span></td><td><span class="zt g">10–30 Sek.</span></td><td>gelegentliche interne Fragen</td></tr>
+<tr><td><b>NVIDIA-Grafikkarte 8 GB</b><small>z. B. RTX 4060</small></td><td><span class="zt y">20–40 Sek.</span></td><td><span class="zt g">10–30 Sek.</span></td><td>täglich interne Fragen</td></tr>
+<tr><td><b>NVIDIA-Grafikkarte 16 GB</b><small>z. B. RTX 4060 Ti 16 GB</small></td><td><span class="zt g">8–15 Sek.</span></td><td><span class="zt g">10–30 Sek.</span></td><td>viele Fragen, alles intern</td></tr>
+<tr class="schnell"><td><span class="bs-az">⚡ SCHNELLSTE VARIANTE</span><b>NVIDIA-Grafikkarte 24 GB+</b><small>z. B. RTX 4090 / 5090 · 32 GB Arbeitsspeicher</small></td><td><span class="zt b">3–8 Sek.</span><small>auch mit grossem, genauerem Modell</small></td><td><span class="zt b">5–10 Sek.</span><small>mit «Express»: kurze Antwort, schnelles Modell (folgt)</small></td><td>Kanzleien, Treuhand, viele Fragen pro Tag</td></tr>
+</tbody></table>
+</div></div>
+<p class="az-leg"><span class="zt b">sehr schnell</span> <span class="zt g">schnell</span> <span class="zt y">mittel</span> <span class="zt r">Geduld nötig</span> · Richtwerte, abhängig von Frage und Gerät. Die externe Suche braucht Internet und ist ab Paket Privat enthalten.</p>
+<h3 class="az-h3">So wird es schneller</h3>
+<div class="vier">
+  <div><span class="vi">⚡</span><b>Express</b>extern in 5–10 Sekunden (folgt)</div>
+  <div><span class="vi">🎮</span><b>Grafikkarte</b>grösster Gewinn für die interne Suche</div>
+  <div><span class="vi">🧠</span><b>32 GB Arbeitsspeicher</b>der PC bleibt beim Rechnen flüssig</div>
+  <div><span class="vi">✍️</span><b>Kurze Fragen</b>eine Frage pro Anfrage</div>
+</div>
 </div></section>
 </div>
 </main>
