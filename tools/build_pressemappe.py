@@ -48,7 +48,7 @@ def draw_header(c):
     c.setFont(F_BOLD, 10.5)
     c.setFillColorRGB(*BLUE)
     tagline_baseline = 748.5354  # = 764.5354 - 16 (korrigierter Abstand)
-    c.drawString(L, tagline_baseline, "DATA · WISSEN · RECHT · ERP   ·   powered by avotec AG")
+    c.drawString(L, tagline_baseline, "BÜRO · DOKUMENTE · KI · SHIELD   ·   ein Produkt der avotec AG")
 
     line_y = 741.4354
     c.setStrokeColorRGB(*BORDER)
@@ -133,41 +133,36 @@ def draw_grid(c, top_y, cards):
     return y
 
 UEBER_TEXT = (
-    "DEXXUS ist eine Schweizer Büro-Software mit eigener interner KI, die direkt auf dem PC arbeitet – "
-    "Ihre Daten verlassen das Gerät nie. Für bekannte Online-KI wie Claude, ChatGPT, Copilot, Gemini "
-    "oder DeepL sorgt der DEXXUS-Shield-Schutz dafür, dass Namen, Adressen und weitere Personendaten vorher "
-    "automatisch geschwärzt werden – derselbe Schutz schützt eigenständig auch andere "
-    "Büroanwendungen wie bexio, SelectLine, Abacus oder Praxis-Software. Dazu kommen Offerten, Rechnungen mit "
-    "QR-Einzahlungsschein, Dokumente und Akten in einem Programm – sowie ein selbst zusammengestelltes Team "
-    "virtueller Mitarbeiter, das Routinearbeit erledigt und an Sie rapportiert. DEXXUS ist ein Produkt der avotec AG."
+    "DEXXUS ist eine Schweizer Bürosoftware mit KI für KMU, Selbständige und Privatpersonen: Offerten, Rechnungen mit "
+    "QR-Code Einzahlungsschein, Korrespondenz, Projekte, Einkauf, Dokumente und eine KI-Suche – alles in einem Programm "
+    "auf dem eigenen PC, ohne Cloud. Die interne KI arbeitet lokal; wer eine Online-KI nutzen will, schützt seine Daten "
+    "mit DEXXUS Shield: Namen, Adressen und Bankdaten werden vor dem Senden geschwärzt und in der Antwort wieder eingesetzt. "
+    "Dazu kommen virtuelle Mitarbeiter, die Routinearbeit erledigen. DEXXUS ist ein Produkt der avotec AG, Wangen ZH."
 )
 
 CARDS = [
     ("Interne KI – alles bleibt auf dem PC",
-     "Die eingebaute KI läuft lokal auf Ihrem Computer. Ihre Daten verlassen das Gerät nie – keine Cloud nötig."),
-    ("Online-KI mit DEXXUS-Shield-Schutz",
-     "Claude, ChatGPT, Copilot, Gemini, DeepL – DEXXUS schwärzt Namen, Adressen und Nummern automatisch, "
-     "mit Vorschau vor dem Senden."),
-    ("Shield-Schutz auch für bexio, SelectLine, Abacus & Co.",
-     "Dieselbe Schwärzung eigenständig für Ihre bestehenden Büroanwendungen – bexio, SelectLine, "
-     "Abacus, Praxis-Software. Per Kopieren/Einfügen, einmalig ab CHF 49.–."),
-    ("Virtuelle Mitarbeiter – Ihr eigenes KI-Team",
-     "Selbst zusammengestellt (Funktion, Kompetenzen, Pflichtenheft) – erledigt Routinearbeit und rapportiert an Sie."),
-    ("Swiss made",
-     "Entwickelt und betreut in der Schweiz. QR-Rechnung, MWST 8.1 %, AHV-Nr., Fedlex-Gesetze, "
-     "Schweizer Rechtschreibung."),
-    ("Kein Abo-Zwang",
-     "Lizenz einmal kaufen; Pakete ab CHF 19.90/Monat, 30 Tage gratis testen. Starter und Privat als Fixpreis."),
+     "Die eingebaute KI läuft lokal auf Ihrem Computer oder Büro-Server. Ihre Daten verlassen das Gerät nicht."),
+    ("DEXXUS Shield – Datenschutz für jede KI",
+     "Schwärzt Personendaten vor jeder Online-Anfrage (Claude, ChatGPT, Copilot, Gemini …) – auch für Texte aus anderen Programmen."),
+    ("Rechnungen mit QR-Code Einzahlungsschein",
+     "Offerte in zwei Minuten, Umwandlung in die Rechnung, Zahlungsüberwachung und Mahnungen mit einem Klick."),
+    ("Virtuelle Mitarbeiter",
+     "Erstellen Rechnungen, schreiben Mahnungen, prüfen den Posteingang – Sie geben frei, DEXXUS erledigt den Rest."),
+    ("Rechtsbezug und Gesetzesartikel",
+     "54 Schweizer Gesetze und über 900 Bundesgerichtsentscheide lokal – passende Artikel direkt im Brief."),
     ("Ein Programm statt fünf",
-     "ERP, Akten/Recht, Dokumente & Wissen und KI – statt mehrerer Insellösungen."),
-    ("Für jede Grösse",
-     "Vom Privathaushalt über KMU bis Treuhand und Kanzlei – Module jederzeit zuschaltbar."),
+     "ERP, Korrespondenz, Dokumente, KI-Suche, Shield und Datentresor in einer Software."),
+    ("Einzelplatz oder Netzwerk",
+     "Ein PC oder 2–8 Arbeitsplätze mit gemeinsamen Daten – ohne Cloud, mit DEXXUS-geprüfter Hardware."),
+    ("Swiss made",
+     "Entwickelt und betreut in der Schweiz. MWST 8.1 %, Fedlex-Gesetze, Schweizer Rechtschreibung. 30 Tage gratis testen."),
 ]
 
 PAKETE_TEXT = (
-    "Starter · Privat · ERP Start · KMU · KMU Plus · Treuhand · Kanzlei. DEXXUS Shield als "
-    "eigenständiges Produkt ab CHF 49.–. Virtuelle Mitarbeiter ab Paket KMU inklusive. Aktuelle Preise und "
-    "Details auf dexxus.ch."
+    "DEXXUS Shield CHF 49.– einmalig · Starter CHF 19.90 einmalig · Privat CHF 79.– einmalig · KMU Pro CHF 29.– / Monat · "
+    "KMU Enterprise CHF 49.– / Monat (Abos 1–3 Jahre, bis 10 % Rabatt). Netzwerk ab 2 Arbeitsplätzen als Zusatzpaket. "
+    "Alle Preise inkl. 8.1 % MWST, aktuelle Preise auf dexxus.ch/preise.html."
 )
 
 SCHWAERZT_TEXT = (
@@ -199,7 +194,7 @@ def main():
     y -= 23.0
     c.setFont(F_BOLD, 10.5)
     c.setFillColorRGB(*BLUE)
-    c.drawString(L, y, "Büro-Software mit KI aus der Schweiz – Datenschutz zuerst")
+    c.drawString(L, y, "Bürosoftware mit KI aus der Schweiz – Ihre Daten bleiben auf Ihrem PC")
 
     y -= 29.0
     draw_heading(c, L, y, "Über DEXXUS")
@@ -212,7 +207,7 @@ def main():
     y = draw_grid(c, y, CARDS)
 
     y -= 14.0
-    draw_heading(c, L, y, "Pakete & Preise (Auszug)")
+    draw_heading(c, L, y, "Pakete & Preise")
     y -= 23.6
     y = draw_wrapped_paragraph(c, L, y, PAKETE_TEXT)
 
@@ -245,7 +240,7 @@ def main():
     y -= 23.0
     c.setFont(F_REG, 10.5)
     c.setFillColorRGB(*DARKISH)
-    c.drawString(L, y, "avotec AG, Schweiz   ·   Web: dexxus.ch   ·   E-Mail: info@dexxus.ch")
+    c.drawString(L, y, "avotec AG · Pünten 4 · 8602 Wangen ZH   ·   dexxus.ch   ·   info@dexxus.ch")
     y -= 24.0
     c.setFont(F_REG, 8.6)
     c.setFillColorRGB(*MUTED)

@@ -18,13 +18,13 @@
   .dxw-top { position: sticky; top: 0; z-index: 20; background: rgba(250,250,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid #2563EB; }
   .dxw-top .in { max-width: 1120px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; gap: 24px; }
   .dxw-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A; font-weight: 700; letter-spacing: .02em; }
-  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #fff; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
+  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #FAFAFF; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
   .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
   .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
   .dxw-menu a:hover { color: #0F172A; }
   .dxw-sp { flex: 1; }
-  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #fff !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #FAFAFF !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
   .dxw-btn:hover { background: #1D4ED8; }
   @media (max-width: 380px) { .dxw-btn { height: 36px; padding: 0 12px; font-size: 13px; } .dxw-logo span { font-size: 15px; } }   /* 12.11.2026: Handy schmal / grosse Schrift */
   .dxw-foot { border-top: 1px solid #2563EB; background: #FAFAFF; }
@@ -59,7 +59,7 @@
 #w-preise .raster { max-width: 1160px; margin: 0 auto; padding: 40px 16px 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
 #w-preise .paket { position: relative; background: var(--white); border: 2px solid var(--db); box-shadow: 0 18px 44px rgba(37,99,235,.14); border-radius: 16px; padding: 26px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
 #w-preise .paket.top { border: 2px solid var(--db); box-shadow: 0 18px 44px rgba(37,99,235,.14); }
-#w-preise .band { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--db); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .07em; padding: 4px 12px; border-radius: 99px; white-space: nowrap; }
+#w-preise .band { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--db); color: #FAFAFF; font-size: 11px; font-weight: 700; letter-spacing: .07em; padding: 4px 12px; border-radius: 99px; white-space: nowrap; }
 #w-preise .paket h2 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
 #w-preise .art { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 #w-preise .hook { margin: 0; font-size: 14px; color: var(--text-2); min-height: 66px; }
@@ -72,14 +72,14 @@
 #w-preise .anrechnung { font-size: 12.5px; color: #047857; font-weight: 600; }
 #w-preise .cta { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 11px; font-weight: 650; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--white); }
 #w-preise .cta:hover { background: var(--canvas); }
-#w-preise .cta.primaer { background: var(--db); border-color: var(--db); color: #fff; }
+#w-preise .cta.primaer { background: var(--db); border-color: var(--db); color: #FAFAFF; }
 #w-preise .cta.primaer:hover { background: #1D4ED8; }
 #w-preise .cta:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
 #w-preise .liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; border-top: 1px solid var(--line-soft); padding-top: 14px; }
 #w-preise .liste li { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--text-2); }
 #w-preise .liste li b { color: var(--text); font-weight: 600; }
 #w-preise .liste .plus { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
-#w-preise .mod { flex: none; width: 24px; height: 24px; border-radius: 6px; color: #fff; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+#w-preise .mod { flex: none; width: 24px; height: 24px; border-radius: 6px; color: #FAFAFF; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
 #w-preise .mod.db { background: var(--db); }
 #w-preise .mod.re { background: var(--re); }
 #w-preise .mod.qs { background: var(--qs); }
@@ -124,7 +124,7 @@
 #w-sicher .wrap { max-width: 1080px; margin: 0 auto; }
 #w-sicher .card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 #w-sicher .head { padding: 40px 40px 28px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start; }
-#w-sicher .badge { width: 56px; height: 56px; border-radius: 14px; background: var(--sh); color: #fff; font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; justify-content: center; }
+#w-sicher .badge { width: 56px; height: 56px; border-radius: 14px; background: var(--sh); color: #FAFAFF; font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; justify-content: center; }
 #w-sicher .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--sh); margin-bottom: 6px; }
 #w-sicher h2 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
 #w-sicher .lead { margin: 12px 0 0; font-size: 17px; color: var(--text-2); max-width: 720px; }
@@ -132,7 +132,7 @@
 #w-sicher .item { padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 12px; }
 #w-sicher .item + .item { border-left: 1px solid var(--line); }
 #w-sicher .top { display: flex; align-items: center; gap: 12px; }
-#w-sicher .mod { flex: none; width: 38px; height: 38px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; }
+#w-sicher .mod { flex: none; width: 38px; height: 38px; border-radius: 10px; color: #FAFAFF; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; }
 #w-sicher .mod.db { background: var(--db); }
 #w-sicher .mod.sh { background: var(--sh); }
 #w-sicher .mod.tr { background: var(--tr); }
@@ -149,7 +149,7 @@
 #w-sicher .flow .pfeil { color: var(--muted); }
 #w-sicher .foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 22px 40px; border-top: 1px solid var(--line); }
 #w-sicher .foot p { margin: 0; flex: 1; min-width: 260px; font-size: 13px; color: var(--muted); }
-#w-sicher .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 12px; background: var(--db); color: #fff; font-weight: 650; font-size: 15px; text-decoration: none; }
+#w-sicher .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 12px; background: var(--db); color: #FAFAFF; font-weight: 650; font-size: 15px; text-decoration: none; }
 #w-sicher .btn:hover { background: #1D4ED8; }
 #w-sicher .btn:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
 @media (max-width: 900px) {
@@ -172,7 +172,7 @@
 #w-mehrplatz .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--db); margin-bottom: 8px; }
 #w-mehrplatz h2 { margin: 0; font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
 #w-mehrplatz .lead { margin: 12px 0 0; font-size: 17px; color: var(--text-2); max-width: 720px; }
-#w-mehrplatz .mod { flex: none; width: 40px; height: 40px; border-radius: 10px; color: #fff; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
+#w-mehrplatz .mod { flex: none; width: 40px; height: 40px; border-radius: 10px; color: #FAFAFF; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; }
 #w-mehrplatz .mod.db { background: var(--db); }
 #w-mehrplatz .mod.bh { background: var(--bh); }
 #w-mehrplatz .mod.tr { background: var(--tr); }
@@ -198,7 +198,7 @@
 #w-mehrplatz .download { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; background: var(--panel); }
 #w-mehrplatz .download .titel { font-weight: 700; }
 #w-mehrplatz .download .meta { font-size: 13px; color: var(--muted); }
-#w-mehrplatz .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 11px; background: var(--tr); color: #fff; font-weight: 650; font-size: 15px; text-decoration: none; white-space: nowrap; }
+#w-mehrplatz .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 11px; background: var(--tr); color: #FAFAFF; font-weight: 650; font-size: 15px; text-decoration: none; white-space: nowrap; }
 #w-mehrplatz .btn:hover { background: #B45309; }
 #w-mehrplatz .btn:focus-visible { outline: 3px solid #FCD34D; outline-offset: 3px; }
 #w-mehrplatz .preise-mp { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
@@ -322,10 +322,10 @@
 #w-pv .pv thead th b{display:block;font-size:15.5px}
 #w-pv .pv thead th .pr{display:block;font-size:20px;font-weight:800;margin-top:4px}
 #w-pv .pv thead th .ei{display:block;font-size:12px;color:var(--muted);font-weight:400}
-#w-pv .pv thead th.top{background:#EEF4FF}
+#w-pv .pv thead th.top{background:#FAFAFF}
 #w-pv .pv thead th .band{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;color:#FAFAFF;background:var(--blau);border-radius:99px;padding:2px 8px;margin-bottom:4px}
 #w-pv .pv tr.grp td{background:#FAFAFF;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#1E3A8A;padding-top:18px;border-bottom:1px solid var(--blau)}
-#w-pv .pv td.top{background:#F5F8FF}
+#w-pv .pv td.top{background:#FAFAFF}
 #w-pv .ja{color:var(--ok);font-weight:800;font-size:16px}
 #w-pv .nein{color:#CBD5E1;font-size:16px}
 #w-pv .mod{display:inline-flex;width:22px;height:22px;border-radius:6px;color:#FAFAFF;font-size:9.5px;font-weight:800;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle}
@@ -416,6 +416,8 @@
     <a href="index.html#faq">Häufige Fragen</a>
     <a href="preise.html">Preise</a>
     <a href="partner.html">Partner</a>
+    <a href="presse.html">Presse</a>
+    <a href="videos.html">Videos</a>
     <a href="hilfe.html">Hilfe</a>
   </nav>
   <div class="dxw-sp"></div>
@@ -467,7 +469,7 @@
   <span class="eyebrow">Film</span>
   <h2>DEXXUS Shield im Film</h2>
   <div class="filme">
-    <figure style="margin:0"><div class="film"><video controls preload="none" poster="media/DEXXUS_Shield_Erklaerfilm_poster.jpg"><source src="media/DEXXUS_Shield_Erklaerfilm.mp4" type="video/mp4"></video></div><figcaption>Erklärfilm – so funktioniert Shield</figcaption></figure>
+    <figure style="margin:0"><div class="film"><video controls preload="metadata"><source src="media/DEXXUS_Shield_Erklaerfilm.mp4#t=2" type="video/mp4"></video></div><figcaption>Erklärfilm – so funktioniert Shield</figcaption></figure>
     <figure style="margin:0"><div class="film"><video controls preload="none" poster="media/DEXXUS_Shield_Roboter_Spot_poster.jpg"><source src="media/DEXXUS_Shield_Roboter_Spot.mp4" type="video/mp4"></video></div><figcaption>Werbespot 15 Sekunden – «KI nutzen – Ihre Daten bleiben Ihre Daten.» · Szenen KI-generiert</figcaption></figure>
   </div>
 </div></section>
@@ -506,7 +508,7 @@
 </div></main><footer class="dxw-foot"><div class="in">
   <span>© 2026 avotec AG · 8602 Wangen ZH</span>
   <span style="flex:1"></span>
-  <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+  <a href="preise.html">Preise</a><a href="partner.html">Partner</a><a href="presse.html">Presse</a><a href="videos.html">Videos</a><a href="hilfe.html">Hilfe</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
 
 <div class="dk-ov" id="dk-ov" role="dialog" aria-modal="true" aria-labelledby="dk-titel"><div class="dk">
