@@ -109,6 +109,19 @@
 #w-hilfe .su-hin { font-size: 13px; color: var(--muted); margin: 0; }
 @media (max-width: 640px) { #w-hilfe .su-g { grid-template-columns: 1fr; } #w-hilfe .su-form { padding: 20px 16px; } }
 </style>
+<style>
+/* 14.11.2026: Anleitungsvideos abspielen (vorhandene Produktvideos) bzw. «Video folgt» */
+.video .play[data-video] { cursor:pointer; }
+.video .play.folgt { background:#E2E8F0 !important; cursor:default; box-shadow:none !important; }
+.video .play.folgt .tri { border-left-color:#94A3B8 !important; }
+.v-folgt { display:inline-block; margin-left:8px; background:#FEF3C7; color:#B45309; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:20px; vertical-align:middle; }
+#hv-ov { position:fixed; inset:0; background:rgba(15,23,42,.72); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
+#hv-ov.an { display:flex; }
+#hv-ov .hv-box { background:#FAFAFF; border-radius:14px; padding:12px; width:min(960px,100%); }
+#hv-ov video { width:100%; border-radius:10px; background:#000; display:block; }
+#hv-ov .hv-k { display:flex; justify-content:space-between; align-items:center; padding:2px 4px 10px; font:600 15px "Segoe UI",sans-serif; color:#0F172A; }
+#hv-ov button { border:0; background:#DBEAFE; color:#1D4ED8; font:700 14px "Segoe UI",sans-serif; padding:6px 12px; border-radius:8px; cursor:pointer; }
+</style>
 </head>
 <body>
 <header class="dxw-top"><div class="in">
@@ -122,6 +135,7 @@
     <a href="index.html#faq">Häufige Fragen</a>
     <a href="hilfe.html">Hilfe</a>
     <a href="partner.html">Partner</a>
+    <a href="partner-portal.html">White-Label</a>
     <a href="presse.html">Presse</a>
   </nav>
   <div class="dxw-sp"></div>
@@ -149,7 +163,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 1 abspielen: Installation und Musterfirma"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 1</span><span class="v-dauer">0:45</span></div>
+            <div class="v-top"><span class="v-num">Video 1</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:45</span></div>
             <h3>Installation und Musterfirma</h3>
             <p class="v-sum">DEXXUS per Doppelklick installieren und mit der Musterfirma starten.</p>
             <details class="v-skript">
@@ -161,7 +175,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 2 abspielen: Lizenzbedingungen bestätigen"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 2</span><span class="v-dauer">0:40</span></div>
+            <div class="v-top"><span class="v-num">Video 2</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:40</span></div>
             <h3>Lizenzbedingungen bestätigen</h3>
             <p class="v-sum">Beim ersten Start die Lizenzbedingungen lesen und bestätigen.</p>
             <details class="v-skript">
@@ -173,7 +187,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 3 abspielen: E-Mail-Konto verbinden"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 3</span><span class="v-dauer">0:55</span></div>
+            <div class="v-top"><span class="v-num">Video 3</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:55</span></div>
             <h3>E-Mail-Konto verbinden</h3>
             <p class="v-sum">Ihr bestehendes Mailkonto einrichten – ganz ohne Microsoft Office.</p>
             <details class="v-skript">
@@ -185,7 +199,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 4 abspielen: Claude von Anthropic einrichten"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 4</span><span class="v-dauer">0:50</span></div>
+            <div class="v-top"><span class="v-num">Video 4</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:50</span></div>
             <h3>Claude von Anthropic einrichten</h3>
             <p class="v-sum">Die optionale Online-KI in vier Schritten mit Ihrem API-Schlüssel verbinden.</p>
             <details class="v-skript">
@@ -202,7 +216,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 5 abspielen: Kundenkartei anlegen und importieren"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 5</span><span class="v-dauer">0:55</span></div>
+            <div class="v-top"><span class="v-num">Video 5</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:55</span></div>
             <h3>Kundenkartei anlegen und importieren</h3>
             <p class="v-sum">Kunden erfassen, filtern und ganze Listen aus Excel oder CSV übernehmen.</p>
             <details class="v-skript">
@@ -214,7 +228,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 6 abspielen: Artikel und Preislisten"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 6</span><span class="v-dauer">0:50</span></div>
+            <div class="v-top"><span class="v-num">Video 6</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:50</span></div>
             <h3>Artikel und Preislisten</h3>
             <p class="v-sum">Artikelstamm einrichten und mehrere Preislisten verwalten.</p>
             <details class="v-skript">
@@ -224,7 +238,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 7 abspielen: Erste Offerte erstellen und senden"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_Offerte.mp4" aria-label="Video 7 abspielen: Erste Offerte erstellen und senden"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 7</span><span class="v-dauer">0:60</span></div>
             <h3>Erste Offerte erstellen und senden</h3>
@@ -236,7 +250,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 8 abspielen: Offerte in Rechnung umwandeln"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_Rechnungen_schreiben.mp4" aria-label="Video 8 abspielen: Offerte in Rechnung umwandeln"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 8</span><span class="v-dauer">0:40</span></div>
             <h3>Offerte in Rechnung umwandeln</h3>
@@ -248,7 +262,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 9 abspielen: Mahnungen und fällige Posten"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_Rechnungen_schreiben.mp4" aria-label="Video 9 abspielen: Mahnungen und fällige Posten"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 9</span><span class="v-dauer">0:50</span></div>
             <h3>Mahnungen und fällige Posten</h3>
@@ -265,7 +279,7 @@
       <div class="b-head"><span class="mod sh" aria-hidden="true">SH</span><div><h2 id="t-sh">KI-Assistent &amp; Datenschutz</h2><p>Dokumente, lokale KI und DEXXUS Shield · 4 Videos</p></div></div>
       <div class="videos">
         <article class="video">
-          <button class="play" type="button" aria-label="Video 10 abspielen: Dokumente importieren"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_Dokumentenscanner.mp4" aria-label="Video 10 abspielen: Dokumente importieren"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 10</span><span class="v-dauer">0:45</span></div>
             <h3>Dokumente importieren</h3>
@@ -277,7 +291,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 11 abspielen: Lokalen KI-Assistenten befragen"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_E-Mail-Analyse.mp4" aria-label="Video 11 abspielen: Lokalen KI-Assistenten befragen"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 11</span><span class="v-dauer">0:45</span></div>
             <h3>Lokalen KI-Assistenten befragen</h3>
@@ -289,7 +303,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 12 abspielen: DEXXUS Shield nutzen"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/DEXXUS_Shield_Erklaerfilm.mp4" aria-label="Video 12 abspielen: DEXXUS Shield nutzen"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 12</span><span class="v-dauer">0:55</span></div>
             <h3>DEXXUS Shield nutzen</h3>
@@ -301,7 +315,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 13 abspielen: Für jede KI schwärzen"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/DEXXUS_Shield_Erklaerfilm.mp4" aria-label="Video 13 abspielen: Für jede KI schwärzen"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 13</span><span class="v-dauer">0:40</span></div>
             <h3>Für jede KI schwärzen</h3>
@@ -318,7 +332,7 @@
       <div class="b-head"><span class="mod vm" aria-hidden="true">VM</span><div><h2 id="t-vm">Die Helfer</h2><p>Virtuelles Team, Buchhaltung, Tresor, DataSweep, Zeiterfassung · 5 Videos</p></div></div>
       <div class="videos">
         <article class="video">
-          <button class="play" type="button" aria-label="Video 14 abspielen: Virtuelles Team einrichten"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_Virtuelle_Mitarbeiter.mp4" aria-label="Video 14 abspielen: Virtuelles Team einrichten"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 14</span><span class="v-dauer">0:55</span></div>
             <h3>Virtuelles Team einrichten</h3>
@@ -332,7 +346,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 15 abspielen: Export für den Treuhänder"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 15</span><span class="v-dauer">0:40</span></div>
+            <div class="v-top"><span class="v-num">Video 15</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:40</span></div>
             <h3>Export für den Treuhänder</h3>
             <p class="v-sum">Belege und Zahlungen als Excel oder CSV für den Treuhänder exportieren.</p>
             <details class="v-skript">
@@ -344,7 +358,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 16 abspielen: Datentresor nutzen"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 16</span><span class="v-dauer">0:45</span></div>
+            <div class="v-top"><span class="v-num">Video 16</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:45</span></div>
             <h3>Datentresor nutzen</h3>
             <p class="v-sum">Kennwörter, Ausweise und Verträge mit AES-256 verschlüsselt ablegen.</p>
             <details class="v-skript">
@@ -354,7 +368,7 @@
           </div>
         </article>
         <article class="video">
-          <button class="play" type="button" aria-label="Video 17 abspielen: DataSweep: Dubletten finden"><span class="tri" aria-hidden="true"></span></button>
+          <button class="play" type="button" data-video="media/produkte/DEXXUS_DataSweep.mp4" aria-label="Video 17 abspielen: DataSweep: Dubletten finden"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
             <div class="v-top"><span class="v-num">Video 17</span><span class="v-dauer">0:50</span></div>
             <h3>DataSweep: Dubletten finden</h3>
@@ -368,7 +382,7 @@
         <article class="video">
           <button class="play" type="button" aria-label="Video 18 abspielen: Zeiterfassung und Honorarnote"><span class="tri" aria-hidden="true"></span></button>
           <div class="v-body">
-            <div class="v-top"><span class="v-num">Video 18</span><span class="v-dauer">0:45</span></div>
+            <div class="v-top"><span class="v-num">Video 18</span><span class="v-folgt">Video folgt</span><span class="v-dauer">0:45</span></div>
             <h3>Zeiterfassung und Honorarnote</h3>
             <p class="v-sum">Zeit per Stoppuhr erfassen und direkt verrechnen.</p>
             <details class="v-skript">
@@ -408,7 +422,7 @@
 <footer class="dxw-foot"><div class="in">
   <span>© 2026 avotec AG · 8602 Wangen ZH</span>
   <span style="flex:1"></span>
-  <a href="videos.html">Videos</a><a href="preise.html">Preise</a><a href="hilfe.html">Hilfe</a><a href="partner.html">Partner</a><a href="presse.html">Presse</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+  <a href="videos.html">Videos</a><a href="preise.html">Preise</a><a href="hilfe.html">Hilfe</a><a href="partner.html">Partner</a><a href="partner-portal.html">White-Label</a><a href="presse.html">Presse</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
 <script>
 /* 13.11.2026: Support-Anfrage – gleicher Aufbau wie im Programm («DEXXUS-Support …»), daraus macht der Master ein Ticket */
@@ -427,6 +441,19 @@ function suSenden(e) {
   document.getElementById("su-danke").style.display = "block";
   return false;
 }
+</script>
+<div id="hv-ov" onclick="if(event.target===this){hvZu()}"><div class="hv-box"><div class="hv-k"><span id="hv-t"></span><button type="button" onclick="hvZu()">Schliessen</button></div><video id="hv-v" controls playsinline preload="none"></video></div></div>
+<script>
+/* 14.11.2026: Anleitungsvideos – Klick spielt das zugehörige Video im Fenster ab */
+document.querySelectorAll(".video .play").forEach(function (b) {
+  var src = b.getAttribute("data-video");
+  if (!src) { b.classList.add("folgt"); b.setAttribute("aria-disabled", "true"); b.title = "Video folgt"; return; }
+  b.addEventListener("click", function () { var v = document.getElementById("hv-v"); v.src = src;
+    document.getElementById("hv-t").textContent = (b.getAttribute("aria-label") || "").replace(/ abspielen/, "");
+    document.getElementById("hv-ov").classList.add("an"); v.play().catch(function () {}); });
+});
+function hvZu() { var v = document.getElementById("hv-v"); v.pause(); v.removeAttribute("src"); v.load(); document.getElementById("hv-ov").classList.remove("an"); }
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") { hvZu(); } });
 </script>
 </body>
 </html>
