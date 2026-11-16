@@ -97,8 +97,9 @@
   .ch-kreuz { position: relative; flex: 0 0 auto; width: 64px; height: 64px; border-radius: 10px; background: #DA291C; box-shadow: 0 10px 26px rgba(218,41,28,.30); }
   .ch-kreuz::before, .ch-kreuz::after { content: ""; position: absolute; background: #FAFAFF; left: 50%; top: 50%; transform: translate(-50%, -50%); }
   .ch-kreuz::before { width: 62.5%; height: 18.75%; } .ch-kreuz::after { width: 18.75%; height: 62.5%; }
-  .slogan { margin: 18px auto 0 !important; font-size: 28px !important; font-weight: 800; color: #0F172A !important; letter-spacing: -.02em; }
+  .slogan { margin: 44px auto 0 !important; font-size: 28px !important; font-weight: 800; color: #0F172A !important; letter-spacing: -.02em; }
   .auchnicht { font-size: 1.25em; display: inline-block; margin-top: 4px; }
+  .auchnicht.abstand-gross { display: block; margin-top: 34px; }
   .slogan2 { margin: 14px auto 0 !important; display: inline-block; font-size: 19px !important; font-weight: 800; color: #FAFAFF !important; background: linear-gradient(90deg, #1E3A8A, #2563EB); padding: 8px 20px; border-radius: 99px; box-shadow: 0 10px 24px rgba(37,99,235,.25); }
   @media (max-width: 600px) { .ch-kreuz { width: 48px; height: 48px; } .slogan { font-size: 22px !important; } .slogan2 { font-size: 16px !important; } }
   .held2 .unter { font-size: 19px; max-width: 760px; }
@@ -129,6 +130,12 @@
   @media (max-width: 960px) { .kikacheln { grid-template-columns: repeat(3, 1fr); } .held2 h1 { font-size: 40px; } }
   @media (max-width: 600px) { .kikacheln { grid-template-columns: repeat(2, 1fr); } .anw, .anw .zeile2 { grid-template-columns: 1fr; } .held2 h1 { font-size: 32px; } }
   /* Kauf-Aufrufe */
+  .k.wa { background: #25D366; border-color: #25D366; color: #FAFAFF !important; }
+  .k.wa:hover { background: #1DA851; border-color: #1DA851; }
+  .teilen-band { background: #F0FDF4; border-top: 1px solid #BBF7D0; border-bottom: 1px solid #BBF7D0; }
+  .teilen-band .in2 { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 26px; padding-bottom: 26px; flex-wrap: wrap; }
+  .teilen-band b { display: block; font-size: 24px; letter-spacing: -.02em; color: #0F172A; } .teilen-band span { color: #334155; font-size: 16px; }
+  .teilen-knoepfe { display: flex; gap: 10px; flex-wrap: wrap; }
   .cta-band { background: linear-gradient(90deg, #EFF6FF, #DBEAFE); border-bottom: 1px solid #BFDBFE; }
   .cta-band .in2 { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 26px; padding-bottom: 26px; flex-wrap: wrap; }
   .cta-band b { display: block; font-size: 24px; letter-spacing: -.02em; } .cta-band span { color: #334155; font-size: 16px; }
@@ -203,7 +210,6 @@
     <a href="index.html#funktionen">Funktionen</a>
     <a href="videos.html">Videos</a>
     <a href="shield.html">Shield</a>
-    <a href="web-shield.html">WEB Shield</a>
     <a href="web-shield.html" class="an">WEB Shield</a>
     <a href="preise.html">Preise</a>
     <a href="hilfe.html">Hilfe</a>
@@ -218,8 +224,8 @@
 <section class="held held2">
   <span class="pille">Neu · für Edge &amp; Chrome</span>
   <div class="titelzeile"><span class="ch-block"><span class="ch-kreuz" role="img" aria-label="Schweizerkreuz"></span><span class="ch-text">Software made<br>in Switzerland</span></span>
-    <h1>Jetzt sicher surfen mit <span class="kiwort">DEXXUS WEB Shield</span></h1></div>
-  <p class="slogan"><span style="white-space:nowrap">Stop data leaks.</span> <span style="white-space:nowrap">Stop data selling.</span> <span style="white-space:nowrap">Stop identity theft.</span><br><span class="auchnicht">Volle Power mit <span class="kiwort" id="kiwort">ChatGPT</span> – ohne persönliche Daten.</span></p>
+    <h1><span class="kiwort">DEXXUS WEB Shield</span></h1></div>
+  <p class="slogan"><span style="white-space:nowrap">Stop data leaks.</span> <span style="white-space:nowrap">Stop data selling.</span> <span style="white-space:nowrap">Stop identity theft.</span><span class="auchnicht abstand-gross">Volle Power mit <span class="kiwort" id="kiwort">ChatGPT</span> – ohne persönliche Daten.</span></p>
   <p class="unter">Text in WEB Shield eingeben, Klick – <b>und die KI antwortet sofort.</b> Ihre persönlichen Daten? Tauchen bei ChatGPT, Claude &amp; Co. nirgends auf. Prompt rein. Antwort raus. Ihre Daten bleiben bei Ihnen.</p>
   <p class="slogan2">KI benutzen ohne Risiko – mit WEB Shield.</p>
   <div class="kikacheln" aria-label="Funktioniert mit">
@@ -231,6 +237,7 @@
   </div>
   <div class="knoepfe">
     <a class="k p gross" href="#kaufen" data-kaufen> Jetzt Daten schützen – ab CHF 9.90</a>
+    <a class="k wa gross" href="#" data-whatsapp>Per WhatsApp empfehlen</a>
   </div>
   <div class="gratis-rahmen">
     <div class="gr-links"><span class="gr-gross">30 Tage GRATIS</span><span class="gr-zeile">Ohne Abo-Zwang · ohne Kreditkarte · endet automatisch</span><span class="gr-klein">Alle Funktionen, alle KI-Dienste. Gefällt es Ihnen nicht, passiert einfach nichts.</span></div>
@@ -428,8 +435,17 @@ Freundliche Grüsse
     <details><summary>Erkennt WEB Shield wirklich alle Personendaten?</summary><p>Erkannt werden Namen, Adressen, Orte, IBAN, Telefon, E-Mail, AHV-Nr., Geburtsdaten, Firmen und mehr. Eine lückenlose Erkennung in jedem Einzelfall ist technisch nicht möglich – mit «Vorschau geschwärzt» sehen Sie, was hinausgeht, und mit «Eigene Begriffe» ergänzen Sie, was immer geschwärzt werden soll.</p></details>
     <details><summary>Was passiert nach den 30 Gratis-Tagen?</summary><p>Ihre gespeicherten Antworten bleiben. Weitere Ausführungen sind mit dem Abo möglich. Es gibt keine automatische Verlängerung und keine Kündigung – das Abo endet nach der gewählten Laufzeit.</p></details>
     <details><summary>Wie bekomme ich die Lizenz?</summary><p>Nach der Zahlung über Payrexx (TWINT, PostFinance, Karte) erhalten Sie die Lizenz per E-Mail. In WEB Shield auf «Abo» klicken und die Lizenz-Datei hineinziehen – fertig.</p></details>
-    <details><summary>Funktioniert es auch auf dem Handy?</summary><p>Die Erweiterung läuft in Edge und Chrome auf Windows und Mac. Eine Handy-App ist in Vorbereitung.</p></details>
+    <details><summary>Funktioniert es auch auf dem Handy?</summary><p>Ja. Auf dem PC läuft WEB Shield in Edge und Chrome. Für das Handy gibt es die Web-App <a href="web-shield-app/">dexxus.ch/web-shield-app</a> – im Browser öffnen und «Zum Startbildschirm hinzufügen». Auch dort wird alles direkt auf dem Handy geschwärzt.</p></details>
     <details><summary>Wer steht dahinter?</summary><p>Die avotec AG in Wangen ZH, Hersteller der Bürosoftware DEXXUS. Entwickelt in der Schweiz.</p></details>
+  </div>
+</div></section>
+
+<section class="teilen-band" id="weiterempfehlen"><div class="in2">
+  <div><b>WEB Shield einem Freund senden</b><span>Kennen Sie jemanden, der ChatGPT &amp; Co. nutzt? Senden Sie den Link – 30 Tage gratis, ohne Abo-Zwang.</span></div>
+  <div class="teilen-knoepfe">
+    <a class="k wa" href="#" data-whatsapp>Per WhatsApp senden</a>
+    <a class="k w" href="#" data-teilen>Teilen …</a>
+    <a class="k w" href="#" data-linkkopie>Link kopieren</a>
   </div>
 </div></section>
 
@@ -615,6 +631,21 @@ Freundliche Grüsse
   if (q0.get("jahre")) { jahre = Math.min(3, Math.max(1, +q0.get("jahre") || 1)); }
   zeigen();
   if (q0.get("kauf") === "1") { document.getElementById("preise").scrollIntoView(); auf(document.getElementById("ws-kauf")); }
+})();
+</script>
+
+<script>
+/* Weiterempfehlen: WhatsApp, Teilen, Link kopieren */
+(function () {
+  var URL_WS = "https://dexxus.ch/web-shield.html";
+  var TEXT = "Schau dir das an: DEXXUS WEB Shield schwärzt Namen, Adressen und IBAN, bevor sie zu ChatGPT, Claude & Co. gehen – die Antwort kommt mit den echten Namen zurück. 30 Tage gratis: " + URL_WS;
+  function kopie(t) { if (navigator.clipboard) return navigator.clipboard.writeText(t); var x = document.createElement("textarea"); x.value = t; document.body.appendChild(x); x.select(); document.execCommand("copy"); x.remove(); return Promise.resolve(); }
+  function hinweis(a, t) { var alt = a.textContent; a.textContent = t; setTimeout(function () { a.textContent = alt; }, 2500); }
+  document.querySelectorAll("[data-whatsapp]").forEach(function (a) { a.href = "https://wa.me/?text=" + encodeURIComponent(TEXT); a.target = "_blank"; a.rel = "noopener"; });
+  document.querySelectorAll("[data-teilen]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault();
+    if (navigator.share) navigator.share({ title: "DEXXUS WEB Shield", text: TEXT.replace(" " + URL_WS, ""), url: URL_WS }).catch(function () {});
+    else kopie(TEXT).then(function () { hinweis(a, "Text kopiert – jetzt einfügen"); }); }); });
+  document.querySelectorAll("[data-linkkopie]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); kopie(URL_WS).then(function () { hinweis(a, "Link kopiert"); }); }); });
 })();
 </script>
 </body>
