@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WEB Shield">
 <link rel="stylesheet" href="panel.css?v=20261116c">
-<link rel="stylesheet" href="app.css?v=20261116d">
+<link rel="stylesheet" href="app.css?v=20261117a">
 <link rel="stylesheet" href="../teilen-leiste.css?v=3">
 </head>
 <body>
@@ -58,6 +58,26 @@
 
 <!-- ===================== ARBEITEN ===================== -->
 <main id="arbeiten" class="ansicht an">
+  <section id="sperre" hidden>
+    <h2 class="sp-titel">App Shield freischalten</h2>
+    <p class="sp-text">App Shield ist nur mit Lizenz nutzbar. Fordern Sie den kostenlosen 30-Tage-Test an oder kaufen Sie direkt.</p>
+    <div class="sp-box">
+      <b>Gratis-Test 30 Tage anfordern</b>
+      <input id="spName" placeholder="Vorname und Name" autocomplete="name">
+      <input id="spFirma" placeholder="Firma (freiwillig)" autocomplete="organization">
+      <input id="spMail" type="email" placeholder="E-Mail-Adresse" autocomplete="email">
+      <label class="chk"><input type="checkbox" id="spAgb"> Ich akzeptiere die <a href="../agb.html" target="_blank" rel="noopener">AGB</a>.</label>
+      <button class="gross" id="spAnfordern">Gratis-Test anfordern</button>
+      <div class="sp-info" id="spInfo" hidden></div>
+    </div>
+    <div class="sp-box">
+      <b>Lizenz erhalten?</b>
+      <textarea id="spLizenz" placeholder="Lizenz aus der E-Mail hier einfügen"></textarea>
+      <button class="gross" id="spUebernehmen">Lizenz übernehmen</button>
+      <div class="sp-info rot" id="spFehler" hidden></div>
+    </div>
+    <a class="gross gruen sp-kauf" href="../web-shield.html?kauf=1">Jetzt kaufen</a>
+  </section>
   <div class="stufen">
     <div class="stufe an" data-s="1"><i>1</i>Eingeben</div>
     <div class="stufe" data-s="2"><i>2</i>In KI einfügen</div>
@@ -202,7 +222,7 @@
 <script src="lizenz.js?v=20261116c"></script>
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
-<script src="app.js?v=20261116c"></script>
+<script src="app.js?v=20261117a"></script>
 <script>document.getElementById("mkProbe").onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};</script>
 <script src="../teilen-leiste.js?v=3" defer></script>
 </body>

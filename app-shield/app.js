@@ -9,7 +9,12 @@ const speicher = {
 };
 let EINST = Object.assign({ datum: true, hinweis: true, eigene: "" }, speicher.get("einstellungen", {}));
 let LIZ = speicher.get("lizenz", {});
-if (!LIZ.start) { LIZ.start = ShieldLizenz.heute(); speicher.set("lizenz", LIZ); }
+// 17.11.2026: kein automatischer Gratis-Test mehr – nur mit gültiger Lizenz (Kauf oder angeforderter 30-Tage-Test)
+const freigeschaltet = () => !!(LIZ.lizenz && LIZ.lizenz.daten) && ShieldLizenz.status(LIZ).art === "abo";
+function sperreZeigen() {
+  const zu = !freigeschaltet();
+  document.body.classList.toggle("gesperrt", zu); $("sperre").hidden = !zu;
+}
 let SITZUNG = speicher.get("sitzung", null) || neueSitzung();
 let UEB = speicher.get("uebersicht", []);
 let DOKS = [], WAHL = new Set(), OFFEN = null;     // OFFEN: gesendeter Auftrag, wartet auf Antwort
@@ -30,21 +35,41 @@ async function kopieren(text) {
 /* ---------- Banner / Lizenz ---------- */
 function bannerZeigen() {
   const st = ShieldLizenz.status(LIZ), b = $("aboBanner");
+  sperreZeigen();
   b.className = "abo-banner" + (st.art === "abo" ? " ok" : "");
   b.innerHTML = "<span>" + esc(st.text) + "</span><a href=\"" + ShieldLizenz.KAUF_URL + "\" target=\"_blank\" rel=\"noopener\">Jetzt kaufen</a>";
   $("lizStatus").className = "liz-status" + (st.art === "abo" ? " ok" : "");
   $("lizStatus").textContent = st.art === "abo" ? st.text : st.art === "test" ? st.text : "Gratis-Version";
 }
-$("lizUebernehmen").onclick = async () => {
-  const t = $("lizText").value.trim(); if (!t) return meldung("Bitte die Lizenz aus der E-Mail einfügen.");
+async function lizenzUebernehmen(t, fehler) {
+  t = (t || "").trim(); if (!t) { fehler("Bitte die Lizenz aus der E-Mail einfügen."); return false; }
   const r = await ShieldLizenz.pruefen(t);
-  if (!r.ok) { $("lizStatus").className = "liz-status leer"; $("lizStatus").textContent = r.fehler; return; }
-  LIZ.lizenz = { daten: r.daten, text: t }; speicher.set("lizenz", LIZ); $("lizText").value = ""; bannerZeigen();
-  meldung("Abo aktiv – danke!", 4000);
+  if (!r.ok) { fehler(r.fehler); return false; }
+  LIZ.lizenz = { daten: r.daten, text: t }; speicher.set("lizenz", LIZ); bannerZeigen();
+  meldung("Freigeschaltet – danke!", 4000); return true;
+}
+$("lizUebernehmen").onclick = async () => {
+  if (await lizenzUebernehmen($("lizText").value, f => { $("lizStatus").className = "liz-status leer"; $("lizStatus").textContent = f; })) $("lizText").value = "";
+};
+$("spUebernehmen").onclick = async () => {
+  $("spFehler").hidden = true;
+  if (await lizenzUebernehmen($("spLizenz").value, f => { $("spFehler").textContent = f; $("spFehler").hidden = false; })) $("spLizenz").value = "";
+};
+$("spAnfordern").onclick = () => {
+  const name = $("spName").value.trim(), firma = $("spFirma").value.trim(), mail = $("spMail").value.trim(), info = $("spInfo");
+  info.className = "sp-info rot"; info.hidden = false;
+  if (!name) { info.textContent = "Bitte Vorname und Name eingeben."; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { info.textContent = "Bitte eine gültige E-Mail-Adresse eingeben."; return; }
+  if (!$("spAgb").checked) { info.textContent = "Bitte die AGB akzeptieren."; return; }
+  const text = ["Bitte senden Sie mir eine Gratis-Test-Lizenz (30 Tage) für DEXXUS WEB Shield / App Shield.", "", "Name: " + name, "Firma: " + (firma || "-"), "E-Mail: " + mail, "Gerät: Mobile (App Shield)", "AGB akzeptiert: ja"].join("\n");
+  location.href = "mailto:info@dexxus.ch?subject=" + encodeURIComponent("Gratis-Test App Shield: " + name) + "&body=" + encodeURIComponent(text);
+  info.className = "sp-info";
+  info.textContent = "Ihr E-Mail-Programm öffnet sich – bitte dort auf «Senden» tippen. Die Test-Lizenz kommt per E-Mail; dann oben einfügen.";
 };
 
 /* ---------- Dokumente (Foto, PDF, Word, Text) ---------- */
 async function dateienHinzu(liste) {
+  if (!freigeschaltet()) { sperreZeigen(); return; }
   for (const f of liste) {
     const d = { id: Math.random().toString(36).slice(2), name: f.name || "Foto.jpg", laedt: true, info: "" };
     DOKS.push(d); dokListeZeigen();
@@ -78,8 +103,7 @@ $("frageFeld").addEventListener("input", dokListeZeigen);
 /* ---------- 1 → 2: Schwärzen und kopieren ---------- */
 $("knopfSchwaerzen").onclick = async () => {
   if (DOKS.some(d => d.laedt)) return meldung("Dokument wird noch gelesen …");
-  const st = ShieldLizenz.status(LIZ);
-  if (st.frei <= 0) { meldung("Ihre Gratis-Zeit ist vorbei – jetzt kaufen und unbegrenzt weiterarbeiten.", 5000); return; }
+  if (!freigeschaltet()) { sperreZeigen(); meldung("Bitte zuerst App Shield freischalten (Gratis-Test oder Lizenz).", 5000); return; }
   const text = $("textFeld").value.trim(), frage = $("frageFeld").value.trim(), doks = DOKS.filter(d => !d.fehler && d.text);
   if (!text && !frage && !doks.length) return meldung("Bitte Text, Foto/Datei oder Frage/Auftrag eingeben.");
   let roh = "";
@@ -254,6 +278,7 @@ $("eWhatsapp").href = "https://wa.me/?text=" + encodeURIComponent("Schau dir das
 /* ---------- Vorführ-Ansichten für Werbebilder: index.html?ansicht=1..4 (erfundene Daten, nichts wird gespeichert) ---------- */
 function vorfuehren(n) {
   speicher.set = () => {};                       // nichts speichern
+  document.body.classList.remove("gesperrt"); $("sperre").hidden = true;
   SITZUNG = neueSitzung(); UEB = []; OFFEN = null;
   const auftrag = "Mach daraus eine freundliche Mahnung";
   const brief = "Sehr geehrte Frau Erika Muster\n\nIhre Rechnung Nr. 2026-118 über CHF 1'250.00 ist noch offen. Bitte überweisen Sie auf IBAN CH93 0076 2011 6238 5295 7.\n\nFreundliche Grüsse\nHans Beispiel, Beispiel AG";
@@ -284,6 +309,11 @@ function vorfuehren(n) {
 
 /* ---------- Start ---------- */
 (async function () {
+  // gespeicherte Lizenz bei jedem Start neu prüfen (Unterschrift, Ablaufdatum)
+  if (LIZ.lizenz && !new URLSearchParams(location.search).get("ansicht")) {
+    const r = LIZ.lizenz.text ? await ShieldLizenz.pruefen(LIZ.lizenz.text) : { ok: false };
+    if (!r.ok) { delete LIZ.lizenz; speicher.set("lizenz", LIZ); }
+  }
   bannerZeigen(); $("anzUeb").textContent = UEB.length;
   try { ShieldEngine.orteSetzen(await (await fetch("orte_ch.txt")).text()); } catch (e) { /* ohne Ortsliste weiter */ }
   OFFEN = speicher.get("offen", null);
