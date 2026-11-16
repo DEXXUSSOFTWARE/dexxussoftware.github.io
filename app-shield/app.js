@@ -338,6 +338,16 @@ function vorfuehren(n) {
 
 /* ---------- Start ---------- */
 (async function () {
+  // Freischalt-Link aus der Lizenz-Mail: dexxus.ch/app-shield/#lizenz=… (der #-Teil geht nie an den Server)
+  const hl = /[#&]lizenz=([A-Za-z0-9_-]+)/.exec(location.hash);
+  if (hl) {
+    history.replaceState(null, "", location.pathname + location.search);
+    let t = "";
+    try { const b = atob(hl[1].replace(/-/g, "+").replace(/_/g, "/")); t = new TextDecoder().decode(Uint8Array.from(b, c => c.charCodeAt(0))); } catch (e) { /* kaputt */ }
+    const r = t ? await ShieldLizenz.pruefen(t) : { ok: false, fehler: "Der Link ist unvollständig. Bitte den ganzen Link aus der E-Mail antippen." };
+    if (r.ok) { LIZ.lizenz = { daten: r.daten, text: t }; speicher.set("lizenz", LIZ); setTimeout(() => meldung("App Shield ist freigeschaltet – danke!", 5000), 300); }
+    else setTimeout(() => { $("spFehler").textContent = r.fehler; $("spFehler").hidden = false; }, 300);
+  }
   // gespeicherte Lizenz bei jedem Start neu prüfen (Unterschrift, Ablaufdatum)
   if (LIZ.lizenz && !new URLSearchParams(location.search).get("ansicht")) {
     const r = LIZ.lizenz.text ? await ShieldLizenz.pruefen(LIZ.lizenz.text) : { ok: false };

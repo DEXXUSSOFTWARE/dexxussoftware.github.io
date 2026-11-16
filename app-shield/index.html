@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WEB Shield">
 <link rel="stylesheet" href="panel.css?v=20261116c">
-<link rel="stylesheet" href="app.css?v=20261117d">
+<link rel="stylesheet" href="app.css?v=20261117e">
 <link rel="stylesheet" href="../teilen-leiste.css?v=3">
 </head>
 <body>
@@ -72,8 +72,8 @@
     </div>
     <div class="sp-box">
       <b>Lizenz erhalten?</b>
-      <label class="knopf voll"><input type="file" id="spLizDatei" hidden>Lizenz-Datei aus der E-Mail wählen</label>
-      <small class="sp-klein">In der E-Mail den Anhang (Datei .dxlic) antippen und sichern, dann hier wählen. Oder den Text einfügen:</small>
+      <small class="sp-klein">Am einfachsten: Die Lizenz-E-Mail auf dem Mobile öffnen und auf den grünen Knopf «App Shield freischalten» tippen – fertig. Oder hier die Lizenz-Datei wählen bzw. den Text einfügen:</small>
+      <label class="knopf"><input type="file" id="spLizDatei" hidden>Lizenz-Datei wählen</label>
       <textarea id="spLizenz" placeholder="Lizenz-Text hier einfügen"></textarea>
       <button class="gross" id="spUebernehmen">Lizenz übernehmen</button>
       <div class="sp-info rot" id="spFehler" hidden></div>
@@ -210,7 +210,7 @@
   <h2>In 3 Schritten zur sicheren KI-Antwort</h2>
   <p class="mk-l">Sie arbeiten wie gewohnt mit Ihrer KI. App Shield sitzt dazwischen und sorgt dafür, dass keine persönlichen Daten das Mobile verlassen.</p>
   <div class="mk-schritte">
-    <div class="mk-schritt"><i>1</i><b>Text oder Foto rein</b><p>Tippen, einfügen oder fotografieren. App Shield erkennt sofort Namen, Adressen, IBAN, Telefon und AHV-Nummer.</p></div>
+    <div class="mk-schritt"><i>1</i><b>Text, Foto, PDF hochladen</b><p>Tippen, einfügen oder fotografieren. App Shield erkennt sofort Namen, Adressen, IBAN, Telefon und AHV-Nummer.</p></div>
     <div class="mk-schritt"><i>2</i><b>Geschwärzt an die KI</b><p>Ein Tipp – App Shield ersetzt alle persönlichen Angaben durch Platzhalter wie [Person 1] und kopiert den Text. In ChatGPT, Claude, Copilot oder Gemini einfügen und senden.</p></div>
     <div class="mk-schritt"><i>3</i><b>Antwort mit echten Namen</b><p>App Shield setzt die richtigen Namen wieder ein und legt die Antwort automatisch im Verlauf ab – kopieren, teilen oder speichern mit einem Tipp.</p></div>
   </div>
@@ -237,7 +237,7 @@
 <script src="lizenz.js?v=20261116c"></script>
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
-<script src="app.js?v=20261117d"></script>
+<script src="app.js?v=20261117e"></script>
 <script>document.getElementById("mkProbe").onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};</script>
 <script src="../teilen-leiste.js?v=3" defer></script>
 </body>
