@@ -86,7 +86,7 @@
     const t = heute();
     if (sp.lizenz && sp.lizenz.daten) {
       const d = sp.lizenz.daten;
-      if (d.unbefristet || !d.bis || d.bis >= t) return { art: "abo", frei: Infinity, bis: d.bis, text: "Abo aktiv" + (d.bis && !d.unbefristet ? " bis " + datumCH(d.bis) : "") };
+      if (d.unbefristet || !d.bis || d.bis >= t) return { art: "abo", frei: Infinity, bis: d.bis, text: (/test/i.test(d.paket || "") ? "Gratis-Test" : "Abo aktiv") + (d.bis && !d.unbefristet ? " bis " + datumCH(d.bis) : "") };
     }
     // Entscheid Markus 16.11.: 30 Tage gratis OHNE Grenze; danach still auf 3 pro Tag + Kauf-Banner (Grenze nicht bewerben)
     const start = sp.start || t;

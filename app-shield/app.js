@@ -35,7 +35,7 @@ async function kopieren(text) {
 /* ---------- Banner / Lizenz ---------- */
 function bannerZeigen() {
   const st = ShieldLizenz.status(LIZ), b = $("aboBanner");
-  sperreZeigen();
+  sperreZeigen(); try { installZeigen(); } catch (e) { /* vor Einrichtung */ }
   b.className = "abo-banner" + (st.art === "abo" ? " ok" : "");
   b.innerHTML = "<span>" + esc(st.text) + "</span><a href=\"" + ShieldLizenz.KAUF_URL + "\" target=\"_blank\" rel=\"noopener\">Jetzt kaufen</a>";
   $("lizStatus").className = "liz-status" + (st.art === "abo" ? " ok" : "");
@@ -43,6 +43,8 @@ function bannerZeigen() {
 }
 async function lizenzUebernehmen(t, fehler) {
   t = (t || "").trim(); if (!t) { fehler("Bitte die Lizenz aus der E-Mail einfügen."); return false; }
+  const ml = /lizenz=([A-Za-z0-9_-]{40,})/.exec(t);      // kopierter Link des Knopfs «App Shield freischalten»
+  if (ml) { try { const b = atob(ml[1].replace(/-/g, "+").replace(/_/g, "/")); t = new TextDecoder().decode(Uint8Array.from(b, c => c.charCodeAt(0))); } catch (e) { fehler("Der Link ist unvollständig."); return false; } }
   const r = await ShieldLizenz.pruefen(t);
   if (!r.ok) { fehler(r.fehler); return false; }
   LIZ.lizenz = { daten: r.daten, text: t }; speicher.set("lizenz", LIZ); bannerZeigen();
@@ -335,6 +337,36 @@ function vorfuehren(n) {
   if (n === 3) { schritt3Zeigen(e); return; }
   reiterWechseln("uebersicht");
 }
+
+/* ---------- Symbol auf dem Startbildschirm (17.11.2026) ---------- */
+const istApp = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+const istIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+let INSTALL = null;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); INSTALL = e; installZeigen(); });
+window.addEventListener("appinstalled", () => { $("installBox").hidden = true; meldung("App Shield ist jetzt auf dem Startbildschirm.", 5000); });
+function installZeigen() {
+  if (istApp() || new URLSearchParams(location.search).get("ansicht")) { $("installBox").hidden = true; return; }
+  if (speicher.get("install_spaeter", "") === ShieldLizenz.heute()) { $("installBox").hidden = true; return; }
+  if (!freigeschaltet()) { $("installBox").hidden = true; return; }
+  const box = $("installBox");
+  if (INSTALL) {
+    $("installText").textContent = "Einmal tippen – dann öffnen Sie App Shield wie jede andere App.";
+    $("installKnopf").style.display = ""; box.hidden = false;
+  } else if (istIOS()) {
+    $("installText").innerHTML = "Auf dem iPhone: unten auf <b>Teilen</b> tippen (Viereck mit Pfeil nach oben), dann <b>«Zum Home-Bildschirm»</b>. Danach App Shield über das Symbol öffnen und die Lizenz dort einmal einfügen (Knopf in der E-Mail lange drücken, «Link kopieren», unter «Lizenz erhalten?» einfügen).";
+    $("installKnopf").style.display = "none"; box.hidden = false;
+  } else {
+    $("installText").innerHTML = "Im Browser-Menü (drei Punkte oben rechts) <b>«App installieren»</b> bzw. <b>«Zum Startbildschirm hinzufügen»</b> wählen.";
+    $("installKnopf").style.display = "none"; box.hidden = false;
+  }
+}
+$("installKnopf").onclick = async () => {
+  if (!INSTALL) return installZeigen();
+  INSTALL.prompt();
+  try { const r = await INSTALL.userChoice; if (r && r.outcome === "accepted") $("installBox").hidden = true; } catch (e) { /* egal */ }
+  INSTALL = null;
+};
+$("installSpaeter").onclick = () => { speicher.set("install_spaeter", ShieldLizenz.heute()); $("installBox").hidden = true; };
 
 /* ---------- Start ---------- */
 (async function () {

@@ -11,9 +11,9 @@
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="WEB Shield">
+<meta name="apple-mobile-web-app-title" content="App Shield">
 <link rel="stylesheet" href="panel.css?v=20261116c">
-<link rel="stylesheet" href="app.css?v=20261117e">
+<link rel="stylesheet" href="app.css?v=20261117g">
 <link rel="stylesheet" href="../teilen-leiste.css?v=3">
 </head>
 <body>
@@ -55,6 +55,11 @@
   <button data-r="uebersicht">Verlauf <span id="anzUeb" class="zahl">0</span></button>
 </nav>
 <div class="abo-banner" id="aboBanner"></div>
+<div class="install" id="installBox" hidden>
+  <b>App Shield als Symbol auf den Startbildschirm</b>
+  <span id="installText">Dann öffnen Sie App Shield wie jede andere App.</span>
+  <div class="install-knoepfe"><button class="gross gruen" id="installKnopf">Symbol hinzufügen</button><button class="link" id="installSpaeter">Später</button></div>
+</div>
 
 <!-- ===================== NEUE ANFRAGE: ein Schritt pro Bildschirm ===================== -->
 <main id="arbeiten" class="ansicht an">
@@ -74,7 +79,7 @@
       <b>Lizenz erhalten?</b>
       <small class="sp-klein">Am einfachsten: Die Lizenz-E-Mail auf dem Mobile öffnen und auf den grünen Knopf «App Shield freischalten» tippen – fertig. Oder hier die Lizenz-Datei wählen bzw. den Text einfügen:</small>
       <label class="knopf"><input type="file" id="spLizDatei" hidden>Lizenz-Datei wählen</label>
-      <textarea id="spLizenz" placeholder="Lizenz-Text hier einfügen"></textarea>
+      <textarea id="spLizenz" placeholder="Lizenz-Text oder kopierten Link des Knopfs hier einfügen"></textarea>
       <button class="gross" id="spUebernehmen">Lizenz übernehmen</button>
       <div class="sp-info rot" id="spFehler" hidden></div>
     </div>
@@ -234,10 +239,10 @@
 
 <script src="daten.js?v=20261116c"></script>
 <script src="redact.js?v=20261116c"></script>
-<script src="lizenz.js?v=20261116c"></script>
+<script src="lizenz.js?v=20261117a"></script>
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
-<script src="app.js?v=20261117e"></script>
+<script src="app.js?v=20261117g"></script>
 <script>document.getElementById("mkProbe").onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};</script>
 <script src="../teilen-leiste.js?v=3" defer></script>
 </body>
