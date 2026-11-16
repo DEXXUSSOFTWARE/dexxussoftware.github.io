@@ -495,6 +495,27 @@
 </div>
 </div></section>
 
+<section class="sec" id="web-shield"><div class="in2">
+  <span class="eyebrow">Neu · direkt im Browser</span>
+  <h2>DEXXUS WEB Shield – schwärzt direkt in ChatGPT, Claude &amp; Copilot</h2>
+  <p class="lead">Die Erweiterung für Edge und Chrome: Text oder Dokument einfügen, Frage oder Anweisung schreiben, «Ausführen». WEB Shield schwärzt auf Ihrem PC, sendet an die KI und zeigt die Antwort mit den echten Namen – alle Antworten werden gespeichert.</p>
+<div class="shband" aria-label="DEXXUS WEB Shield">
+  <div class="ic" aria-hidden="true">DX</div>
+  <div>
+    <span class="art">Gratis testen · danach Abo</span>
+    <h2>DEXXUS WEB Shield</h2>
+    <p>Gratis: 3 Ausführungen pro Tag während 30 Tagen. Danach unbegrenzt mit dem Abo – im Voraus bezahlt für 1, 2 oder 3 Jahre.</p>
+    <div class="tags"><span class="tag">ChatGPT · Claude · Copilot · Gemini · Perplexity</span><span class="tag">Antwort mit echten Namen</span><span class="tag">alles lokal</span><span class="tag">1 Browser</span></div>
+  </div>
+  <div class="rechts">
+    <div class="pr">CHF 9.90 <small>/ Monat</small></div>
+    <div class="anr">1 Jahr CHF 118.80 · 2 Jahre CHF 213.85 (−10 %) · 3 Jahre CHF 285.10 (−20 %)</div>
+    <a class="cta" href="#web-shield" id="ws-download" aria-disabled="true" title="Folgt, sobald WEB Shield im Store ist">Gratis herunterladen <small>(bald im Store)</small></a>
+    <a class="cta" href="#kaufen" data-kauf="DEXXUS WEB Shield" style="margin-top:8px">Abo kaufen</a>
+  </div>
+</div>
+</div></section>
+
 <section class="sec"><div class="in2">
   <span class="eyebrow">Häufige Fragen</span>
   <h2>Fragen zu DEXXUS Shield</h2>
@@ -534,7 +555,9 @@
 (function () {
   var ZAHLUNG = "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3";   // Payrexx-Seite «DEXXUS – Lizenz kaufen» (wie alte Webseite)
   var P = {"DEXXUS Shield": {e: 49, f: "#0891B2", k: "SH"}, "DEXXUS Starter": {e: 19.90, f: "#4F46E5", k: "ST"}, "DEXXUS Privat": {e: 79, f: "#059669", k: "PR"},
-           "KMU Pro": {m: 29, f: "#2563EB", k: "KP"}, "KMU Enterprise": {m: 49, f: "#1E3A8A", k: "KE"}};
+           "KMU Pro": {m: 29, f: "#2563EB", k: "KP"}, "KMU Enterprise": {m: 49, f: "#1E3A8A", k: "KE"},
+           "DEXXUS WEB Shield": {m: 9.90, f: "#2563EB", k: "DX", r: {1: 0, 2: 10, 3: 20}, platz: "1 Browser"}};   // 16.11.2026
+  var RABATT_STD = {1: 0, 2: 5, 3: 10};
   var ov = document.getElementById("dk-ov"), lzk = ov.querySelectorAll(".dk-lz button"), agb = document.getElementById("dk-agb"), los = document.getElementById("dk-los");
   var akt = null, jahre = 1, rabatt = 0, zuletzt = null;
   function chf(x) { return "CHF " + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
@@ -552,10 +575,14 @@
   function auf(paket, knopf) {
     akt = paket; zuletzt = knopf; agb.checked = false;
     var karte = knopf.closest("[data-abo]"), gew = karte && karte.querySelector('.laufzeit button[aria-checked="true"]');
-    jahre = gew ? +gew.getAttribute("data-jahre") : 1; rabatt = gew ? +gew.getAttribute("data-rabatt") : 0;
+    var rmap = P[paket].r || RABATT_STD;                       // Laufzeitrabatt je Paket (WEB Shield 10/20 %)
+    lzk.forEach(function (b) { var j = +b.getAttribute("data-j"); b.setAttribute("data-r", rmap[j] || 0);
+      b.querySelector("small").innerHTML = rmap[j] ? "−" + rmap[j] + " %" : "&nbsp;"; });
+    jahre = gew ? +gew.getAttribute("data-jahre") : (knopf.getAttribute("data-jahre") ? +knopf.getAttribute("data-jahre") : 1);
+    rabatt = rmap[jahre] || 0;
     var m = document.getElementById("dk-m"); m.textContent = P[paket].k; m.style.background = P[paket].f;
     document.getElementById("dk-titel").textContent = (paket.indexOf("DEXXUS") === 0 ? paket : "DEXXUS " + paket) + " kaufen";
-    document.getElementById("dk-paket").textContent = paket + " · 1 Arbeitsplatz";
+    document.getElementById("dk-paket").textContent = paket + " · " + (P[paket].platz || "1 Arbeitsplatz");
     zeigen(); ov.classList.add("an"); document.getElementById("dk-zu").focus();
   }
   function zu() { ov.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
@@ -571,6 +598,13 @@
   document.getElementById("dk-zu").addEventListener("click", zu);
   ov.addEventListener("click", function (e) { if (e.target === ov) { zu(); } });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("an")) { zu(); } });
+  document.getElementById("ws-download").addEventListener("click", function (e) { e.preventDefault(); });   // Store-Link folgt
+  // Aus WEB Shield: shield.html?produkt=web-shield&jahre=2 öffnet direkt den Kauf
+  var q0 = new URLSearchParams(location.search);
+  if (q0.get("produkt") === "web-shield") {
+    var k = document.querySelector('[data-kauf="DEXXUS WEB Shield"]');
+    if (k) { k.setAttribute("data-jahre", Math.min(3, Math.max(1, +q0.get("jahre") || 1))); document.getElementById("web-shield").scrollIntoView(); auf("DEXXUS WEB Shield", k); }
+  }
 })();
 </script>
 </body>
