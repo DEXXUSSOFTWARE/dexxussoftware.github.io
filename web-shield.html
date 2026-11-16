@@ -92,6 +92,8 @@
   .kiwort.weg { opacity: 0; transform: translateY(10px); }
   .titelzeile { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; flex-wrap: wrap; }
   .titelzeile h1 { margin: 0 !important; }
+  .ch-block { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ch-text { font-size: 12px; font-weight: 800; line-height: 1.2; color: #DA291C; text-align: center; letter-spacing: .02em; }
   .ch-kreuz { position: relative; flex: 0 0 auto; width: 64px; height: 64px; border-radius: 10px; background: #DA291C; box-shadow: 0 10px 26px rgba(218,41,28,.30); }
   .ch-kreuz::before, .ch-kreuz::after { content: ""; position: absolute; background: #FAFAFF; left: 50%; top: 50%; transform: translate(-50%, -50%); }
   .ch-kreuz::before { width: 62.5%; height: 18.75%; } .ch-kreuz::after { width: 18.75%; height: 62.5%; }
@@ -137,6 +139,17 @@
              padding: 14px 20px; border-radius: 99px; box-shadow: 0 14px 34px rgba(37,99,235,.45); opacity: 0; transform: translateY(20px); transition: opacity .3s, transform .3s; pointer-events: none; }
   .schwebe.an { opacity: 1; transform: none; pointer-events: auto; }
   .schwebe:hover { background: #1D4ED8; }
+  /* Gratis-Angebot im Rahmen */
+  .gratis-rahmen { margin: 26px auto 0; max-width: 820px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; text-align: left;
+                   border: 3px dashed #047857; background: #ECFDF5; border-radius: 20px; padding: 18px 24px; box-shadow: 0 12px 30px rgba(4,120,87,.15); }
+  .gr-links { display: flex; flex-direction: column; gap: 2px; }
+  .gr-gross { font-size: 30px; font-weight: 900; color: #047857; letter-spacing: -.02em; line-height: 1.1; }
+  .gr-zeile { font-size: 17px; font-weight: 800; color: #0F172A; }
+  .gr-klein { font-size: 14px; color: #475569; }
+  .gratis-rahmen .k { background: #047857; border-color: #047857; }
+  .gratis-preis { position: relative; border: 3px dashed #047857 !important; background: #ECFDF5 !important; }
+  .gratis-preis .gross small { font-size: 15px; color: #047857; font-weight: 800; }
+  .gr-band { position: absolute; top: -14px; left: 20px; background: #047857; color: #FAFAFF; font-weight: 800; font-size: 13px; padding: 4px 12px; border-radius: 99px; }
   /* Pläne & Branchen */
   .plaene { background: linear-gradient(180deg, #EFF6FF, #FAFAFF); }
   .plaene h2 { font-size: 36px; }
@@ -203,9 +216,9 @@
 <main>
 <section class="held held2">
   <span class="pille">Neu · für Edge &amp; Chrome</span>
-  <div class="titelzeile"><span class="ch-kreuz" role="img" aria-label="Schweizerkreuz"></span>
+  <div class="titelzeile"><span class="ch-block"><span class="ch-kreuz" role="img" aria-label="Schweizerkreuz"></span><span class="ch-text">Software made<br>in Switzerland</span></span>
     <h1>Jetzt sicher surfen mit <span class="kiwort">DEXXUS WEB Shield</span></h1></div>
-  <p class="slogan">Stop Data Leaks. Stop Data Selling. Stop Identity Theft.<br><span class="auchnicht">Ihre Daten – nicht für <span class="kiwort" id="kiwort">ChatGPT</span>.</span></p>
+  <p class="slogan">Stop Data Leaks. Stop Data Selling. Stop Identity Theft.<br><span class="auchnicht">Volle Power mit <span class="kiwort" id="kiwort">ChatGPT</span> – ohne persönliche Daten.</span></p>
   <p class="unter">Text in WEB Shield eingeben, Klick – <b>und die KI antwortet sofort.</b> Ihre persönlichen Daten? Tauchen bei ChatGPT, Claude &amp; Co. nirgends auf. Prompt rein. Antwort raus. Ihre Daten bleiben bei Ihnen.</p>
   <p class="slogan2">KI benutzen ohne Risiko – mit WEB Shield.</p>
   <div class="kikacheln" aria-label="Funktioniert mit">
@@ -217,7 +230,10 @@
   </div>
   <div class="knoepfe">
     <a class="k p gross" href="#kaufen" data-kaufen> Jetzt Daten schützen – ab CHF 9.90</a>
-    <a class="k w gross aus" href="#preise" id="ws-dl" aria-disabled="true" title="Folgt, sobald WEB Shield im Store ist"> Gratis testen <small>(bald im Store)</small></a>
+  </div>
+  <div class="gratis-rahmen">
+    <div class="gr-links"><span class="gr-gross">30 Tage GRATIS</span><span class="gr-zeile">Ohne Abo-Zwang · ohne Kreditkarte · endet automatisch</span><span class="gr-klein">Alle Funktionen, alle KI-Dienste. Gefällt es Ihnen nicht, passiert einfach nichts.</span></div>
+    <a class="k p gross aus" href="#preise" id="ws-dl" aria-disabled="true" title="Folgt, sobald WEB Shield im Store ist">Gratis testen <small>(bald im Store)</small></a>
   </div>
   <div class="vertrauen"><a href="#plaene"> Auch für PDFs, Pläne &amp; Skizzen →</a><a href="#branchen"> Bau · Elektro · Planung →</a></div>
   <div class="vertrauen"><span> Schwärzen nur auf Ihrem PC</span><span> Antwort mit echten Namen</span><span> Alle Antworten gespeichert</span><span> 30 Tage gratis testen</span></div>
@@ -369,8 +385,8 @@ Freundliche Grüsse
   <h2>Jetzt kaufen – oder wollen Sie, dass Ihre Daten im Web erscheinen?</h2>
   <p class="lead">Und dafür jeden Tag Ruhe vor Datenlecks. Erst gratis testen – dann unbegrenzt. Preise in CHF inkl. 8.1 % MWST, im Voraus für 1, 2 oder 3 Jahre, ohne automatische Verlängerung.</p>
   <div class="preise">
-    <div class="preis"><h3>Gratis</h3><div class="gross">CHF 0.–</div>
-      <ul><li>30 Tage gratis</li><li>alle Funktionen</li><li>alle KI-Dienste</li><li>kein Konto nötig</li></ul>
+    <div class="preis gratis-preis"><span class="gr-band">Ohne Abo-Zwang</span><h3>Gratis testen</h3><div class="gross">CHF 0.– <small>30 Tage</small></div>
+      <ul><li>alle Funktionen</li><li>alle KI-Dienste</li><li>kein Konto, keine Kreditkarte</li><li>endet automatisch – keine Kündigung nötig</li></ul>
       <a class="k w aus" href="#preise" id="ws-dl2" aria-disabled="true"> Gratis herunterladen <small>(bald im Store)</small></a></div>
     <div class="preis abo"><h3>Abo</h3><div class="gross">CHF 9.90 <small>/ Monat</small></div>
       <ul><li>unbegrenzt ausführen</li><li>alle KI-Dienste</li><li>Updates inbegriffen</li><li>Team-Aktion: 4 Lizenzen −25 %, 10 Lizenzen −35 %</li></ul>
