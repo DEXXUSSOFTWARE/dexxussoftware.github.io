@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>App Shield – Wer clever ist, hat Shield! | DEXXUS</title>
+<meta name="description" content="App Shield: persönliche Daten schwärzen, bevor sie zu ChatGPT, Claude, Copilot oder Gemini gehen – direkt auf dem Mobile. Wer clever ist, hat Shield!">
+<meta name="theme-color" content="#2563EB">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WEB Shield">
+<link rel="stylesheet" href="panel.css?v=20261116c">
+<link rel="stylesheet" href="app.css?v=20261116c">
+</head>
+<body>
+<div class="mk-seite">
+<header class="mk-kopf"><a class="mk-logo" href="../index.html"><b>DX</b><span>DEXXUS</span></a><span class="mk-sp"></span><a class="mk-link" href="../web-shield.html">WEB Shield</a><a class="mk-link" href="../shield.html">PC Shield</a><a class="mk-kauf" href="../web-shield.html?kauf=1">Clever sein – jetzt kaufen</a></header>
+<section class="mk-oben">
+  <span class="mk-pille">Neu: App Shield fürs Mobile</span>
+  <h1 class="mk-titel">Wer clever ist, hat <span>Shield</span>!</h1>
+  <div class="mk-slogan">KI ja. Datenleck nein.</div>
+  <p class="mk-unter">Am Flughafen, im Zug, beim Kunden: Offerten, Verträge und Briefe mit KI erledigen – ohne dass ein einziger Name Ihr Mobile verlässt.</p>
+</section>
+<section class="mk-mitte">
+  <img class="mk-foto" src="flughafen.jpg" alt="Geschäftsfrau am Flughafen nutzt App Shield auf dem Mobile">
+  <div class="mk-handy-platz">
+<div class="handy">
+<header class="kopf">
+  <div class="logo">DX</div>
+  <div class="titel"><b>DEXXUS WEB Shield</b><small>App Shield · alles bleibt auf dem Mobile</small></div>
+  <button class="kopfknopf" id="knopfEinst" title="Einstellungen" aria-label="Einstellungen">&#9881;</button>
+</header>
+<nav class="reiter">
+  <button class="an" data-r="arbeiten">Arbeiten</button>
+  <button data-r="uebersicht">Übersicht <span id="anzUeb" class="zahl">0</span></button>
+</nav>
+<div class="abo-banner" id="aboBanner"></div>
+
+<!-- ===================== ARBEITEN ===================== -->
+<main id="arbeiten" class="ansicht an">
+  <div class="stufen">
+    <div class="stufe an" data-s="1"><i>1</i>Eingeben</div>
+    <div class="stufe" data-s="2"><i>2</i>In KI einfügen</div>
+    <div class="stufe" data-s="3"><i>3</i>Antwort</div>
+  </div>
+
+  <div id="verlauf"></div>
+
+  <section id="schritt1">
+    <label class="ablage">
+      <input type="file" id="dateiWahl" multiple hidden>
+      <span class="ablage-t">Dokument oder Foto wählen</span>
+      <span class="ablage-u">PDF, Word, Foto, Scan, Plan</span>
+    </label>
+    <label class="link foto-link"><input type="file" id="fotoWahl" accept="image/*" capture="environment" hidden>oder jetzt fotografieren</label>
+    <div id="dokListe"></div>
+    <div class="dok-bereit" id="dokBereit" hidden></div>
+    <textarea id="textFeld" placeholder="Text einfügen – wird geschwärzt …"></textarea>
+    <textarea id="frageFeld" placeholder="Frage oder Auftrag an die KI, z. B. «Schreibe daraus eine freundliche Mahnung»"></textarea>
+    <button class="gross" id="knopfSchwaerzen">Schwärzen und kopieren</button>
+    <div class="hinweis">Shield schwärzt alles, bevor es zur KI geht.</div>
+  </section>
+
+  <section id="schritt2" hidden>
+    <div class="uni-box">
+      <div class="ok-box" id="kopiertInfo"></div>
+      <b>KI öffnen und einfügen</b>
+      <div class="ki-wahl">
+        <a class="ki" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
+        <a class="ki" href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
+        <a class="ki" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
+        <a class="ki" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a>
+      </div>
+      <ol>
+        <li>In der KI ins Eingabefeld tippen, <b>«Einfügen»</b> und senden.</li>
+        <li>Die Antwort der KI <b>kopieren</b>.</li>
+        <li>Zurück zu App Shield und <b>«Antwort übernehmen»</b> tippen.</li>
+      </ol>
+      <button class="link" id="knopfNochmal">Geschwärzten Text nochmals kopieren</button>
+      <button class="link" id="knopfVorschau">Was die KI bekommt</button>
+      <pre class="vorschau" id="vorschau" hidden></pre>
+    </div>
+  </section>
+
+  <section id="schritt3" hidden>
+    <textarea id="antwortFeld" placeholder="Antwort der KI hier einfügen (lange drücken → Einfügen) …"></textarea>
+    <button class="gross gruen" id="knopfEinfuegen">Antwort übernehmen</button>
+  </section>
+
+  <div class="fuss-arbeit" id="fussArbeit" hidden>
+    <button class="link" id="knopfNeu">Neues Thema (neue Zuordnung)</button>
+  </div>
+</main>
+
+<!-- ===================== ÜBERSICHT ===================== -->
+<main id="uebersicht" class="ansicht">
+  <input id="suche" class="suche" placeholder="Suchen …">
+  <div class="ueb-alle"><label><input type="checkbox" id="alleWahl"> alle auswählen</label><span id="ueberInfo"></span></div>
+  <div id="uebListe"></div>
+  <div class="wisch-tipp">Antwort nach rechts wischen = kopieren, nach links = löschen</div>
+  <div class="ueb-knoepfe">
+    <div class="format-wahl" id="formatWahl">
+      <button data-f="doc" class="an"><svg class="ft" viewBox="0 0 24 30"><path d="M2 2h14l6 6v20H2z" fill="#2B579A"/><path d="M16 2v6h6" fill="#FAFAFF" opacity=".55"/><text x="12" y="22" text-anchor="middle" font-size="11" font-weight="800" fill="#FAFAFF" font-family="Arial">W</text></svg>Word</button>
+      <button data-f="pdf"><svg class="ft" viewBox="0 0 24 30"><path d="M2 2h14l6 6v20H2z" fill="#D93025"/><path d="M16 2v6h6" fill="#FAFAFF" opacity=".55"/><text x="12" y="22" text-anchor="middle" font-size="7.5" font-weight="800" fill="#FAFAFF" font-family="Arial">PDF</text></svg>PDF</button>
+      <button data-f="txt"><svg class="ft" viewBox="0 0 24 30"><path d="M2 2h14l6 6v20H2z" fill="#64748B"/><path d="M16 2v6h6" fill="#FAFAFF" opacity=".55"/><text x="12" y="22" text-anchor="middle" font-size="7.5" font-weight="800" fill="#FAFAFF" font-family="Arial">TXT</text></svg>Text</button>
+    </div>
+    <div class="zeile knopf-paar">
+      <button class="gross" id="knopfSpeichern">Als Word speichern</button>
+      <button class="gross loeschen" id="knopfLoeschen">Ausgewählte löschen</button>
+    </div>
+  </div>
+</main>
+
+<!-- ===================== FENSTER ===================== -->
+<div class="fenster" id="fensterEinst" hidden><div class="fenster-in">
+  <h3>Einstellungen</h3>
+  <label class="chk"><input type="checkbox" id="eDatum"> Datumsangaben schwärzen</label>
+  <label class="chk"><input type="checkbox" id="eHinweis"> Hinweis an die KI mitsenden («Platzhalter beibehalten»)</label>
+  <label class="feld">Eigene Namen und Begriffe, immer schwärzen (je Zeile einer)
+    <textarea id="eEigene" placeholder="z. B.&#10;Beispiel Treuhand&#10;Projekt Seeblick"></textarea>
+  </label>
+  <h4>Lizenz</h4>
+  <div class="liz-status" id="lizStatus"></div>
+  <textarea id="lizText" placeholder="Lizenz aus der E-Mail hier einfügen"></textarea>
+  <div class="zeile">
+    <button class="knopf voll" id="lizUebernehmen">Lizenz übernehmen</button>
+    <a class="knopf gruen" id="lizKaufen" href="https://dexxus.ch/web-shield.html?kauf=1" target="_blank" rel="noopener">Jetzt kaufen</a>
+  </div>
+  <div class="zeile abstand">
+    <button class="knopf voll" id="eSpeichern">Speichern</button>
+    <button class="knopf w" data-zu>Schliessen</button>
+  </div>
+  <h4>Weiterempfehlen</h4>
+  <a class="knopf breit wa" id="eWhatsapp" target="_blank" rel="noopener" href="#">Per WhatsApp an Freund senden</a>
+  <button class="knopf rot breit" id="eAllesLoeschen">Antworten löschen</button>
+</div></div>
+
+<div class="meldung" id="meldung" hidden></div>
+</div>
+    <div class="mk-probe">Hier direkt ausprobieren</div>
+  </div>
+  <div class="mk-vorteile">
+    <div class="mk-vorteil"><b>In Sekunden geschwärzt</b><small>Namen, Adressen, IBAN, Telefon und AHV-Nummer – automatisch erkannt, direkt auf dem Mobile.</small></div>
+    <div class="mk-vorteil"><b>Jede KI</b><small>Funktioniert mit ChatGPT, Claude, Copilot und Gemini – Ihr bisheriges Konto, keine Umstellung.</small></div>
+    <div class="mk-vorteil"><b>Antwort mit echten Namen</b><small>Die Antwort kommt zurück – mit den richtigen Namen, fertig zum Senden.</small></div>
+  </div>
+</section>
+<section class="mk-reihe">
+  <figure><img src="handy1.png" alt="App Shield: Eingeben"><figcaption>1 Eingeben</figcaption></figure>
+  <figure><img src="handy2.png" alt="App Shield: In der KI einfügen"><figcaption>2 In der KI einfügen</figcaption></figure>
+  <figure><img src="handy3.png" alt="App Shield: Antwort mit echten Namen"><figcaption>3 Antwort zurück</figcaption></figure>
+  <figure><img src="handy4.png" alt="App Shield: Übersicht"><figcaption>4 Alles gespeichert</figcaption></figure>
+</section>
+<section class="mk-erkl">
+  <h2>In 3 Schritten zur sicheren KI-Antwort</h2>
+  <p class="mk-l">Sie arbeiten wie gewohnt mit Ihrer KI. App Shield sitzt dazwischen und sorgt dafür, dass keine persönlichen Daten das Mobile verlassen.</p>
+  <div class="mk-schritte">
+    <div class="mk-schritt"><i>1</i><b>Text oder Foto rein</b><p>Tippen, einfügen oder fotografieren. App Shield erkennt sofort Namen, Adressen, IBAN, Telefon und AHV-Nummer.</p></div>
+    <div class="mk-schritt"><i>2</i><b>Geschwärzt an die KI</b><p>Ein Tipp – App Shield ersetzt alle persönlichen Angaben durch Platzhalter wie [Person 1] und kopiert den Text. In ChatGPT, Claude, Copilot oder Gemini einfügen und senden.</p></div>
+    <div class="mk-schritt"><i>3</i><b>Antwort mit echten Namen</b><p>App Shield setzt die richtigen Namen wieder ein und legt die Antwort in der Übersicht ab.</p></div>
+  </div>
+</section>
+<p class="mk-fuer">Für alle, die unterwegs mit Kundendaten arbeiten: Treuhand, Immobilien, Handwerk, Bau und Planung, Arztpraxen, Pflege, Versicherungen, Anwälte – und alle, die ihre privaten Daten nicht im Internet sehen wollen.</p>
+<section class="mk-faq">
+  <details open><summary>Geht mein Text an DEXXUS oder einen fremden Server?</summary><p>Nein. Das Schwärzen passiert direkt auf Ihrem Mobile. An die KI geht nur der geschwärzte Text – niemand sieht Ihre Inhalte.</p></details>
+  <details><summary>Brauche ich eine App aus dem Store?</summary><p>Nein. dexxus.ch/app-shield im Browser öffnen und «Zum Startbildschirm hinzufügen» – fertig. Funktioniert auf iPhone und Android.</p></details>
+  <details><summary>Was kostet App Shield?</summary><p>App Shield ist im WEB-Shield-Abo inklusive – ab CHF 9.90 im Monat. Die ersten 30 Tage sind gratis, ohne Abo-Zwang.</p></details>
+</section>
+<p class="mk-preis">PC + WEB + App als «Shield komplett»: <b>CHF 139.– im Jahr</b> statt 167.80.</p>
+<div class="mk-cta">
+  <a class="mk-k1" href="#" id="mkProbe">Jetzt ausprobieren</a>
+  <a class="mk-k2" href="../web-shield.html?kauf=1">Clever sein – jetzt kaufen</a>
+  <a class="mk-k3" href="https://wa.me/?text=https%3A%2F%2Fdexxus.ch%2Fapp-shield%2F" target="_blank" rel="noopener">Weiterempfehlen</a>
+</div>
+<p class="mk-schluss">Ihre Kunden vertrauen Ihnen. Shield sorgt dafür, dass es so bleibt.</p>
+<div class="mk-adresse">dexxus.ch/app-shield</div>
+<footer class="mk-fuss">© 2026 avotec AG · 8602 Wangen ZH · <a href="../rechtliches.html#impressum">Impressum</a> · <a href="../rechtliches.html#datenschutz">Datenschutz</a> · <a href="../agb.html">AGB</a></footer>
+</div>
+
+<script src="daten.js?v=20261116c"></script>
+<script src="redact.js?v=20261116c"></script>
+<script src="lizenz.js?v=20261116c"></script>
+<script src="dokumente_basis.js?v=20261116c"></script>
+<script src="dokumente.js?v=20261116c"></script>
+<script src="app.js?v=20261116c"></script>
+<script>document.getElementById("mkProbe").onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};</script>
+</body>
+</html>
