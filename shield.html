@@ -404,6 +404,17 @@
 @media (max-width: 860px) { #w-shp .vg, #w-shp .schritte, #w-shp .vorteile { grid-template-columns: 1fr; } #w-shp .held h1 { font-size: 32px; } #w-shp h2 { font-size: 26px; } }
 
 #w-shp .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+/* Kauf-Aufrufe (16.11.2026) */
+.cta-band { background: linear-gradient(90deg, #ECFEFF, #CFFAFE); border-top: 1px solid #A5F3FC; border-bottom: 1px solid #A5F3FC; }
+.cta-band .in2 { max-width: 1060px; margin: 0 auto; padding: 26px 16px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.cta-band b { display: block; font-size: 24px; letter-spacing: -.02em; color: #0F172A; } .cta-band span { color: #334155; font-size: 16px; }
+.cta-band.dunkel { background: linear-gradient(110deg, #083344, #0E7490 50%, #0891B2); border: 0; } .cta-band.dunkel b, .cta-band.dunkel span { color: #FAFAFF; }
+.gross-band .in2 { padding-top: 44px; padding-bottom: 44px; } .gross-band b { font-size: 30px; }
+.cta-k { display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border-radius: 12px; background: #0891B2; color: #FAFAFF; font-weight: 800; font-size: 16.5px; text-decoration: none; border: 2px solid #0891B2; }
+.cta-k:hover { background: #0E7490; } .cta-k.w { background: #FAFAFF; color: #0E7490; border-color: #FAFAFF; }
+.schwebe { position: fixed; right: 18px; bottom: 18px; z-index: 30; background: #0891B2; color: #FAFAFF; text-decoration: none; font-weight: 800; font-size: 15.5px; padding: 14px 20px; border-radius: 99px;
+           box-shadow: 0 14px 34px rgba(8,145,178,.45); opacity: 0; transform: translateY(20px); transition: opacity .3s, transform .3s; pointer-events: none; }
+.schwebe.an { opacity: 1; transform: none; pointer-events: auto; }
 </style>
 </head>
 <body>
@@ -426,16 +437,17 @@
 </div></header><main><div id="w-preise"><div id="w-shp">
 <section class="held">
   <span class="badge" aria-hidden="true">SH</span>
-  <h1>KI nutzen – ohne Personendaten preiszugeben</h1>
-  <p class="l">DEXXUS Shield schwärzt Namen, Adressen, IBAN, AHV- und Telefonnummern automatisch, bevor ein Text an ChatGPT, Copilot, Gemini &amp; Co. geht. Die Antwort bekommt die echten Angaben zurück – alles lokal auf Ihrem PC.</p>
-  <div class="knoepfe"><a class="k sh" href="#kaufen" data-kauf="DEXXUS Shield">Shield kaufen – CHF 49.–</a><a class="k rand" href="index.html#download">30 Tage kostenlos testen</a></div>
+  <h1>Ihre Daten. Ihre Sache. Auch bei ChatGPT.</h1>
+  <p class="l" style="font-size:22px;font-weight:800;color:#0F172A;margin-bottom:10px">Stop Data Leaks. Stop Data Selling. Stop Identity Theft.</p>
+  <p class="l">Namen, Adressen, IBAN, AHV- und Telefonnummern? DEXXUS Shield macht sie unsichtbar, <b>bevor</b> ChatGPT, Copilot, Gemini &amp; Co. sie zu sehen bekommen – und setzt sie in der Antwort blitzschnell wieder ein. Alles auf Ihrem PC. Einmal kaufen, unbefristet nutzen.</p>
+  <div class="knoepfe"><a class="k sh" href="#kaufen" data-kauf="DEXXUS Shield">Jetzt kaufen – nur CHF 49.–</a><a class="k rand" href="index.html#download">30 Tage gratis testen</a></div>
   <p class="klein">Einmalig, unbefristet · 1 Arbeitsplatz · in Privat, KMU Pro und KMU Enterprise bereits enthalten</p>
 </section>
 
 <section class="sec"><div class="in2">
   <span class="eyebrow">Vorher / Nachher</span>
-  <h2>So sieht die Schwärzung aus</h2>
-  <p class="lead">Links Ihr Text, wie er in Ihrem Dokument steht. Rechts genau das, was an die Online-KI geht.</p>
+  <h2>Vorher vertraulich. Nachher KI-tauglich.</h2>
+  <p class="lead">Links Ihr Original – bleibt bei Ihnen. Rechts das, was bei der KI ankommt. Wer gemeint ist? Erfährt sie nie.</p>
   <div class="vg">
     <div class="sp"><h4><span class="pill v">VORHER</span> Ihr Text – bleibt auf Ihrem PC</h4>
       <div class="t">Sehr geehrte Frau Erika Muster<br><br>Wir vertreten Herrn Hans Beispiel, wohnhaft Musterweg 7, 8810 Horgen. Bitte überweisen Sie die Entschädigung auf CH93 0076 2011 6238 5295 7. Sie erreichen ihn unter 079 412 33 21.</div></div>
@@ -444,9 +456,14 @@
   </div>
 </div></section>
 
+<section class="cta-band"><div class="in2">
+  <div><b>Ihre KI. Ihre Regeln.</b><span>Einmal kaufen – jede KI-Anfrage geschützt.</span></div>
+  <a class="cta-k" href="#kaufen" data-kauf="DEXXUS Shield">Jetzt kaufen – CHF 49.–</a>
+</div></section>
+
 <section class="sec"><div class="in2">
   <span class="eyebrow">So funktioniert es</span>
-  <h2>In vier Schritten zur sicheren KI-Antwort</h2>
+  <h2>Einfügen. Schwärzen. Fragen. Fertig.</h2>
   <div class="schritte">
     <article class="schritt"><span class="n">1</span><h3>Text oder Dokument einfügen</h3><p>Aus Word, E-Mails, PDF oder Ihrem bisherigen Büroprogramm – per Einfügen oder «Doku Einfügen».</p></article>
     <article class="schritt"><span class="n">2</span><h3>Shield schwärzt lokal</h3><p>Personendaten werden zu Platzhaltern. Sie sehen genau, was hinausgeht, und können nachbessern.</p></article>
@@ -457,13 +474,18 @@
 
 <section class="sec"><div class="in2">
   <span class="eyebrow">Was Shield erkennt</span>
-  <h2>Diese Angaben verlassen Ihren PC nie</h2>
+  <h2>Das bleibt auf Ihrem PC – automatisch</h2>
   <div class="erkennt"><span>Personen</span><span>Adressen und Orte</span><span>IBAN und Kontonummern</span><span>Telefonnummern</span><span>E-Mail-Adressen</span><span>AHV-Nummern</span><span>Geburtsdaten</span><span>Kontrollschilder</span><span>Aktenzeichen</span><span>Firmennamen</span></div>
   <div class="vorteile">
     <div><b>Für jedes Programm</b>Shield funktioniert mit Texten aus jeder Software – Sie müssen Ihr Büroprogramm nicht wechseln.</div>
     <div><b>Warnung bei heiklen Themen</b>Bei Gesundheits- und Strafverfahrensthemen warnt DEXXUS vor dem Senden und empfiehlt die lokale KI.</div>
     <div><b>Verlauf 30 Tage</b>Jede Schwärzung wird gemerkt – die Antwort der KI kann auch Tage später eingefügt werden.</div>
   </div>
+</div></section>
+
+<section class="cta-band dunkel"><div class="in2">
+  <div><b>Jetzt kaufen – oder wollen Sie, dass Ihre Daten im Web erscheinen?</b><span>Einmal CHF 49.– und Ihre Daten bleiben bei Ihnen.</span></div>
+  <a class="cta-k w" href="#kaufen" data-kauf="DEXXUS Shield">Jetzt Daten schützen</a>
 </div></section>
 
 <section class="sec"><div class="in2">
@@ -477,7 +499,7 @@
 
 <section class="sec"><div class="in2">
   <span class="eyebrow">Preis</span>
-  <h2>Shield allein oder im Paket</h2>
+  <h2>Einmal zahlen. Unbefristet geschützt.</h2>
   <p class="lead">Shield allein für CHF 49.– einmalig – oder inklusive in den Paketen Privat, KMU Pro und KMU Enterprise. <a href="preise.html">Alle Pakete ansehen</a></p>
 <div class="shband" aria-label="DEXXUS Shield allein">
   <div class="ic" aria-hidden="true">SH</div>
@@ -504,7 +526,7 @@
   <div>
     <span class="art">Gratis testen · danach Abo</span>
     <h2>DEXXUS WEB Shield</h2>
-    <p>Gratis: 3 Ausführungen pro Tag während 30 Tagen. Danach unbegrenzt mit dem Abo – im Voraus bezahlt für 1, 2 oder 3 Jahre.</p>
+    <p>30 Tage gratis testen – mit allen Funktionen. Danach weiter mit dem Abo, im Voraus bezahlt für 1, 2 oder 3 Jahre.</p>
     <div class="tags"><span class="tag">ChatGPT · Claude · Copilot · Gemini · Perplexity</span><span class="tag">Antwort mit echten Namen</span><span class="tag">alles lokal</span><span class="tag">1 Browser</span></div>
   </div>
   <div class="rechts">
@@ -527,7 +549,13 @@
     <details><summary>Erkennt Shield wirklich alle Personendaten?</summary><p>In unseren Tests wurden die Personendaten nahezu vollständig erkannt. Eine lückenlose Erkennung in jedem Einzelfall ist technisch nicht möglich – darum sehen Sie vor dem Senden genau, was hinausgeht, und können nachbessern.</p></details>
   </div>
 </div></section>
+
+<section class="cta-band dunkel gross-band"><div class="in2">
+  <div><b>No Leaks. No Tracking. No Identity Theft.</b><span>Namen, Adressen und IBAN gehören nicht ins Web – KI benutzen ohne Risiko mit DEXXUS Shield.</span></div>
+  <a class="cta-k w" href="#kaufen" data-kauf="DEXXUS Shield">Jetzt kaufen</a>
+</div></section>
 </div>
+<a class="schwebe" href="#kaufen" data-kauf="DEXXUS Shield" id="schwebe">Shield jetzt kaufen · CHF 49.–</a>
 </div></main><footer class="dxw-foot"><div class="in">
   <span>© 2026 avotec AG · 8602 Wangen ZH</span>
   <span style="flex:1"></span>
@@ -600,6 +628,8 @@
   ov.addEventListener("click", function (e) { if (e.target === ov) { zu(); } });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("an")) { zu(); } });
   document.getElementById("ws-download").addEventListener("click", function (e) { e.preventDefault(); });   // Store-Link folgt
+  var schwebe = document.getElementById("schwebe");
+  addEventListener("scroll", function () { schwebe.classList.toggle("an", scrollY > innerHeight * 0.9); }, { passive: true });
   // Aus WEB Shield: shield.html?produkt=web-shield&jahre=2 öffnet direkt den Kauf
   var q0 = new URLSearchParams(location.search);
   if (q0.get("produkt") === "web-shield") {

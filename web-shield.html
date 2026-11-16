@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DEXXUS WEB Shield – Gutes Gefühl: meine Daten sieht keiner</title>
+<title>DEXXUS WEB Shield – Stop Data Leaks bei ChatGPT, Claude &amp; Co.</title>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="7a0ae6f3-3157-462a-adf0-4d28d2832ae1"></script>
 <meta name="description" content="DEXXUS WEB Shield für Edge und Chrome: schwärzt Namen, Adressen und IBAN lokal, sendet an ChatGPT, Claude oder Copilot und zeigt die Antwort mit den echten Namen. Gratis testen, Abo ab CHF 9.90/Monat.">
 <link rel="canonical" href="https://dexxus.ch/web-shield.html">
@@ -126,6 +126,41 @@
   .anw .karte.breit { grid-column: 1 / -1; }
   @media (max-width: 960px) { .kikacheln { grid-template-columns: repeat(3, 1fr); } .held2 h1 { font-size: 40px; } }
   @media (max-width: 600px) { .kikacheln { grid-template-columns: repeat(2, 1fr); } .anw, .anw .zeile2 { grid-template-columns: 1fr; } .held2 h1 { font-size: 32px; } }
+  /* Kauf-Aufrufe */
+  .cta-band { background: linear-gradient(90deg, #EFF6FF, #DBEAFE); border-bottom: 1px solid #BFDBFE; }
+  .cta-band .in2 { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 26px; padding-bottom: 26px; flex-wrap: wrap; }
+  .cta-band b { display: block; font-size: 24px; letter-spacing: -.02em; } .cta-band span { color: #334155; font-size: 16px; }
+  .cta-band.dunkel { background: linear-gradient(110deg, #0F1E5A, #1E3A8A 45%, #2563EB); border: 0; }
+  .cta-band.dunkel b, .cta-band.dunkel span { color: #FAFAFF; }
+  .gross-band .in2 { padding-top: 44px; padding-bottom: 44px; } .gross-band b { font-size: 30px; }
+  .schwebe { position: fixed; right: 18px; bottom: 18px; z-index: 30; background: #2563EB; color: #FAFAFF; text-decoration: none; font-weight: 800; font-size: 15.5px;
+             padding: 14px 20px; border-radius: 99px; box-shadow: 0 14px 34px rgba(37,99,235,.45); opacity: 0; transform: translateY(20px); transition: opacity .3s, transform .3s; pointer-events: none; }
+  .schwebe.an { opacity: 1; transform: none; pointer-events: auto; }
+  .schwebe:hover { background: #1D4ED8; }
+  /* Pläne & Branchen */
+  .plaene { background: linear-gradient(180deg, #EFF6FF, #FAFAFF); }
+  .plaene h2 { font-size: 36px; }
+  .plaene .in2 { max-width: 1280px; }
+  .plan-vgl { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; }
+  .plan-vgl figure { margin: 0; background: #FAFAFF; border: 2px solid #E2E8F0; border-radius: 16px; padding: 12px; box-shadow: 0 12px 30px rgba(15,23,42,.10); }
+  .plan-vgl figure.ki-version { border-color: #047857; background: #ECFDF5; }
+  .plan-vgl figcaption { font-weight: 800; font-size: 16px; margin-bottom: 6px; color: #334155; }
+  .plan-vgl figure.ki-version figcaption { color: #047857; }
+  .plan-vgl svg { width: 100%; height: auto; display: block; }
+  .pfeil-gross { font-size: 42px; color: #2563EB; font-weight: 800; }
+  .moeglich { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .moeglich div, .branchen div { background: #FAFAFF; border: 2px solid #DBEAFE; border-radius: 14px; padding: 14px 16px; }
+  .moeglich b, .branchen b { display: block; font-size: 17px; margin-bottom: 2px; } .moeglich span, .branchen span { font-size: 14.5px; color: #475569; }
+  .bald { margin-top: 16px; text-align: center; background: #FEF3C7; border: 1px solid #FDE68A; color: #78350F; border-radius: 12px; padding: 10px 14px; font-size: 15px; }
+  .branchen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .vertrauen a { color: #2563EB; font-weight: 800; }
+  @media (max-width: 860px) { .plan-vgl { grid-template-columns: 1fr; } .pfeil-gross { transform: rotate(90deg); text-align: center; } .moeglich, .branchen { grid-template-columns: 1fr 1fr; } .plaene h2 { font-size: 28px; } }
+  @media (max-width: 480px) { .moeglich, .branchen { grid-template-columns: 1fr; } }
+  /* Galerie */
+  .galerie-wahl { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .galerie-wahl button { border: 2px solid #2563EB; background: #FAFAFF; color: #2563EB; border-radius: 99px; padding: 8px 18px; font: 700 15px inherit; cursor: pointer; }
+  .galerie-wahl button.an { background: #2563EB; color: #FAFAFF; }
+  .galerie img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 24px 60px rgba(15,23,42,.18); }
   /* Kaufdialog (wie Shield-Seite) */
   .dk-ov { position: fixed; inset: 0; z-index: 9500; background: rgba(226,232,240,.72); backdrop-filter: blur(3px); display: none; align-items: center; justify-content: center; padding: 16px; }
   .dk-ov.an { display: flex; }
@@ -141,6 +176,11 @@
   .dk-los { width: 100%; min-height: 48px; border: 0; border-radius: 11px; background: #2563EB; color: #FAFAFF; font: 700 15.5px inherit; cursor: pointer; }
   .dk-los:disabled { opacity: .45; cursor: default; }
   .dk-fuss { font-size: 12.5px; color: #64748B; text-align: center; }
+  .dk-lab { font-size: 13px; font-weight: 700; color: #334155; margin-bottom: 6px; }
+  .dk .lz button { padding: 8px 4px; font-size: 14px; }
+  .dk-spar { background: #ECFDF5; color: #047857; font-weight: 800; border-radius: 10px; padding: 8px 12px; text-align: center; font-size: 14.5px; }
+  .dk-mehr { font-size: 13px; color: #475569; text-align: center; } .dk-mehr a { color: #2563EB; font-weight: 700; }
+  .spar-text { color: #047857; font-weight: 800; }
 </style>
 </head>
 <body>
@@ -165,35 +205,36 @@
   <span class="pille">Neu · für Edge &amp; Chrome</span>
   <div class="titelzeile"><span class="ch-kreuz" role="img" aria-label="Schweizerkreuz"></span>
     <h1>Jetzt sicher surfen mit <span class="kiwort">DEXXUS WEB Shield</span></h1></div>
-  <p class="slogan">Gutes Gefühl – meine Daten sieht keiner.<br><span class="auchnicht">Auch nicht <span class="kiwort" id="kiwort">ChatGPT</span>.</span></p>
-  <p class="unter">WEB Shield schwärzt Namen, Adressen und IBAN, <b>bevor ChatGPT, Claude &amp; Co. sie sehen</b> – und bringt die Antwort mit den echten Namen zurück. Automatisch, mit einem Klick.</p>
+  <p class="slogan">Stop Data Leaks. Stop Data Selling. Stop Identity Theft.<br><span class="auchnicht">Ihre Daten – nicht für <span class="kiwort" id="kiwort">ChatGPT</span>.</span></p>
+  <p class="unter">Text in WEB Shield eingeben, Klick – <b>und die KI antwortet sofort.</b> Ihre persönlichen Daten? Tauchen bei ChatGPT, Claude &amp; Co. nirgends auf. Prompt rein. Antwort raus. Ihre Daten bleiben bei Ihnen.</p>
   <p class="slogan2">KI benutzen ohne Risiko – mit WEB Shield.</p>
   <div class="kikacheln" aria-label="Funktioniert mit">
-    <a class="kik" href="#mit-chatgpt"><span class="sym">✦</span><b>ChatGPT</b><small>Anwendung mit ChatGPT</small></a>
-    <a class="kik" href="#mit-claude"><span class="sym">✺</span><b>Claude</b><small>Anwendung mit Claude</small></a>
-    <a class="kik" href="#mit-copilot"><span class="sym">◈</span><b>Copilot</b><small>Anwendung mit Copilot</small></a>
-    <a class="kik" href="#mit-gemini"><span class="sym">✧</span><b>Gemini</b><small>Anwendung mit Gemini</small></a>
-    <a class="kik" href="#mit-perplexity"><span class="sym">❖</span><b>Perplexity</b><small>Anwendung mit Perplexity</small></a>
+    <a class="kik" href="#mit-chatgpt"><b>ChatGPT</b><small>Anwendung mit ChatGPT</small></a>
+    <a class="kik" href="#mit-claude"><b>Claude</b><small>Anwendung mit Claude</small></a>
+    <a class="kik" href="#mit-copilot"><b>Copilot</b><small>Anwendung mit Copilot</small></a>
+    <a class="kik" href="#mit-gemini"><b>Gemini</b><small>Anwendung mit Gemini</small></a>
+    <a class="kik" href="#mit-perplexity"><b>Perplexity</b><small>Anwendung mit Perplexity</small></a>
   </div>
   <div class="knoepfe">
-    <a class="k p gross aus" href="#preise" id="ws-dl" aria-disabled="true" title="Folgt, sobald WEB Shield im Store ist">⬇ Gratis herunterladen <small>(bald im Store)</small></a>
-    <a class="k w gross" href="#preise">Abo ab CHF 9.90/Monat</a>
+    <a class="k p gross" href="#kaufen" data-kaufen> Jetzt Daten schützen – ab CHF 9.90</a>
+    <a class="k w gross aus" href="#preise" id="ws-dl" aria-disabled="true" title="Folgt, sobald WEB Shield im Store ist"> Gratis testen <small>(bald im Store)</small></a>
   </div>
-  <div class="vertrauen"><span>🔒 Schwärzen nur auf Ihrem PC</span><span>⚡ Antwort mit echten Namen</span><span>🗂 Alle Antworten gespeichert</span><span>🎁 30 Tage gratis testen</span></div>
+  <div class="vertrauen"><a href="#plaene"> Auch für PDFs, Pläne &amp; Skizzen →</a><a href="#branchen"> Bau · Elektro · Planung →</a></div>
+  <div class="vertrauen"><span> Schwärzen nur auf Ihrem PC</span><span> Antwort mit echten Namen</span><span> Alle Antworten gespeichert</span><span> 30 Tage gratis testen</span></div>
 </section>
 
 <section class="sec"><div class="in2">
-  <span class="eyebrow">So sieht es aus</span>
-  <h2>Die KI sieht Platzhalter – Sie sehen die echten Namen</h2>
-  <p class="lead">Beispiel mit erfundenen Daten: Eine Mahnung wird von der KI freundlicher formuliert.</p>
+  <span class="eyebrow">Der Aha-Moment</span>
+  <h2>Die KI liefert. Ihre Daten bleiben zuhause.</h2>
+  <p class="lead">Sie geben Ihren Text ein – die KI liefert in Sekunden. Wer Ihre Kundin ist, erfährt sie dabei nie. Beispiel mit erfundenen Daten:</p>
   <div class="zwei">
-    <div class="karte ki"><h3>🤖 Das bekommt die KI</h3>
+    <div class="karte ki"><h3> Bei der KI kommt an</h3>
       <div class="brief">Sehr geehrte Frau <span class="platz">[Person 1]</span>
 Wir möchten Sie freundlich daran erinnern, dass die Rechnung Nr. 2026-118 über CHF 1'250.00 noch offen ist.
 Bitte überweisen Sie den Betrag auf <span class="platz">[IBAN 1]</span>.
 Freundliche Grüsse
 <span class="platz">[Person 2]</span>, <span class="platz">[Firma 1]</span></div></div>
-    <div class="karte sh"><h3>🛡 Das zeigt WEB Shield Ihnen</h3>
+    <div class="karte sh"><h3> Bei Ihnen kommt an – komplett</h3>
       <div class="brief">Sehr geehrte Frau <span class="echt">Erika Muster</span>
 Wir möchten Sie freundlich daran erinnern, dass die Rechnung Nr. 2026-118 über CHF 1'250.00 noch offen ist.
 Bitte überweisen Sie den Betrag auf <span class="echt">CH93 0076 2011 6238 5295 7</span>.
@@ -202,78 +243,144 @@ Freundliche Grüsse
   </div>
 </div></section>
 
-<section class="sec"><div class="in2">
-  <span class="eyebrow">So einfach</span>
-  <h2>In 3 Schritten zur sicheren KI-Antwort</h2>
-  <p class="lead">WEB Shield öffnet sich rechts neben der KI. Sie arbeiten nur dort – Schwärzen, Senden und Zurückholen passiert automatisch.</p>
-  <div class="schritte">
-    <div class="schritt"><div class="nr">1</div><b>Text oder Dokument einfügen</b><span>Brief, E-Mail, Word- oder Textdatei – dazu Ihre Frage oder Anweisung an die KI.</span></div>
-    <div class="schritt"><div class="nr">2</div><b>«Ausführen» klicken</b><span>WEB Shield schwärzt auf Ihrem PC und sendet nur Platzhalter an die KI.</span></div>
-    <div class="schritt"><div class="nr">3</div><b>Antwort mit echten Namen</b><span>Die Antwort erscheint sofort mit den echten Angaben und wird gespeichert. Weitere Fragen einfach anschliessen.</span></div>
+<section class="cta-band"><div class="in2">
+  <div><b>Ihre KI. Ihre Regeln.</b><span>In 30 Sekunden installiert – ab dem ersten Prompt geschützt.</span></div>
+  <a class="k p" href="#kaufen" data-kaufen>Jetzt kaufen</a>
+</div></section>
+
+<section class="sec plaene" id="plaene"><div class="in2">
+  <span class="eyebrow">Das Besondere</span>
+  <h2>Nicht nur Text: PDFs, Pläne und Skizzen – geschwärzt in Sekunden</h2>
+  <p class="lead">Grundrissplan mit Plankopf, Elektroschema, Baustellen-Skizze, gescanntes Zeugnis: WEB Shield findet Namen, Adressen und Projektbezeichnungen <b>auch im Plan</b> – und liefert dasselbe Dokument zurück, nur ohne die heiklen Angaben.</p>
+  <div class="plan-vgl">
+    <figure><figcaption>Original-Version</figcaption>
+      <svg id="plan-orig" viewBox="0 0 640 430" role="img" aria-label="Grundrissplan mit vollständigem Plankopf: Architekt, Bauherrschaft, Adresse und Projekt sichtbar"></svg></figure>
+    <div class="pfeil-gross"></div>
+    <figure class="ki-version"><figcaption>KI-Version</figcaption>
+      <svg id="plan-ki" viewBox="0 0 640 430" role="img" aria-label="Derselbe Plan: Architekt, Bauherrschaft, Adresse, Projekt und Parzelle im Plankopf geschwärzt"></svg></figure>
   </div>
+  <div class="moeglich">
+    <div><b> PDF</b><span>Verträge, Rechnungen, Offerten – auch mehrseitig</span></div>
+    <div><b> Pläne</b><span>Grundrisse, Schemas, Plankopf mit Bauherr und Adresse</span></div>
+    <div><b> Skizzen</b><span>Baustellen-Skizzen, Handnotizen – mit dem Rahmen-Werkzeug</span></div>
+    <div><b> Scans &amp; Fotos</b><span>Texterkennung direkt auf Ihrem PC</span></div>
+    <div><b> Vorlagen</b><span>Plankopf einmal markieren – ab dann automatisch</span></div>
+    <div><b> Eingebrannt</b><span>Schwarz bleibt schwarz: darunter ist nichts mehr lesbar</span></div>
+  </div>
+  <div class="bald"> Pläne, Skizzen und PDF kommen als nächstes Update in WEB Shield – <b>für Abo-Kunden ohne Aufpreis</b>. Heute schon dabei: Text und Word-Dokumente.</div>
+  <div style="text-align:center;margin-top:18px"><a class="k p gross" href="#kaufen" data-kaufen>Pläne schützen – jetzt kaufen</a></div>
+</div></section>
+
+<section class="sec" id="branchen"><div class="in2">
+  <span class="eyebrow">Für Ihre Branche</span>
+  <h2>Vom Bauplan bis zum Arztbericht – geschützt.</h2>
+  <p class="lead">Wer Pläne, Offerten und Kundendaten mit KI bearbeitet, braucht WEB Shield. Besonders:</p>
+  <div class="branchen">
+    <div><b> Bau &amp; Generalunternehmer</b><span>Baubeschriebe, Ausschreibungen, Mängellisten – ohne Bauherren-Namen</span></div>
+    <div><b> Architektur &amp; Planung</b><span>Grundrisse und Plankopf schwärzen, KI fragt nur nach dem Plan</span></div>
+    <div><b> Elektro &amp; Gebäudetechnik</b><span>Elektroschemas, Installationspläne, Rapporte mit Kundenadressen</span></div>
+    <div><b> Sanitär, Heizung, Lüftung</b><span>Offerten, Wartungsberichte, Anlagenschemas</span></div>
+    <div><b> Handwerk &amp; Montage</b><span>Arbeitsrapporte, Regieberichte, Baustellen-Skizzen</span></div>
+    <div><b> Immobilien &amp; Verwaltung</b><span>Mietverträge, Abrechnungen, Wohnungspläne</span></div>
+    <div><b> Treuhand &amp; Buchhaltung</b><span>Mahnungen, Lohnunterlagen, Kontoauszüge mit IBAN</span></div>
+    <div><b> Recht &amp; Personal</b><span>Verträge, Zeugnisse, Schreiben mit Personendaten</span></div>
+    <div><b> Arztpraxis &amp; Therapie</b><span>Berichte, Überweisungen, Kostengutsprachen – ohne Patientennamen</span></div>
+    <div><b> Pflege &amp; Spitex</b><span>Pflegeberichte, Einsatzpläne, Angehörigen-Briefe</span></div>
+    <div><b> Versicherung &amp; Vorsorge</b><span>Schadenmeldungen, Policen, Offerten mit Kundendaten</span></div>
+    <div><b> Garage &amp; Fahrzeughandel</b><span>Offerten, Rechnungen, Kontrollschilder und Halter</span></div>
+  </div>
+  <p class="klein" style="text-align:center;margin-top:10px">Bei besonders schützenswerten Daten (Gesundheit, Strafverfahren) warnt WEB Shield zusätzlich. Berufsgeheimnisse bleiben in Ihrer Verantwortung.</p>
+  <div style="text-align:center;margin-top:22px"><a class="k p gross" href="#kaufen" data-team="4">Teamrabatt – jetzt zugreifen</a></div>
+</div></section>
+
+<section class="sec"><div class="in2">
+  <span class="eyebrow">Kinderleicht</span>
+  <h2>Einfügen. Klick. Antwort. Fertig.</h2>
+  <p class="lead">Kein Kopieren hin und her, keine Schulung. WEB Shield sitzt rechts neben Ihrer KI und erledigt alles automatisch.</p>
+  <div class="schritte">
+    <div class="schritt"><div class="nr">1</div><b>Text rein</b><span>Brief, E-Mail oder Word-Datei – plus Ihre Frage oder Anweisung.</span></div>
+    <div class="schritt"><div class="nr">2</div><b>«Ausführen»</b><span>Ein Klick. Ihre persönlichen Daten bleiben auf Ihrem PC.</span></div>
+    <div class="schritt"><div class="nr">3</div><b>Sofort-Antwort</b><span>Komplett, mit allen echten Namen – und automatisch gespeichert.</span></div>
+  </div>
+</div></section>
+
+<section class="sec" id="live"><div class="in2">
+  <span class="eyebrow">Live erleben</span>
+  <h2>Live: So schützt WEB Shield jede KI</h2>
+  <p class="lead">Links die KI, rechts WEB Shield mit Ihrer fertigen Antwort. Klicken Sie sich durch:</p>
+  <div class="galerie-wahl" role="tablist">
+    <button class="an" data-g="chatgpt">ChatGPT</button><button data-g="claude">Claude</button><button data-g="copilot">Copilot</button><button data-g="gemini">Gemini</button><button data-g="perplexity">Perplexity</button>
+  </div>
+  <div class="galerie"><img id="galerie-bild" src="media/web-shield/web-shield-chatgpt.png" alt="DEXXUS WEB Shield neben ChatGPT: links die KI, rechts die Antwort mit echten Namen" width="1400" height="820" loading="lazy"></div>
+  <p class="klein" style="text-align:center">Darstellung vereinfacht · Beispiel mit erfundenen Daten</p>
 </div></section>
 
 <section class="sec"><div class="in2">
   <span class="eyebrow">Funktionen</span>
-  <h2>Alles, was Sie für sichere KI-Arbeit brauchen</h2>
+  <h2>Alles drin. Nichts verraten.</h2>
   <div class="raster">
-    <div class="fn"><i>⚡</i><b>Automatisch</b><span>Schwärzen, an die KI senden, Antwort holen – mit einem Klick.</span></div>
-    <div class="fn"><i>🔁</i><b>Weitere Fragen</b><span>Gleiche Zuordnung: «Erika Muster» bleibt immer [Person 1].</span></div>
-    <div class="fn"><i>🗂</i><b>Übersicht</b><span>Alle Antworten gespeichert – in die Zwischenablage oder als Word, PDF, Text.</span></div>
-    <div class="fn"><i>👁</i><b>Vorschau geschwärzt</b><span>Auf Klick sehen Sie genau, was die KI bekommen hat.</span></div>
-    <div class="fn"><i>🇨🇭</i><b>Schweizer Daten</b><span>AHV-Nr., IBAN, Schweizer Adressen, PLZ und Orte, Kontrollschilder.</span></div>
-    <div class="fn"><i>✍️</i><b>Eigene Begriffe</b><span>Kunden- oder Projektnamen, die immer geschwärzt werden.</span></div>
-    <div class="fn"><i>🔒</i><b>Alles lokal</b><span>Schwärzen und Speichern nur auf Ihrem PC. avotec sieht keine Inhalte.</span></div>
-    <div class="fn"><i>🎨</i><b>Ihre Farbe</b><span>Aussehen in sieben Farben wählbar.</span></div>
+    <div class="fn"><b>Automatisch</b><span>Schwärzen, an die KI senden, Antwort holen – mit einem Klick.</span></div>
+    <div class="fn"><b>Weitere Fragen</b><span>Gleiche Zuordnung: «Erika Muster» bleibt immer [Person 1].</span></div>
+    <div class="fn"><b>Übersicht</b><span>Alle Antworten gespeichert – in die Zwischenablage oder als Word, PDF, Text.</span></div>
+    <div class="fn"><b>Vorschau geschwärzt</b><span>Auf Klick sehen Sie genau, was die KI bekommen hat.</span></div>
+    <div class="fn"><b>Schweizer Daten</b><span>AHV-Nr., IBAN, Schweizer Adressen, PLZ und Orte, Kontrollschilder.</span></div>
+    <div class="fn"><b>Eigene Begriffe</b><span>Kunden- oder Projektnamen, die immer geschwärzt werden.</span></div>
+    <div class="fn"><b>Alles lokal</b><span>Schwärzen und Speichern nur auf Ihrem PC. avotec sieht keine Inhalte.</span></div>
+    <div class="fn"><b>Ihre Farbe</b><span>Aussehen in sieben Farben wählbar.</span></div>
   </div>
+</div></section>
+
+<section class="cta-band dunkel"><div class="in2">
+  <div><b>Jetzt kaufen – oder wollen Sie, dass Ihre Daten im Web erscheinen?</b><span>Ab CHF 9.90 im Monat schützen Sie jede KI-Anfrage.</span></div>
+  <a class="k w" href="#kaufen" data-kaufen>Jetzt kaufen – ab CHF 9.90</a>
 </div></section>
 
 <section class="sec"><div class="in2">
   <span class="eyebrow">Anwendungen</span>
-  <h2>Ihre KI – geschützt mit WEB Shield</h2>
-  <p class="lead">Ob ChatGPT, Claude, Copilot, Gemini oder Perplexity: WEB Shield arbeitet automatisch mit allen. Beispiele mit erfundenen Daten.</p>
+  <h2>Fünf KIs. Ein Schutzschild.</h2>
+  <p class="lead">Mahnung, Vertrag, Offerte, Kundenmail, Recherche – WEB Shield macht jede KI zu Ihrem diskreten Assistenten. Beispiele mit erfundenen Daten:</p>
   <div class="anw">
-    <div class="karte" id="mit-chatgpt"><div class="kopfk"><span class="sym">✦</span><div><b>Anwendung mit ChatGPT</b><small>Mahnung freundlich formulieren</small></div></div>
+    <div class="karte" id="mit-chatgpt"><div class="kopfk"><div><b>Anwendung mit ChatGPT</b><small>Mahnung freundlich formulieren</small></div></div>
       <div class="koerper"><div class="auftrag">«Formuliere die Mahnung an Frau Erika Muster freundlicher.»</div>
-        <div class="zeile2"><div class="box2 ki"><i>ChatGPT sieht</i>Sehr geehrte Frau <span class="platz">[Person 1]</span>, Rechnung offen … IBAN <span class="platz">[IBAN 1]</span></div>
-        <div class="box2 sh"><i>Sie sehen</i>Sehr geehrte Frau <span class="echt">Erika Muster</span>, Rechnung offen … IBAN <span class="echt">CH93 0076 …</span></div></div></div></div>
-    <div class="karte" id="mit-claude"><div class="kopfk"><span class="sym">✺</span><div><b>Anwendung mit Claude</b><small>Vertrag zusammenfassen</small></div></div>
+        <div class="zeile2"><div class="box2 ki"><i>Bei ChatGPT kommt an</i>Sehr geehrte Frau <span class="platz">[Person 1]</span>, Rechnung offen … IBAN <span class="platz">[IBAN 1]</span></div>
+        <div class="box2 sh"><i>Bei Ihnen kommt an</i>Sehr geehrte Frau <span class="echt">Erika Muster</span>, Rechnung offen … IBAN <span class="echt">CH93 0076 …</span></div></div></div></div>
+    <div class="karte" id="mit-claude"><div class="kopfk"><div><b>Anwendung mit Claude</b><small>Vertrag zusammenfassen</small></div></div>
       <div class="koerper"><div class="auftrag">«Fasse den Mietvertrag von Hans Beispiel in 5 Punkten zusammen.»</div>
-        <div class="zeile2"><div class="box2 ki"><i>Claude sieht</i>Mieter <span class="platz">[Person 1]</span>, Wohnung <span class="platz">[Adresse 1]</span>, Mietzins …</div>
-        <div class="box2 sh"><i>Sie sehen</i>Mieter <span class="echt">Hans Beispiel</span>, Wohnung <span class="echt">Musterweg 7, 3000 Bern</span> …</div></div></div></div>
-    <div class="karte" id="mit-copilot"><div class="kopfk"><span class="sym">◈</span><div><b>Anwendung mit Copilot</b><small>Kunden-E-Mail beantworten</small></div></div>
+        <div class="zeile2"><div class="box2 ki"><i>Bei Claude kommt an</i>Mieter <span class="platz">[Person 1]</span>, Wohnung <span class="platz">[Adresse 1]</span>, Mietzins …</div>
+        <div class="box2 sh"><i>Bei Ihnen kommt an</i>Mieter <span class="echt">Hans Beispiel</span>, Wohnung <span class="echt">Musterweg 7, 3000 Bern</span> …</div></div></div></div>
+    <div class="karte" id="mit-copilot"><div class="kopfk"><div><b>Anwendung mit Copilot</b><small>Kunden-E-Mail beantworten</small></div></div>
       <div class="koerper"><div class="auftrag">«Antworte höflich auf die Reklamation der Muster AG.»</div>
-        <div class="zeile2"><div class="box2 ki"><i>Copilot sieht</i>Sehr geehrte Damen und Herren der <span class="platz">[Firma 1]</span> … Tel. <span class="platz">[Telefon 1]</span></div>
-        <div class="box2 sh"><i>Sie sehen</i>Sehr geehrte Damen und Herren der <span class="echt">Muster AG</span> … Tel. <span class="echt">044 123 45 67</span></div></div></div></div>
-    <div class="karte" id="mit-gemini"><div class="kopfk"><span class="sym">✧</span><div><b>Anwendung mit Gemini</b><small>Offerte schreiben</small></div></div>
+        <div class="zeile2"><div class="box2 ki"><i>Bei Copilot kommt an</i>Sehr geehrte Damen und Herren der <span class="platz">[Firma 1]</span> … Tel. <span class="platz">[Telefon 1]</span></div>
+        <div class="box2 sh"><i>Bei Ihnen kommt an</i>Sehr geehrte Damen und Herren der <span class="echt">Muster AG</span> … Tel. <span class="echt">044 123 45 67</span></div></div></div></div>
+    <div class="karte" id="mit-gemini"><div class="kopfk"><div><b>Anwendung mit Gemini</b><small>Offerte schreiben</small></div></div>
       <div class="koerper"><div class="auftrag">«Schreibe eine Offerte für Familie Beispiel, Projekt Neubau Seeblick.»</div>
-        <div class="zeile2"><div class="box2 ki"><i>Gemini sieht</i>Offerte für <span class="platz">[Person 1]</span>, Projekt <span class="platz">[Projekt 1]</span> …</div>
-        <div class="box2 sh"><i>Sie sehen</i>Offerte für <span class="echt">Familie Beispiel</span>, Projekt <span class="echt">Neubau Seeblick</span> …</div></div></div></div>
-    <div class="karte breit" id="mit-perplexity"><div class="kopfk"><span class="sym">❖</span><div><b>Anwendung mit Perplexity</b><small>Recherche zu einem Fall – ohne Namen preiszugeben</small></div></div>
+        <div class="zeile2"><div class="box2 ki"><i>Bei Gemini kommt an</i>Offerte für <span class="platz">[Person 1]</span>, Projekt <span class="platz">[Projekt 1]</span> …</div>
+        <div class="box2 sh"><i>Bei Ihnen kommt an</i>Offerte für <span class="echt">Familie Beispiel</span>, Projekt <span class="echt">Neubau Seeblick</span> …</div></div></div></div>
+    <div class="karte breit" id="mit-perplexity"><div class="kopfk"><div><b>Anwendung mit Perplexity</b><small>Recherche zu einem Fall – ohne Namen preiszugeben</small></div></div>
       <div class="koerper"><div class="auftrag">«Welche Fristen gelten bei der Kündigung von Erika Muster, geboren 12.03.1985?»</div>
-        <div class="zeile2"><div class="box2 ki"><i>Perplexity sieht</i>Kündigung von <span class="platz">[Person 1]</span>, geboren am <span class="platz">[Datum 1]</span> …</div>
-        <div class="box2 sh"><i>Sie sehen</i>Kündigung von <span class="echt">Erika Muster</span>, geboren am <span class="echt">12.03.1985</span> …</div></div></div></div>
+        <div class="zeile2"><div class="box2 ki"><i>Bei Perplexity kommt an</i>Kündigung von <span class="platz">[Person 1]</span>, geboren am <span class="platz">[Datum 1]</span> …</div>
+        <div class="box2 sh"><i>Bei Ihnen kommt an</i>Kündigung von <span class="echt">Erika Muster</span>, geboren am <span class="echt">12.03.1985</span> …</div></div></div></div>
   </div>
   <p class="klein" style="text-align:center;margin-top:18px">Andere KI (z. B. Mistral, DeepSeek): über den Universal-Weg mit der Zwischenablage.<br>ChatGPT, Claude, Copilot, Gemini und Perplexity sind Marken ihrer jeweiligen Inhaber. DEXXUS WEB Shield ist ein eigenständiges Produkt der avotec AG.</p>
 </div></section>
 
 <section class="sec" id="preise"><div class="in2">
   <span class="eyebrow">Preise</span>
-  <h2>Gratis testen – danach günstig im Abo</h2>
-  <p class="lead">Alle Preise in CHF inkl. 8.1 % MWST. Abo im Voraus für 1, 2 oder 3 Jahre – ohne automatische Verlängerung.</p>
+  <h2>Jetzt kaufen – oder wollen Sie, dass Ihre Daten im Web erscheinen?</h2>
+  <p class="lead">Und dafür jeden Tag Ruhe vor Datenlecks. Erst gratis testen – dann unbegrenzt. Preise in CHF inkl. 8.1 % MWST, im Voraus für 1, 2 oder 3 Jahre, ohne automatische Verlängerung.</p>
   <div class="preise">
     <div class="preis"><h3>Gratis</h3><div class="gross">CHF 0.–</div>
-      <ul><li>3 Ausführungen pro Tag</li><li>30 Tage lang</li><li>alle Funktionen</li><li>kein Konto nötig</li></ul>
-      <a class="k w aus" href="#preise" id="ws-dl2" aria-disabled="true">⬇ Gratis herunterladen <small>(bald im Store)</small></a></div>
+      <ul><li>30 Tage gratis</li><li>alle Funktionen</li><li>alle KI-Dienste</li><li>kein Konto nötig</li></ul>
+      <a class="k w aus" href="#preise" id="ws-dl2" aria-disabled="true"> Gratis herunterladen <small>(bald im Store)</small></a></div>
     <div class="preis abo"><h3>Abo</h3><div class="gross">CHF 9.90 <small>/ Monat</small></div>
-      <ul><li>unbegrenzt ausführen</li><li>alle KI-Dienste</li><li>Updates inbegriffen</li><li>1 Browser</li></ul>
+      <ul><li>unbegrenzt ausführen</li><li>alle KI-Dienste</li><li>Updates inbegriffen</li><li>Team-Aktion: 4 Lizenzen −25 %, 10 Lizenzen −35 %</li></ul>
       <div class="lz" role="radiogroup" aria-label="Laufzeit">
         <button type="button" role="radio" data-j="1" aria-checked="true">1 Jahr<small>&nbsp;</small></button>
         <button type="button" role="radio" data-j="2" aria-checked="false">2 Jahre<small>−10 %</small></button>
         <button type="button" role="radio" data-j="3" aria-checked="false">3 Jahre<small>−20 %</small></button>
       </div>
       <div class="summe" id="ws-summe"></div>
-      <a class="k p" href="#kaufen" id="ws-kauf">Abo kaufen</a></div>
+      <a class="k p" href="#kaufen" id="ws-kauf"> Jetzt kaufen</a></div>
   </div>
 </div></section>
 
@@ -290,6 +397,11 @@ Freundliche Grüsse
   <p class="klein" style="text-align:center">Mehr zu Shield für den PC: <a href="shield.html">dexxus.ch/shield</a></p>
 </div></section>
 
+<section class="cta-band"><div class="in2">
+  <div><b>Jeder Prompt ohne Shield ist ein offenes Fenster.</b><span>Schliessen Sie es – jetzt, ab CHF 9.90 im Monat.</span></div>
+  <a class="k p" href="#kaufen" data-kaufen>Fenster schliessen – jetzt kaufen</a>
+</div></section>
+
 <section class="sec"><div class="in2">
   <span class="eyebrow">Häufige Fragen</span>
   <h2>Fragen zu DEXXUS WEB Shield</h2>
@@ -303,7 +415,13 @@ Freundliche Grüsse
     <details><summary>Wer steht dahinter?</summary><p>Die avotec AG in Wangen ZH, Hersteller der Bürosoftware DEXXUS. Entwickelt in der Schweiz.</p></details>
   </div>
 </div></section>
+
+<section class="cta-band dunkel gross-band"><div class="in2">
+  <div><b>No Leaks. No Tracking. No Identity Theft.</b><span>Namen, Adressen und IBAN gehören nicht ins Web – sondern zu Ihnen. KI benutzen ohne Risiko – mit DEXXUS WEB Shield.</span></div>
+  <a class="k w" href="#kaufen" data-kaufen>Jetzt kaufen</a>
+</div></section>
 </main>
+<a class="schwebe" href="#kaufen" data-kaufen id="schwebe"> Jetzt kaufen · ab CHF 9.90</a>
 
 <footer class="dxw-foot"><div class="in">
   <span>© 2026 avotec AG · 8602 Wangen ZH</span>
@@ -314,8 +432,21 @@ Freundliche Grüsse
 <div class="dk-ov" id="dk-ov" role="dialog" aria-modal="true" aria-labelledby="dk-titel"><div class="dk">
   <div class="dk-kopf"><span class="m">DX</span><b id="dk-titel">DEXXUS WEB Shield kaufen</b><button class="dk-zu" type="button" id="dk-zu">Schliessen</button></div>
   <div class="dk-inh">
-    <div class="dk-z"><span>Paket</span><b>DEXXUS WEB Shield · 1 Browser</b></div>
+    <div><div class="dk-lab">Anzahl Lizenzen</div>
+      <div class="lz dk-anz" role="radiogroup" aria-label="Anzahl Lizenzen">
+        <button type="button" role="radio" data-n="1">1 Lizenz<small>&nbsp;</small></button>
+        <button type="button" role="radio" data-n="4">Team 4<small>Aktion −25 %</small></button>
+        <button type="button" role="radio" data-n="10">Team 10<small>Aktion −35 %</small></button>
+      </div></div>
+    <div><div class="dk-lab">Laufzeit</div>
+      <div class="lz dk-lauf" role="radiogroup" aria-label="Laufzeit">
+        <button type="button" role="radio" data-j="1">1 Jahr<small>&nbsp;</small></button>
+        <button type="button" role="radio" data-j="2">2 Jahre<small>−10 %</small></button>
+        <button type="button" role="radio" data-j="3">3 Jahre<small>−20 % · Bestseller</small></button>
+      </div></div>
     <div class="dk-z"><span id="dk-rech-t"></span><span id="dk-rech-b"></span></div>
+    <div class="dk-spar" id="dk-spar"></div>
+    <div class="dk-mehr">Mehr als 10 Lizenzen? <a href="mailto:info@dexxus.ch?subject=Offerte%20DEXXUS%20WEB%20Shield">Firmen-Offerte anfragen</a></div>
     <div class="dk-summe"><span>Total inkl. 8.1 % MWST</span><span id="dk-total"></span></div>
     <label class="dk-agb"><input type="checkbox" id="dk-agb"> <span>Ich akzeptiere die <a href="agb.html" target="_blank">AGB / Lizenzbedingungen</a> und die Datenschutzerklärung. Kauf ab 18 Jahren.</span></label>
     <button class="dk-los" type="button" id="dk-los" disabled>Weiter zur Zahlung</button>
@@ -326,35 +457,135 @@ Freundliche Grüsse
 <script>
 (function () {
   var ZAHLUNG = "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3";   // gleiche Payrexx-Seite wie alle DEXXUS-Pakete
-  var MONAT = 9.90, RABATT = {1: 0, 2: 10, 3: 20}, PAKET = "DEXXUS WEB Shield";
-  var jahre = 1, zuletzt = null;
+  // Pakete = DEXXUS-Lizenzverwaltung (gleiche Namen und Monatspreise, damit Payrexx-Zahlung und Lizenz automatisch passen)
+  var EINZEL = 9.90, RABATT = {1: 0, 2: 10, 3: 20};
+  var PAKETE = {1: {name: "DEXXUS WEB Shield", monat: 9.90}, 4: {name: "DEXXUS WEB Shield Team 4", monat: 29.70}, 10: {name: "DEXXUS WEB Shield Team 10", monat: 64.35}};
+  var jahre = 3, anzahl = 1, zuletzt = null;            // 3 Jahre vorgewählt (Bestseller)
   var ov = document.getElementById("dk-ov"), agb = document.getElementById("dk-agb"), los = document.getElementById("dk-los");
   function chf(x) { return "CHF " + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); }
-  function betrag() { return Math.round(MONAT * 12 * jahre * (1 - RABATT[jahre] / 100) * 20) / 20; }   // wie DEXXUS-Rechnung (5 Rp.)
+  function rund(x) { return Math.round(x * 20) / 20; }   // wie DEXXUS-Rechnung (5 Rp.)
+  function betrag() { return rund(PAKETE[anzahl].monat * 12 * jahre * (1 - RABATT[jahre] / 100)); }
   function zeigen() {
-    document.querySelectorAll(".lz button").forEach(function (b) { b.setAttribute("aria-checked", String(+b.getAttribute("data-j") === jahre)); });
-    var t = jahre + (jahre > 1 ? " Jahre" : " Jahr") + " × " + chf(MONAT * 12) + (RABATT[jahre] ? " (−" + RABATT[jahre] + " %)" : "");
-    document.getElementById("ws-summe").innerHTML = t + " = <b>" + chf(betrag()) + "</b>";
+    document.querySelectorAll(".lz button[data-j]").forEach(function (b) { b.setAttribute("aria-checked", String(+b.getAttribute("data-j") === jahre)); });
+    document.querySelectorAll(".lz button[data-n]").forEach(function (b) { b.setAttribute("aria-checked", String(+b.getAttribute("data-n") === anzahl)); });
+    var p = PAKETE[anzahl];
+    var t = (anzahl > 1 ? anzahl + " Lizenzen · " : "") + jahre + (jahre > 1 ? " Jahre" : " Jahr") + " × " + chf(p.monat * 12) + (RABATT[jahre] ? " (−" + RABATT[jahre] + " %)" : "");
+    var spar = rund(EINZEL * 12 * jahre * anzahl) - betrag();
+    document.getElementById("ws-summe").innerHTML = t + " = <b>" + chf(betrag()) + "</b>" + (spar > 0 ? '<br><span class="spar-text">Sie sparen ' + chf(spar) + "</span>" : "");
     document.getElementById("dk-rech-t").textContent = t;
     document.getElementById("dk-rech-b").textContent = chf(betrag());
     document.getElementById("dk-total").textContent = chf(betrag());
+    document.getElementById("dk-spar").textContent = spar > 0 ? "Sie sparen " + chf(spar) + " gegenüber dem Einzelpreis pro Monat" : "Tipp: 3 Jahre wählen und 20 % sparen";
     los.disabled = !agb.checked;
   }
   function auf(knopf) { zuletzt = knopf; agb.checked = false; zeigen(); ov.classList.add("an"); document.getElementById("dk-zu").focus(); }
   function zu() { ov.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
-  document.querySelectorAll(".lz button").forEach(function (b) { b.addEventListener("click", function () { jahre = +b.getAttribute("data-j"); zeigen(); }); });
+  document.querySelectorAll(".lz button[data-j]").forEach(function (b) { b.addEventListener("click", function () { jahre = +b.getAttribute("data-j"); zeigen(); }); });
+  document.querySelectorAll(".lz button[data-n]").forEach(function (b) { b.addEventListener("click", function () { anzahl = +b.getAttribute("data-n"); zeigen(); }); });
+  document.querySelectorAll("[data-team]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); anzahl = +b.getAttribute("data-team"); auf(b); }); });
   document.getElementById("ws-kauf").addEventListener("click", function (e) { e.preventDefault(); auf(this); });
+  document.querySelectorAll("[data-kaufen]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); auf(b); }); });
+  // schwebender Kauf-Knopf ab dem zweiten Bildschirm
+  var schwebe = document.getElementById("schwebe");
+  addEventListener("scroll", function () { schwebe.classList.toggle("an", scrollY > innerHeight * 0.9); }, { passive: true });
+  // Galerie: KI wählen
+  var gb = document.getElementById("galerie-bild"), NAMEN = {chatgpt: "ChatGPT", claude: "Claude", copilot: "Copilot", gemini: "Gemini", perplexity: "Perplexity"};
+  document.querySelectorAll(".galerie-wahl button").forEach(function (b) { b.addEventListener("click", function () {
+    document.querySelectorAll(".galerie-wahl button").forEach(function (x) { x.classList.toggle("an", x === b); });
+    gb.src = "media/web-shield/web-shield-" + b.getAttribute("data-g") + ".png";
+    gb.alt = "DEXXUS WEB Shield neben " + NAMEN[b.getAttribute("data-g")] + ": links die KI, rechts die Antwort mit echten Namen";
+  }); });
   ["ws-dl", "ws-dl2"].forEach(function (id) { document.getElementById(id).addEventListener("click", function (e) { e.preventDefault(); }); });   // Store-Link folgt
   agb.addEventListener("change", zeigen);
   los.addEventListener("click", function () {
-    var zweck = PAKET + ", " + (jahre * 12) + " Monate";
-    var q = new URLSearchParams({invoice_amount: betrag().toFixed(2), invoice_currency: "1", invoice_number: zweck, contact_country: "204", referenceId: ["WEB", PAKET, jahre * 12].join("|")});
+    var paket = PAKETE[anzahl].name, zweck = paket + ", " + (jahre * 12) + " Monate";
+    var q = new URLSearchParams({invoice_amount: betrag().toFixed(2), invoice_currency: "1", invoice_number: zweck, contact_country: "204", referenceId: ["WEB", paket, jahre * 12].join("|")});
     location.href = ZAHLUNG + (ZAHLUNG.indexOf("?") > -1 ? "&" : "?") + q.toString();
   });
   document.getElementById("dk-zu").addEventListener("click", zu);
   ov.addEventListener("click", function (e) { if (e.target === ov) { zu(); } });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("an")) { zu(); } });
   // Wechselndes KI-Wort im Titel + passende Kachel hervorheben
+  // Grundriss mit Schweizer Plankopf – Original und KI-Version (geheime Felder geschwärzt)
+  function planZeichnen(id, ki) {
+    var el = document.getElementById(id); if (!el) { return; }
+    var L = "#1E293B", s = "";
+    function T(x, y, txt, gr, opt) {          // Text; geheim + KI-Version => schwarzer Balken
+      opt = opt || {};
+      if (ki && opt.geheim) { var b = txt.length * gr * 0.56; return '<rect x="' + x + '" y="' + (y - gr + 1) + '" width="' + b.toFixed(1) + '" height="' + (gr + 3) + '" rx="1.5" fill="#1E293B"/>'; }
+      return '<text x="' + x + '" y="' + y + '" font-size="' + gr + '" font-family="Arial" fill="' + (opt.f || L) + '"' + (opt.b ? ' font-weight="700"' : '') + '>' + txt + '</text>';
+    }
+    function li(x1, y1, x2, y2, w) { return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + L + '" stroke-width="' + (w || 1) + '"/>'; }
+    // ---- Grundriss mit Plansymbolen (SIA-Darstellung, vereinfacht) ----
+    var BG = "#FAFAFF", W2 = "#334155";
+    function r(x, y, w, h, f, st, sw, rx) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"' + (rx ? ' rx="' + rx + '"' : '') + ' fill="' + (f || "none") + '"' + (st ? ' stroke="' + st + '" stroke-width="' + (sw || 1) + '"' : '') + '/>'; }
+    function tuer(hx, hy, ex, ey, ox, oy, sweep) {   // Anschlag H, Flügel offen bis E, Bogen von O (zu) nach E (offen)
+      var rad = Math.hypot(ex - hx, ey - hy);
+      return li(hx, hy, ex, ey, 1.6) + '<path d="M' + ox + ' ' + oy + ' A' + rad + ' ' + rad + ' 0 0 ' + sweep + ' ' + ex + ' ' + ey + '" fill="none" stroke="' + L + '" stroke-width=".8" stroke-dasharray="3 2"/>';
+    }
+    function fensterH(x1, x2, y1, y2) { var m = (y1 + y2) / 2; return r(x1, y1, x2 - x1, y2 - y1, BG) + li(x1, y1, x2, y1, .8) + li(x1, y2, x2, y2, .8) + li(x1, m, x2, m, .8) + li(x1, y1, x1, y2, .8) + li(x2, y1, x2, y2, .8); }
+    function fensterV(x1, x2, y1, y2) { var m = (x1 + x2) / 2; return r(x1, y1, x2 - x1, y2 - y1, BG) + li(x1, y1, x1, y2, .8) + li(x2, y1, x2, y2, .8) + li(m, y1, m, y2, .8) + li(x1, y1, x2, y1, .8) + li(x1, y2, x2, y2, .8); }
+    // Wände gefüllt: aussen 9, innen 5
+    s += r(30, 34, 580, 222, W2) + r(39, 43, 562, 204, BG);
+    s += r(245, 43, 5, 204, W2) + r(39, 180, 206, 5, W2) + r(425, 43, 5, 204, W2) + r(250, 145, 175, 5, W2) + r(430, 150, 171, 5, W2);
+    // Fenster
+    s += fensterH(80, 170, 34, 43) + fensterH(290, 380, 34, 43) + fensterH(480, 550, 34, 43) + fensterH(70, 140, 247, 256) + fensterH(290, 360, 247, 256) + fensterV(30, 39, 80, 140) + fensterV(601, 610, 60, 120);
+    // Türen (Öffnungen + Flügel + Schwenkbogen)
+    s += r(150, 180, 32, 5, BG) + tuer(150, 185, 150, 215, 182, 185, 0);                 // Wohnen–Küche
+    s += r(425, 160, 5, 32, BG) + tuer(425, 160, 395, 160, 425, 192, 0);   // Büro–Entrée
+    s += r(425, 112, 5, 30, BG) + tuer(425, 142, 397, 142, 425, 112, 1);               // Zimmer–Entrée
+    s += r(470, 150, 30, 5, BG) + tuer(470, 150, 470, 122, 500, 150, 1);               // Bad–Entrée
+    s += r(245, 205, 5, 30, BG) + tuer(250, 205, 278, 205, 250, 235, 1);               // Wohnen–Entrée (Durchgang)
+    s += r(520, 247, 36, 9, BG) + tuer(520, 247, 520, 213, 556, 247, 0) + li(518, 262, 558, 262, 1.2) + T(522, 274, "Eingang", 8, {f: "#64748B"});
+    // Bad: WC, Lavabo, Dusche
+    s += r(570, 52, 22, 9, BG, L, 1, 1.5) + '<ellipse cx="581" cy="74" rx="9" ry="12" fill="' + BG + '" stroke="' + L + '" stroke-width="1"/>';
+    s += r(500, 47, 30, 18, BG, L, 1, 4) + '<ellipse cx="515" cy="56" rx="9" ry="5.5" fill="none" stroke="' + L + '" stroke-width=".8"/>';
+    s += r(436, 104, 40, 40, BG, L, 1) + li(436, 104, 476, 144, .7) + li(476, 104, 436, 144, .7) + '<circle cx="456" cy="124" r="2.5" fill="' + L + '"/>';
+    // Küche: Abdeckung mit Spüle und Kochfeld, Kühlschrank
+    s += r(45, 225, 190, 20, BG, L, 1) + r(70, 228, 26, 14, BG, L, .8, 2) + '<circle cx="83" cy="235" r="2" fill="' + L + '"/>';
+    s += '<circle cx="140" cy="230" r="4" fill="none" stroke="' + L + '" stroke-width=".8"/><circle cx="152" cy="230" r="4" fill="none" stroke="' + L + '" stroke-width=".8"/><circle cx="140" cy="240" r="3.5" fill="none" stroke="' + L + '" stroke-width=".8"/><circle cx="152" cy="240" r="3.5" fill="none" stroke="' + L + '" stroke-width=".8"/>';
+    s += r(205, 225, 30, 20, BG, L, 1) + li(205, 225, 235, 245, .6) + T(207, 222, "KS", 6.5, {f: "#64748B"});
+    // Wohnen: Sofa, Esstisch mit Stühlen
+    s += r(50, 52, 16, 70, BG, L, 1, 3) + r(66, 52, 50, 14, BG, L, 1, 3);
+    s += r(150, 120, 60, 36, BG, L, 1, 2);
+    [[158, 112], [180, 112], [158, 158], [180, 158]].forEach(function (p) { s += r(p[0], p[1], 14, 6, BG, L, .8, 1.5); });
+    // Zimmer: Bett mit Kissen, Schrank
+    s += r(355, 52, 60, 80, BG, L, 1, 2) + r(361, 56, 22, 12, BG, L, .8, 2) + r(387, 56, 22, 12, BG, L, .8, 2) + li(355, 72, 415, 72, .7);
+    s += r(256, 52, 18, 70, BG, L, 1) + li(256, 52, 274, 122, .5) + li(274, 52, 256, 122, .5);
+    // Büro: Pult, Stuhl
+    s += r(300, 210, 70, 30, BG, L, 1, 2) + '<circle cx="335" cy="198" r="8" fill="' + BG + '" stroke="' + L + '" stroke-width=".9"/>';
+    // Raumstempel: Name, Fläche, Boden, Höhe
+    function stempel(x, y, name, m2, boden, geheim) {
+      return T(x, y, name, 10.5, {b: 1}) + (geheim ? T(x, y + 12, geheim, 9, {geheim: 1}) : "") + T(x, y + (geheim ? 24 : 12), m2 + " · " + boden, 8.5, {f: "#475569"}) + T(x, y + (geheim ? 34 : 22), "H 2.50", 7.5, {f: "#64748B"});
+    }
+    s += stempel(70, 140, "Wohnen / Essen", "38.6 m²", "Parkett") + stempel(55, 198, "Küche", "12.1 m²", "Platten");
+    s += stempel(280, 98, "Zimmer", "14.2 m²", "Parkett") + stempel(258, 170, "Büro", "11.8 m²", "Parkett", "H. Beispiel");
+    s += stempel(500, 95, "Bad / WC", "7.4 m²", "Platten") + stempel(450, 180, "Entrée", "9.6 m²", "Platten");
+    // Masskette oben und links
+    s += li(30, 20, 610, 20, .8);
+    [30, 245, 425, 610].forEach(function (x) { s += li(x - 3, 23, x + 3, 17, .9) + li(x, 15, x, 26, .5); });
+    s += T(122, 16, "5.50", 9) + T(322, 16, "4.50", 9) + T(502, 16, "4.75", 9);
+    s += li(16, 34, 16, 256, .8);
+    [34, 182, 256].forEach(function (y) { s += li(13, y + 3, 19, y - 3, .9) + li(11, y, 22, y, .5); });
+    s += '<text x="12" y="112" font-size="9" font-family="Arial" fill="' + L + '" transform="rotate(-90 12 112)">3.80</text><text x="12" y="224" font-size="9" font-family="Arial" fill="' + L + '" transform="rotate(-90 12 224)">1.90</text>';
+    s += '<g transform="translate(215,302)"><circle r="14" fill="none" stroke="' + L + '"/><path d="M0 -12 L5 6 L0 2 L-5 6 Z" fill="' + L + '"/><text y="-17" font-size="9" text-anchor="middle" font-family="Arial">N</text></g>';
+    s += T(30, 296, "Grundriss Erdgeschoss  1:100", 11, {b: 1}) + T(30, 310, "± 0.00 = 432.50 m ü. M.", 8.5, {f: "#64748B"});
+    // Plankopf (Schweizer Stil)
+    var X = 250, Y = 300, W = 380, H = 122;
+    s += '<rect x="' + X + '" y="' + Y + '" width="' + W + '" height="' + H + '" fill="#FAFAFF" stroke="' + L + '" stroke-width="1.6"/>';
+    s += li(X, Y + 34, X + W, Y + 34) + li(X, Y + 56, X + W, Y + 56) + li(X, Y + 78, X + W, Y + 78) + li(X, Y + 100, X + W, Y + 100);
+    s += li(X + 230, Y + 78, X + 230, Y + H) + li(X + 300, Y + 78, X + 300, Y + H) + li(X + 230, Y, X + 230, Y + 34);
+    s += (ki ? '<rect x="' + (X + 6) + '" y="' + (Y + 6) + '" width="22" height="22" rx="3" fill="#1E293B"/>' : '<rect x="' + (X + 6) + '" y="' + (Y + 6) + '" width="22" height="22" rx="3" fill="#2563EB"/><text x="' + (X + 10) + '" y="' + (Y + 21) + '" font-size="10" font-weight="700" fill="#FAFAFF" font-family="Arial">AM</text>');
+    s += T(X + 34, Y + 15, "ARCHI MUSTER GmbH", 10, {b: 1, geheim: 1}) + T(X + 34, Y + 28, "Industriestr. 9, 8000 Zürich", 8.5, {geheim: 1, f: "#475569"});
+    s += T(X + 236, Y + 14, "SIA-Phase", 7.5, {f: "#64748B"}) + T(X + 236, Y + 28, "51 Ausführungsprojekt", 9, {b: 1});
+    s += T(X + 6, Y + 45, "Bauherrschaft", 7.5, {f: "#64748B"}) + T(X + 80, Y + 50, "Erika und Hans Muster, Musterstrasse 5, 8000 Zürich", 9, {geheim: 1});
+    s += T(X + 6, Y + 67, "Projekt", 7.5, {f: "#64748B"}) + T(X + 80, Y + 72, "Neubau Einfamilienhaus Seeblick, Kat.-Nr. 1234 Winterthur", 9, {b: 1, geheim: 1});
+    s += T(X + 6, Y + 89, "Planinhalt", 7.5, {f: "#64748B"}) + T(X + 80, Y + 94, "Grundriss Erdgeschoss", 9.5, {b: 1});
+    s += T(X + 236, Y + 89, "Plan-Nr.", 7.5, {f: "#64748B"}) + T(X + 236, Y + 98, "101 · Index B", 8.5, {b: 1}) + T(X + 306, Y + 89, "Massstab / Format", 7.5, {f: "#64748B"}) + T(X + 306, Y + 98, "1:100 · A3", 8.5, {b: 1});
+    s += T(X + 6, Y + 113, "Datum 16.11.2026", 8) + T(X + 110, Y + 113, "gez.", 8, {f: "#64748B"}) + T(X + 132, Y + 113, "HB", 8, {geheim: 1}) + T(X + 236, Y + 113, "geändert 12.11.", 8) + T(X + 306, Y + 113, "Blatt 1 von 6", 8);
+    el.innerHTML = s;
+  }
+  planZeichnen("plan-orig", false); planZeichnen("plan-ki", true);
   // «Auch nicht ChatGPT.» – KI-Name wechselt, passende Kachel leuchtet
   var KIS = ["ChatGPT", "Claude", "Copilot", "Gemini", "Perplexity"], ki = 0, wort = document.getElementById("kiwort"), kacheln = document.querySelectorAll(".kik");
   function kiZeigen() { kacheln.forEach(function (k, i) { k.classList.toggle("an", i === ki); }); }
