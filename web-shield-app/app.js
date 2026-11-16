@@ -14,6 +14,9 @@ let SITZUNG = speicher.get("sitzung", null) || neueSitzung();
 let UEB = speicher.get("uebersicht", []);
 let DOKS = [], WAHL = new Set(), OFFEN = null;     // OFFEN: gesendeter Auftrag, wartet auf Antwort
 
+function stufe(n) {
+  document.querySelectorAll(".stufe").forEach(x => { const k = +x.dataset.s; x.classList.toggle("an", k === n); x.classList.toggle("ok", k < n); x.querySelector("i").textContent = k < n ? "✓" : k; });
+}
 function neueSitzung() { return { karte: {}, eintraege: [], hinweisGesendet: false, dokNr: 0 }; }
 function sitzungSichern() { speicher.set("sitzung", SITZUNG); }
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -98,7 +101,7 @@ $("knopfSchwaerzen").onclick = async () => {
   $("kopiertInfo").innerHTML = (ok ? "Kopiert" : "Bitte «Nochmals kopieren» tippen") + " – " + (neu ? neu + " Angabe" + (neu === 1 ? "" : "n") + " geschwärzt." : vorher ? "bekannte Angaben bleiben geschwärzt." : "keine persönlichen Angaben gefunden.") +
     "<small>Jetzt die KI öffnen und einfügen.</small>";
   $("vorschau").innerHTML = esc(gesendet).replace(/\[[^\]]+ \d+\]/g, m => '<span class="platz">' + m + '</span>');
-  $("schritt1").hidden = true; $("schritt2").hidden = false; $("schritt3").hidden = false; $("fussArbeit").hidden = false;
+  $("schritt1").hidden = true; $("schritt2").hidden = false; $("schritt3").hidden = false; $("fussArbeit").hidden = false; stufe(2);
   $("schritt2").scrollIntoView({ behavior: "smooth", block: "start" });
 };
 $("knopfNochmal").onclick = async () => { if (OFFEN) meldung(await kopieren(OFFEN.gesendet) ? "Nochmals kopiert." : "Kopieren nicht möglich."); };
@@ -117,15 +120,16 @@ async function antwortUebernehmen(a) {
   $("antwortFeld").value = ""; $("textFeld").value = ""; $("frageFeld").value = ""; DOKS = []; dokListeZeigen();
   $("frageFeld").placeholder = "Weitere Frage oder weiterer Auftrag (gleiche Zuordnung), z. B. «Mach es kürzer»";
   $("schritt2").hidden = true; $("schritt3").hidden = true; $("schritt1").hidden = false;
-  verlaufZeigen();
+  verlaufZeigen(); stufe(3);
   const st = ShieldLizenz.status(LIZ);
   if (st.art === "gratis") $("verlauf").insertAdjacentHTML("beforeend", '<div class="werbe-karte"><b>' + esc(st.text) + '</b><a href="' + ShieldLizenz.KAUF_URL + '" target="_blank" rel="noopener">Jetzt kaufen</a></div>');
   const letzte = $("verlauf").querySelector(".eintrag:last-of-type"); if (letzte) letzte.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 const antwortEcht = e => ShieldEngine.deanonymisieren(e.antwort, e.karte);
 $("knopfEinfuegen").onclick = async () => {
-  try { const t = await navigator.clipboard.readText(); if (t && t.trim()) return antwortUebernehmen(t); meldung("Zwischenablage ist leer – zuerst in der KI kopieren."); }
-  catch (e) { $("antwortFeld").focus(); meldung("Bitte ins Feld tippen und «Einfügen» wählen.", 4000); }
+  const feld = $("antwortFeld").value; if (feld.trim()) return antwortUebernehmen(feld);
+  try { const t = await navigator.clipboard.readText(); if (t && t.trim()) return antwortUebernehmen(t); meldung("Zwischenablage ist leer – zuerst in der KI die Antwort kopieren."); }
+  catch (e) { $("antwortFeld").focus(); meldung("Bitte ins Feld tippen, lange drücken und «Einfügen» wählen.", 4000); }
 };
 // Einfügen ins Feld (lange drücken → Einfügen) übernimmt die Antwort sofort; Tippen nicht (sonst mehrfach)
 $("antwortFeld").addEventListener("paste", () => setTimeout(() => antwortUebernehmen($("antwortFeld").value), 150));
@@ -133,9 +137,9 @@ $("antwortFeld").addEventListener("paste", () => setTimeout(() => antwortUeberne
 function verlaufZeigen() {
   $("verlauf").innerHTML = SITZUNG.eintraege.map((e, i) => {
     const teile = ShieldEngine.deanonTeile(e.antwort, e.karte).map(x => x.t !== undefined ? esc(x.t) : '<span class="echt">' + esc(x.echt) + '</span>').join("");
-    return '<div class="eintrag"><div class="frage">Frage/Auftrag ' + (i + 1) + ' · ' + datum(e.zeit) + ' · gespeichert' + (e.frage ? '<br>«' + esc(e.frage) + '»' : '') + '</div>' +
+    return '<div class="eintrag"><div class="frage">Frage/Auftrag ' + (i + 1) + ' · ' + datum(e.zeit) + ' · ✓ gespeichert' + (e.frage ? '<br>«' + esc(e.frage) + '»' : '') + '</div>' +
       '<div class="antw"><div class="antw-kopf"><span>Antwort · mit echten Namen</span><span>entschwärzt</span></div>' + teile + '</div>' +
-      '<div class="zeile"><button class="knopf w" data-kop="' + e.id + '">Kopieren</button><button class="knopf w" data-teil="' + e.id + '">Teilen</button></div></div>';
+      '<div class="antw-knoepfe"><button class="gross w" data-kop="' + e.id + '">Kopieren</button><button class="gross w" data-teil="' + e.id + '">Teilen</button></div></div>';
   }).join("");
   $("verlauf").querySelectorAll("[data-kop]").forEach(b => b.onclick = async () => { const e = SITZUNG.eintraege.find(x => x.id === b.dataset.kop); meldung(await kopieren(antwortEcht(e)) ? "Antwort kopiert." : "Kopieren nicht möglich."); });
   $("verlauf").querySelectorAll("[data-teil]").forEach(b => b.onclick = () => teilen(SITZUNG.eintraege.find(x => x.id === b.dataset.teil)));
@@ -148,7 +152,7 @@ async function teilen(e) {
 $("knopfNeu").onclick = () => {
   if (!confirm("Neues Thema beginnen? Die Zuordnung der Namen startet neu (gespeicherte Antworten bleiben in der Übersicht).")) return;
   SITZUNG = neueSitzung(); sitzungSichern(); OFFEN = null; speicher.set("offen", null);
-  $("verlauf").innerHTML = ""; $("schritt1").hidden = false; $("schritt2").hidden = true; $("schritt3").hidden = true; $("fussArbeit").hidden = true;
+  $("verlauf").innerHTML = ""; stufe(1); $("schritt1").hidden = false; $("schritt2").hidden = true; $("schritt3").hidden = true; $("fussArbeit").hidden = true;
   $("frageFeld").placeholder = "Frage oder Auftrag an die KI, z. B. «Schreibe daraus eine freundliche Mahnung»";
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
@@ -247,6 +251,37 @@ $("eAllesLoeschen").onclick = () => { if (!confirm("Wirklich ALLE gespeicherten 
 
 $("eWhatsapp").href = "https://wa.me/?text=" + encodeURIComponent("Schau dir das an: DEXXUS WEB Shield schwärzt Namen, Adressen und IBAN, bevor sie zu ChatGPT, Claude & Co. gehen – auch auf dem Handy. 30 Tage gratis: https://dexxus.ch/web-shield.html");
 
+/* ---------- Vorführ-Ansichten für Werbebilder: index.html?ansicht=1..4 (erfundene Daten, nichts wird gespeichert) ---------- */
+function vorfuehren(n) {
+  speicher.set = () => {};                       // nichts speichern
+  SITZUNG = neueSitzung(); UEB = []; OFFEN = null;
+  const auftrag = "Mach daraus eine freundliche Mahnung";
+  const brief = "Sehr geehrte Frau Erika Muster\n\nIhre Rechnung Nr. 2026-118 über CHF 1'250.00 ist noch offen. Bitte überweisen Sie auf IBAN CH93 0076 2011 6238 5295 7.\n\nFreundliche Grüsse\nHans Beispiel, Beispiel AG";
+  $("textFeld").value = brief; $("frageFeld").value = auftrag;
+  if (n === 1) return;
+  const r = ShieldEngine.anonymisieren(brief + "\n\nFrage/Auftrag: " + auftrag, [], {}, { datum: true });
+  SITZUNG.karte = r.karte;
+  OFFEN = { frage: auftrag, text: brief, doks: [], gesendet: r.text, zeit: new Date().toISOString() };
+  const ph = Object.keys(r.karte);
+  if (n === 2) {
+    $("kopiertInfo").innerHTML = "Kopiert – " + ph.length + " Angaben geschwärzt.<small>Jetzt die KI öffnen und einfügen.</small>";
+    $("vorschau").innerHTML = esc(r.text).replace(/\[[^\]]+ \d+\]/g, m => '<span class="platz">' + m + '</span>'); $("vorschau").hidden = false;
+    $("schritt1").hidden = true; $("schritt2").hidden = false; $("schritt3").hidden = false; stufe(2); return;
+  }
+  const personen = ph.filter(k => k.startsWith("[Person")).sort((a, b) => (/Erika/.test(r.karte[b]) ? 1 : 0) - (/Erika/.test(r.karte[a]) ? 1 : 0));
+  const iban = ph.find(k => k.startsWith("[IBAN")) || "";
+  const antwort = "Sehr geehrte Frau " + (personen[0] || "") + "\n\nsicher ist es Ihnen entgangen: Unsere Rechnung Nr. 2026-118 über CHF 1'250.00 ist noch offen. Wir danken Ihnen, wenn Sie den Betrag in den nächsten 10 Tagen auf " + iban + " überweisen.\n\nFreundliche Grüsse\n" + (personen[1] || "");
+  const e = { id: "v1", frage: auftrag, text: brief, doks: [], gesendet: r.text, zeit: new Date().toISOString(), antwort, karte: r.karte, titel: auftrag };
+  SITZUNG.eintraege = [e];
+  UEB = [e,
+    { id: "v2", frage: "Fasse den Mietvertrag in 3 Punkten zusammen", doks: ["Mietvertrag.pdf"], zeit: new Date(Date.now() - 864e5).toISOString(), antwort: "1. Mieter: Hans Beispiel\n2. Mietzins CHF 1'850.– pro Monat\n3. Kündigungsfrist 3 Monate", karte: {}, titel: "Fasse den Mietvertrag in 3 Punkten zusammen" },
+    { id: "v3", frage: "Antworte höflich auf die Reklamation", doks: [], zeit: new Date(Date.now() - 2 * 864e5).toISOString(), antwort: "Sehr geehrte Damen und Herren der Muster AG, vielen Dank für Ihre Rückmeldung …", karte: {}, titel: "Antworte höflich auf die Reklamation" }];
+  OFFEN = null; $("textFeld").value = ""; $("frageFeld").value = "";
+  verlaufZeigen(); $("fussArbeit").hidden = false; $("anzUeb").textContent = UEB.length;
+  if (n === 3) { stufe(3); return; }
+  reiterWechseln("uebersicht");
+}
+
 /* ---------- Start ---------- */
 (async function () {
   bannerZeigen(); $("anzUeb").textContent = UEB.length;
@@ -256,8 +291,10 @@ $("eWhatsapp").href = "https://wa.me/?text=" + encodeURIComponent("Schau dir das
   if (OFFEN) {        // App wurde zum Einfügen in der KI verlassen und neu geöffnet → direkt bei Schritt 2/3 weiter
     $("kopiertInfo").innerHTML = "Geschwärzter Text ist bereit.<small>In der KI einfügen, Antwort kopieren und unten einfügen.</small>";
     $("vorschau").textContent = OFFEN.gesendet;
-    $("schritt1").hidden = true; $("schritt2").hidden = false; $("schritt3").hidden = false; $("fussArbeit").hidden = false;
+    $("schritt1").hidden = true; $("schritt2").hidden = false; $("schritt3").hidden = false; $("fussArbeit").hidden = false; stufe(2);
   }
+  const vf = +new URLSearchParams(location.search).get("ansicht");
+  if (vf) { vorfuehren(vf); return; }
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
-  setTimeout(() => { try { ShieldDokumente.vorwaermen(); } catch (e) { /* später */ } }, 2500);
+  setTimeout(() => { try { ShieldDokumente.vorwaermen().catch(() => {}); } catch (e) { /* später */ } }, 2500);
 })();

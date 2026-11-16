@@ -11,12 +11,23 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WEB Shield">
+<link rel="stylesheet" href="panel.css">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
+<aside class="pc-info">
+  <div class="pc-logo">DX</div>
+  <h1>App Shield</h1>
+  <p class="pc-gross">DEXXUS WEB Shield für das Handy</p>
+  <p>Diese Seite ist für das <b>Handy</b> gemacht. Öffnen Sie sie auf dem Handy und tippen Sie im Browser auf <b>«Zum Startbildschirm hinzufügen»</b> – dann haben Sie App Shield wie eine App.</p>
+  <div class="pc-adresse">dexxus.ch/web-shield-app</div>
+  <a class="pc-knopf wa" href="https://wa.me/?text=https%3A%2F%2Fdexxus.ch%2Fweb-shield-app%2F" target="_blank" rel="noopener">Link per WhatsApp aufs Handy senden</a>
+  <p class="pc-klein">Am PC arbeiten Sie bequemer mit der Erweiterung für Edge und Chrome: <a href="../web-shield.html">WEB Shield für den PC</a>. Rechts sehen Sie, wie App Shield auf dem Handy aussieht – Sie können es hier auch ausprobieren.</p>
+</aside>
+<div class="handy">
 <header class="kopf">
   <div class="logo">DX</div>
-  <div class="titel"><b>DEXXUS WEB Shield</b><small>Handy · alles bleibt auf dem Handy</small></div>
+  <div class="titel"><b>DEXXUS WEB Shield</b><small>App Shield · alles bleibt auf dem Handy</small></div>
   <button class="kopfknopf" id="knopfEinst" title="Einstellungen" aria-label="Einstellungen">&#9881;</button>
 </header>
 <nav class="reiter">
@@ -27,51 +38,57 @@
 
 <!-- ===================== ARBEITEN ===================== -->
 <main id="arbeiten" class="ansicht an">
+  <div class="stufen">
+    <div class="stufe an" data-s="1"><i>1</i>Eingeben</div>
+    <div class="stufe" data-s="2"><i>2</i>In KI einfügen</div>
+    <div class="stufe" data-s="3"><i>3</i>Antwort</div>
+  </div>
+
   <div id="verlauf"></div>
 
-  <!-- Schritt 1 -->
-  <section class="karte" id="schritt1">
-    <div class="karte-kopf"><i>1</i>Eingeben</div>
-    <div class="zeile">
-      <label class="knopf w"><input type="file" id="fotoWahl" accept="image/*" capture="environment" hidden>Foto aufnehmen</label>
-      <label class="knopf w"><input type="file" id="dateiWahl" multiple hidden>Datei wählen</label>
-    </div>
+  <section id="schritt1">
+    <label class="ablage">
+      <input type="file" id="dateiWahl" multiple hidden>
+      <span class="ablage-t">Dokument oder Foto wählen</span>
+      <span class="ablage-u">PDF, Word, Foto, Scan, Plan</span>
+    </label>
+    <label class="link foto-link"><input type="file" id="fotoWahl" accept="image/*" capture="environment" hidden>oder jetzt fotografieren</label>
     <div id="dokListe"></div>
     <div class="dok-bereit" id="dokBereit" hidden></div>
     <textarea id="textFeld" placeholder="Text einfügen – wird geschwärzt …"></textarea>
     <textarea id="frageFeld" placeholder="Frage oder Auftrag an die KI, z. B. «Schreibe daraus eine freundliche Mahnung»"></textarea>
     <button class="gross" id="knopfSchwaerzen">Schwärzen und kopieren</button>
-    <div class="hinweis">Shield schwärzt Namen, Adressen, IBAN, Telefon usw. direkt auf dem Handy.</div>
+    <div class="hinweis">Shield schwärzt alles, bevor es zur KI geht.</div>
   </section>
 
-  <!-- Schritt 2 -->
-  <section class="karte" id="schritt2" hidden>
-    <div class="karte-kopf"><i>2</i>In der KI einfügen</div>
-    <div class="ok-box" id="kopiertInfo"></div>
-    <div class="ki-wahl">
-      <a class="ki" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
-      <a class="ki" href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
-      <a class="ki" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
-      <a class="ki" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a>
+  <section id="schritt2" hidden>
+    <div class="uni-box">
+      <div class="ok-box" id="kopiertInfo"></div>
+      <b>KI öffnen und einfügen</b>
+      <div class="ki-wahl">
+        <a class="ki" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
+        <a class="ki" href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
+        <a class="ki" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
+        <a class="ki" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a>
+      </div>
+      <ol>
+        <li>In der KI ins Eingabefeld tippen, <b>«Einfügen»</b> und senden.</li>
+        <li>Die Antwort der KI <b>kopieren</b>.</li>
+        <li>Zurück zu App Shield und <b>«Antwort übernehmen»</b> tippen.</li>
+      </ol>
+      <button class="link" id="knopfNochmal">Geschwärzten Text nochmals kopieren</button>
+      <button class="link" id="knopfVorschau">Was die KI bekommt</button>
+      <pre class="vorschau" id="vorschau" hidden></pre>
     </div>
-    <div class="hinweis">KI öffnen, ins Eingabefeld tippen, «Einfügen» und senden.</div>
-    <div class="zeile">
-      <button class="knopf w" id="knopfNochmal">Nochmals kopieren</button>
-      <button class="knopf w" id="knopfVorschau">Was die KI bekommt</button>
-    </div>
-    <pre class="vorschau" id="vorschau" hidden></pre>
   </section>
 
-  <!-- Schritt 3 -->
-  <section class="karte" id="schritt3" hidden>
-    <div class="karte-kopf"><i>3</i>Antwort zurückholen</div>
-    <div class="hinweis links">In der KI die Antwort kopieren (lange drücken oder Kopier-Symbol), dann hier:</div>
-    <button class="gross gruen" id="knopfEinfuegen">Antwort einfügen</button>
-    <textarea id="antwortFeld" placeholder="… oder hier hineintippen und «Einfügen» wählen"></textarea>
+  <section id="schritt3" hidden>
+    <textarea id="antwortFeld" placeholder="Antwort der KI hier einfügen (lange drücken → Einfügen) …"></textarea>
+    <button class="gross gruen" id="knopfEinfuegen">Antwort übernehmen</button>
   </section>
 
   <div class="fuss-arbeit" id="fussArbeit" hidden>
-    <button class="link" id="knopfNeu">Neues Thema beginnen</button>
+    <button class="link" id="knopfNeu">Neues Thema (neue Zuordnung)</button>
   </div>
 </main>
 
@@ -87,9 +104,9 @@
       <button data-f="pdf"><svg class="ft" viewBox="0 0 24 30"><path d="M2 2h14l6 6v20H2z" fill="#D93025"/><path d="M16 2v6h6" fill="#FAFAFF" opacity=".55"/><text x="12" y="22" text-anchor="middle" font-size="7.5" font-weight="800" fill="#FAFAFF" font-family="Arial">PDF</text></svg>PDF</button>
       <button data-f="txt"><svg class="ft" viewBox="0 0 24 30"><path d="M2 2h14l6 6v20H2z" fill="#64748B"/><path d="M16 2v6h6" fill="#FAFAFF" opacity=".55"/><text x="12" y="22" text-anchor="middle" font-size="7.5" font-weight="800" fill="#FAFAFF" font-family="Arial">TXT</text></svg>Text</button>
     </div>
-    <div class="zeile">
-      <button class="knopf voll" id="knopfSpeichern">Als Word speichern</button>
-      <button class="knopf rot" id="knopfLoeschen">Ausgewählte löschen</button>
+    <div class="zeile knopf-paar">
+      <button class="gross" id="knopfSpeichern">Als Word speichern</button>
+      <button class="gross loeschen" id="knopfLoeschen">Ausgewählte löschen</button>
     </div>
   </div>
 </main>
@@ -119,6 +136,7 @@
 </div></div>
 
 <div class="meldung" id="meldung" hidden></div>
+</div>
 
 <script src="daten.js"></script>
 <script src="redact.js"></script>

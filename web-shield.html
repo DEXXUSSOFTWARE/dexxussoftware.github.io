@@ -21,11 +21,26 @@
   .dxw-logo b { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #FAFAFF; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
   .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
-  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 1240px) { .dxw-menu { gap: 14px !important; } .dxw-menu a { font-size: 13.5px; } }
   .dxw-menu a:hover, .dxw-menu a.an { color: #0F172A; }
   .dxw-sp { flex: 1; }
   .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #16A34A; color: #FAFAFF !important; font-weight: 800; font-size: 14.5px; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 12px rgba(22,163,74,.35); }
   .dxw-btn:hover { background: #15803D; }
+  .dxw-wa { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; margin-left: 8px; border-radius: 10px; background: #25D366; color: #FAFAFF !important; font-weight: 800; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-wa:hover { background: #1DA851; }
+  .dxw-teilen { position: relative; margin-left: 6px; }
+  .dxw-teilen summary { list-style: none; display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 10px; border: 2px solid #CBD5E1; background: #FAFAFF; color: #0F172A; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; }
+  .dxw-teilen summary::-webkit-details-marker { display: none; }
+  .dxw-teilen summary::after { content: "\25BE"; margin-left: 6px; font-size: 11px; }
+  .dxw-teilen-liste { position: absolute; right: 0; top: 46px; display: flex; flex-direction: column; gap: 6px; background: #FAFAFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 8px; box-shadow: 0 12px 30px rgba(15,23,42,.18); z-index: 50; min-width: 150px; }
+  .dxw-teilen-liste a { display: block; padding: 9px 12px; border-radius: 9px; color: #FAFAFF !important; font-weight: 800; font-size: 14px; text-decoration: none; }
+  .dxw-th { background: #1A1A1A; } .dxw-tm { background: #229ED9; } .dxw-sms { background: #475569; }
+  @media (max-width: 1800px) { .dxw-menu { gap: 10px !important; margin-left: 6px !important; } .dxw-menu a { font-size: 13px !important; } .dxw-btn, .dxw-wa, .dxw-teilen summary { padding: 0 11px !important; font-size: 13.5px !important; } }
+  @media (max-width: 1320px) { .dxw-menu { display: none !important; } }
+  @media (max-width: 600px) { .dxw-teilen { display: none; } .dxw-logo span { display: none; } }
+  @media (max-width: 420px) { .dxw-lang { display: none; } }
+  @media (max-width: 600px) { .dxw-btn, .dxw-wa { height: 34px; padding: 0 10px; font-size: 13px; } .dxw-wa { margin-left: 6px; } }
   .dxw-foot { border-top: 1px solid #2563EB; background: #FAFAFF; }
   .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
   .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
@@ -202,11 +217,13 @@
   .dk-mehr { font-size: 13px; color: #475569; text-align: center; } .dk-mehr a { color: #2563EB; font-weight: 700; }
   .spar-text { color: #047857; font-weight: 800; }
 </style>
+<link rel="stylesheet" href="teilen-leiste.css">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html">ERP</a>
     <a href="index.html#funktionen">Funktionen</a>
     <a href="videos.html">Videos</a>
     <a href="web-shield.html" class="an">WEB Shield</a>
@@ -215,10 +232,11 @@
     <a href="preise.html">Preise</a>
     <a href="hilfe.html">Hilfe</a>
     <a href="partner.html">Partner</a>
+    <a href="partner-portal.html">White-Label</a>
     <a href="presse.html">Presse</a>
   </nav>
   <div class="dxw-sp"></div>
-  <a class="dxw-btn" href="#kaufen" data-kaufen>WEB Shield kaufen</a>
+  <a class="dxw-btn" href="#kaufen" data-kaufen><span class="dxw-lang">WEB Shield&nbsp;</span>kaufen</a>
 </div></header>
 
 <main>
@@ -338,6 +356,14 @@ Freundliche Grüsse
   </div>
   <div class="galerie"><img id="galerie-bild" src="media/web-shield/web-shield-chatgpt.png" alt="DEXXUS WEB Shield neben ChatGPT: links die KI, rechts die Antwort mit echten Namen" width="1400" height="820" loading="lazy"></div>
   <p class="klein" style="text-align:center">Darstellung vereinfacht · Beispiel mit erfundenen Daten</p>
+</div></section>
+
+<section class="sec" id="app-shield"><div class="in2">
+  <span class="eyebrow">App Shield</span>
+  <h2>Auch auf dem Handy: App Shield</h2>
+  <p class="lead">Text eingeben oder Dokument fotografieren, schwärzen, in ChatGPT, Claude, Copilot oder Gemini einfügen – die Antwort kommt mit den echten Namen zurück. Alles direkt auf dem Handy.</p>
+  <img src="media/web-shield/app-shield-ansichten.jpg" alt="App Shield auf dem Handy: Eingeben, in der KI einfügen, Antwort mit echten Namen, Übersicht" style="width:100%;height:auto;border-radius:18px;margin-top:18px;box-shadow:0 18px 40px rgba(15,23,42,.15)">
+  <div style="text-align:center;margin-top:18px"><a class="k p gross" href="web-shield-app/">App Shield öffnen</a></div>
 </div></section>
 
 <section class="sec"><div class="in2">
@@ -649,5 +675,6 @@ Freundliche Grüsse
   document.querySelectorAll("[data-linkkopie]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); kopie(URL_WS).then(function () { hinweis(a, "Link kopiert"); }); }); });
 })();
 </script>
+<script src="teilen-leiste.js" defer></script>
 </body>
 </html>

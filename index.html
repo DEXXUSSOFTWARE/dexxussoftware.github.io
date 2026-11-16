@@ -22,7 +22,8 @@
   .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #FAFAFF; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
   .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
-  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 1240px) { .dxw-menu { gap: 14px !important; } .dxw-menu a { font-size: 13.5px; } }
   .dxw-menu a:hover { color: #0F172A; }
   .dxw-sp { flex: 1; }
   .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #FAFAFF !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
@@ -282,11 +283,13 @@
 #w-vorteile .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
 #w-vorteile .pv thead th{position:static}
 </style>
+<link rel="stylesheet" href="teilen-leiste.css">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html" class="an">ERP</a>
     <a href="#funktionen">Funktionen</a>
     <a href="#vorteile">Vorteile</a>
     <a href="videos.html">Videos</a>
@@ -341,40 +344,45 @@
   <section class="section" id="funktionen" aria-labelledby="funktionen-titel">
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">Funktionsübersicht</span>
-        <h2 id="funktionen-titel">Ein Programm für Ihr ganzes Büro</h2>
-        <p class="lead">Offerten, Rechnungen, Dokumente und Routinearbeit – vereint in DEXXUS. Direkt auf Ihrem PC, Ihre Daten bleiben bei Ihnen. Klicken Sie auf eine Funktion – Sie sehen die Seite direkt aus DEXXUS.</p>
+        <span class="eyebrow">ERP für KMU · Schweiz</span>
+        <h2 id="funktionen-titel">Bürosoftware</h2>
+        <p class="lead">Kunden, Offerten, Aufträge, QR-Rechnungen, Tickets, Zeiten und Buchhaltung – alles in einem Programm, direkt auf Ihrem PC. Ihre Daten bleiben bei Ihnen. Klicken Sie auf eine Funktion – Sie sehen die Seite direkt aus DEXXUS.</p>
       </div>
 
       <div class="grid">
-        <article class="card feature voll" data-seite="sh" data-titel="DEXXUS Shield" data-farbe="#0891B2" data-text="Links Ihr Text, rechts genau das, was an die Online-KI geht – Namen, Adressen und Nummern automatisch geschwärzt. Die Antwort bekommt die echten Angaben zurück.">
-          <div class="top"><span class="mod sh" aria-hidden="true">SH</span><h3>DEXXUS Shield <span class="kern">UNSER KERN</span></h3></div>
-          <p>ChatGPT, Copilot, Gemini &amp; Co. sicher nutzen: Shield schwärzt Namen, Adressen, AHV- und Kontonummern automatisch, bevor etwas Ihren PC verlässt – und setzt die echten Angaben in der Antwort wieder ein.</p>
-          <div class="tags"><span class="tag">automatisch schwärzen</span><span class="tag">jede Online-KI</span><span class="tag">nDSG-konform</span><span class="tag">bleibt auf dem PC</span></div>
+        <article class="card feature voll" data-seite="re" data-titel="ERP &amp; Offerten" data-farbe="#4F46E5" data-text="Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.">
+          <div class="top"><span class="mod re" aria-hidden="true">RE</span><h3>ERP: von der Offerte bis zur Mahnung</h3></div>
+          <p>Offerte erstellen, mit einem Klick zum Auftrag, Lieferschein und zur Schweizer QR-Rechnung – inklusive Mahnwesen. Belege gehen direkt per E-Mail an den Kunden, Zahlungseingänge werden automatisch zugeordnet.</p>
+          <div class="tags"><span class="tag">Offerte</span><span class="tag">Auftrag</span><span class="tag">Lieferschein</span><span class="tag">QR-Rechnung</span><span class="tag">Mahnung</span><span class="tag">Artikel &amp; Preise</span><span class="tag">Lieferantenangebote übernehmen</span></div>
         </article>
 
-        <div class="sw-block" aria-labelledby="sw-titel">
-          <h3 class="sw-titel" id="sw-titel">So sieht die Schwärzung aus</h3>
-          <p class="sw-lead">Ihr Text bleibt auf Ihrem PC. An die Online-KI gehen Namen, Adressen, IBAN und Telefonnummern nur als Platzhalter – in der Antwort setzt DEXXUS die echten Angaben wieder ein.</p>
-          <div class="sw-vergleich">
-            <div class="sw-spalte"><h4><span class="sw-pill v">VORHER</span> Ihr Text – bleibt auf Ihrem PC</h4>
-              <div class="t">Sehr geehrte Frau Erika Muster<br><br>Wir vertreten Herrn Hans Beispiel, wohnhaft Musterweg 7, 8810 Horgen. Bitte überweisen Sie die Entschädigung auf CH93 0076 2011 6238 5295 7. Sie erreichen ihn unter 079 412 33 21.</div></div>
-            <div class="sw-spalte"><h4><span class="sw-pill n">NACHHER</span> Das sieht die Online-KI</h4>
-              <div class="t">Sehr geehrte Frau <span class="ph">[Person 1]</span><br><br>Wir vertreten Herrn <span class="ph">[Person 2]</span>, wohnhaft <span class="ph">[Adresse 1]</span>, <span class="ph">[Ort 1]</span>. Bitte überweisen Sie die Entschädigung auf <span class="ph">[IBAN 1]</span>. Sie erreichen ihn unter <span class="ph">[Telefon 1]</span>.</div></div>
-          </div>
-          <div class="sw-flow" aria-label="So schützt DEXXUS Shield Ihre Daten"><span class="box">Ihr Text aus jedem Programm</span><span class="pfeil" aria-hidden="true">→</span><span class="box">DEXXUS Shield schwärzt lokal</span><span class="pfeil" aria-hidden="true">→</span><span class="box">KI Ihrer Wahl</span><span class="pfeil" aria-hidden="true">→</span><span class="box">Echte Daten lokal wieder eingesetzt</span></div>
-        </div>
+        <article class="card">
+          <div class="top"><span class="mod" style="background:#DB2777" aria-hidden="true">KU</span><h3>Kunden &amp; Kontakte</h3></div>
+          <p>Alle Kunden, Lieferanten und Ansprechpartner an einem Ort – mit Offerten, Rechnungen, Dokumenten und E-Mails auf einen Blick.</p>
+          <div class="tags"><span class="tag">Adressen</span><span class="tag">Verlauf</span><span class="tag">E-Mail-Import</span></div>
+        </article>
 
+        <article class="card">
+          <div class="top"><span class="mod" style="background:#0F766E" aria-hidden="true">TK</span><h3>Tickets &amp; Service</h3></div>
+          <p>Kundenanfragen und Supportfälle als Tickets erfassen, zuweisen und erledigen – Aufwand direkt verrechnen.</p>
+          <div class="tags"><span class="tag">Supportfälle</span><span class="tag">Status</span><span class="tag">verrechnen</span></div>
+        </article>
 
-        <article class="card feature" data-seite="re" data-titel="ERP &amp; Offerten" data-farbe="#4F46E5" data-text="Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.">
-          <div class="top"><span class="mod re" aria-hidden="true">RE</span><h3>ERP &amp; Offerten</h3></div>
-          <p>Von der Offerte bis zur Mahnung. Schweizer QR-Rechnungen, Lieferscheine und Belege erstellen und direkt per E-Mail versenden.</p>
-          <div class="tags"><span class="tag">Offerte</span><span class="tag">Auftrag</span><span class="tag">Lieferschein</span><span class="tag">QR-Rechnung</span><span class="tag">Mahnung</span></div>
+        <article class="card feature" data-seite="ze" data-titel="Zeiterfassung" data-farbe="#65A30D" data-text="Stoppuhr starten, Kunde wählen, erfasste Zeiten direkt in die Rechnung übernehmen.">
+          <div class="top"><span class="mod ze" aria-hidden="true">ZE</span><h3>Zeiterfassung</h3></div>
+          <p>Stunden per Stoppuhr erfassen und mit einem Klick in die Honorarnote oder QR-Rechnung übernehmen.</p>
+          <div class="tags"><span class="tag">Stoppuhr</span><span class="tag">Honorarnote</span><span class="tag">QR-Rechnung</span></div>
+        </article>
+
+        <article class="card" data-seite="bh" data-titel="Virtuelle Buchhaltung" data-farbe="#C53030" data-text="Debitoren, Kreditoren, MWST und Export für den Treuhänder – auf einen Blick.">
+          <div class="top"><span class="mod bh" aria-hidden="true">BH</span><h3>Buchhaltung</h3></div>
+          <p>Debitoren, Kreditoren und MWST im Griff. Online-Zahlungen per TWINT oder Karte werden automatisch den Rechnungen zugeordnet, die Unterlagen für den Treuhänder sind vorbereitet.</p>
+          <div class="tags"><span class="tag">Debitoren</span><span class="tag">MWST</span><span class="tag">TWINT</span><span class="tag">Treuhand-Export</span></div>
         </article>
 
         <article class="card" data-seite="qs" data-titel="KI-Dokumentensuche" data-farbe="#059669" data-text="Frage eintippen, «KI fragen» – die lokale KI antwortet aus Ihren eigenen Dokumenten. Nichts geht ins Internet.">
           <div class="top"><span class="mod qs" aria-hidden="true">QS</span><h3>KI-Dokumentensuche</h3></div>
-          <p>PDFs, Scans, Word-Dateien und E-Mails in Sekunden durchsuchen und in eigenen Worten befragen.</p>
+          <p>PDFs, Scans, Word-Dateien und E-Mails in Sekunden durchsuchen und in eigenen Worten befragen – mit lokaler KI.</p>
           <div class="tags"><span class="tag">lokale KI</span><span class="tag">Texterkennung</span></div>
         </article>
 
@@ -382,12 +390,6 @@
           <div class="top"><span class="mod vm" aria-hidden="true">VM</span><h3>Virtuelles Team</h3></div>
           <p>Software-Assistenten für Buchhaltung und Verkauf erledigen Routinearbeiten nach Ihren Regeln – Sie geben frei.</p>
           <div class="tags"><span class="tag">Pflichtenheft</span><span class="tag">Freigabe</span></div>
-        </article>
-
-        <article class="card" data-seite="bh" data-titel="Virtuelle Buchhaltung" data-farbe="#C53030" data-text="Debitoren, Kreditoren, MWST und Export für den Treuhänder – auf einen Blick.">
-          <div class="top"><span class="mod bh" aria-hidden="true">BH</span><h3>Virtuelle Buchhaltung</h3></div>
-          <p>Online-Zahlungen per TWINT oder Karte werden automatisch den Rechnungen zugeordnet. Die Unterlagen für Ihren Treuhänder sind vorbereitet.</p>
-          <div class="tags"><span class="tag">TWINT</span><span class="tag">Treuhand-Export</span></div>
         </article>
 
         <article class="card" data-seite="tr" data-titel="Datentresor" data-farbe="#D97706" data-text="Gesperrt, bis Sie das Passwort eingeben – AES-256 verschlüsselt auf Ihrer Festplatte.">
@@ -402,15 +404,15 @@
           <div class="tags"><span class="tag">Dubletten</span><span class="tag">Quarantäne</span></div>
         </article>
 
-        <article class="card feature" data-seite="ze" data-titel="Zeiterfassung" data-farbe="#65A30D" data-text="Stoppuhr starten, Kunde wählen, erfasste Zeiten direkt in die Rechnung übernehmen.">
-          <div class="top"><span class="mod ze" aria-hidden="true">ZE</span><h3>Zeiterfassung</h3></div>
-          <p>Support-Stunden per Stoppuhr erfassen und mit einem Klick in die Honorarnote oder QR-Rechnung übernehmen.</p>
-          <div class="tags"><span class="tag">Stoppuhr</span><span class="tag">Honorarnote</span><span class="tag">QR-Rechnung</span></div>
+        <article class="card">
+          <div class="top"><span class="mod sh" aria-hidden="true">SH</span><h3>Shield inklusive</h3></div>
+          <p>KI sicher nutzen: Shield schwärzt Namen, Adressen und Kontonummern, bevor etwas an ChatGPT &amp; Co. geht. Mehr dazu unter <a href="shield.html">PC Shield</a>, <a href="web-shield.html">WEB Shield</a> und <a href="web-shield-app/">App Shield</a>.</p>
+          <div class="tags"><span class="tag">automatisch schwärzen</span><span class="tag">nDSG-konform</span></div>
         </article>
       </div>
 
       <div class="cta">
-        <a class="btn" href="#download">Testversion laden und alle Module 30 Tage kostenlos ausprobieren</a>
+        <a class="btn" href="#download">Testversion alle Module</a>
         <p class="small">Windows · Musterfirma inklusive · keine Kreditkarte nötig</p>
       </div>
     </div>
@@ -590,5 +592,6 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && lb.classList.contains("an")) { zu(); } });
 })();
 </script>
+<script src="teilen-leiste.js" defer></script>
 </body>
 </html>

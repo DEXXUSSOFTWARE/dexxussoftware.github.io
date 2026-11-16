@@ -21,7 +21,8 @@
   .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #FAFAFF; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
   .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
-  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 1240px) { .dxw-menu { gap: 14px !important; } .dxw-menu a { font-size: 13.5px; } }
   .dxw-menu a:hover { color: #0F172A; }
   .dxw-sp { flex: 1; }
   .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #FAFAFF !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
@@ -122,11 +123,13 @@
 #hv-ov .hv-k { display:flex; justify-content:space-between; align-items:center; padding:2px 4px 10px; font:600 15px "Segoe UI",sans-serif; color:#0F172A; }
 #hv-ov button { border:0; background:#DBEAFE; color:#1D4ED8; font:700 14px "Segoe UI",sans-serif; padding:6px 12px; border-radius:8px; cursor:pointer; }
 </style>
+<link rel="stylesheet" href="teilen-leiste.css">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html">ERP</a>
     <a href="index.html#funktionen">Funktionen</a>
     <a href="index.html#vorteile">Vorteile</a>
     <a href="videos.html">Videos</a>
@@ -456,5 +459,6 @@ document.querySelectorAll(".video .play").forEach(function (b) {
 function hvZu() { var v = document.getElementById("hv-v"); v.pause(); v.removeAttribute("src"); v.load(); document.getElementById("hv-ov").classList.remove("an"); }
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") { hvZu(); } });
 </script>
+<script src="teilen-leiste.js" defer></script>
 </body>
 </html>
