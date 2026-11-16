@@ -128,3 +128,5 @@ textarea { font-size:16px; }
 .gross-wahl .ft { width:34px; height:42px; }
 #textFeld.dran { border-color:#047857; box-shadow:0 0 0 4px rgba(4,120,87,.18); }
 .gross.gruen.haupt { width:100%; margin:0; }
+.sp-klein { font-size:12.5px; color:#64748B; }
+.sp-box .knopf.voll { padding:11px 8px; }

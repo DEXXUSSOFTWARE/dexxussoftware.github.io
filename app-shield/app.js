@@ -55,6 +55,14 @@ $("spUebernehmen").onclick = async () => {
   $("spFehler").hidden = true;
   if (await lizenzUebernehmen($("spLizenz").value, f => { $("spFehler").textContent = f; $("spFehler").hidden = false; })) $("spLizenz").value = "";
 };
+// Lizenz-Datei (.dxlic) aus dem E-Mail-Anhang wählen
+async function lizenzDatei(inp, fehler, ok) {
+  const f = inp.files && inp.files[0]; inp.value = ""; if (!f) return;
+  let t = ""; try { t = await f.text(); } catch (e) { return fehler("Datei konnte nicht gelesen werden."); }
+  if (await lizenzUebernehmen(t, fehler)) ok();
+}
+$("spLizDatei").onchange = e => { $("spFehler").hidden = true; lizenzDatei(e.target, f => { $("spFehler").textContent = f; $("spFehler").hidden = false; }, () => {}); };
+$("lizDatei").onchange = e => lizenzDatei(e.target, f => { $("lizStatus").className = "liz-status leer"; $("lizStatus").textContent = f; }, () => {});
 $("spAnfordern").onclick = () => {
   const name = $("spName").value.trim(), firma = $("spFirma").value.trim(), mail = $("spMail").value.trim(), info = $("spInfo");
   info.className = "sp-info rot"; info.hidden = false;

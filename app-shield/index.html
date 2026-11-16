@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WEB Shield">
 <link rel="stylesheet" href="panel.css?v=20261116c">
-<link rel="stylesheet" href="app.css?v=20261117c">
+<link rel="stylesheet" href="app.css?v=20261117d">
 <link rel="stylesheet" href="../teilen-leiste.css?v=3">
 </head>
 <body>
@@ -72,7 +72,9 @@
     </div>
     <div class="sp-box">
       <b>Lizenz erhalten?</b>
-      <textarea id="spLizenz" placeholder="Lizenz aus der E-Mail hier einfügen"></textarea>
+      <label class="knopf voll"><input type="file" id="spLizDatei" hidden>Lizenz-Datei aus der E-Mail wählen</label>
+      <small class="sp-klein">In der E-Mail den Anhang (Datei .dxlic) antippen und sichern, dann hier wählen. Oder den Text einfügen:</small>
+      <textarea id="spLizenz" placeholder="Lizenz-Text hier einfügen"></textarea>
       <button class="gross" id="spUebernehmen">Lizenz übernehmen</button>
       <div class="sp-info rot" id="spFehler" hidden></div>
     </div>
@@ -173,7 +175,8 @@
   </label>
   <h4>Lizenz</h4>
   <div class="liz-status" id="lizStatus"></div>
-  <textarea id="lizText" placeholder="Lizenz aus der E-Mail hier einfügen"></textarea>
+  <label class="knopf"><input type="file" id="lizDatei" hidden>Lizenz-Datei wählen</label>
+  <textarea id="lizText" placeholder="Lizenz-Text aus der E-Mail hier einfügen"></textarea>
   <div class="zeile">
     <button class="knopf voll" id="lizUebernehmen">Lizenz übernehmen</button>
     <a class="knopf gruen" id="lizKaufen" href="https://dexxus.ch/web-shield.html?kauf=1" target="_blank" rel="noopener">Jetzt kaufen</a>
@@ -234,7 +237,7 @@
 <script src="lizenz.js?v=20261116c"></script>
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
-<script src="app.js?v=20261117c"></script>
+<script src="app.js?v=20261117d"></script>
 <script>document.getElementById("mkProbe").onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};</script>
 <script src="../teilen-leiste.js?v=3" defer></script>
 </body>
