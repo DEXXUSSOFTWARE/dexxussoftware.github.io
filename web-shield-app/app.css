@@ -47,6 +47,11 @@ textarea { font-size:16px; }
   .pc-adresse { display:inline-block; font-size:20px; font-weight:800; background:#FAFAFF; border:2px solid #2563EB; color:#2563EB; border-radius:12px; padding:10px 16px; margin:6px 0 14px; }
   .pc-knopf { display:block; text-align:center; text-decoration:none; font-weight:800; border-radius:12px; padding:12px 16px; color:#FAFAFF; }
   .pc-knopf.wa { background:#25D366; }
+  .pc-foto { width:100%; border-radius:16px; margin:16px 0 6px; box-shadow:0 14px 30px rgba(15,23,42,.18); }
+  .pc-galerie { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:12px; }
+  .pc-galerie figure { margin:0; text-align:center; } .pc-galerie img { width:100%; height:auto; }
+  .pc-galerie figcaption { font-size:12px; font-weight:700; color:#2563EB; margin-top:4px; }
+  .pc-info { max-width:460px !important; padding-top:0 !important; }
   .pc-klein { font-size:14px !important; color:#64748B !important; margin-top:18px; }
   .handy { width:390px; height:800px; flex:none; overflow:auto; background:var(--bg); border:12px solid #0F172A; border-radius:46px; box-shadow:0 30px 60px rgba(15,23,42,.28); position:relative; transform:translateZ(0); display:flex; flex-direction:column; }
 }
