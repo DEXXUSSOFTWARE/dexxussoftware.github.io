@@ -19,10 +19,34 @@
       '<a class="dx-l tm" href="https://t.me/share/url?url=' + e + '" target="_blank" rel="noopener">Telegram</a>' +
       '<a class="dx-l sms" href="sms:?&amp;body=' + e + '">SMS</a>' +
       '<a class="dx-l mail" href="mailto:?subject=' + encodeURIComponent("DEXXUS – Schweizer Bürosoftware mit KI-Datenschutz") + '&amp;body=' + e + '">E-Mail</a>' +
+      '<button class="dx-l teilen" type="button" id="dx-teilen">Mit Freunden teilen</button>' +
       '<span class="dx-l-sp"></span>' +
       '<button class="dx-l kauf" type="button" id="dx-shield-kaufen">Shield kaufen</button>' +
     '</div>';
   kopf.insertAdjacentElement("afterend", leiste);
+
+  /* Mobile: «Mit Freunden teilen» öffnet das Teilen-Menü des Mobiles (sonst die Messenger-Liste ein-/ausblenden) */
+  document.getElementById("dx-teilen").addEventListener("click", function () {
+    if (navigator.share) { navigator.share({ title: "DEXXUS", text: "DEXXUS – Schweizer Bürosoftware mit KI-Datenschutz", url: LINK }).catch(function () {}); return; }
+    leiste.classList.toggle("offen");
+  });
+
+  /* Mobile: Menü-Knopf in der Kopfzeile – alle Reiter als Liste */
+  var nav = kopf.querySelector(".dxw-menu"), innen = kopf.querySelector(".in");
+  if (nav && innen) {
+    var mk = document.createElement("button");
+    mk.type = "button"; mk.className = "dx-menue-knopf"; mk.setAttribute("aria-expanded", "false"); mk.setAttribute("aria-label", "Menü öffnen");
+    mk.innerHTML = "<span></span><span></span><span></span><b>Menü</b>";
+    innen.appendChild(mk);
+    var liste = document.createElement("nav");
+    liste.className = "dx-menue-liste"; liste.hidden = true; liste.setAttribute("aria-label", "Hauptmenü");
+    liste.innerHTML = nav.innerHTML;
+    kopf.appendChild(liste);
+    mk.addEventListener("click", function () {
+      liste.hidden = !liste.hidden; mk.setAttribute("aria-expanded", String(!liste.hidden)); mk.classList.toggle("an", !liste.hidden);
+    });
+    liste.addEventListener("click", function (ev) { if (ev.target.closest("a")) { liste.hidden = true; mk.classList.remove("an"); mk.setAttribute("aria-expanded", "false"); } });
+  }
 
   var ov = document.createElement("div");
   ov.className = "dx-sk-ov"; ov.hidden = true;
