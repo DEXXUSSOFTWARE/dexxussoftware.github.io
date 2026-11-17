@@ -360,7 +360,10 @@ async function installJetzt() {
   for (let i = 0; !INSTALL && i < 30; i++) await new Promise(r => setTimeout(r, 100));
   if (!INSTALL) {
     if (istAndroid() && /; wv\)/.test(navigator.userAgent)) { location.href = chromeLink(); return; }
-    $("installText").innerHTML = "Oben rechts auf die <b>drei Punkte</b> tippen, dann <b>«App installieren»</b>.";
+    const ua = navigator.userAgent;
+    $("installText").innerHTML = /EdgA/.test(ua) ? "Unten rechts auf <b>☰</b> tippen, dann <b>«Zum Telefon hinzufügen»</b>."
+      : /SamsungBrowser/.test(ua) ? "Unten auf <b>☰</b> tippen, dann <b>«Seite hinzufügen zu» → «Startbildschirm»</b>."
+      : "Oben rechts auf die <b>drei Punkte</b> tippen, dann <b>«App installieren»</b>.";
     $("installKnopf").style.display = "none"; return;
   }
   const e = INSTALL; INSTALL = null; $("installBox").hidden = true;
@@ -369,7 +372,7 @@ async function installJetzt() {
 window.addEventListener("appinstalled", () => { $("installBox").hidden = true; meldung("App Shield ist jetzt auf dem Startbildschirm.", 5000); });
 function installZeigen() {
   if (istApp() || new URLSearchParams(location.search).get("ansicht")) { $("installBox").hidden = true; return; }
-  if (speicher.get("install_spaeter", "") === ShieldLizenz.heute()) { $("installBox").hidden = true; return; }
+  try { if (sessionStorage.getItem("install_spaeter")) { $("installBox").hidden = true; return; } } catch (e) { /* egal */ }
   if (!freigeschaltet()) { $("installBox").hidden = true; return; }
   const box = $("installBox");
   if (INSTALL || (istAndroid() && !/; wv\)/.test(navigator.userAgent))) {
@@ -394,7 +397,8 @@ function installZeigen() {
   }
 }
 $("installKnopf").onclick = installJetzt;
-$("installSpaeter").onclick = () => { speicher.set("install_spaeter", ShieldLizenz.heute()); $("installBox").hidden = true; };
+// 18.11.2026: «Später» nur bis zum Schliessen (vorher den ganzen Tag – dann sah man den Kasten beim Testen nie mehr)
+$("installSpaeter").onclick = () => { try { sessionStorage.setItem("install_spaeter", "1"); } catch (e) { /* egal */ } $("installBox").hidden = true; };
 
 /* ---------- Vorführung auf der Verkaufsseite (PC) ---------- */
 let VORFUEHRUNG = false;
