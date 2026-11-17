@@ -347,6 +347,12 @@ function vorfuehren(n) {
 /* ---------- Symbol auf dem Startbildschirm (17.11.2026) ---------- */
 const istApp = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
 const istIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const istAndroid = () => /Android/i.test(navigator.userAgent);
+function chromeLink() {
+  let q = "app=1&c=1";
+  try { if (LIZ.lizenz && LIZ.lizenz.text) q += "&lizenz=" + btoa(String.fromCharCode(...new TextEncoder().encode(LIZ.lizenz.text))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); } catch (e) { /* ohne Lizenz */ }
+  return "intent://" + location.host + location.pathname + "?" + q + "#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" + encodeURIComponent(location.origin + location.pathname + "?" + q) + ";end";
+}
 let INSTALL = null;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); INSTALL = e; installZeigen(); });
 // Android: Installationsfrage beim ersten Antippen der freigeschalteten App von selbst zeigen (ohne grünen Kasten)
@@ -363,6 +369,19 @@ function installZeigen() {
   const box = $("installBox");
   if (INSTALL) {
     box.hidden = true;                 // Android: Frage kommt beim ersten Antippen von selbst
+  } else if (istAndroid() && !/; wv\)/.test(navigator.userAgent) && !installZeigen.gewartet) {
+    // echtes Chrome: die Installationsfrage braucht einen Moment – erst danach entscheiden
+    box.hidden = true; installZeigen.gewartet = true; setTimeout(() => { try { installZeigen(); } catch (e) { /* egal */ } }, 4000);
+  } else if (istAndroid() && sessionStorage.getItem("aus_chrome_knopf")) {
+    $("installText").innerHTML = "Oben rechts auf die <b>drei Punkte</b> tippen und <b>«App installieren»</b> bzw. <b>«Zum Startbildschirm hinzufügen»</b> wählen.";
+    $("installKnopf").style.display = "none"; box.hidden = false;
+  } else if (istAndroid()) {
+    // 18.11.2026: Knopf in der Mail öffnet oft den eingebauten Browser der Mail-App – dort gibt es kein «App installieren».
+    // Darum: in Chrome öffnen, Lizenz im Link mitgeben (der Speicher der Mail-App ist in Chrome nicht vorhanden).
+    $("installText").innerHTML = "Damit App Shield als <b>Symbol auf dem Startbildschirm</b> erscheint, in Chrome öffnen und dort «Installieren» antippen.";
+    const k = $("installKnopf"); k.textContent = "In Chrome öffnen"; k.style.display = "";
+    k.onclick = () => { location.href = chromeLink(); };
+    box.hidden = false;
   } else if (istIOS()) {
     $("installText").innerHTML = "Auf dem iPhone: unten auf <b>Teilen</b> tippen (Viereck mit Pfeil nach oben), dann <b>«Zum Home-Bildschirm»</b>. Danach App Shield über das Symbol öffnen und die Lizenz dort einmal einfügen (Knopf in der E-Mail lange drücken, «Link kopieren», unter «Lizenz erhalten?» einfügen).";
     $("installKnopf").style.display = "none"; box.hidden = false;
@@ -393,9 +412,11 @@ function vorfuehrungStarten() {
 /* ---------- Start ---------- */
 (async function () {
   // Freischalt-Link aus der Lizenz-Mail: dexxus.ch/app-shield/#lizenz=… (der #-Teil geht nie an den Server)
-  const hl = /[#&]lizenz=([A-Za-z0-9_-]+)/.exec(location.hash);
+  try { if (/[?&]c=1/.test(location.search)) sessionStorage.setItem("aus_chrome_knopf", "1"); } catch (e) { /* egal */ }
+  // 18.11.2026: auch ?lizenz=… (Knopf «In Chrome öffnen» aus dem Mail-Browser)
+  const hl = /[#&]lizenz=([A-Za-z0-9_-]+)/.exec(location.hash) || /[?&]lizenz=([A-Za-z0-9_-]+)/.exec(location.search);
   if (hl) {
-    history.replaceState(null, "", location.pathname + location.search);
+    history.replaceState(null, "", location.pathname + (/[?&]app=1/.test(location.search) ? "?app=1" : ""));
     let t = "";
     try { const b = atob(hl[1].replace(/-/g, "+").replace(/_/g, "/")); t = new TextDecoder().decode(Uint8Array.from(b, c => c.charCodeAt(0))); } catch (e) { /* kaputt */ }
     const r = t ? await ShieldLizenz.pruefen(t) : { ok: false, fehler: "Der Link ist unvollständig. Bitte den ganzen Link aus der E-Mail antippen." };
