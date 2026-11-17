@@ -161,3 +161,15 @@ textarea { font-size:16px; }
   .mk-ki b { font-size:17px; color:#1E3A8A; } .mk-ki small { color:#64748B; opacity:1; }
   .mk-ki:hover { transform:none; box-shadow:none; border-color:#2563EB; background:#EFF6FF; }
 }
+
+/* 17.11.2026: «Hier ausprobieren» auffällig */
+@media (min-width: 900px) {
+  .mk-handy-platz { position:relative; }
+  .handy.wackeln { animation: wackeln .9s ease-in-out 2; }
+  @keyframes wackeln { 0%,100% { transform:translateZ(0) rotate(0); } 15% { transform:translateZ(0) rotate(-4deg) scale(1.02); } 30% { transform:translateZ(0) rotate(4deg) scale(1.02); } 45% { transform:translateZ(0) rotate(-3deg); } 60% { transform:translateZ(0) rotate(3deg); } 75% { transform:translateZ(0) rotate(-1deg); } }
+  .handy.blink { box-shadow:0 0 0 10px rgba(22,163,74,.45), 0 0 40px 12px rgba(22,163,74,.35), 0 30px 60px rgba(15,23,42,.28) !important; }
+  .mk-blase { position:absolute; left:50%; top:-14px; transform:translate(-50%,-100%) scale(.8); background:#16A34A; color:#FAFAFF; font-weight:800; font-size:15px; padding:9px 16px; border-radius:12px; white-space:nowrap; box-shadow:0 10px 24px rgba(22,163,74,.4); opacity:0; pointer-events:none; transition:opacity .25s, transform .25s; z-index:5; }
+  .mk-blase::after { content:""; position:absolute; left:50%; bottom:-8px; margin-left:-8px; border-left:8px solid transparent; border-right:8px solid transparent; border-top:8px solid #16A34A; }
+  .mk-blase.an { opacity:1; transform:translate(-50%,-100%) scale(1); animation: blase-hupf .6s ease-in-out 3 .25s; }
+  @keyframes blase-hupf { 50% { transform:translate(-50%,-115%) scale(1); } }
+}

@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="App Shield">
 <link rel="stylesheet" href="panel.css?v=20261116c">
-<link rel="stylesheet" href="app.css?v=20261117j">
+<link rel="stylesheet" href="app.css?v=20261117n">
 <link rel="stylesheet" href="../teilen-leiste.css?v=8">
 </head>
 <body>
@@ -251,7 +251,20 @@
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
 <script src="app.js?v=20261117m"></script>
-<script>document.querySelectorAll("#mkProbe,#mkProbe2,[data-probe]").forEach(function(x){x.onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};});</script>
+<script>
+/* 17.11.2026: «Hier ausprobieren» – Mobile wackelt, leuchtet grün, Hinweis-Blase erscheint */
+document.querySelectorAll("#mkProbe,#mkProbe2,[data-probe]").forEach(function (x) { x.onclick = function (e) {
+  e.preventDefault(); var h = document.querySelector(".handy"), p = document.querySelector(".mk-handy-platz");
+  var mitte = Math.abs(h.getBoundingClientRect().top + h.offsetHeight / 2 - innerHeight / 2) > 120;
+  if (mitte) h.scrollIntoView({ behavior: "smooth", block: "center" });
+  setTimeout(function () {
+    h.classList.remove("wackeln", "blink"); void h.offsetWidth; h.classList.add("wackeln", "blink");
+    var b = p.querySelector(".mk-blase"); if (!b) { b = document.createElement("div"); b.className = "mk-blase"; b.textContent = "Hier tippen und ausprobieren"; p.appendChild(b); }
+    b.classList.remove("an"); void b.offsetWidth; b.classList.add("an");
+    setTimeout(function () { h.classList.remove("wackeln", "blink"); b.classList.remove("an"); }, 3200);
+  }, mitte ? 550 : 0);
+}; });
+</script>
 <script>document.getElementById("mkTeilen").onclick=function(e){e.preventDefault();var t="App Shield schwärzt Namen, Adressen und IBAN, bevor sie zu ChatGPT, Claude & Co. gehen – direkt auf dem Mobile.",u="https://dexxus.ch/app-shield/";if(navigator.share){navigator.share({title:"App Shield",text:t,url:u}).catch(function(){});}else if(navigator.clipboard){navigator.clipboard.writeText(t+" "+u);this.textContent="Link kopiert";}};</script>
 <script src="../teilen-leiste.js?v=8" defer></script>
 </body>
