@@ -83,7 +83,7 @@ function zeigeSchritt(n) {
   [1, 2, 3].forEach(k => { $("schritt" + k).hidden = k !== n; });
   stufe(n);
   if (n === 1) themaZeigen();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (!VORFUEHRUNG) window.scrollTo({ top: 0, behavior: "smooth" });
 }
 function themaZeigen() {
   const n = SITZUNG.eintraege.length, t = $("themaInfo");
@@ -300,7 +300,7 @@ document.querySelectorAll(".reiter button").forEach(b => b.onclick = () => {
   document.querySelectorAll(".reiter button").forEach(x => x.classList.toggle("an", x === b));
   document.querySelectorAll(".ansicht").forEach(a => a.classList.toggle("an", a.id === b.dataset.r));
   if (b.dataset.r === "uebersicht") uebersichtZeigen();
-  window.scrollTo({ top: 0 });
+  if (!VORFUEHRUNG) window.scrollTo({ top: 0 });
 });
 function reiterWechseln(name) { const b = document.querySelector('.reiter button[data-r="' + name + '"]'); if (b) b.click(); }
 $("knopfEinst").onclick = () => { $("eDatum").checked = EINST.datum; $("eHinweis").checked = EINST.hinweis; $("eEigene").value = EINST.eigene || ""; bannerZeigen(); $("fensterEinst").hidden = false; };
@@ -318,6 +318,7 @@ $("eWhatsapp").onclick = async e => {   // Teilen über das Teilen-Menü des Mob
 /* ---------- Vorführ-Ansichten für Werbebilder: index.html?ansicht=1..4 (erfundene Daten, nichts wird gespeichert) ---------- */
 function vorfuehren(n) {
   speicher.set = () => {};                       // nichts speichern
+  if (n !== 4) { document.querySelectorAll(".reiter button").forEach(x => x.classList.toggle("an", x.dataset.r === "arbeiten")); document.querySelectorAll(".ansicht").forEach(a => a.classList.toggle("an", a.id === "arbeiten")); }
   document.body.classList.remove("gesperrt"); $("sperre").hidden = true;
   $("aboBanner").className = "abo-banner ok"; $("aboBanner").innerHTML = "<span>Abo aktiv bis 31.12.2027</span>";
   SITZUNG = neueSitzung(); UEB = []; OFFEN = null;
@@ -378,6 +379,17 @@ $("installKnopf").onclick = async () => {
 };
 $("installSpaeter").onclick = () => { speicher.set("install_spaeter", ShieldLizenz.heute()); $("installBox").hidden = true; };
 
+/* ---------- Vorführung auf der Verkaufsseite (PC) ---------- */
+let VORFUEHRUNG = false;
+function vorfuehrungStarten() {
+  VORFUEHRUNG = true;
+  const h = document.querySelector(".handy"); if (!h) return;
+  const s = document.createElement("div"); s.className = "vf-schild"; s.textContent = "Vorführung · antippen und selbst ausprobieren"; h.appendChild(s);
+  let n = 1; vorfuehren(1);
+  const t = setInterval(() => { n = n % 4 + 1; vorfuehren(n); }, 3500);
+  h.addEventListener("click", () => { clearInterval(t); location.href = location.pathname + "?selbst=1#app"; }, { once: true, capture: true });
+}
+
 /* ---------- Start ---------- */
 (async function () {
   // Freischalt-Link aus der Lizenz-Mail: dexxus.ch/app-shield/#lizenz=… (der #-Teil geht nie an den Server)
@@ -401,6 +413,8 @@ $("installSpaeter").onclick = () => { speicher.set("install_spaeter", ShieldLize
   if (OFFEN) schritt2Zeigen(true);      // App wurde zum Einfügen in der KI verlassen → direkt bei Schritt 2 weiter
   const vf = +new URLSearchParams(location.search).get("ansicht");
   if (vf) { vorfuehren(vf); return; }
+  // 17.11.2026: Verkaufsseite am PC ohne Lizenz → Vorführung läuft von selbst; Antippen = selbst ausprobieren
+  if (!freigeschaltet() && matchMedia("(min-width: 900px)").matches && !new URLSearchParams(location.search).get("selbst")) { vorfuehrungStarten(); return; }
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
   setTimeout(() => { try { ShieldDokumente.vorwaermen().catch(() => {}); } catch (e) { /* später */ } }, 2500);
 })();

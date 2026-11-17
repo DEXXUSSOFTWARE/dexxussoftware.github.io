@@ -183,3 +183,6 @@ textarea { font-size:16px; }
 
 /* 17.11.2026: KI-Kacheln direkt unter den Knöpfen */
 @media (min-width: 900px) { .mk-held-text .mk-kis { margin-top:40px; grid-template-columns:repeat(4,1fr); gap:10px; } }
+/* 17.11.2026: Vorführung im Mobile (Verkaufsseite PC) */
+.vf-schild { position:sticky; bottom:0; margin-top:auto; background:#16A34A; color:#FAFAFF; text-align:center; font-weight:800; font-size:14px; padding:10px 8px; cursor:pointer; z-index:6; }
+.handy { cursor:default; }
