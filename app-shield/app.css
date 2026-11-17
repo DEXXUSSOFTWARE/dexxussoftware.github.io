@@ -180,3 +180,6 @@ textarea { font-size:16px; }
   .mk-held .mk-pille { margin-top:0; }
   .mk-cta-oben { margin-top:44px !important; }
 }
+
+/* 17.11.2026: KI-Kacheln direkt unter den Knöpfen */
+@media (min-width: 900px) { .mk-held-text .mk-kis { margin-top:40px; grid-template-columns:repeat(4,1fr); gap:10px; } }
