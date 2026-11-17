@@ -356,7 +356,13 @@ function chromeLink() {
 let INSTALL = null;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); INSTALL = e; installZeigen(); });
 async function installJetzt() {
-  if (!INSTALL) return installZeigen();
+  // 18.11.2026: Chrome gibt die Installation erst nach dem ersten Tippen frei → dieser Tipp zählt, kurz warten
+  for (let i = 0; !INSTALL && i < 30; i++) await new Promise(r => setTimeout(r, 100));
+  if (!INSTALL) {
+    if (istAndroid() && /; wv\)/.test(navigator.userAgent)) { location.href = chromeLink(); return; }
+    $("installText").innerHTML = "Oben rechts auf die <b>drei Punkte</b> tippen, dann <b>«App installieren»</b>.";
+    $("installKnopf").style.display = "none"; return;
+  }
   const e = INSTALL; INSTALL = null; $("installBox").hidden = true;
   try { e.prompt(); await e.userChoice; } catch (x) { /* abgelehnt */ }
 }
@@ -366,22 +372,17 @@ function installZeigen() {
   if (speicher.get("install_spaeter", "") === ShieldLizenz.heute()) { $("installBox").hidden = true; return; }
   if (!freigeschaltet()) { $("installBox").hidden = true; return; }
   const box = $("installBox");
-  if (INSTALL) {
-    // 18.11.2026: gleich oben anzeigen (vorher kam die Frage erst beim ersten Tippen, d.h. auf Seite 2)
+  if (INSTALL || (istAndroid() && !/; wv\)/.test(navigator.userAgent))) {
+    // 18.11.2026: sofort oben anzeigen – Chrome gibt die Installation erst nach dem ersten Tippen frei,
+    // der Tipp auf «Installieren» ist dieser erste Tipp (installJetzt wartet kurz auf Chrome).
     $("installText").innerHTML = "Ein Tipp – dann ist App Shield als <b>Symbol auf dem Startbildschirm</b> und öffnet sich wie jede App.";
     const k = $("installKnopf"); k.textContent = "Installieren"; k.style.display = ""; k.onclick = installJetzt;
     box.hidden = false;
-  } else if (istAndroid() && !/; wv\)/.test(navigator.userAgent) && !installZeigen.gewartet) {
-    // echtes Chrome: die Installationsfrage braucht einen Moment – erst danach entscheiden
-    box.hidden = true; installZeigen.gewartet = true; setTimeout(() => { try { installZeigen(); } catch (e) { /* egal */ } }, 4000);
-  } else if (istAndroid() && sessionStorage.getItem("aus_chrome_knopf")) {
-    $("installText").innerHTML = "Oben rechts auf die <b>drei Punkte</b> tippen und <b>«App installieren»</b> bzw. <b>«Zum Startbildschirm hinzufügen»</b> wählen.";
-    $("installKnopf").style.display = "none"; box.hidden = false;
   } else if (istAndroid()) {
     // 18.11.2026: Knopf in der Mail öffnet oft den eingebauten Browser der Mail-App – dort gibt es kein «App installieren».
     // Darum: in Chrome öffnen, Lizenz im Link mitgeben (der Speicher der Mail-App ist in Chrome nicht vorhanden).
-    $("installText").innerHTML = "Damit App Shield als <b>Symbol auf dem Startbildschirm</b> erscheint, in Chrome öffnen und dort «Installieren» antippen.";
-    const k = $("installKnopf"); k.textContent = "In Chrome öffnen"; k.style.display = "";
+    $("installText").innerHTML = "Ein Tipp – dann öffnet sich App Shield in Chrome. Dort nochmals <b>«Installieren»</b> antippen, fertig.";
+    const k = $("installKnopf"); k.textContent = "Installieren"; k.style.display = "";
     k.onclick = () => { location.href = chromeLink(); };
     box.hidden = false;
   } else if (istIOS()) {
