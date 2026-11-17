@@ -355,12 +355,11 @@ function chromeLink() {
 }
 let INSTALL = null;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); INSTALL = e; installZeigen(); });
-// Android: Installationsfrage beim ersten Antippen der freigeschalteten App von selbst zeigen (ohne grünen Kasten)
-document.addEventListener("click", async () => {
-  if (!INSTALL || istApp() || !freigeschaltet() || new URLSearchParams(location.search).get("ansicht")) return;
+async function installJetzt() {
+  if (!INSTALL) return installZeigen();
   const e = INSTALL; INSTALL = null; $("installBox").hidden = true;
   try { e.prompt(); await e.userChoice; } catch (x) { /* abgelehnt */ }
-}, true);
+}
 window.addEventListener("appinstalled", () => { $("installBox").hidden = true; meldung("App Shield ist jetzt auf dem Startbildschirm.", 5000); });
 function installZeigen() {
   if (istApp() || new URLSearchParams(location.search).get("ansicht")) { $("installBox").hidden = true; return; }
@@ -368,7 +367,10 @@ function installZeigen() {
   if (!freigeschaltet()) { $("installBox").hidden = true; return; }
   const box = $("installBox");
   if (INSTALL) {
-    box.hidden = true;                 // Android: Frage kommt beim ersten Antippen von selbst
+    // 18.11.2026: gleich oben anzeigen (vorher kam die Frage erst beim ersten Tippen, d.h. auf Seite 2)
+    $("installText").innerHTML = "Ein Tipp – dann ist App Shield als <b>Symbol auf dem Startbildschirm</b> und öffnet sich wie jede App.";
+    const k = $("installKnopf"); k.textContent = "Installieren"; k.style.display = ""; k.onclick = installJetzt;
+    box.hidden = false;
   } else if (istAndroid() && !/; wv\)/.test(navigator.userAgent) && !installZeigen.gewartet) {
     // echtes Chrome: die Installationsfrage braucht einen Moment – erst danach entscheiden
     box.hidden = true; installZeigen.gewartet = true; setTimeout(() => { try { installZeigen(); } catch (e) { /* egal */ } }, 4000);
@@ -390,12 +392,7 @@ function installZeigen() {
     $("installKnopf").style.display = "none"; box.hidden = false;
   }
 }
-$("installKnopf").onclick = async () => {
-  if (!INSTALL) return installZeigen();
-  INSTALL.prompt();
-  try { const r = await INSTALL.userChoice; if (r && r.outcome === "accepted") $("installBox").hidden = true; } catch (e) { /* egal */ }
-  INSTALL = null;
-};
+$("installKnopf").onclick = installJetzt;
 $("installSpaeter").onclick = () => { speicher.set("install_spaeter", ShieldLizenz.heute()); $("installBox").hidden = true; };
 
 /* ---------- Vorführung auf der Verkaufsseite (PC) ---------- */
