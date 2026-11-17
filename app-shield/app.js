@@ -343,6 +343,12 @@ const istApp = () => (window.matchMedia && matchMedia("(display-mode: standalone
 const istIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 let INSTALL = null;
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); INSTALL = e; installZeigen(); });
+// Android: Installationsfrage beim ersten Antippen der freigeschalteten App von selbst zeigen (ohne grünen Kasten)
+document.addEventListener("click", async () => {
+  if (!INSTALL || istApp() || !freigeschaltet() || new URLSearchParams(location.search).get("ansicht")) return;
+  const e = INSTALL; INSTALL = null; $("installBox").hidden = true;
+  try { e.prompt(); await e.userChoice; } catch (x) { /* abgelehnt */ }
+}, true);
 window.addEventListener("appinstalled", () => { $("installBox").hidden = true; meldung("App Shield ist jetzt auf dem Startbildschirm.", 5000); });
 function installZeigen() {
   if (istApp() || new URLSearchParams(location.search).get("ansicht")) { $("installBox").hidden = true; return; }
@@ -350,8 +356,7 @@ function installZeigen() {
   if (!freigeschaltet()) { $("installBox").hidden = true; return; }
   const box = $("installBox");
   if (INSTALL) {
-    $("installText").textContent = "Einmal tippen – dann öffnen Sie App Shield wie jede andere App.";
-    $("installKnopf").style.display = ""; box.hidden = false;
+    box.hidden = true;                 // Android: Frage kommt beim ersten Antippen von selbst
   } else if (istIOS()) {
     $("installText").innerHTML = "Auf dem iPhone: unten auf <b>Teilen</b> tippen (Viereck mit Pfeil nach oben), dann <b>«Zum Home-Bildschirm»</b>. Danach App Shield über das Symbol öffnen und die Lizenz dort einmal einfügen (Knopf in der E-Mail lange drücken, «Link kopieren», unter «Lizenz erhalten?» einfügen).";
     $("installKnopf").style.display = "none"; box.hidden = false;
