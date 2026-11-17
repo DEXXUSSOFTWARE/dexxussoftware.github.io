@@ -137,7 +137,7 @@
 #hv-ov .hv-k { display:flex; justify-content:space-between; align-items:center; padding:2px 4px 10px; font:600 15px "Segoe UI",sans-serif; color:#0F172A; }
 #hv-ov button { border:0; background:#DBEAFE; color:#1D4ED8; font:700 14px "Segoe UI",sans-serif; padding:6px 12px; border-radius:8px; cursor:pointer; }
 </style>
-<link rel="stylesheet" href="teilen-leiste.css?v=6">
+<link rel="stylesheet" href="teilen-leiste.css?v=7">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
@@ -493,6 +493,6 @@ document.querySelectorAll(".video .play").forEach(function (b) {
 function hvZu() { var v = document.getElementById("hv-v"); v.pause(); v.removeAttribute("src"); v.load(); document.getElementById("hv-ov").classList.remove("an"); }
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") { hvZu(); } });
 </script>
-<script src="teilen-leiste.js?v=5" defer></script>
+<script src="teilen-leiste.js?v=7" defer></script>
 </body>
 </html>

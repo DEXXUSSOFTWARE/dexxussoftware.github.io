@@ -111,4 +111,34 @@
     var q = new URLSearchParams({ invoice_amount: "139.00", invoice_currency: "1", invoice_number: paket + ", 12 Monate", contact_country: "204", referenceId: ["WEB", paket, 12].join("|") });
     location.href = ZAHLUNG + (ZAHLUNG.indexOf("?") > -1 ? "&" : "?") + q.toString();
   });
+
+  /* 17.11.2026: Banner «No leaks …» unten auf jeder Seite + grüner schwebender Kauf-Knopf.
+     Shield-Seiten: Kaufen öffnet die Shield-Auswahl; ERP-Seiten: Kaufen führt zur Preisseite mit den Paketen. */
+  var istShield = /shield/i.test(location.pathname);
+  var kaufen = function (ev) {
+    if (ev) ev.preventDefault();
+    if (istShield) { auf(); return; }
+    location.href = "/preise.html";
+  };
+  var fuss = document.querySelector("footer.dxw-foot, footer.mk-fuss");
+  if (fuss && !document.querySelector(".gross-band, .dx-band")) {
+    var band = document.createElement("section");
+    band.className = "dx-band" + (fuss.classList.contains("mk-fuss") ? " dx-band-app" : "");
+    band.innerHTML = '<div class="in"><div><b><span>No leaks.</span> <span>No tracking.</span> <span>No identity theft.</span></b>' +
+      (istShield ? '<span class="t">Namen, Adressen und IBAN gehören nicht ins Web – sondern zu Ihnen. KI benutzen ohne Risiko – mit DEXXUS Shield.</span>'
+                 : '<span class="t">Kunden, Offerten und Rechnungen bleiben auf Ihrem PC – Bürosoftware mit KI und echtem Datenschutz: DEXXUS.</span>') +
+      '</div><a class="dx-band-k" href="' + (istShield ? "#kaufen" : "/preise.html") + '">' + (istShield ? "Jetzt kaufen" : "Pakete und Preise") + '</a></div>';
+    fuss.parentNode.insertBefore(band, fuss);
+    band.querySelector(".dx-band-k").addEventListener("click", kaufen);
+  }
+  var sw = document.getElementById("schwebe");
+  if (!sw) {
+    sw = document.createElement("a");
+    sw.className = "schwebe dx-schwebe"; sw.id = "schwebe"; sw.href = istShield ? "#kaufen" : "/preise.html";
+    sw.textContent = istShield ? "Jetzt kaufen · ab CHF 9.90" : "Jetzt kaufen · ab CHF 19.90";
+    if (fuss && fuss.classList.contains("mk-fuss")) sw.classList.add("dx-schwebe-app");
+    document.body.appendChild(sw);
+    sw.addEventListener("click", kaufen);
+    addEventListener("scroll", function () { sw.classList.toggle("an", scrollY > innerHeight * 0.9); }, { passive: true });
+  }
 })();

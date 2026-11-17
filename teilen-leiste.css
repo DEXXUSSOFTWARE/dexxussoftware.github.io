@@ -65,3 +65,16 @@
 .dx-sk-kachel svg path:first-child { fill:#EFF6FF; stroke:#2563EB; }
 .dx-sk-kachel svg path:last-child { stroke:#2563EB; }
 .dx-sk-kachel b { font-size:17px; color:#1E3A8A; } .dx-sk-kachel small { color:#64748B; opacity:1; }
+/* 17.11.2026: Banner «No leaks …» auf jeder Seite + grüner schwebender Kauf-Knopf */
+.dx-band { background:linear-gradient(110deg,#0F1E5A,#1E3A8A 45%,#2563EB); color:#FAFAFF; font-family:"Segoe UI Variable Text","Segoe UI",system-ui,Arial,sans-serif; }
+.dx-band .in { max-width:1200px; margin:0 auto; padding:40px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.dx-band b { display:block; font-size:26px; letter-spacing:-.02em; margin-bottom:6px; } .dx-band b span { white-space:nowrap; }
+.dx-band .t { font-size:16px; opacity:.95; }
+.dx-band-k { display:inline-flex; align-items:center; height:50px; padding:0 26px; border-radius:12px; background:#FAFAFF; color:#1E3A8A !important; font-weight:800; font-size:16px; text-decoration:none; white-space:nowrap; }
+.dx-band-k:hover { background:#EFF6FF; }
+.schwebe, .dx-schwebe { background:#16A34A !important; box-shadow:0 10px 26px rgba(22,163,74,.35) !important; }
+.schwebe:hover, .dx-schwebe:hover { background:#15803D !important; }
+.dx-schwebe { position:fixed; right:18px; bottom:18px; z-index:30; color:#FAFAFF !important; text-decoration:none; font-weight:800; font-size:15.5px; padding:14px 22px; border-radius:99px; opacity:0; transform:translateY(12px); pointer-events:none; transition:opacity .2s, transform .2s; font-family:"Segoe UI Variable Text","Segoe UI",system-ui,Arial,sans-serif; }
+.dx-schwebe.an { opacity:1; transform:none; pointer-events:auto; }
+@media (max-width:899px) { .dx-band-app, .dx-schwebe-app { display:none !important; } }
+@media (max-width:600px) { .dx-band b { font-size:21px; } .dx-band .in { padding:30px 16px; } }

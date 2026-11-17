@@ -237,13 +237,13 @@
   .held3 .kik b { font-size: 17px; margin-top: 0; color: #1E3A8A; }
   .held3 .kik small { font-size: 12px; color: #64748B; opacity: 1; }
   .held3 .kik:hover, .held3 .kik.an { transform: none; box-shadow: none; border-color: #2563EB; outline: none; background: #EFF6FF; }
-  .held3 .slogan2 { margin-top: 30px; }
+  .held3 .slogan2 { margin-top: 64px !important; }
   .held3 .knoepfe { display:flex !important; flex-direction:row !important; flex-wrap:wrap; align-items:center; }
   .held3 .knoepfe .k { width: auto !important; flex: none; display:inline-flex; }
   .held3 .knoepfe { gap:10px; }
   .held3 .knoepfe .k.gross { height: 48px; padding: 0 16px; font-size: 15px; }
 </style>
-<link rel="stylesheet" href="teilen-leiste.css?v=6">
+<link rel="stylesheet" href="teilen-leiste.css?v=7">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
@@ -339,8 +339,8 @@ Freundliche Grüsse
     <div><b> Vorlagen</b><span>Plankopf einmal markieren – ab dann automatisch</span></div>
     <div><b> Eingebrannt</b><span>Schwarz bleibt schwarz: darunter ist nichts mehr lesbar</span></div>
   </div>
-  <div class="bald"> Pläne, Skizzen und PDF kommen als nächstes Update in WEB Shield – <b>für Abo-Kunden ohne Aufpreis</b>. Heute schon dabei: Text und Word-Dokumente.</div>
-  <div style="text-align:center;margin-top:18px"><a class="k p gross" href="#kaufen" data-kaufen>Pläne schützen – jetzt kaufen</a></div>
+  <div class="bald" style="background:#ECFDF5;border-color:#A7F3D0;color:#065F46"><b>Schon drin:</b> PDF, Scans, Fotos, Pläne und Skizzen – Texterkennung direkt auf Ihrem PC, dazu eine geschwärzte Kopie als PDF oder JPG.</div>
+  <div style="text-align:center;margin-top:18px"><a class="k p gross" href="#kaufen" data-kaufen style="background:#16A34A;border-color:#16A34A;box-shadow:0 8px 20px rgba(22,163,74,.3)">Kaufen</a></div>
 </div></section>
 
 <section class="sec" id="branchen"><div class="in2">
@@ -736,6 +736,6 @@ Freundliche Grüsse
   document.querySelectorAll("[data-linkkopie]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); kopie(URL_WS).then(function () { hinweis(a, "Link kopiert"); }); }); });
 })();
 </script>
-<script src="teilen-leiste.js?v=5" defer></script>
+<script src="teilen-leiste.js?v=7" defer></script>
 </body>
 </html>
