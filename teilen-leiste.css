@@ -58,3 +58,10 @@
 .dx-menue-liste a.dx-ml-sub { padding-left:20px; font-weight:600; }
 @media (max-width: 860px) { .dx-shield-panel { display:none !important; } }
 .dx-ml-titel { display:block; padding:12px 4px 2px; color:#0F172A; font-weight:700; font-size:16px; }
+/* 17.11.2026: Shield-Kacheln dezent */
+.dx-sk-kachel { background:#FAFAFF; color:#1E3A8A !important; border:1.5px solid #CBD5E1; box-shadow:none; padding:16px 12px 14px; }
+.dx-sk-kachel:hover { transform:none; box-shadow:none; border-color:#2563EB; background:#EFF6FF; }
+.dx-sk-kachel svg { width:36px; height:42px; }
+.dx-sk-kachel svg path:first-child { fill:#EFF6FF; stroke:#2563EB; }
+.dx-sk-kachel svg path:last-child { stroke:#2563EB; }
+.dx-sk-kachel b { font-size:17px; color:#1E3A8A; } .dx-sk-kachel small { color:#64748B; opacity:1; }

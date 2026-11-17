@@ -216,8 +216,34 @@
   .dk-spar { background: #ECFDF5; color: #047857; font-weight: 800; border-radius: 10px; padding: 8px 12px; text-align: center; font-size: 14.5px; }
   .dk-mehr { font-size: 13px; color: #475569; text-align: center; } .dk-mehr a { color: #2563EB; font-weight: 700; }
   .spar-text { color: #047857; font-weight: 800; }
+
+  /* 17.11.2026: oberer Bereich neu – Text links, Foto rechts, darunter KI-Kacheln */
+  .held3 { padding-top: 40px; }
+  .h3-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 44px; align-items: center; text-align: left; }
+  .held3 .titelzeile { justify-content: flex-start; margin-top: 14px; }
+  .held3 h1 { font-size: 48px !important; margin-top: 0; }
+  .held3 .slogan { text-align: left; margin-left: 0; font-size: 19px; }
+  .held3 .slogan .auchnicht { display: block; margin-top: 14px; font-size: 26px; }
+  .held3 .unter { text-align: left; margin: 14px 0 0; font-size: 17px; max-width: none; }
+  .held3 .knoepfe { justify-content: flex-start; margin-top: 22px; }
+  .h3-bild { margin: 0; } .h3-bild img { width: 100%; height: auto; display: block; border-radius: 20px; box-shadow: 0 24px 50px rgba(15,23,42,.22); }
+  .h3-bild figcaption { margin-top: 10px; font-size: 14px; color: #475569; font-weight: 600; text-align: center; }
+  .held3 .slogan2 { margin-top: 38px; }
+  @media (max-width: 960px) { .h3-grid { grid-template-columns: 1fr; gap: 24px; } .held3 h1 { font-size: 36px !important; } }
+
+  /* 17.11.2026: KI-Kacheln dezent statt kräftig blau */
+  .held3 .kikacheln { margin-top: 18px; gap: 10px; max-width: 900px; }
+  .held3 .kik { background: #FAFAFF; color: #1E3A8A; border: 1.5px solid #CBD5E1; box-shadow: none; padding: 12px 8px 10px; border-radius: 12px; }
+  .held3 .kik b { font-size: 17px; margin-top: 0; color: #1E3A8A; }
+  .held3 .kik small { font-size: 12px; color: #64748B; opacity: 1; }
+  .held3 .kik:hover, .held3 .kik.an { transform: none; box-shadow: none; border-color: #2563EB; outline: none; background: #EFF6FF; }
+  .held3 .slogan2 { margin-top: 30px; }
+  .held3 .knoepfe { display:flex !important; flex-direction:row !important; flex-wrap:wrap; align-items:center; }
+  .held3 .knoepfe .k { width: auto !important; flex: none; display:inline-flex; }
+  .held3 .knoepfe { gap:10px; }
+  .held3 .knoepfe .k.gross { height: 48px; padding: 0 16px; font-size: 15px; }
 </style>
-<link rel="stylesheet" href="teilen-leiste.css?v=5">
+<link rel="stylesheet" href="teilen-leiste.css?v=6">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
@@ -238,12 +264,21 @@
 </div></header>
 
 <main>
-<section class="held held2">
+<section class="held held2 held3">
+  <div class="h3-grid">
+    <div class="h3-text">
   <span class="pille">Neu · für Edge &amp; Chrome</span>
   <div class="titelzeile"><span class="ch-block"><span class="ch-kreuz" role="img" aria-label="Schweizerkreuz"></span><span class="ch-text">Software made<br>in Switzerland</span></span>
     <h1><span class="kiwort">DEXXUS WEB Shield</span></h1></div>
   <p class="slogan"><span style="white-space:nowrap">Stop data leaks.</span> <span style="white-space:nowrap">Stop data selling.</span> <span style="white-space:nowrap">Stop identity theft.</span><span class="auchnicht abstand-gross">Volle Power mit <span class="kiwort" id="kiwort">ChatGPT</span> – ohne persönliche Daten.</span></p>
   <p class="unter">Text in WEB Shield eingeben, Klick – <b>und die KI antwortet sofort.</b> Ihre persönlichen Daten? Tauchen bei ChatGPT, Claude &amp; Co. nirgends auf. Prompt rein. Antwort raus. Ihre Daten bleiben bei Ihnen.</p>
+  <div class="knoepfe">
+    <a class="k p gross" href="#kaufen" data-kaufen> Jetzt Daten schützen – ab CHF 9.90</a>
+    <a class="k wa gross" href="#" data-whatsapp>Per WhatsApp empfehlen</a>
+  </div>
+    </div>
+    <figure class="h3-bild"><img src="media/web-shield/web-shield-handwerker.jpg" alt="Handwerker arbeitet mit ChatGPT und DEXXUS WEB Shield – rechts die Antwort mit echten Namen" width="1344" height="768"><figcaption>WEB Shield sitzt rechts neben der KI – die KI sieht nur Platzhalter.</figcaption></figure>
+  </div>
   <p class="slogan2">KI benutzen ohne Risiko – mit WEB Shield.</p>
   <div class="kikacheln" aria-label="Funktioniert mit">
     <a class="kik" href="#mit-chatgpt"><b>ChatGPT</b><small>Anwendung mit ChatGPT</small></a>
@@ -251,10 +286,6 @@
     <a class="kik" href="#mit-copilot"><b>Copilot</b><small>Anwendung mit Copilot</small></a>
     <a class="kik" href="#mit-gemini"><b>Gemini</b><small>Anwendung mit Gemini</small></a>
     <a class="kik" href="#mit-perplexity"><b>Perplexity</b><small>Anwendung mit Perplexity</small></a>
-  </div>
-  <div class="knoepfe">
-    <a class="k p gross" href="#kaufen" data-kaufen> Jetzt Daten schützen – ab CHF 9.90</a>
-    <a class="k wa gross" href="#" data-whatsapp>Per WhatsApp empfehlen</a>
   </div>
   <div class="gratis-rahmen">
     <div class="gr-links"><span class="gr-gross">30 Tage GRATIS</span><span class="gr-zeile">Ohne Abo-Zwang · ohne Kreditkarte · endet automatisch</span><span class="gr-klein">Alle Funktionen, alle KI-Dienste. Gefällt es Ihnen nicht, passiert einfach nichts.</span></div>

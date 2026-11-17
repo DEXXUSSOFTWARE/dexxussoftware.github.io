@@ -112,9 +112,9 @@
 
   /* 17.11.2026: Themen-Kacheln und Häufige Fragen */
   .hk-kacheln { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:22px 0 34px; }
-  .hk-kacheln a { display:flex; flex-direction:column; gap:4px; padding:22px 20px; border-radius:18px; text-decoration:none; color:#FAFAFF; background:linear-gradient(140deg,#1E3A8A 0%,#2563EB 60%,#3B82F6 100%); box-shadow:0 12px 28px rgba(37,99,235,.28); transition:transform .15s, box-shadow .15s; }
-  .hk-kacheln a:hover { transform:translateY(-3px); box-shadow:0 18px 38px rgba(37,99,235,.38); }
-  .hk-kacheln b { font-size:21px; } .hk-kacheln small { font-size:13.5px; font-weight:600; opacity:.92; }
+  .hk-kacheln a { display:flex; flex-direction:column; gap:4px; padding:16px 18px; border-radius:14px; text-decoration:none; color:#1E3A8A; background:#FAFAFF; border:1.5px solid #CBD5E1; }
+  .hk-kacheln a:hover { border-color:#2563EB; background:#EFF6FF; }
+  .hk-kacheln b { font-size:18px; } .hk-kacheln small { font-size:13.5px; font-weight:600; color:#64748B; }
   .hk-titel { font-size:26px; margin:0 0 10px; }
   .hk-faq { display:flex; flex-direction:column; gap:10px; }
   .hk-faq details { background:#FAFAFF; border:1px solid #E2E8F0; border-radius:14px; padding:14px 18px; }
@@ -125,8 +125,10 @@
 <style>
 /* 14.11.2026: Anleitungsvideos abspielen (vorhandene Produktvideos) bzw. «Video folgt» */
 .video .play[data-video] { cursor:pointer; }
-.video .play.folgt { background:#E2E8F0 !important; cursor:default; box-shadow:none !important; }
-.video .play.folgt .tri { border-left-color:#94A3B8 !important; }
+#w-hilfe .video .play.folgt, .video .play.folgt { background:#E2E8F0 !important; cursor:pointer; box-shadow:none !important; }
+#w-hilfe .video .play.folgt::before, #w-hilfe .video .play.folgt::after { background:#CBD5E1 !important; box-shadow:none !important; }
+.video.hv-blink { box-shadow:0 0 0 4px rgba(37,99,235,.35) !important; transition:box-shadow .3s; }
+#w-hilfe .video .play.folgt .tri, .video .play.folgt .tri { background:#94A3B8 !important; box-shadow:none !important; }
 .v-folgt { display:inline-block; margin-left:8px; background:#FEF3C7; color:#B45309; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:20px; vertical-align:middle; }
 #hv-ov { position:fixed; inset:0; background:rgba(15,23,42,.72); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
 #hv-ov.an { display:flex; }
@@ -135,7 +137,7 @@
 #hv-ov .hv-k { display:flex; justify-content:space-between; align-items:center; padding:2px 4px 10px; font:600 15px "Segoe UI",sans-serif; color:#0F172A; }
 #hv-ov button { border:0; background:#DBEAFE; color:#1D4ED8; font:700 14px "Segoe UI",sans-serif; padding:6px 12px; border-radius:8px; cursor:pointer; }
 </style>
-<link rel="stylesheet" href="teilen-leiste.css?v=5">
+<link rel="stylesheet" href="teilen-leiste.css?v=6">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
@@ -184,7 +186,7 @@
             <h3>Installation und Musterfirma</h3>
             <p class="v-sum">DEXXUS per Doppelklick installieren und mit der Musterfirma starten.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Entpacken Sie die ZIP-Datei und doppelklicken Sie auf «INSTALLIEREN.bat». Nach wenigen Minuten erscheint auf dem Desktop das Symbol «DEXXUS». Beim ersten Start ist die Musterfirma bereits geladen – so können Sie sofort alles ausprobieren.»</p>
             </details>
           </div>
@@ -196,7 +198,7 @@
             <h3>Lizenzbedingungen bestätigen</h3>
             <p class="v-sum">Beim ersten Start die Lizenzbedingungen lesen und bestätigen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Beim ersten Start erscheint das Fenster «Lizenzbedingungen bestätigen». Lesen Sie den Text, setzen Sie das Häkchen und klicken Sie auf «Weiter». Erst dann öffnet sich DEXXUS – ohne Bestätigung wird das Programm beendet.»</p>
             </details>
           </div>
@@ -208,7 +210,7 @@
             <h3>E-Mail-Konto verbinden</h3>
             <p class="v-sum">Ihr bestehendes Mailkonto einrichten – ganz ohne Microsoft Office.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Einstellungen» und dann «E-Mail». Tragen Sie Ihre E-Mail-Adresse und das Passwort Ihres Mailkontos ein, zum Beispiel Bluewin, Gmail oder Hostpoint. Klicken Sie auf «Verbindung testen» – fertig, ab jetzt versendet DEXXUS Ihre Belege direkt.»</p>
             </details>
           </div>
@@ -220,7 +222,7 @@
             <h3>Claude von Anthropic einrichten</h3>
             <p class="v-sum">Die optionale Online-KI in vier Schritten mit Ihrem API-Schlüssel verbinden.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Erstens: Konto bei Anthropic eröffnen. Zweitens: dort einen API-Schlüssel erstellen. Drittens: in DEXXUS unter «Einstellungen», «KI & Datenschutz» den Schlüssel einfügen. Viertens: «Testen» klicken. DEXXUS Shield schwärzt ab jetzt jede Anfrage automatisch.»</p>
             </details>
           </div>
@@ -237,7 +239,7 @@
             <h3>Kundenkartei anlegen und importieren</h3>
             <p class="v-sum">Kunden erfassen, filtern und ganze Listen aus Excel oder CSV übernehmen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Klicken Sie in «Kunden» auf «+ Kunde anlegen» und füllen Sie die Felder aus. Haben Sie bereits eine Liste, wählen Sie «Kundenliste importieren» und Ihre Excel- oder CSV-Datei. Mit den Filtern oben finden Sie jeden Kunden in Sekunden.»</p>
             </details>
           </div>
@@ -249,7 +251,7 @@
             <h3>Artikel und Preislisten</h3>
             <p class="v-sum">Artikelstamm einrichten und mehrere Preislisten verwalten.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Artikel» und klicken Sie auf «+ Artikel» oder «Importieren». Jeder Artikel kann einer Preisliste zugeordnet werden, zum Beispiel für verschiedene Lieferanten. Mit den Filtern oben wechseln Sie zwischen den Listen.»</p>
             </details>
           </div>
@@ -261,7 +263,7 @@
             <h3>Erste Offerte erstellen und senden</h3>
             <p class="v-sum">Eine Schweizer Offerte erstellen und als PDF oder Word per E-Mail senden.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Wählen Sie «Beleg anlegen» und als Art «Offerte». Kunde wählen, Betreff eingeben, Positionen hinzufügen – die MWST rechnet DEXXUS selbst. Im letzten Schritt klicken Sie auf «In DEXXUS speichern» und danach auf «Per E-Mail senden».»</p>
             </details>
           </div>
@@ -273,7 +275,7 @@
             <h3>Offerte in Rechnung umwandeln</h3>
             <p class="v-sum">Aus einer angenommenen Offerte mit einem Klick eine QR-Rechnung machen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Belege» und wählen Sie die Offerte. Klicken Sie auf «Beleg umwandeln» und dann auf «Rechnung». DEXXUS übernimmt alle Positionen und erstellt die Rechnung mit Schweizer QR-Zahlteil.»</p>
             </details>
           </div>
@@ -285,7 +287,7 @@
             <h3>Mahnungen und fällige Posten</h3>
             <p class="v-sum">Überfällige Rechnungen erkennen und Mahnungen in Stufen erstellen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«In «Rechnungen» sind überfällige Posten rot markiert. Wählen Sie die Rechnung und klicken Sie auf «Mahnung erstellen». DEXXUS wählt die nächste Mahnstufe und übernimmt Betrag und Fälligkeit automatisch.»</p>
             </details>
           </div>
@@ -302,7 +304,7 @@
             <h3>Dokumente importieren</h3>
             <p class="v-sum">PDFs, Scans und E-Mails einlesen – mit automatischer Texterkennung.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Dokumente importieren» und ziehen Sie Dateien oder ganze Ordner in das Feld. Gescannte PDFs werden automatisch gelesen. In der Liste sehen Sie, welche Dokumente fertig sind.»</p>
             </details>
           </div>
@@ -314,7 +316,7 @@
             <h3>Lokalen KI-Assistenten befragen</h3>
             <p class="v-sum">In Ihren Dokumenten suchen und Fragen stellen – direkt auf dem PC.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «KI-Suche» und stellen Sie Ihre Frage in eigenen Worten, zum Beispiel: «Welche Verträge laufen 2027 aus?» Die lokale KI antwortet mit Quellenangabe. Ihre Dokumente verlassen dabei den PC nicht.»</p>
             </details>
           </div>
@@ -326,7 +328,7 @@
             <h3>DEXXUS Shield nutzen</h3>
             <p class="v-sum">Personendaten werden vor jeder Online-Anfrage automatisch geschwärzt.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Laden Sie ein Dokument in «DEXXUS Shield». Links sehen Sie das Original, rechts die geschwärzte Fassung mit Platzhaltern. Prüfen Sie die Vorschau und klicken Sie auf «Geschwärzt senden». Die Antwort setzt DEXXUS lokal wieder mit den echten Daten zusammen.»</p>
             </details>
           </div>
@@ -338,7 +340,7 @@
             <h3>Für jede KI schwärzen</h3>
             <p class="v-sum">Text geschwärzt kopieren und in ChatGPT, Copilot oder Gemini einfügen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Fügen Sie Ihren Text in «Für jede KI schwärzen» ein. DEXXUS ersetzt Namen, Adressen und Nummern durch Platzhalter. Klicken Sie auf «Geschwärzt kopieren» und fügen Sie den Text in Ihre gewohnte KI ein.»</p>
             </details>
           </div>
@@ -355,7 +357,7 @@
             <h3>Virtuelles Team einrichten</h3>
             <p class="v-sum">Software-Assistenten einrichten und ihnen Pflichtenhefte zuteilen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Virtuelles Team» und wählen Sie einen Assistenten. Unter «Pflichtenheft» legen Sie fest, was er erledigen darf und was Ihre Freigabe braucht. Alles, was nach aussen geht, bleibt ein Entwurf, bis Sie zustimmen.»</p>
             </details>
           </div>
@@ -367,7 +369,7 @@
             <h3>Export für den Treuhänder</h3>
             <p class="v-sum">Belege und Zahlungen als Excel oder CSV für den Treuhänder exportieren.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Buchhaltung &amp; Export» und wählen Sie den Zeitraum, zum Beispiel das letzte Quartal. Klicken Sie auf «Export erstellen» und wählen Sie Excel oder CSV. Die Datei können Sie direkt Ihrem Treuhänder senden.»</p>
             </details>
           </div>
@@ -379,7 +381,7 @@
             <h3>Datentresor nutzen</h3>
             <p class="v-sum">Kennwörter, Ausweise und Verträge mit AES-256 verschlüsselt ablegen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Öffnen Sie «Datentresor» und geben Sie Ihr Tresor-Passwort ein. Ziehen Sie Dateien hinein oder erfassen Sie Kennwörter. Beim Schliessen wird alles verschlüsselt – ohne Passwort kann niemand die Daten lesen.»</p>
             </details>
           </div>
@@ -391,7 +393,7 @@
             <h3>DataSweep: Dubletten finden</h3>
             <p class="v-sum">Doppelte Dateien finden und Speicherplatz sicher freigeben.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Wählen Sie in «DataSweep» einen Ordner und klicken Sie auf «Suchen». DEXXUS zeigt doppelte Dateien in Gruppen. Markierte Dubletten kommen zuerst in die Quarantäne und lassen sich jederzeit zurückholen.»</p>
             </details>
           </div>
@@ -403,7 +405,7 @@
             <h3>Zeiterfassung und Honorarnote</h3>
             <p class="v-sum">Zeit per Stoppuhr erfassen und direkt verrechnen.</p>
             <details class="v-skript">
-              <summary>Sprechertext</summary>
+              <summary>Anleitung als Text</summary>
               <p>«Wählen Sie in «Zeiterfassung» den Kunden, geben Sie den Grund ein und klicken Sie auf «Start». Beim Stopp wird die Zeit beim Kunden eingetragen. Über «Aktionen» übernehmen Sie die offenen Zeiten direkt in eine Rechnung.»</p>
             </details>
           </div>
@@ -479,7 +481,12 @@ function suSenden(e) {
 /* 14.11.2026: Anleitungsvideos – Klick spielt das zugehörige Video im Fenster ab */
 document.querySelectorAll(".video .play").forEach(function (b) {
   var src = b.getAttribute("data-video");
-  if (!src) { b.classList.add("folgt"); b.setAttribute("aria-disabled", "true"); b.title = "Video folgt"; return; }
+  if (!src) {   /* 17.11.2026: Video folgt – Klick zeigt die Anleitung als Text */
+    b.classList.add("folgt"); b.title = "Video folgt – Anleitung als Text anzeigen";
+    b.setAttribute("aria-label", (b.getAttribute("aria-label") || "").replace(/ abspielen/, "") + " – Anleitung als Text anzeigen");
+    b.addEventListener("click", function () { var d = b.closest(".video").querySelector("details"); if (!d) { return; } d.open = true;
+      var k = b.closest(".video"); k.classList.add("hv-blink"); setTimeout(function () { k.classList.remove("hv-blink"); }, 1400); });
+    return; }
   b.addEventListener("click", function () { var v = document.getElementById("hv-v"); v.src = src;
     document.getElementById("hv-t").textContent = (b.getAttribute("aria-label") || "").replace(/ abspielen/, "");
     document.getElementById("hv-ov").classList.add("an"); v.play().catch(function () {}); });
