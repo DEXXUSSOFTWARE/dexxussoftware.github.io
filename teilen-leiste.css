@@ -78,3 +78,4 @@
 .dx-schwebe.an { opacity:1; transform:none; pointer-events:auto; }
 @media (max-width:899px) { .dx-band-app, .dx-schwebe-app { display:none !important; } }
 @media (max-width:600px) { .dx-band b { font-size:21px; } .dx-band .in { padding:30px 16px; } }
+.schwebe.weg, .dx-schwebe.weg { opacity:0 !important; pointer-events:none !important; }

@@ -141,4 +141,8 @@
     sw.addEventListener("click", kaufen);
     addEventListener("scroll", function () { sw.classList.toggle("an", scrollY > innerHeight * 0.9); }, { passive: true });
   }
+  /* Kauf-Knopf ausblenden, sobald die Fusszeile (Impressum, Datenschutz, AGB) sichtbar ist – sonst verdeckt er die Links */
+  if (sw && fuss && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) { sw.classList.toggle("weg", e[0].isIntersecting); }).observe(fuss);
+  }
 })();
