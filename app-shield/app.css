@@ -173,3 +173,10 @@ textarea { font-size:16px; }
   .mk-blase.an { opacity:1; transform:translate(-50%,-100%) scale(1); animation: blase-hupf .6s ease-in-out 3 .25s; }
   @keyframes blase-hupf { 50% { transform:translate(-50%,-115%) scale(1); } }
 }
+/* 17.11.2026: Text oben ausrichten, mehr Abstand zu den Knöpfen */
+@media (min-width: 900px) {
+  .mk-held { align-items:start; margin-top:14px; }
+  .mk-held-text { padding-top:6px; }
+  .mk-held .mk-pille { margin-top:0; }
+  .mk-cta-oben { margin-top:44px !important; }
+}
