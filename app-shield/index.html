@@ -13,19 +13,17 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="App Shield">
 <link rel="stylesheet" href="panel.css?v=20261116c">
-<link rel="stylesheet" href="app.css?v=20261117h">
-<link rel="stylesheet" href="../teilen-leiste.css?v=3">
+<link rel="stylesheet" href="app.css?v=20261117i">
+<link rel="stylesheet" href="../teilen-leiste.css?v=5">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="../index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
     <a href="../index.html">ERP</a>
-    <a href="../index.html#funktionen">Funktionen</a>
+    <a href="../index.html#vorteile">Vorteile</a>
     <a href="../videos.html">Videos</a>
-    <a href="../web-shield.html">WEB Shield</a>
-    <a href="../shield.html">PC Shield</a>
-    <a href="./" class="an">App Shield</a>
+    <a href="../web-shield.html" class="dx-shield-reiter an" data-shield>Shield</a>
     <a href="../preise.html">Preise</a>
     <a href="../hilfe.html">Hilfe</a>
     <a href="../partner.html">Partner</a>
@@ -35,14 +33,16 @@
   <div class="dxw-sp"></div>
 </div></header>
 <div class="mk-seite">
-<section class="mk-oben">
+
+<section class="mk-held">
+  <div class="mk-held-text">
   <span class="mk-pille">Neu: App Shield fürs Mobile</span>
   <h1 class="mk-titel">Wer clever ist, hat <span>Shield</span>!</h1>
   <div class="mk-slogan">KI ja. Datenleck nein.</div>
   <p class="mk-unter">Am Flughafen, im Zug, beim Kunden: Offerten, Verträge und Briefe mit KI erledigen – ohne dass ein einziger Name Ihr Mobile verlässt.</p>
-</section>
-<section class="mk-mitte">
-  <img class="mk-foto" src="flughafen.jpg?v=2" alt="Geschäftsfrau am Flughafen nutzt App Shield auf dem Mobile">
+  <div class="mk-cta mk-cta-oben"><a class="mk-k2" href="../web-shield.html?kauf=1">Clever sein – jetzt kaufen</a><a class="mk-k1" href="#" id="mkProbe2">Hier ausprobieren</a></div>
+  <p class="mk-klein">Im WEB-Shield-Abo inklusive · 30 Tage gratis · iPhone und Android</p>
+  </div>
   <div class="mk-handy-platz">
 <div class="handy">
 <header class="kopf">
@@ -199,6 +199,15 @@
 </div>
     <div class="mk-probe">Hier direkt ausprobieren</div>
   </div>
+</section>
+<section class="mk-kis" aria-label="Funktioniert mit">
+  <a class="mk-ki" href="#" data-probe><b>ChatGPT</b><small>App Shield + ChatGPT</small></a>
+  <a class="mk-ki" href="#" data-probe><b>Claude</b><small>App Shield + Claude</small></a>
+  <a class="mk-ki" href="#" data-probe><b>Copilot</b><small>App Shield + Copilot</small></a>
+  <a class="mk-ki" href="#" data-probe><b>Gemini</b><small>App Shield + Gemini</small></a>
+</section>
+<section class="mk-mitte2">
+  <img class="mk-foto" src="flughafen.jpg?v=2" alt="Geschäftsfrau am Flughafen nutzt App Shield auf dem Mobile">
   <div class="mk-vorteile">
     <div class="mk-vorteil"><b>In Sekunden geschwärzt</b><small>Namen, Adressen, IBAN, Telefon und AHV-Nummer – automatisch erkannt, direkt auf dem Mobile.</small></div>
     <div class="mk-vorteil"><b>Jede KI</b><small>Funktioniert mit ChatGPT, Claude, Copilot und Gemini – Ihr bisheriges Konto, keine Umstellung.</small></div>
@@ -243,7 +252,7 @@
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
 <script src="app.js?v=20261117h"></script>
-<script>document.getElementById("mkProbe").onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};</script>
-<script src="../teilen-leiste.js?v=3" defer></script>
+<script>document.querySelectorAll("#mkProbe,#mkProbe2,[data-probe]").forEach(function(x){x.onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};});</script>
+<script src="../teilen-leiste.js?v=5" defer></script>
 </body>
 </html>

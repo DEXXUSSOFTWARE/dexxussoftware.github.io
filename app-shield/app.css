@@ -37,8 +37,9 @@ textarea { font-size:16px; }
 
 /* Mobile: nur die App. PC: Verkaufsseite, App live im Mobile-Rahmen in der Mitte */
 @media (max-width: 899px) {
+  .mk-held-text, .mk-kis, .mk-mitte2, .mk-klein,
   .dxw-top, .dx-leiste, .mk-kopf, .mk-oben, .mk-foto, .mk-vorteile, .mk-reihe, .mk-erkl, .mk-fuer, .mk-faq, .mk-preis, .mk-cta, .mk-schluss, .mk-adresse, .mk-fuss, .mk-probe { display:none !important; }
-  .mk-seite, .mk-mitte, .mk-handy-platz, .handy { display:contents; }
+  .mk-seite, .mk-mitte, .mk-held, .mk-handy-platz, .handy { display:contents; }
 }
 @media (min-width: 900px) {
   .dxw-top { position:sticky; top:0; z-index:20; background:rgba(250,250,255,.94); backdrop-filter:blur(6px); border-bottom:1px solid #2563EB; font-family:"Segoe UI Variable Text","Segoe UI",system-ui,Arial,sans-serif; }
@@ -137,3 +138,18 @@ textarea { font-size:16px; }
 .install-knoepfe { display:flex; align-items:center; gap:12px; } .install-knoepfe .gross { width:auto; min-width:0; margin:0; padding:9px 18px; }
 .install[hidden] { display:none; }
 .gesperrt .install { display:none !important; }
+
+/* 17.11.2026: oberer Bereich neu – Text links, live App rechts, darunter KI-Kacheln, dann Foto + Vorteile */
+@media (min-width: 900px) {
+  .mk-held { display:grid; grid-template-columns:1.15fr 300px; gap:48px; align-items:center; text-align:left; margin-top:26px; }
+  .mk-held .mk-pille { margin-top:0; }
+  .mk-held .mk-titel { font-size:50px; margin:14px 0 0; }
+  .mk-held .mk-unter { margin:18px 0 0; max-width:none; }
+  .mk-cta-oben { justify-content:flex-start; margin-top:24px; }
+  .mk-klein { margin:12px 0 0; font-size:14px; color:#64748B; font-weight:600; }
+  .mk-kis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:40px 0 0; }
+  .mk-ki { display:flex; flex-direction:column; align-items:center; gap:4px; padding:22px 10px; border-radius:18px; text-decoration:none; color:#FAFAFF; background:linear-gradient(140deg,#1E3A8A 0%,#2563EB 60%,#3B82F6 100%); box-shadow:0 12px 28px rgba(37,99,235,.28); transition:transform .15s, box-shadow .15s; }
+  .mk-ki:hover { transform:translateY(-3px); box-shadow:0 18px 38px rgba(37,99,235,.38); }
+  .mk-ki b { font-size:22px; } .mk-ki small { font-size:12.5px; font-weight:600; opacity:.9; }
+  .mk-mitte2 { display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center; margin-top:40px; }
+}

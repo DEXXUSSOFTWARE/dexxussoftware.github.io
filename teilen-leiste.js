@@ -31,6 +31,26 @@
     leiste.classList.toggle("offen");
   });
 
+  /* 17.11.2026: Reiter «Shield» – Auswahl mit drei Kacheln (PC Shield, WEB Shield, App Shield) */
+  var SHIELDS = [["PC Shield", "/shield.html", "Programm für Windows"], ["WEB Shield", "/web-shield.html", "Im Browser neben der KI"], ["App Shield", "/app-shield/", "Auf dem Mobile"]];
+  var schildSvg = '<svg viewBox="0 0 48 56" aria-hidden="true"><path d="M24 3 6 10v14c0 13 7.7 23.4 18 28 10.3-4.6 18-15 18-28V10L24 3z" fill="rgba(250,250,255,.18)" stroke="#FAFAFF" stroke-width="3" stroke-linejoin="round"/><path d="m15 28 6.5 6.5L34 21" fill="none" stroke="#FAFAFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var sReiter = kopf.querySelector("[data-shield]");
+  if (sReiter) {
+    var sp = document.createElement("div");
+    sp.className = "dx-shield-panel"; sp.hidden = true;
+    sp.innerHTML = '<div class="dx-sp-in">' + SHIELDS.map(function (x) {
+      return '<a class="dx-sk-kachel" href="' + x[1] + '">' + schildSvg + '<b>' + x[0] + '</b><small>' + x[2] + '</small></a>';
+    }).join("") + '</div>';
+    kopf.appendChild(sp);
+    var spZu = function () { sp.hidden = true; sReiter.classList.remove("offen"); };
+    sReiter.addEventListener("click", function (ev) {
+      if (window.innerWidth <= 860) return;
+      ev.preventDefault(); sp.hidden = !sp.hidden; sReiter.classList.toggle("offen", !sp.hidden);
+    });
+    document.addEventListener("click", function (ev) { if (!sp.hidden && !ev.target.closest(".dx-shield-panel, [data-shield]")) spZu(); });
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") spZu(); });
+  }
+
   /* Mobile: Menü-Knopf in der Kopfzeile – alle Reiter als Liste */
   var nav = kopf.querySelector(".dxw-menu"), innen = kopf.querySelector(".in");
   if (nav && innen) {
@@ -41,6 +61,11 @@
     var liste = document.createElement("nav");
     liste.className = "dx-menue-liste"; liste.hidden = true; liste.setAttribute("aria-label", "Hauptmenü");
     liste.innerHTML = nav.innerHTML;
+    var ls = liste.querySelector("[data-shield]");      // Mobile: die drei Shields einzeln
+    if (ls) {
+      ls.insertAdjacentHTML("afterend", '<span class="dx-ml-titel">Shield</span>' + SHIELDS.map(function (x) { return '<a class="dx-ml-sub" href="' + x[1] + '">' + x[0] + '</a>'; }).join(""));
+      ls.remove();
+    }
     kopf.appendChild(liste);
     mk.addEventListener("click", function () {
       liste.hidden = !liste.hidden; mk.setAttribute("aria-expanded", String(!liste.hidden)); mk.classList.toggle("an", !liste.hidden);

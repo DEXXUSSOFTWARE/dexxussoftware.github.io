@@ -217,18 +217,16 @@
   .dk-mehr { font-size: 13px; color: #475569; text-align: center; } .dk-mehr a { color: #2563EB; font-weight: 700; }
   .spar-text { color: #047857; font-weight: 800; }
 </style>
-<link rel="stylesheet" href="teilen-leiste.css?v=3">
+<link rel="stylesheet" href="teilen-leiste.css?v=5">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
     <a href="index.html">ERP</a>
-    <a href="index.html#funktionen">Funktionen</a>
+    <a href="index.html#vorteile">Vorteile</a>
     <a href="videos.html">Videos</a>
-    <a href="web-shield.html" class="an">WEB Shield</a>
-    <a href="shield.html">PC Shield</a>
-    <a href="app-shield/">App Shield</a>
+    <a href="web-shield.html" class="dx-shield-reiter an" data-shield>Shield</a>
     <a href="preise.html">Preise</a>
     <a href="hilfe.html">Hilfe</a>
     <a href="partner.html">Partner</a>
@@ -344,6 +342,34 @@ Freundliche Grüsse
     <div class="schritt"><div class="nr">1</div><b>Text rein</b><span>Brief, E-Mail oder Word-Datei – plus Ihre Frage oder Anweisung.</span></div>
     <div class="schritt"><div class="nr">2</div><b>«Ausführen»</b><span>Ein Klick. Ihre persönlichen Daten bleiben auf Ihrem PC.</span></div>
     <div class="schritt"><div class="nr">3</div><b>Sofort-Antwort</b><span>Komplett, mit allen echten Namen – und automatisch gespeichert.</span></div>
+  </div>
+</div></section>
+
+<section class="sec" id="installation"><div class="in2">
+  <style>
+    .ins-fotos { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:22px 0 30px; }
+    .ins-fotos figure { margin:0; } .ins-fotos img { width:100%; height:auto; border-radius:18px; box-shadow:0 18px 40px rgba(15,23,42,.15); display:block; }
+    .ins-fotos figcaption { margin-top:8px; font-size:14.5px; color:#475569; font-weight:600; text-align:center; }
+    .ins-schritte { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .ins-s { background:#FAFAFF; border:1px solid #E2E8F0; border-radius:18px; overflow:hidden; box-shadow:0 6px 18px rgba(15,23,42,.06); }
+    .ins-s img { width:100%; height:auto; display:block; background:#EEF4FF; }
+    .ins-s div { padding:14px 16px 16px; } .ins-s i { font-style:normal; display:inline-flex; width:30px; height:30px; border-radius:50%; background:#2563EB; color:#FAFAFF; font-weight:800; align-items:center; justify-content:center; margin-bottom:6px; }
+    .ins-s b { display:block; font-size:17px; margin-bottom:4px; } .ins-s span { font-size:14.5px; color:#475569; line-height:1.5; }
+    @media (max-width: 980px) { .ins-schritte { grid-template-columns:1fr 1fr; } }
+    @media (max-width: 640px) { .ins-fotos, .ins-schritte { grid-template-columns:1fr; } }
+  </style>
+  <span class="eyebrow">So einfach geht's</span>
+  <h2>In 2 Minuten installiert – dann einfach arbeiten</h2>
+  <p class="lead">Im Büro, in der Werkstatt, im Homeoffice: WEB Shield sitzt rechts neben Ihrer KI. Sie arbeiten wie gewohnt – die KI sieht nur Platzhalter.</p>
+  <div class="ins-fotos">
+    <figure><img src="media/web-shield/web-shield-handwerker.jpg" alt="Handwerker arbeitet am PC mit ChatGPT und DEXXUS WEB Shield" loading="lazy" width="1344" height="768"><figcaption>In der Werkstatt: Offerte mit ChatGPT – die Kundennamen bleiben auf dem PC.</figcaption></figure>
+    <figure><img src="media/web-shield/web-shield-laptop.jpg" alt="Zwei Mitarbeiterinnen nutzen DEXXUS WEB Shield auf dem Laptop" loading="lazy" width="1344" height="768"><figcaption>Im Büro: Mahnung freundlich formulieren – mit den echten Namen zurück.</figcaption></figure>
+  </div>
+  <div class="ins-schritte">
+    <div class="ins-s"><img src="media/web-shield/installation/schritt1.jpg" alt="WEB Shield im Browser hinzufügen" loading="lazy" width="1000" height="700"><div><i>1</i><b>Hinzufügen</b><span>WEB Shield für Edge oder Chrome hinzufügen und «Erweiterung hinzufügen» bestätigen.</span></div></div>
+    <div class="ins-s"><img src="media/web-shield/installation/schritt2.jpg" alt="DX-Symbol oben rechts anheften" loading="lazy" width="1000" height="700"><div><i>2</i><b>DX anheften</b><span>Einmal anheften – dann ist das blaue DX immer oben rechts im Browser.</span></div></div>
+    <div class="ins-s"><img src="media/web-shield/installation/schritt3.jpg" alt="KI öffnen und auf DX klicken" loading="lazy" width="1000" height="700"><div><i>3</i><b>KI öffnen, DX klicken</b><span>ChatGPT, Claude, Copilot, Gemini oder Perplexity öffnen. WEB Shield öffnet sich rechts.</span></div></div>
+    <div class="ins-s"><img src="media/web-shield/installation/schritt4.jpg" alt="Antwort mit echten Namen in WEB Shield" loading="lazy" width="1000" height="700"><div><i>4</i><b>Eingeben, ausführen</b><span>Text oder Dokument rein, «Ausführen» – die Antwort kommt mit den echten Namen.</span></div></div>
   </div>
 </div></section>
 
@@ -679,6 +705,6 @@ Freundliche Grüsse
   document.querySelectorAll("[data-linkkopie]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); kopie(URL_WS).then(function () { hinweis(a, "Link kopiert"); }); }); });
 })();
 </script>
-<script src="teilen-leiste.js?v=3" defer></script>
+<script src="teilen-leiste.js?v=5" defer></script>
 </body>
 </html>

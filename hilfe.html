@@ -109,6 +109,18 @@
 #w-hilfe .su-btn:hover { background: #1D4ED8; }
 #w-hilfe .su-hin { font-size: 13px; color: var(--muted); margin: 0; }
 @media (max-width: 640px) { #w-hilfe .su-g { grid-template-columns: 1fr; } #w-hilfe .su-form { padding: 20px 16px; } }
+
+  /* 17.11.2026: Themen-Kacheln und Häufige Fragen */
+  .hk-kacheln { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:22px 0 34px; }
+  .hk-kacheln a { display:flex; flex-direction:column; gap:4px; padding:22px 20px; border-radius:18px; text-decoration:none; color:#FAFAFF; background:linear-gradient(140deg,#1E3A8A 0%,#2563EB 60%,#3B82F6 100%); box-shadow:0 12px 28px rgba(37,99,235,.28); transition:transform .15s, box-shadow .15s; }
+  .hk-kacheln a:hover { transform:translateY(-3px); box-shadow:0 18px 38px rgba(37,99,235,.38); }
+  .hk-kacheln b { font-size:21px; } .hk-kacheln small { font-size:13.5px; font-weight:600; opacity:.92; }
+  .hk-titel { font-size:26px; margin:0 0 10px; }
+  .hk-faq { display:flex; flex-direction:column; gap:10px; }
+  .hk-faq details { background:#FAFAFF; border:1px solid #E2E8F0; border-radius:14px; padding:14px 18px; }
+  .hk-faq summary { font-weight:700; font-size:16px; cursor:pointer; }
+  .hk-faq p { margin:10px 0 0; color:#334155; line-height:1.6; }
+  @media (max-width: 760px) { .hk-kacheln { grid-template-columns:1fr; } }
 </style>
 <style>
 /* 14.11.2026: Anleitungsvideos abspielen (vorhandene Produktvideos) bzw. «Video folgt» */
@@ -123,21 +135,17 @@
 #hv-ov .hv-k { display:flex; justify-content:space-between; align-items:center; padding:2px 4px 10px; font:600 15px "Segoe UI",sans-serif; color:#0F172A; }
 #hv-ov button { border:0; background:#DBEAFE; color:#1D4ED8; font:700 14px "Segoe UI",sans-serif; padding:6px 12px; border-radius:8px; cursor:pointer; }
 </style>
-<link rel="stylesheet" href="teilen-leiste.css?v=3">
+<link rel="stylesheet" href="teilen-leiste.css?v=5">
 </head>
 <body>
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
     <a href="index.html">ERP</a>
-    <a href="index.html#funktionen">Funktionen</a>
     <a href="index.html#vorteile">Vorteile</a>
     <a href="videos.html">Videos</a>
-    <a href="web-shield.html">WEB Shield</a>
-    <a href="shield.html">PC Shield</a>
-    <a href="app-shield/">App Shield</a>
+    <a href="web-shield.html" class="dx-shield-reiter" data-shield>Shield</a>
     <a href="preise.html">Preise</a>
-    <a href="index.html#faq">Häufige Fragen</a>
     <a href="hilfe.html">Hilfe</a>
     <a href="partner.html">Partner</a>
     <a href="partner-portal.html">White-Label</a>
@@ -151,15 +159,20 @@
 <main class="wrap">
   <div class="head">
     <span class="eyebrow">Hilfe-Center</span>
-    <h1>Anleitungsvideos</h1>
-    <p class="lead">18 kurze Videos – jedes unter einer Minute. Ohne lange Einleitung, direkt zum Ziel.</p>
+    <h1>Wie können wir helfen?</h1>
+    <p class="lead">Thema wählen – Videos, Antworten auf häufige Fragen oder direkt eine Support-Anfrage.</p>
   </div>
+  <nav class="hk-kacheln" aria-label="Hilfe-Themen">
+    <a href="#videos"><b>Anleitungsvideos</b><small>18 kurze Videos, je unter einer Minute</small></a>
+    <a href="#faq"><b>Häufige Fragen</b><small>Die wichtigsten Antworten zu DEXXUS und Shield</small></a>
+    <a href="#support"><b>Support-Anfrage</b><small>Antwort innert eines Arbeitstages</small></a>
+  </nav>
+  <h2 id="videos" class="hk-titel">Anleitungsvideos</h2>
   <nav class="jump" aria-label="Themen">
     <a href="#block-db"><span class="mod sm db">DB</span>Die ersten Schritte</a>
     <a href="#block-re"><span class="mod sm re">RE</span>Verkauf &amp; Finanzen</a>
     <a href="#block-sh"><span class="mod sm sh">SH</span>KI-Assistent &amp; Datenschutz</a>
     <a href="#block-vm"><span class="mod sm vm">VM</span>Die Helfer</a>
-    <a href="#support"><span class="mod sm db">?</span>Support-Anfrage</a>
   </nav>
     <section class="block" id="block-db" aria-labelledby="t-db">
       <div class="b-head"><span class="mod db" aria-hidden="true">DB</span><div><h2 id="t-db">Die ersten Schritte</h2><p>Installation, Lizenz, E-Mail und KI einrichten · 4 Videos</p></div></div>
@@ -397,6 +410,21 @@
         </article>
       </div>
     </section>
+    <section class="block" id="faq" aria-labelledby="t-faq">
+      <h2 id="t-faq" style="margin:0 0 6px;font-size:26px">Häufige Fragen</h2>
+      <p style="margin:0 0 14px;color:#475569">Die wichtigsten Antworten rund um DEXXUS und die Shields.</p>
+      <div class="hk-faq">
+        <details><summary>Warum brauche ich für DEXXUS kein Microsoft Office?</summary><p>DEXXUS ist komplett eigenständig. Das Programm liest und schreibt Word- und Excel-Dateien (.docx, .xlsx) vollautomatisch im Hintergrund. Auch Ihre E-Mails werden direkt über Ihr bestehendes Mailkonto (Bluewin, Gmail, Hostpoint etc.) über eine sichere, verschlüsselte Verbindung versendet und empfangen.</p></details>
+        <details><summary>Läuft die künstliche Intelligenz auch ohne Internet?</summary><p>Ja. DEXXUS bringt seine eigene, lokale KI mit. Sie wird bei der Installation kostenlos auf Ihrem PC eingerichtet. Fragen zu Ihren Dokumenten, Textentwürfe und Zusammenfassungen laufen vollständig offline. Internet braucht es nur für optionale Online-Recherchen.</p></details>
+        <details><summary>Entstehen laufende Zusatzkosten bei KI-Anfragen?</summary><p>Nein, bei der eingebauten lokalen KI fallen keine Token-Kosten oder Abogebühren an. Wenn Sie optional Claude von Anthropic für komplexe Recherchen zuschalten, läuft dies über Ihr eigenes Konto und wird nach Verbrauch abgerechnet – bei gelegentlicher Nutzung meist nur wenige Franken pro Monat.</p></details>
+        <details><summary>Wird mein Apple Mac unterstützt?</summary><p>Nein. DEXXUS läuft auf Windows-PCs (empfohlen Windows 11 mit 32 GB Arbeitsspeicher, mindestens 16 GB). Eine Mac-Version ist nicht geplant. WEB Shield läuft in Edge und Chrome, App Shield auf jedem Mobile (iPhone und Android).</p></details>
+        <details><summary>Wie funktioniert die Datenübergabe an meinen Treuhänder?</summary><p>DEXXUS klammert die Finanzbuchhaltung bewusst aus. Am Quartalsende erstellen Sie im Modul Buchhaltung mit einem Klick einen sauberen Export (CSV/Excel) für Ihren Treuhänder.</p></details>
+        <details><summary>Was ist der Unterschied zwischen PC Shield, WEB Shield und App Shield?</summary><p>Alle drei schwärzen Namen, Adressen, IBAN und weitere persönliche Angaben, bevor etwas an eine KI geht. PC Shield ist ein Programm für Windows (Dateien, PDFs, jede KI). WEB Shield läuft im Browser direkt neben ChatGPT, Claude &amp; Co. App Shield ist die Version für das Mobile und im WEB-Shield-Abo inklusive.</p></details>
+        <details><summary>Wie schalte ich App Shield auf dem Mobile frei?</summary><p>Die Lizenz-E-Mail auf dem Mobile öffnen und auf den grünen Knopf «App Shield freischalten» tippen. Danach App Shield als Symbol auf den Startbildschirm legen. Auf dem iPhone App Shield über das Symbol öffnen und die Lizenz einmal einfügen (Knopf in der E-Mail lange drücken, «Link kopieren»).</p></details>
+        <details><summary>Gibt es einen Gratis-Test?</summary><p>Ja. DEXXUS, WEB Shield und App Shield können Sie 30 Tage gratis testen – ohne Kreditkarte, der Test endet automatisch.</p></details>
+      </div>
+    </section>
+
     <section class="block" id="support" aria-labelledby="t-support">
       <span class="eyebrow">Support</span>
       <h2 id="t-support" style="margin:0 0 6px;font-size:26px">Frage oder Problem? Support-Anfrage senden</h2>
@@ -459,6 +487,6 @@ document.querySelectorAll(".video .play").forEach(function (b) {
 function hvZu() { var v = document.getElementById("hv-v"); v.pause(); v.removeAttribute("src"); v.load(); document.getElementById("hv-ov").classList.remove("an"); }
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") { hvZu(); } });
 </script>
-<script src="teilen-leiste.js?v=3" defer></script>
+<script src="teilen-leiste.js?v=5" defer></script>
 </body>
 </html>
