@@ -308,7 +308,12 @@ document.querySelectorAll("[data-zu]").forEach(b => b.onclick = () => { b.closes
 document.querySelectorAll(".fenster").forEach(f => f.addEventListener("click", e => { if (e.target === f) f.hidden = true; }));
 $("eSpeichern").onclick = () => { EINST = { datum: $("eDatum").checked, hinweis: $("eHinweis").checked, eigene: $("eEigene").value }; speicher.set("einstellungen", EINST); $("fensterEinst").hidden = true; meldung("Gespeichert."); };
 $("eAllesLoeschen").onclick = () => { if (!confirm("Wirklich ALLE gespeicherten Antworten löschen?")) return; UEB = []; speicher.set("uebersicht", UEB); uebersichtZeigen(); meldung("Alle Antworten gelöscht."); };
-$("eWhatsapp").href = "https://wa.me/?text=" + encodeURIComponent("Schau dir das an: App Shield schwärzt Namen, Adressen und IBAN, bevor sie zu ChatGPT, Claude & Co. gehen – direkt auf dem Mobile. https://dexxus.ch/app-shield/");
+$("eWhatsapp").onclick = async e => {   // Teilen über das Teilen-Menü des Mobiles (WhatsApp, Threema, SMS …)
+  e.preventDefault();
+  const t = "Schau dir das an: App Shield schwärzt Namen, Adressen und IBAN, bevor sie zu ChatGPT, Claude & Co. gehen – direkt auf dem Mobile.", u = "https://dexxus.ch/app-shield/";
+  if (navigator.share) { try { await navigator.share({ title: "App Shield", text: t, url: u }); } catch (x) { /* abgebrochen */ } }
+  else meldung(await kopieren(t + " " + u) ? "Text mit Link kopiert." : "Teilen nicht möglich.");
+};
 
 /* ---------- Vorführ-Ansichten für Werbebilder: index.html?ansicht=1..4 (erfundene Daten, nichts wird gespeichert) ---------- */
 function vorfuehren(n) {

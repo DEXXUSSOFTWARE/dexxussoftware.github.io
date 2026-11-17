@@ -190,8 +190,7 @@
     <button class="knopf voll" id="eSpeichern">Speichern</button>
     <button class="knopf w" data-zu>Schliessen</button>
   </div>
-  <h4>Weiterempfehlen</h4>
-  <a class="knopf breit wa" id="eWhatsapp" target="_blank" rel="noopener" href="#">Per WhatsApp an Freund senden</a>
+  <a class="knopf breit gruen" id="eWhatsapp" href="#">Teilen</a>
   <button class="knopf rot breit" id="eAllesLoeschen">Antworten löschen</button>
 </div></div>
 
@@ -239,7 +238,7 @@
 <div class="mk-cta">
   <a class="mk-k1" href="#" id="mkProbe">Jetzt ausprobieren</a>
   <a class="mk-k2" href="../web-shield.html?kauf=1">Clever sein – jetzt kaufen</a>
-  <a class="mk-k3" href="https://wa.me/?text=https%3A%2F%2Fdexxus.ch%2Fapp-shield%2F" target="_blank" rel="noopener">Weiterempfehlen</a>
+  <a class="mk-k3" href="#" id="mkTeilen" style="background:#16A34A">Teilen</a>
 </div>
 <p class="mk-schluss">Ihre Kunden vertrauen Ihnen. Shield sorgt dafür, dass es so bleibt.</p>
 <div class="mk-adresse">dexxus.ch/app-shield</div>
@@ -251,8 +250,9 @@
 <script src="lizenz.js?v=20261117a"></script>
 <script src="dokumente_basis.js?v=20261116c"></script>
 <script src="dokumente.js?v=20261116c"></script>
-<script src="app.js?v=20261117h"></script>
+<script src="app.js?v=20261117m"></script>
 <script>document.querySelectorAll("#mkProbe,#mkProbe2,[data-probe]").forEach(function(x){x.onclick=function(e){e.preventDefault();var h=document.querySelector(".handy");h.scrollIntoView({behavior:"smooth",block:"center"});h.classList.add("blink");setTimeout(function(){h.classList.remove("blink")},1600);};});</script>
+<script>document.getElementById("mkTeilen").onclick=function(e){e.preventDefault();var t="App Shield schwärzt Namen, Adressen und IBAN, bevor sie zu ChatGPT, Claude & Co. gehen – direkt auf dem Mobile.",u="https://dexxus.ch/app-shield/";if(navigator.share){navigator.share({title:"App Shield",text:t,url:u}).catch(function(){});}else if(navigator.clipboard){navigator.clipboard.writeText(t+" "+u);this.textContent="Link kopiert";}};</script>
 <script src="../teilen-leiste.js?v=8" defer></script>
 </body>
 </html>
