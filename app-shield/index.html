@@ -256,11 +256,19 @@
 <script src="dokumente.js?v=20261116c"></script>
 <script src="app.js?v=20261118d"></script>
 <script>
+/* 18.11.2026: zum Mobile scrollen, ohne dass der Kopf (Menü/Teilen-Leiste) den oberen Rand mit dem grünen Knopf verdeckt */
+function mkKopfHoehe() { var m = 0; document.querySelectorAll("body *").forEach(function (el) { var s = getComputedStyle(el);
+    if ((s.position === "fixed" || s.position === "sticky") && el.offsetHeight > 0 && el.offsetHeight < 260) { var r = el.getBoundingClientRect();
+      if (r.top <= 2 && r.bottom > m && r.bottom < 260) { m = r.bottom; } } }); return m; }
+function mkZumHandy(weich) { var h = document.querySelector(".handy"); if (!h) { return; }
+  var ziel = h.getBoundingClientRect().top + scrollY - mkKopfHoehe() - 12; scrollTo({ top: Math.max(0, ziel), behavior: weich ? "smooth" : "auto" }); }
+if (location.hash === "#app") { addEventListener("load", function () { setTimeout(function () { mkZumHandy(false); }, 60); }); }
+addEventListener("hashchange", function () { if (location.hash === "#app") { setTimeout(function () { mkZumHandy(false); }, 30); } });
 /* 17.11.2026: «Hier ausprobieren» – Mobile wackelt, leuchtet grün, Hinweis-Blase erscheint */
 document.querySelectorAll("#mkProbe,#mkProbe2,[data-probe]").forEach(function (x) { x.onclick = function (e) {
   e.preventDefault(); var h = document.querySelector(".handy"), p = document.querySelector(".mk-handy-platz");
-  var mitte = Math.abs(h.getBoundingClientRect().top + h.offsetHeight / 2 - innerHeight / 2) > 120;
-  if (mitte) h.scrollIntoView({ behavior: "smooth", block: "center" });
+  var mitte = Math.abs(h.getBoundingClientRect().top - mkKopfHoehe() - 12) > 40;
+  if (mitte) mkZumHandy(true);
   setTimeout(function () {
     h.classList.remove("wackeln", "blink"); void h.offsetWidth; h.classList.add("wackeln", "blink");
     var b = p.querySelector(".mk-blase"); if (!b) { b = document.createElement("div"); b.className = "mk-blase"; b.textContent = "Hier tippen und ausprobieren"; p.appendChild(b); }
