@@ -100,6 +100,19 @@
 #w-preise .raster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 #w-preise .laufzeit button, #w-preise .rabatt { white-space: nowrap; }
+/* 18.11.2026: Shield-Block */
+#w-preise .sh-preise { max-width: 1160px; margin: 0 auto; padding: 48px 16px 8px; }
+#w-preise .sh-preise > .art { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #0E7490; }
+#w-preise .sh-preise > h2 { margin: 6px 0 8px; font-size: 28px; letter-spacing: -.01em; }
+#w-preise .sh-lead { margin: 0 0 8px; max-width: 820px; color: var(--text-2); font-size: 16px; line-height: 1.6; }
+#w-preise .sh-raster { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; padding-top: 22px; align-items: stretch; }
+#w-preise .sh-zweit { margin-top: -4px; }
+#w-preise .sh-cta2 { margin-top: 8px; background: #FAFAFF !important; color: #2563EB !important; border: 1.5px solid #2563EB !important; }
+#w-preise .sh-anl { margin-top: auto; padding-top: 12px; font-size: 13.5px; font-weight: 600; color: #2563EB; text-decoration: none; }
+#w-preise .sh-anl:hover { text-decoration: underline; }
+#w-preise .sh-erp-titel { max-width: 1160px; margin: 40px auto 0; padding: 0 16px; font-size: 28px; letter-spacing: -.01em; }
+@media (max-width: 1080px) { #w-preise .sh-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { #w-preise .sh-raster { grid-template-columns: 1fr; } #w-preise .sh-preise > h2, #w-preise .sh-erp-titel { font-size: 23px; } }
 @media (max-width: 420px) {
 #w-preise .laufzeit { display: flex; width: 100%; max-width: 360px; }
 #w-preise .laufzeit button { flex: 1 1 auto; padding: 0 8px; gap: 5px; font-size: 13.5px; justify-content: center; }
@@ -442,20 +455,57 @@
 
 <!-- ================= TEIL 2: PAKETE ================= -->
 <main>
-<div class="shband" aria-label="DEXXUS Shield allein">
-  <div class="ic" aria-hidden="true">SH</div>
-  <div>
-    <span class="art">Einmalig · nur Schwärzen</span>
-    <h2>DEXXUS Shield – einsetzbar mit Klara, bexio und anderer Bürosoftware</h2>
-    <p>Sie haben schon eine Bürosoftware und wollen nur KI sicher nutzen? Shield schwärzt Personendaten aus jedem Text – aus Word, E-Mails oder Ihrem bisherigen Programm – bevor sie an ChatGPT, Copilot, Gemini &amp; Co. gehen.</p>
-    <div class="tags"><span class="tag">jede Online-KI</span><span class="tag">Datei oder Text einfügen</span><span class="tag">Antwort mit echten Daten</span><span class="tag">1 Arbeitsplatz</span></div>
+<!-- 18.11.2026: alle Shield-Lizenzen an einem Ort -->
+<section class="sh-preise" id="shield" aria-labelledby="sh-titel">
+  <span class="art">KI-Schutz · ohne Bürosoftware-Wechsel</span>
+  <h2 id="sh-titel">DEXXUS Shield – einsetzbar mit Klara, bexio und anderer Bürosoftware</h2>
+  <p class="sh-lead">Sie haben schon eine Bürosoftware und wollen nur KI sicher nutzen? Shield schwärzt Namen, Adressen und IBAN, bevor ein Text an ChatGPT, Claude, Copilot oder Gemini geht – die Antwort kommt mit den echten Daten zurück.</p>
+  <div class="sh-raster">
+    <article class="paket">
+      <span class="art">Abo · Browser und Mobile</span>
+      <h2>WEB Shield</h2>
+      <p class="hook">Im Browser am PC (Edge, Chrome) – inklusive App Shield fürs Mobile.</p>
+      <div class="preis"><span class="betrag">CHF 9.90</span><span class="einheit">/ Monat</span></div>
+      <span class="anrechnung">30 Tage gratis testen</span>
+      <a class="cta" href="#kaufen" data-kauf="DEXXUS WEB Shield">WEB Shield kaufen</a>
+      <ul class="liste"><li><span class="haken">✓</span><span>WEB Shield für Edge und Chrome</span></li><li><span class="haken">✓</span><span>App Shield für das Mobile</span></li><li><span class="haken">✓</span><span>1 Person</span></li></ul>
+      <a class="sh-anl" href="installation.html#web">Installation ansehen</a>
+    </article>
+    <article class="paket">
+      <span class="art">Abo · für Teams</span>
+      <h2>WEB Shield Team</h2>
+      <p class="hook">WEB Shield und App Shield für mehrere Mitarbeitende – günstiger pro Person.</p>
+      <div class="preis"><span class="betrag">CHF 29.70</span><span class="einheit">/ Monat · 4 Plätze</span></div>
+      <div class="preis sh-zweit"><span class="betrag">CHF 64.35</span><span class="einheit">/ Monat · 10 Plätze</span></div>
+      <a class="cta" href="#kaufen" data-kauf="DEXXUS WEB Shield Team 4">4 Plätze kaufen</a>
+      <a class="cta sh-cta2" href="#kaufen" data-kauf="DEXXUS WEB Shield Team 10">10 Plätze kaufen</a>
+      <ul class="liste"><li><span class="haken">✓</span><span>Alles aus WEB Shield</span></li><li><span class="haken">✓</span><span>4 bzw. 10 Personen</span></li></ul>
+      <a class="sh-anl" href="installation.html#web">Installation ansehen</a>
+    </article>
+    <article class="paket top">
+      <span class="band">BESTES ANGEBOT</span>
+      <span class="art">Abo · 1 Jahr</span>
+      <h2>Shield komplett</h2>
+      <p class="hook">WEB Shield, App Shield und PC Shield in einer Lizenz.</p>
+      <div class="preis"><span class="betrag">CHF 139.–</span><span class="einheit">/ Jahr</span></div>
+      <span class="anrechnung">entspricht CHF 11.58 pro Monat</span>
+      <a class="cta primaer" href="#kaufen" data-kauf="DEXXUS Shield komplett">Shield komplett kaufen</a>
+      <ul class="liste"><li><span class="haken">✓</span><span>WEB Shield für Edge und Chrome</span></li><li><span class="haken">✓</span><span>App Shield für das Mobile</span></li><li><span class="haken">✓</span><span>PC Shield für Windows</span></li></ul>
+      <a class="sh-anl" href="installation.html#komplett">Installation ansehen</a>
+    </article>
+    <article class="paket">
+      <span class="art">Einmalig · Windows</span>
+      <h2>PC Shield</h2>
+      <p class="hook">Programm für Windows – einsetzbar mit bexio, Abacus, SelectLine und Praxis-Software.</p>
+      <div class="preis"><span class="betrag">CHF 49.–</span><span class="einheit">einmalig</span></div>
+      <span class="anrechnung">In Privat, KMU Pro und Enterprise enthalten</span>
+      <a class="cta" href="#kaufen" data-kauf="DEXXUS Shield">PC Shield kaufen</a>
+      <ul class="liste"><li><span class="haken">✓</span><span>Word, PDF, Scans und Pläne</span></li><li><span class="haken">✓</span><span>Antwort mit echten Daten</span></li><li><span class="haken">✓</span><span>1 Arbeitsplatz</span></li></ul>
+      <a class="sh-anl" href="installation.html#pc">Installation ansehen</a>
+    </article>
   </div>
-  <div class="rechts">
-    <div class="pr">CHF 49.– <small>einmalig</small></div>
-    <div class="anr">In Privat, KMU Pro und KMU Enterprise bereits enthalten</div>
-    <a class="cta" href="#kaufen" data-kauf="DEXXUS Shield">Shield kaufen</a>
-  </div>
-</div>
+</section>
+<h2 class="sh-erp-titel">DEXXUS Bürosoftware – Pakete</h2>
 <section class="raster" aria-label="Pakete">
   <article class="paket">
     <span class="art">Einmalig · Fixpreis</span>
@@ -997,7 +1047,10 @@
 <script>
 (function () {
   var ZAHLUNG = "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3";   // Payrexx-Seite «DEXXUS – Lizenz kaufen» (wie alte Webseite)
-  var P = {"DEXXUS Shield": {e: 49, f: "#0891B2", k: "SH"}, "DEXXUS Starter": {e: 19.90, f: "#4F46E5", k: "ST"}, "DEXXUS Privat": {e: 79, f: "#059669", k: "PR"},
+  var P = {"DEXXUS Shield": {e: 49, f: "#0891B2", k: "SH"},
+           "DEXXUS WEB Shield": {m: 9.90, f: "#2563EB", k: "WS"}, "DEXXUS WEB Shield Team 4": {m: 29.70, f: "#2563EB", k: "W4"},
+           "DEXXUS WEB Shield Team 10": {m: 64.35, f: "#2563EB", k: "W10"}, "DEXXUS Shield komplett": {m: 139 / 12, f: "#0F172A", k: "SK", nurJahr: true},
+           "DEXXUS Starter": {e: 19.90, f: "#4F46E5", k: "ST"}, "DEXXUS Privat": {e: 79, f: "#059669", k: "PR"},
            "KMU Pro": {m: 29, f: "#2563EB", k: "KP"}, "KMU Enterprise": {m: 49, f: "#1E3A8A", k: "KE"}};
   var ov = document.getElementById("dk-ov"), lzk = ov.querySelectorAll(".dk-lz button"), agb = document.getElementById("dk-agb"), los = document.getElementById("dk-los");
   var akt = null, jahre = 1, rabatt = 0, zuletzt = null;
@@ -1017,9 +1070,10 @@
     akt = paket; zuletzt = knopf; agb.checked = false;
     var karte = knopf.closest("[data-abo]"), gew = karte && karte.querySelector('.laufzeit button[aria-checked="true"]');
     jahre = gew ? +gew.getAttribute("data-jahre") : 1; rabatt = gew ? +gew.getAttribute("data-rabatt") : 0;
+    lzk.forEach(function (b) { b.style.display = (P[paket].nurJahr && +b.getAttribute("data-j") > 1) ? "none" : ""; });   // Shield komplett nur 1 Jahr
     var m = document.getElementById("dk-m"); m.textContent = P[paket].k; m.style.background = P[paket].f;
     document.getElementById("dk-titel").textContent = (paket.indexOf("DEXXUS") === 0 ? paket : "DEXXUS " + paket) + " kaufen";
-    document.getElementById("dk-paket").textContent = paket + " · 1 Arbeitsplatz";
+    document.getElementById("dk-paket").textContent = paket + (/Team 10/.test(paket) ? " · 10 Plätze" : /Team 4/.test(paket) ? " · 4 Plätze" : " · 1 Arbeitsplatz");
     zeigen(); ov.classList.add("an"); document.getElementById("dk-zu").focus();
   }
   function zu() { ov.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
