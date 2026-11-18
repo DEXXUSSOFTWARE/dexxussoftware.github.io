@@ -198,6 +198,11 @@
 #w-funktionen .card[data-seite]:hover .ansehen { background: #15803D; animation-play-state: paused; }
 #w-funktionen .card[data-seite]:nth-child(2n) .ansehen, #w-funktionen .card[data-seite]:nth-child(2n) .ansehen::after { animation-delay: .9s; }
 #w-funktionen .card[data-seite]:nth-child(3n) .ansehen, #w-funktionen .card[data-seite]:nth-child(3n) .ansehen::after { animation-delay: 1.7s; }
+/* 18.11.2026: Hero rechts = ERP-Karte mit funkelndem grünem Knopf */
+.hero-ansehen { position: relative; overflow: hidden; display: inline-flex; align-items: center; padding: 11px 22px; border-radius: 10px; background: #16A34A; color: #FAFAFF; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(22,163,74,.32); animation: dx-puls 2.6s ease-in-out infinite; }
+.hero-ansehen::after { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.65) 50%, rgba(250,250,255,0) 100%); transform: skewX(-20deg); animation: dx-funkeln 2.6s ease-in-out infinite; }
+.hero-ansehen:hover { background: #15803D; }
+@media (prefers-reduced-motion: reduce) { .hero-ansehen, .hero-ansehen::after { animation: none; } }
 @keyframes dx-funkeln { 0% { left: -60%; } 55%, 100% { left: 130%; } }
 @keyframes dx-puls { 0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(22,163,74,.32); } 50% { transform: scale(1.04); box-shadow: 0 10px 28px rgba(22,163,74,.5); } }
 @media (prefers-reduced-motion: reduce) { #w-funktionen .ansehen, #w-funktionen .ansehen::after { animation: none; } }
@@ -321,29 +326,11 @@
     <div class="b"><a class="p" href="#download">30 Tage kostenlos testen</a><a class="s" href="#funktionen">Funktionen ansehen</a></div>
     <p class="k">Windows · Musterfirma inklusive · entwickelt von avotec AG, Division Datenmanagement &amp; Softwareentwicklung, Schweiz</p>
   </div>
-  <div class="app" aria-hidden="true">
-    <div class="sb">
-      <div class="ni on"><span class="m" style="background:#2563EB">DB</span>Dashboard</div>
-      <div class="ni"><span class="m" style="background:#DB2777">KU</span>Kunden</div>
-      <div class="ni"><span class="m" style="background:#4338CA">BL</span>Belege</div>
-      <div class="ni"><span class="m" style="background:#4F46E5">RE</span>Rechnungen</div>
-      <div class="ni"><span class="m" style="background:#059669">QS</span>KI-Suche</div>
-      <div class="ni"><span class="m" style="background:#0891B2">SH</span>Shield</div>
-      <div class="ni"><span class="m" style="background:#7C3AED">VM</span>Team</div>
-      <div class="ni"><span class="m" style="background:#D97706">TR</span>Tresor</div>
-    </div>
-    <div class="wk">
-      <div class="tl">
-        <div class="t"><b>CHF 12'480</b><span>offene Rechnungen</span></div>
-        <div class="t"><b>148</b><span>Stellen geschwärzt</span></div>
-        <div class="t"><b>3 aktiv</b><span>virtuelles Team</span></div>
-      </div>
-      <div class="tb">
-        <div class="tr"><b>RE-2026-0891</b><span>Müller AG</span><span class="pl" style="background:#ECFDF5;color:#047857">Bezahlt</span></div>
-        <div class="tr"><b>RE-2026-0892</b><span>Widmer IT-Services</span><span class="pl" style="background:#FFFBEB;color:#B45309">Offen</span></div>
-        <div class="tr"><b>RE-2026-0893</b><span>Giger Transporte</span><span class="pl" style="background:#FEF2F2;color:#B91C1C">Mahnung</span></div>
-      </div>
-    </div>
+  <div class="hero-erp" style="align-self:center;background:#FAFAFF;border:1px solid #E2E8F0;border-radius:16px;padding:26px 26px 24px;box-shadow:0 18px 44px rgba(37,99,235,.14);text-align:left">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="width:44px;height:44px;border-radius:10px;background:#4F46E5;color:#FAFAFF;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px">RE</span><h2 style="margin:0;font-size:21px;color:#0F172A">ERP: von der Offerte bis zur Mahnung</h2></div>
+    <p style="margin:0 0 14px;color:#475569;font-size:15.5px;line-height:1.6">Offerte erstellen, mit einem Klick zum Auftrag, Lieferschein und zur Schweizer QR-Rechnung – inklusive Mahnwesen. Belege gehen direkt per E-Mail an den Kunden, Zahlungseingänge werden automatisch zugeordnet.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px"><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Offerte</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Auftrag</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Lieferschein</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">QR-Rechnung</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Mahnung</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Artikel &amp; Preise</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Lieferantenangebote übernehmen</span></div>
+    <a href="#funktionen" class="hero-ansehen" onclick="var c=document.querySelector('#w-funktionen .card[data-seite=&quot;re&quot;]');if(c){event.preventDefault();c.click();}">Seite ansehen ›</a>
   </div>
 </div></section>
 <div id="w-funktionen">
