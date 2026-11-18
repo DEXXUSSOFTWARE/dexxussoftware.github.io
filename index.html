@@ -348,7 +348,6 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="width:44px;height:44px;border-radius:10px;background:#4F46E5;color:#FAFAFF;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px">RE</span><h2 style="margin:0;font-size:21px;color:#0F172A">ERP: von der Offerte bis zur Mahnung</h2></div>
     <p style="margin:0 0 14px;color:#475569;font-size:15.5px;line-height:1.6">Offerte erstellen, mit einem Klick zum Auftrag, Lieferschein und zur Schweizer QR-Rechnung – inklusive Mahnwesen. Belege gehen direkt per E-Mail an den Kunden, Zahlungseingänge werden automatisch zugeordnet.</p>
     <p style="margin:0 0 10px;font-weight:700;color:#1E3A8A;font-size:15px">Klicken Sie auf die Belegauswahl zur Live-Ansicht.</p><div class="hero-tags"><button type="button" class="hero-tag" onclick="dxSeite('re','Offerte','Offerte erfassen, Artikel wählen, als PDF mit Ihrem Briefpapier per E-Mail senden.','#4F46E5',this,'be_offerte')">Offerte</button><button type="button" class="hero-tag" onclick="dxSeite('re','Auftrag','Aus der Offerte mit einem Klick ein Auftrag – alle Positionen werden übernommen.','#4F46E5',this,'be_auftrag')">Auftrag</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferschein','Lieferschein direkt aus dem Auftrag, mit Unterschriftsfeld für den Kunden.','#4F46E5',this,'be_lieferschein')">Lieferschein</button><button type="button" class="hero-tag" onclick="dxSeite('re','QR-Rechnung','Schweizer QR-Rechnung mit einem Klick – Status offen, bezahlt, gemahnt.','#4F46E5',this,'be_qr_rechnung')">QR-Rechnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Mahnung','Überfällige Rechnungen werden erkannt, Mahnungen in Stufen erstellt.','#4F46E5',this,'be_mahnung')">Mahnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Artikel & Preise','Artikelstamm mit Einkaufs- und Verkaufspreisen, Rabatten und Einheiten.','#4F46E5',this,'be_artikel')">Artikel &amp; Preise</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferantenangebote übernehmen','Lieferanten-PDF hineinziehen – DEXXUS macht daraus Ihre Offerte mit Aufschlag.','#4F46E5',this,'be_lieferanten')">Lieferantenangebote übernehmen</button></div>
-    <a href="#funktionen" class="hero-ansehen" onclick="event.preventDefault();dxSeite('re','ERP &amp; Offerten','Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.','#4F46E5',this)">Belege ansehen ›</a>
   </div>
 </div></section>
 <div id="w-funktionen">
@@ -362,16 +361,16 @@
       </div>
 
       <div class="grid">
-        <article class="card">
+        <article class="card" data-seite="ku" data-titel="Kunden &amp; Kontakte" data-farbe="#DB2777" data-text="Kundenliste mit Kundenkarte, offenen Beträgen und Belegen – alles auf einen Blick.">
           <div class="top"><span class="mod" style="background:#DB2777" aria-hidden="true">KU</span><h3>Kunden &amp; Kontakte</h3></div>
           <p>Alle Kunden, Lieferanten und Ansprechpartner an einem Ort – mit Offerten, Rechnungen, Dokumenten und E-Mails auf einen Blick.</p>
           <div class="tags"><span class="tag">Adressen</span><span class="tag">Verlauf</span><span class="tag">E-Mail-Import</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="ti" data-titel="Tickets &amp; Service" data-farbe="#0F766E" data-text="Support-Anfragen als Tickets mit Nummer, Priorität und Status – Aufwand direkt verrechnen.">
           <div class="top"><span class="mod" style="background:#0F766E" aria-hidden="true">TK</span><h3>Tickets &amp; Service</h3></div>
           <p>Kundenanfragen und Supportfälle als Tickets erfassen, zuweisen und erledigen – Aufwand direkt verrechnen.</p>
-          <div class="tags"><span class="tag">Supportfälle</span><span class="tag">Status</span><span class="tag">verrechnen</span></div>
+          <div class="tags"><span class="tag">Support-Tickets</span><span class="tag">Status &amp; Priorität</span><span class="tag">Aufwand verrechnen</span></div>
         </article>
 
         <article class="card feature" data-seite="ze" data-titel="Zeiterfassung" data-farbe="#65A30D" data-text="Stoppuhr starten, Kunde wählen, erfasste Zeiten direkt in die Rechnung übernehmen.">
@@ -389,7 +388,7 @@
         <article class="card" data-seite="qs" data-titel="KI-Dokumentensuche" data-farbe="#059669" data-text="Frage eintippen, «KI fragen» – die lokale KI antwortet aus Ihren eigenen Dokumenten. Nichts geht ins Internet.">
           <div class="top"><span class="mod qs" aria-hidden="true">QS</span><h3>KI-Dokumentensuche</h3></div>
           <p>PDFs, Scans, Word-Dateien und E-Mails in Sekunden durchsuchen und in eigenen Worten befragen – mit lokaler KI.</p>
-          <div class="tags"><span class="tag">lokale KI</span><span class="tag">Texterkennung</span></div>
+          <div class="tags"><span class="tag">Lokale KI</span><span class="tag">Texterkennung</span></div>
         </article>
 
         <article class="card" data-seite="vm" data-titel="Virtuelles Team" data-farbe="#7C3AED" data-text="Ihre Software-Assistenten mit Rolle und Status – Entwürfe landen im Postkorb, Sie geben frei.">
@@ -401,7 +400,7 @@
         <article class="card" data-seite="tr" data-titel="Datentresor" data-farbe="#D97706" data-text="Gesperrt, bis Sie das Passwort eingeben – AES-256 verschlüsselt auf Ihrer Festplatte.">
           <div class="top"><span class="mod tr" aria-hidden="true">TR</span><h3>Datentresor</h3></div>
           <p>Ausweise, Verträge und Passwörter mit AES-256 verschlüsselt direkt auf Ihrer Festplatte sichern.</p>
-          <div class="tags"><span class="tag">AES-256</span><span class="tag">nur lokal</span></div>
+          <div class="tags"><span class="tag">AES-256</span><span class="tag">Lokal</span></div>
         </article>
 
         <article class="card" data-seite="ds" data-titel="DataSweep" data-farbe="#E11D48" data-text="Ordner wählen, analysieren, Dubletten sicher in die Quarantäne – mit Rückgängig.">
@@ -410,10 +409,10 @@
           <div class="tags"><span class="tag">Dubletten</span><span class="tag">Quarantäne</span></div>
         </article>
 
-        <article class="card">
+        <article class="card" data-seite="sh" data-titel="Shield inklusive" data-farbe="#0891B2" data-text="Vor dem Senden an die KI werden Namen, Adressen und Nummern geschwärzt – die Antwort kommt mit den echten Angaben zurück.">
           <div class="top"><span class="mod sh" aria-hidden="true">SH</span><h3>Shield inklusive</h3></div>
           <p>KI sicher nutzen: Shield schwärzt Namen, Adressen und Kontonummern, bevor etwas an ChatGPT &amp; Co. geht. Mehr dazu unter <a href="shield.html">PC Shield</a>, <a href="web-shield.html">WEB Shield</a> und <a href="app-shield/">App Shield</a>.</p>
-          <div class="tags"><span class="tag">automatisch schwärzen</span><span class="tag">nDSG-konform</span></div>
+          <div class="tags"><span class="tag">Automatisch schwärzen</span><span class="tag">nDSG-konform</span></div>
         </article>
       </div>
 
@@ -595,7 +594,7 @@
     /* 18.11.2026: Stichworte als Knöpfe wie oben – Klick zeigt die Seite dieser Funktion */
     c.querySelectorAll(".tags .tag").forEach(function (s) {
       var b = document.createElement("button"); b.type = "button"; b.className = "hero-tag"; b.textContent = s.textContent;
-      var tagBild = {"QR-Rechnung": "be_qr_rechnung", "Honorarnote": "be_qr_rechnung", "Debitoren": "bh", "Offerte": "be_offerte", "Mahnung": "be_mahnung"}[b.textContent];
+      var tagBild = {"QR-Rechnung": "be_qr_rechnung", "Honorarnote": "be_qr_rechnung", "Debitoren": "bh", "Offerte": "be_offerte", "Mahnung": "be_mahnung", "E-Mail-Import": "fn_im", "Texterkennung": "fn_im"}[b.textContent];
       b.addEventListener("click", function (e) { e.stopPropagation(); zeige(c.getAttribute("data-seite"), c.getAttribute("data-titel") + " · " + b.textContent,
         c.getAttribute("data-text"), getComputedStyle(c.querySelector(".mod")).backgroundColor, b, tagBild); });
       s.replaceWith(b);
