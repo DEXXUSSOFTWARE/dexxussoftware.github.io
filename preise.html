@@ -112,6 +112,11 @@
 #w-preise .cta[data-kauf] { background: #16A34A; border-color: #16A34A; color: #FAFAFF; font-weight: 700; box-shadow: 0 8px 20px rgba(22,163,74,.3) !important; }
 #w-preise .cta[data-kauf]:hover { background: #15803D; }
 #w-preise .cta.primaer[data-kauf] { background: #166534; border-color: #166534; }
+/* 18.11.2026: Kauf-Knöpfe ganz unten im Rahmen jedes Pakets (nach Liste und Anleitung) */
+#w-preise .paket .sh-anl { order: 50; }
+#w-preise .paket .cta { order: 60; }
+#w-preise .paket .cta:not(.sh-cta2) { margin-top: auto; }
+#w-preise .paket .sh-anl { margin-top: 0; }
 #w-preise .sh-anl { margin-top: auto; padding-top: 12px; font-size: 13.5px; font-weight: 600; color: #2563EB; text-decoration: none; }
 #w-preise .sh-anl:hover { text-decoration: underline; }
 #w-preise .sh-erp-titel { max-width: 1160px; margin: 40px auto 0; padding: 0 16px; font-size: 28px; letter-spacing: -.01em; }
