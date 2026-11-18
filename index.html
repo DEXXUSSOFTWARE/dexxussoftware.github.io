@@ -585,7 +585,6 @@
   function zu() { lb.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
   document.querySelectorAll("#w-funktionen .card[data-seite]").forEach(function (c) {
     c.setAttribute("tabindex", "0"); c.setAttribute("role", "button");
-    c.insertAdjacentHTML("beforeend", '<span class="ansehen">Seite ansehen ›</span>');
     c.addEventListener("click", function () { auf(c); });
     c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); auf(c); } });
   });
