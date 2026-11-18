@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="7a0ae6f3-3157-462a-adf0-4d28d2832ae1"></script>
+<title>DEXXUS Shield gratis testen</title>
+<meta name="description" content="DEXXUS Shield 30 Tage gratis testen – auf dem Mobile als App Shield, auf dem PC als Testversion für Windows.">
+<meta name="robots" content="noindex">
+<style>
+  :root { --blau:#2563EB; --gruen:#16A34A; --text:#0F172A; --grau:#475569; --linie:#E2E8F0; --weiss:#FAFAFF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#EEF1F8; font-family:'Segoe UI Variable Text','Segoe UI',system-ui,Arial,sans-serif; color:var(--text); }
+  .kopf { background:#1E3A8A; color:var(--weiss); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .kopf b { letter-spacing:.12em; font-size:15px; } .kopf span { color:#C7D2FE; font-weight:600; font-size:14px; }
+  main { max-width:760px; margin:28px auto; padding:0 16px; }
+  .karte { background:var(--weiss); border:1px solid var(--linie); border-radius:16px; padding:26px 24px; box-shadow:0 18px 44px rgba(37,99,235,.10); margin-bottom:16px; }
+  h1 { margin:0 0 8px; font-size:28px; letter-spacing:-.01em; } h2 { margin:0 0 6px; font-size:19px; }
+  p { color:var(--grau); line-height:1.6; margin:6px 0 14px; }
+  .k { display:inline-block; text-decoration:none; font-weight:700; border-radius:11px; padding:13px 22px; margin:4px 8px 4px 0; font-size:15.5px; }
+  .k.gruen { background:var(--gruen); color:var(--weiss); box-shadow:0 8px 20px rgba(22,163,74,.3); }
+  .k.rand { background:var(--weiss); color:var(--blau); border:1.5px solid var(--blau); }
+  ol { margin:8px 0 0; padding-left:22px; color:var(--grau); line-height:1.7; }
+  .hinweis { font-size:13.5px; color:#64748B; }
+  .aus { display:none; }
+</style>
+</head>
+<body>
+<div class="kopf"><b>DEXXUS SHIELD</b><span>Wer clever ist, hat Shield!</span></div>
+<main>
+  <!-- Mobile: App Shield (wird automatisch geöffnet) -->
+  <section class="karte aus" id="mobile">
+    <h1>App Shield wird geöffnet …</h1>
+    <p>Auf dem Mobile testen Sie DEXXUS Shield als App – ohne Download aus dem Store. Fordern Sie dort den Gratis-Test an und legen Sie App Shield auf den Startbildschirm.</p>
+    <a class="k gruen" href="app-shield/">App Shield gratis testen</a>
+  </section>
+
+  <!-- PC: Testversion für Windows -->
+  <section class="karte aus" id="pc">
+    <h1>DEXXUS Shield 30 Tage gratis testen</h1>
+    <p>Der Download der Testversion für Windows startet automatisch. Falls nicht, klicken Sie auf den grünen Knopf.</p>
+    <a class="k gruen" id="dl" href="https://www.dropbox.com/scl/fi/pgmebt7uf6gwhe0r8ggpk/DEXXUS_Testversion_V20.54_2026-11-14.zip?rlkey=i9gsgtjz9tmtc91iglqs4kaqy&amp;dl=1">Testversion für Windows herunterladen</a>
+    <a class="k rand" href="installation.html">Installationsanleitung</a>
+    <h2 style="margin-top:18px">So geht es weiter</h2>
+    <ol>
+      <li>Die ZIP-Datei liegt im Ordner «Downloads».</li>
+      <li>Rechtsklick auf die Datei, «Alle extrahieren».</li>
+      <li>Im entpackten Ordner «INSTALLIEREN.bat» doppelklicken – fertig.</li>
+    </ol>
+    <p class="hinweis" style="margin-top:14px">Auf dem Mobile? Öffnen Sie diese Seite einfach dort – dann erhalten Sie App Shield statt der Windows-Version.</p>
+  </section>
+
+  <section class="karte">
+    <h2>Lieber gleich kaufen?</h2>
+    <p>WEB Shield ab CHF 9.90 pro Monat (App Shield inklusive), Shield komplett CHF 139.– pro Jahr, PC Shield CHF 49.– einmalig.</p>
+    <a class="k gruen" href="preise.html#shield">Preise und kaufen</a>
+  </section>
+</main>
+<script>
+(function () {
+  var ua = navigator.userAgent || "";
+  var mobil = /Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  if (new URLSearchParams(location.search).get("geraet") === "pc") { mobil = false; }
+  if (mobil) {
+    document.getElementById("mobile").classList.remove("aus");
+    setTimeout(function () { location.replace("app-shield/"); }, 1200);
+    return;
+  }
+  document.getElementById("pc").classList.remove("aus");
+  var dl = document.getElementById("dl");
+  // aktuellste Testversion von der Startseite übernehmen (gleicher Link wie dexxus.ch → Download)
+  fetch("index.html", {cache: "no-store"}).then(function (r) { return r.text(); }).then(function (h) {
+    var m = h.match(/href="(https:\/\/www\.dropbox\.com\/[^"]*DEXXUS_Testversion[^"]*)"/);
+    if (m) { var t = document.createElement("textarea"); t.innerHTML = m[1]; dl.href = t.value; }
+  }).catch(function () {}).then(function () {
+    if (new URLSearchParams(location.search).get("auto") !== "0") { setTimeout(function () { location.href = dl.href; }, 900); }
+  });
+})();
+</script>
+</body>
+</html>
