@@ -206,6 +206,10 @@
 .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 .hero-tag { position: relative; overflow: hidden; font: 700 14px inherit; font-family: inherit; padding: 9px 16px; border-radius: 10px; background: #DBEAFE; color: #1E3A8A; border: 1px solid #93C5FD; cursor: pointer; box-shadow: 0 4px 12px rgba(37,99,235,.15); transition: background .15s, color .15s, transform .15s; }
 .hero-tag:nth-child(even) { background: #BFDBFE; }
+.hero-tag { animation: dx-schatten 2.4s ease-in-out infinite; }
+.hero-tag:nth-child(even) { animation-delay: 1.2s; }
+@keyframes dx-schatten { 0%, 100% { box-shadow: 0 3px 8px rgba(37,99,235,.15); } 50% { box-shadow: 0 6px 18px rgba(37,99,235,.45); } }
+#w-funktionen .hero-tags { margin-bottom: 4px; }
 .hero-tag:hover, .hero-tag:focus-visible { background: #2563EB; color: #FAFAFF; border-color: #2563EB; transform: translateY(-2px); outline: none; }
 .hero-tag::after { content: ""; position: absolute; top: 0; left: -70%; width: 50%; height: 100%; background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.6) 50%, rgba(250,250,255,0) 100%); transform: skewX(-20deg); animation: dx-funkeln 3.2s ease-in-out infinite; }
 .hero-tag:nth-child(1)::after { animation-delay: 0.00s; }
@@ -215,7 +219,7 @@
 .hero-tag:nth-child(5)::after { animation-delay: 1.40s; }
 .hero-tag:nth-child(6)::after { animation-delay: 1.75s; }
 .hero-tag:nth-child(7)::after { animation-delay: 2.10s; }
-@media (prefers-reduced-motion: reduce) { .hero-tag::after { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-tag, .hero-tag::after { animation: none; } }
 @keyframes dx-funkeln { 0% { left: -60%; } 55%, 100% { left: 130%; } }
 @keyframes dx-puls { 0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(22,163,74,.32); } 50% { transform: scale(1.04); box-shadow: 0 10px 28px rgba(22,163,74,.5); } }
 @media (prefers-reduced-motion: reduce) { #w-funktionen .ansehen, #w-funktionen .ansehen::after { animation: none; } }
@@ -319,6 +323,7 @@
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
     <a href="index.html" class="an">ERP</a>
+    <a href="funktionen.html">Funktionen</a>
     <a href="#vorteile">Vorteile</a>
     <a href="videos.html">Videos</a>
     <a href="web-shield.html" class="dx-shield-reiter" data-shield>Shield</a>
@@ -336,13 +341,13 @@
     <span class="ey">Schweizer Bürosoftware · lokal auf Ihrem PC</span>
     <h1>Die Bürosoftware mit integrierter KI –<br>und echtem Datenschutz</h1>
     <p class="l">DEXXUS vereint Offerten, QR-Rechnungen, Akten und KI-Assistenz in einem Programm – direkt auf Ihrem PC. Mit DEXXUS Shield nutzen Sie KI, ohne Personendaten preiszugeben.</p>
-    <div class="b"><a class="p" href="#download">30 Tage kostenlos testen</a><a class="s" href="#funktionen">Funktionen ansehen</a></div>
+    <div class="b"><a class="p" href="#download">30 Tage kostenlos testen</a><a class="s" href="#funktionen" onclick="event.preventDefault();dxSeite('re','Offerte','Offerte erfassen, Artikel wählen, als PDF mit Ihrem Briefpapier per E-Mail senden.','#4F46E5',this,'be_offerte')">Belege ansehen</a></div>
     <p class="k">Windows · Musterfirma inklusive · entwickelt von avotec AG, Division Datenmanagement &amp; Softwareentwicklung, Schweiz</p>
   </div>
   <div class="hero-erp" style="align-self:center;background:#FAFAFF;border:1px solid #E2E8F0;border-radius:16px;padding:26px 26px 24px;box-shadow:0 18px 44px rgba(37,99,235,.14);text-align:left">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="width:44px;height:44px;border-radius:10px;background:#4F46E5;color:#FAFAFF;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px">RE</span><h2 style="margin:0;font-size:21px;color:#0F172A">ERP: von der Offerte bis zur Mahnung</h2></div>
     <p style="margin:0 0 14px;color:#475569;font-size:15.5px;line-height:1.6">Offerte erstellen, mit einem Klick zum Auftrag, Lieferschein und zur Schweizer QR-Rechnung – inklusive Mahnwesen. Belege gehen direkt per E-Mail an den Kunden, Zahlungseingänge werden automatisch zugeordnet.</p>
-    <p style="margin:0 0 10px;font-weight:700;color:#1E3A8A;font-size:15px">Klicken Sie auf die Belegauswahl zur Live-Ansicht.</p><div class="hero-tags"><button type="button" class="hero-tag" onclick="dxSeite('re','Offerte','Offerte erfassen, Artikel wählen, als PDF mit Ihrem Briefpapier per E-Mail senden.','#4F46E5',this)">Offerte</button><button type="button" class="hero-tag" onclick="dxSeite('re','Auftrag','Aus der Offerte mit einem Klick ein Auftrag – alle Positionen werden übernommen.','#4F46E5',this)">Auftrag</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferschein','Lieferschein direkt aus dem Auftrag, mit Unterschriftsfeld für den Kunden.','#4F46E5',this)">Lieferschein</button><button type="button" class="hero-tag" onclick="dxSeite('re','QR-Rechnung','Schweizer QR-Rechnung mit einem Klick – Status offen, bezahlt, gemahnt.','#4F46E5',this)">QR-Rechnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Mahnung','Überfällige Rechnungen werden erkannt, Mahnungen in Stufen erstellt.','#4F46E5',this)">Mahnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Artikel & Preise','Artikelstamm mit Einkaufs- und Verkaufspreisen, Rabatten und Einheiten.','#4F46E5',this)">Artikel &amp; Preise</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferantenangebote übernehmen','Lieferanten-PDF hineinziehen – DEXXUS macht daraus Ihre Offerte mit Aufschlag.','#4F46E5',this)">Lieferantenangebote übernehmen</button></div>
+    <p style="margin:0 0 10px;font-weight:700;color:#1E3A8A;font-size:15px">Klicken Sie auf die Belegauswahl zur Live-Ansicht.</p><div class="hero-tags"><button type="button" class="hero-tag" onclick="dxSeite('re','Offerte','Offerte erfassen, Artikel wählen, als PDF mit Ihrem Briefpapier per E-Mail senden.','#4F46E5',this,'be_offerte')">Offerte</button><button type="button" class="hero-tag" onclick="dxSeite('re','Auftrag','Aus der Offerte mit einem Klick ein Auftrag – alle Positionen werden übernommen.','#4F46E5',this,'be_auftrag')">Auftrag</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferschein','Lieferschein direkt aus dem Auftrag, mit Unterschriftsfeld für den Kunden.','#4F46E5',this,'be_lieferschein')">Lieferschein</button><button type="button" class="hero-tag" onclick="dxSeite('re','QR-Rechnung','Schweizer QR-Rechnung mit einem Klick – Status offen, bezahlt, gemahnt.','#4F46E5',this,'be_qr_rechnung')">QR-Rechnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Mahnung','Überfällige Rechnungen werden erkannt, Mahnungen in Stufen erstellt.','#4F46E5',this,'be_mahnung')">Mahnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Artikel & Preise','Artikelstamm mit Einkaufs- und Verkaufspreisen, Rabatten und Einheiten.','#4F46E5',this,'be_artikel')">Artikel &amp; Preise</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferantenangebote übernehmen','Lieferanten-PDF hineinziehen – DEXXUS macht daraus Ihre Offerte mit Aufschlag.','#4F46E5',this,'be_lieferanten')">Lieferantenangebote übernehmen</button></div>
     <a href="#funktionen" class="hero-ansehen" onclick="event.preventDefault();dxSeite('re','ERP &amp; Offerten','Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.','#4F46E5',this)">Belege ansehen ›</a>
   </div>
 </div></section>
@@ -573,9 +578,9 @@
 (function () {
   var lb = document.getElementById("dx-lb"), zuletzt = null;
   function auf(c) { zeige(c.getAttribute("data-seite"), c.getAttribute("data-titel"), c.getAttribute("data-text"), getComputedStyle(c.querySelector(".mod")).backgroundColor, c); }
-  function zeige(k, titel, text, farbe, c) {
+  function zeige(k, titel, text, farbe, c, bild) {
     var m = document.getElementById("dx-lb-m");
-    document.getElementById("dx-lb-bild").src = "media/seiten/" + k + ".jpg";
+    document.getElementById("dx-lb-bild").src = "media/seiten/" + (bild || k) + ".jpg";
     document.getElementById("dx-lb-bild").alt = titel + " in DEXXUS";
     document.getElementById("dx-lb-titel").textContent = titel + " – so sieht es in DEXXUS aus";
     document.getElementById("dx-lb-text").textContent = text;
@@ -587,6 +592,15 @@
     c.setAttribute("tabindex", "0"); c.setAttribute("role", "button");
     c.addEventListener("click", function () { auf(c); });
     c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); auf(c); } });
+    /* 18.11.2026: Stichworte als Knöpfe wie oben – Klick zeigt die Seite dieser Funktion */
+    c.querySelectorAll(".tags .tag").forEach(function (s) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "hero-tag"; b.textContent = s.textContent;
+      var tagBild = {"QR-Rechnung": "be_qr_rechnung", "Honorarnote": "be_qr_rechnung", "Debitoren": "bh", "Offerte": "be_offerte", "Mahnung": "be_mahnung"}[b.textContent];
+      b.addEventListener("click", function (e) { e.stopPropagation(); zeige(c.getAttribute("data-seite"), c.getAttribute("data-titel") + " · " + b.textContent,
+        c.getAttribute("data-text"), getComputedStyle(c.querySelector(".mod")).backgroundColor, b, tagBild); });
+      s.replaceWith(b);
+    });
+    var tg = c.querySelector(".tags"); if (tg) { tg.classList.add("hero-tags"); }
   });
   window.dxSeite = zeige;
   document.getElementById("dx-lb-zu").addEventListener("click", zu);
