@@ -188,8 +188,19 @@
 #w-funktionen .card.voll { grid-column: 1 / -1; }
 #w-funktionen .card[data-seite] { cursor: pointer; position: relative; }
 #w-funktionen .card[data-seite]:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
-#w-funktionen .ansehen { font-size: 13.5px; font-weight: 700; color: #2563EB; }
-#w-funktionen .card[data-seite]:hover .ansehen { text-decoration: underline; }
+/* 18.11.2026: «Seite ansehen» als auffälliger grüner Knopf, der funkelt (Lichtstreifen + leichtes Pulsieren) */
+#w-funktionen .ansehen { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+  margin-top: 4px; padding: 9px 18px; border-radius: 10px; background: #16A34A; color: #FAFAFF; font-size: 14px; font-weight: 800;
+  box-shadow: 0 8px 20px rgba(22,163,74,.32); cursor: pointer; animation: dx-puls 2.6s ease-in-out infinite; }
+#w-funktionen .ansehen::after { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.65) 50%, rgba(250,250,255,0) 100%);
+  transform: skewX(-20deg); animation: dx-funkeln 2.6s ease-in-out infinite; }
+#w-funktionen .card[data-seite]:hover .ansehen { background: #15803D; animation-play-state: paused; }
+#w-funktionen .card[data-seite]:nth-child(2n) .ansehen, #w-funktionen .card[data-seite]:nth-child(2n) .ansehen::after { animation-delay: .9s; }
+#w-funktionen .card[data-seite]:nth-child(3n) .ansehen, #w-funktionen .card[data-seite]:nth-child(3n) .ansehen::after { animation-delay: 1.7s; }
+@keyframes dx-funkeln { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+@keyframes dx-puls { 0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(22,163,74,.32); } 50% { transform: scale(1.04); box-shadow: 0 10px 28px rgba(22,163,74,.5); } }
+@media (prefers-reduced-motion: reduce) { #w-funktionen .ansehen, #w-funktionen .ansehen::after { animation: none; } }
 #w-funktionen .kern { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #FAFAFF; background: #0891B2; border-radius: 99px; padding: 2px 10px; vertical-align: middle; }
 .dx-lb { position: fixed; inset: 0; z-index: 9000; background: rgba(15,23,42,.6); display: none; align-items: center; justify-content: center; padding: 16px; }
 .dx-lb.an { display: flex; }
