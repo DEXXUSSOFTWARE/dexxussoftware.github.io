@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DEXXUS Funktionen – KI-Suche, Dokument-Analyse, Rechtsfall-Assistent, Datentresor, Virtuelles Team</title>
+<title>DEXXUS KI &amp; Dokumente – KI-Suche, Akten, virtuelles Team, Datentresor</title>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="7a0ae6f3-3157-462a-adf0-4d28d2832ae1"></script>
-<meta name="description" content="Die KI-Funktionen von DEXXUS: KI-Suche in den eigenen Dokumenten, Dokument-Analyse, Rechtsfall-Assistent für Behördenschreiben, Dokumente importieren, verschlüsselter Datentresor und virtuelle Mitarbeiter – alles lokal auf Ihrem PC.">
+<meta name="description" content="KI, die Ihre Dokumente kennt – und trotzdem nichts ins Internet schickt. Wählen Sie eine Funktion: Sie sehen die echte Ansicht aus DEXXUS (Musterdaten).">
 <link rel="canonical" href="https://dexxus.ch/funktionen.html">
-<meta property="og:title" content="DEXXUS Funktionen – KI-Suche, Dokument-Analyse, Rechtsfall-Assistent, Datentresor, Virtuelles Team">
-<meta property="og:description" content="Die KI-Funktionen von DEXXUS: KI-Suche in den eigenen Dokumenten, Dokument-Analyse, Rechtsfall-Assistent für Behördenschreiben, Dokumente importieren, verschlüsselter Datentresor und virtuelle Mitarbeiter – alles lokal auf Ihrem PC.">
+<meta property="og:title" content="DEXXUS KI &amp; Dokumente – KI-Suche, Akten, virtuelles Team, Datentresor">
+<meta property="og:description" content="KI, die Ihre Dokumente kennt – und trotzdem nichts ins Internet schickt. Wählen Sie eine Funktion: Sie sehen die echte Ansicht aus DEXXUS (Musterdaten).">
 <meta property="og:url" content="https://dexxus.ch/funktionen.html">
 <meta property="og:type" content="website">
 <style>
@@ -78,8 +78,6 @@
 #w-inst .pc{--farbe:#4338CA}
 #w-inst .komplett{--farbe:#0F172A}
 @media(max-width:700px){#w-inst .inhalt{grid-template-columns:1fr 1fr!important}#w-inst .b-kopf,#w-inst ol.ablauf{padding-left:18px!important;padding-right:18px!important}#w-inst .mailbox,#w-inst .geraet,#w-inst .weg,#w-inst .fertig,#w-inst .schluss{margin-left:18px!important;margin-right:18px!important}#w-inst .mailbox .z{grid-template-columns:1fr!important;gap:0!important}#w-inst .mailbox .z+.z{margin-top:6px}}
-.fn-bald { display: inline-block; margin-left: 8px; background: #FFEDD5; color: #9A3412; border: 1px solid #FB923C; font-size: 11.5px; font-weight: 800; padding: 2px 8px; border-radius: 99px; vertical-align: middle; letter-spacing: .02em; }
-.fn-bald-hinweis { margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; background: #FFF7ED; border: 1.5px solid #FB923C; color: #9A3412; font-size: 14.5px; }
 </style>
 <link rel="stylesheet" href="teilen-leiste.css?v=9">
 </head>
@@ -87,8 +85,9 @@
 <header class="dxw-top"><div class="in">
   <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
   <nav class="dxw-menu" aria-label="Hauptmenü">
-    <a href="index.html">ERP</a>
-    <a href="funktionen.html">Funktionen</a>
+    <a href="index.html">Start</a>
+    <a href="buerosoftware.html">Bürosoftware</a>
+    <a href="funktionen.html" class="an">KI &amp; Dokumente</a>
     <a href="index.html#vorteile">Vorteile</a>
     <a href="videos.html">Videos</a>
     <a href="web-shield.html" class="dx-shield-reiter" data-shield>Shield</a>
@@ -103,7 +102,8 @@
 <style>
 .fn-wrap { max-width: 1180px; margin: 0 auto; padding: 34px 16px 50px; }
 .fn-wrap h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 8px; letter-spacing: -.02em; }
-.fn-lead { color: #475569; font-size: 17px; max-width: 760px; margin: 0 0 22px; }
+.fn-lead { color: #475569; font-size: 17px; max-width: 820px; margin: 0 0 18px; }
+.fn-pakete-info { font-size: 14px; color: #334155; margin: 0 0 16px; }
 .fn-reiterleiste { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; position: sticky; top: 64px; z-index: 5; background: #FAFAFF; padding: 10px 0; }
 .fn-reiter { display: inline-flex; align-items: center; gap: 8px; font: 700 14.5px inherit; font-family: inherit; padding: 9px 14px; border-radius: 11px;
   background: #DBEAFE; color: #1E3A8A; border: 1px solid #93C5FD; cursor: pointer; transition: background .15s, color .15s; }
@@ -114,9 +114,15 @@
 .fn-m.gross { width: 46px; height: 46px; border-radius: 12px; font-size: 16px; flex: 0 0 auto; }
 .fn-teil { background: #FAFAFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; box-shadow: 0 18px 44px rgba(37,99,235,.10); }
 .fn-teil[hidden] { display: none; }
-.fn-kopf { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+.fn-kopf { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
 .fn-kopf h2 { margin: 0; font-size: 24px; }
 .fn-satz { margin: 2px 0 0; color: #2563EB; font-weight: 700; font-size: 16px; }
+.fn-paket { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 16px; padding: 10px 12px; border-radius: 12px; background: #F0FDF4; border: 1px solid #86EFAC; font-size: 13.5px; }
+.fn-paket b { color: #166534; margin-right: 4px; }
+.fn-p { padding: 3px 10px; border-radius: 99px; font-weight: 700; font-size: 12.5px; }
+.fn-p.ja { background: #16A34A; color: #FAFAFF; }
+.fn-p.nein { background: #F1F5F9; color: #94A3B8; text-decoration: line-through; }
+.fn-p-hinweis { width: 100%; color: #166534; font-size: 12.5px; }
 .fn-raster { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 26px; align-items: start; }
 .fn-text { color: #334155; font-size: 15.5px; line-height: 1.65; margin: 0 0 12px; }
 .fn-vorteile { margin: 0 0 16px; padding-left: 20px; color: #1F2937; line-height: 1.8; font-size: 15px; }
@@ -127,76 +133,93 @@
 .fn-bild { margin: 0; }
 .fn-bild img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 12px 30px rgba(15,23,42,.12); }
 .fn-bild figcaption { font-size: 12.5px; color: #64748B; margin-top: 6px; }
+.fn-thumbs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.fn-thumb { font: 700 13px inherit; font-family: inherit; padding: 6px 12px; border-radius: 9px; border: 1px solid #93C5FD; background: #DBEAFE; color: #1E3A8A; cursor: pointer; }
+.fn-thumb[aria-pressed="true"] { background: #2563EB; color: #FAFAFF; border-color: #2563EB; }
+.fn-bald { display: inline-block; margin-left: 8px; background: #FFEDD5; color: #9A3412; border: 1px solid #FB923C; font-size: 11.5px; font-weight: 800; padding: 2px 8px; border-radius: 99px; vertical-align: middle; }
+.fn-bald-hinweis { margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; background: #FFF7ED; border: 1.5px solid #FB923C; color: #9A3412; font-size: 14.5px; }
+.fn-weiter { margin: 26px 0 0; padding: 16px 18px; border-radius: 14px; background: #EEF2FF; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
 @media (max-width: 860px) { .fn-raster { grid-template-columns: 1fr; } .fn-reiterleiste { position: static; } }
 </style>
 <main>
 <div class="fn-wrap">
-<h1>Funktionen von DEXXUS</h1>
+<h1>KI &amp; Dokumente</h1>
 <p class="fn-lead">KI, die Ihre Dokumente kennt – und trotzdem nichts ins Internet schickt. Wählen Sie eine Funktion: Sie sehen die echte Ansicht aus DEXXUS (Musterdaten).</p>
-<div class="fn-reiterleiste" role="tablist" aria-label="Funktionen"><button type="button" class="fn-reiter" role="tab" data-ziel="ki-suche" aria-controls="fn-ki-suche"><span class="fn-m" style="background:#059669">QS</span>KI-Suche</button><button type="button" class="fn-reiter" role="tab" data-ziel="dokument-analyse" aria-controls="fn-dokument-analyse"><span class="fn-m" style="background:#0E7490">DA</span>Dokument-Analyse<span class="fn-bald">demnächst</span></button><button type="button" class="fn-reiter" role="tab" data-ziel="rechtsfall" aria-controls="fn-rechtsfall"><span class="fn-m" style="background:#1D4ED8">RF</span>Rechtsfall-Assistent<span class="fn-bald">demnächst</span></button><button type="button" class="fn-reiter" role="tab" data-ziel="import" aria-controls="fn-import"><span class="fn-m" style="background:#475569">IM</span>Dokumente importieren</button><button type="button" class="fn-reiter" role="tab" data-ziel="tresor" aria-controls="fn-tresor"><span class="fn-m" style="background:#D97706">TR</span>Datentresor</button><button type="button" class="fn-reiter" role="tab" data-ziel="team" aria-controls="fn-team"><span class="fn-m" style="background:#7C3AED">VM</span>Virtuelles Team</button><button type="button" class="fn-reiter" role="tab" data-ziel="tickets" aria-controls="fn-tickets"><span class="fn-m" style="background:#DC2626">TI</span>Tickets &amp; Service</button><button type="button" class="fn-reiter" role="tab" data-ziel="werbung" aria-controls="fn-werbung"><span class="fn-m" style="background:#C026D3">WB</span>Werbung &amp; Kampagnen</button><button type="button" class="fn-reiter" role="tab" data-ziel="mandate" aria-controls="fn-mandate"><span class="fn-m" style="background:#57534E">MA</span>Mandate &amp; Akten</button><button type="button" class="fn-reiter" role="tab" data-ziel="korrespondenz" aria-controls="fn-korrespondenz"><span class="fn-m" style="background:#0284C7">KO</span>Korrespondenz</button><button type="button" class="fn-reiter" role="tab" data-ziel="marktdaten" aria-controls="fn-marktdaten"><span class="fn-m" style="background:#0369A1">MD</span>Marktdaten &amp; Recherchen</button></div>
+<p class="fn-pakete-info">Bei jeder Funktion sehen Sie, in welchem Paket sie enthalten ist: <span class="fn-p ja">grün = enthalten</span> <span class="fn-p nein">grau = nicht enthalten</span></p>
+<div class="fn-reiterleiste" role="tablist" aria-label="KI &amp; Dokumente"><button type="button" class="fn-reiter" role="tab" data-ziel="ki-suche" aria-controls="fn-ki-suche"><span class="fn-m" style="background:#059669">QS</span>KI-Suche</button><button type="button" class="fn-reiter" role="tab" data-ziel="import" aria-controls="fn-import"><span class="fn-m" style="background:#475569">IM</span>Dokumente importieren</button><button type="button" class="fn-reiter" role="tab" data-ziel="mandate" aria-controls="fn-mandate"><span class="fn-m" style="background:#57534E">MA</span>Mandate &amp; Akten</button><button type="button" class="fn-reiter" role="tab" data-ziel="korrespondenz" aria-controls="fn-korrespondenz"><span class="fn-m" style="background:#0284C7">KO</span>Korrespondenz</button><button type="button" class="fn-reiter" role="tab" data-ziel="team" aria-controls="fn-team"><span class="fn-m" style="background:#7C3AED">VM</span>Virtuelles Team</button><button type="button" class="fn-reiter" role="tab" data-ziel="tresor" aria-controls="fn-tresor"><span class="fn-m" style="background:#D97706">TR</span>Datentresor</button><button type="button" class="fn-reiter" role="tab" data-ziel="datasweep" aria-controls="fn-datasweep"><span class="fn-m" style="background:#E11D48">DS</span>DataSweep</button><button type="button" class="fn-reiter" role="tab" data-ziel="marktdaten" aria-controls="fn-marktdaten"><span class="fn-m" style="background:#0369A1">MD</span>Marktdaten &amp; Recherchen</button><button type="button" class="fn-reiter" role="tab" data-ziel="dokument-analyse" aria-controls="fn-dokument-analyse"><span class="fn-m" style="background:#0E7490">DA</span>Dokument-Analyse<span class="fn-bald">demnächst</span></button><button type="button" class="fn-reiter" role="tab" data-ziel="rechtsfall" aria-controls="fn-rechtsfall"><span class="fn-m" style="background:#1D4ED8">RF</span>Rechtsfall-Assistent<span class="fn-bald">demnächst</span></button></div>
 <section class="fn-teil" id="fn-ki-suche" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#059669">QS</span><div><h2>KI-Suche</h2><p class="fn-satz">Fragen Sie Ihre eigenen Dokumente – die KI antwortet lokal.</p></div></div>
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#059669">QS</span><div><h2>KI-Suche </h2><p class="fn-satz">Fragen Sie Ihre eigenen Dokumente – die KI antwortet lokal.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p nein">Starter</span><span class="fn-p ja">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
   <div class="fn-raster"><div><p class="fn-text">Tippen Sie eine Frage wie «Welche Verträge laufen 2027 aus?» – DEXXUS durchsucht PDFs, Scans, Word-Dateien und E-Mails und antwortet in ganzen Sätzen mit Quellenangabe. Die KI läuft auf Ihrem PC: Nichts geht ins Internet.</p><ul class="fn-vorteile"><li>Antworten aus Ihren eigenen Dokumenten – mit Quelle</li><li>PDFs, Scans (Texterkennung), Word und E-Mails</li><li>Suchbereich wählbar: alle Daten, ein Kunde, ein Ordner</li><li>100 % lokal – keine Cloud, kein Datenabfluss</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
   <figure class="fn-bild"><a href="media/seiten/qs.jpg" target="_blank" rel="noopener"><img src="media/seiten/qs.jpg" alt="KI-Suche in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>KI-Suche in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
 </section>
-<section class="fn-teil" id="fn-dokument-analyse" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#0E7490">DA</span><div><h2>Dokument-Analyse <span class="fn-bald">demnächst</span></h2><p class="fn-satz">Dokumente auswerten, zusammenfassen, vergleichen.</p></div></div>
-  <div class="fn-bald-hinweis"><b>Demnächst verfügbar.</b> Diese Funktion ist in Entwicklung und noch in keinem Paket enthalten. Wer DEXXUS jetzt kauft, erhält sie mit einem späteren Update.</div><div class="fn-raster"><div><p class="fn-text">Fügen Sie Verträge, Offerten oder Berichte ein und wählen Sie die Aufgabe: Zusammenfassung, Risiken, Fristen, Vergleich oder eine eigene Frage. Das Ergebnis erscheint als Arbeitsdokument – zum Speichern oder Drucken.</p><ul class="fn-vorteile"><li>Zusammenfassung, Risiken, Fristen oder eigene Frage</li><li>Mehrere Dokumente auf einmal auswerten</li><li>Ergebnis als Arbeitsdokument speichern oder drucken</li><li>Dokumente werden nur gelesen, nicht abgelegt</li></ul><div class="fn-knoepfe"><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/fn_da.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_da.jpg" alt="Dokument-Analyse in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Dokument-Analyse in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
-</section>
-<section class="fn-teil" id="fn-rechtsfall" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#1D4ED8">RF</span><div><h2>Rechtsfall-Assistent <span class="fn-bald">demnächst</span></h2><p class="fn-satz">Behördenschreiben verstehen – Frist, Möglichkeiten, Antwort.</p></div></div>
-  <div class="fn-bald-hinweis"><b>Demnächst verfügbar.</b> Diese Funktion ist in Entwicklung und noch in keinem Paket enthalten. Wer DEXXUS jetzt kauft, erhält sie mit einem späteren Update.</div><div class="fn-raster"><div><p class="fn-text">Lesen Sie ein Schreiben vom Amt, Gericht oder einer Versicherung ein – als PDF, Foto oder Scan. DEXXUS erkennt die Art des Schreibens, berechnet die Frist, zeigt Ihre Möglichkeiten und entwirft die Antwort mit den passenden Gesetzesartikeln.</p><ul class="fn-vorteile"><li>Über 100 Arten von Behördenschreiben erkannt</li><li>Frist automatisch berechnet und als Aufgabe eingetragen</li><li>Antwortbrief mit Bezug auf Schweizer Gesetze</li><li>Interne Suche lokal oder externe Suche geschützt mit Shield</li></ul><div class="fn-knoepfe"><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/fn_rf.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_rf.jpg" alt="Rechtsfall-Assistent in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Rechtsfall-Assistent in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
-</section>
 <section class="fn-teil" id="fn-import" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#475569">IM</span><div><h2>Dokumente importieren</h2><p class="fn-satz">Ihre Ablage wird durchsuchbar – ohne Umzug.</p></div></div>
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#475569">IM</span><div><h2>Dokumente importieren </h2><p class="fn-satz">Ihre Ablage wird durchsuchbar – ohne Umzug.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p nein">Starter</span><span class="fn-p ja">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
   <div class="fn-raster"><div><p class="fn-text">Ziehen Sie Dateien oder ganze Ordner in DEXXUS: PDF (auch gescannt), Word, Outlook-E-Mails, Bilder und ZIP. Die Dateien bleiben an ihrem Ort – DEXXUS liest sie für die KI-Suche und zeigt den Stand jeder Datei.</p><ul class="fn-vorteile"><li>Dateien und ganze Ordner per Hineinziehen</li><li>Texterkennung für Scans und Fotos</li><li>Dateien bleiben an ihrem Ort – nichts wird verschoben</li><li>Status je Datei, Fehler neu verarbeiten</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
   <figure class="fn-bild"><a href="media/seiten/fn_im.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_im.jpg" alt="Dokumente importieren in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Dokumente importieren in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
 </section>
-<section class="fn-teil" id="fn-tresor" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#D97706">TR</span><div><h2>Datentresor</h2><p class="fn-satz">Ausweise, Verträge, Passwörter – sicher verschlossen.</p></div></div>
-  <div class="fn-raster"><div><p class="fn-text">Der Datentresor verschlüsselt Ihre heikelsten Dokumente mit AES-256 direkt auf Ihrer Festplatte. Ohne Ihr Passwort kommt niemand an die Inhalte – auch nicht bei einem Diebstahl des PCs.</p><ul class="fn-vorteile"><li>AES-256-Verschlüsselung auf Ihrer Festplatte</li><li>Gesperrt, bis Sie das Passwort eingeben</li><li>Für Ausweise, Verträge, Zugangsdaten</li><li>Keine Cloud – die Daten verlassen den PC nie</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/tr.jpg" target="_blank" rel="noopener"><img src="media/seiten/tr.jpg" alt="Datentresor in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Datentresor in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
-</section>
-<section class="fn-teil" id="fn-team" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#7C3AED">VM</span><div><h2>Virtuelles Team</h2><p class="fn-satz">Software-Assistenten erledigen die Routinearbeit.</p></div></div>
-  <div class="fn-raster"><div><p class="fn-text">Geben Sie Ihren virtuellen Mitarbeitenden Rollen und Pflichten: Rechnungen und Mahnungen vorbereiten, Offerten nachfassen, den Posteingang sortieren, Rapporte schreiben. Alles, was nach aussen geht, bleibt ein Entwurf im Postkorb, bis Sie freigeben.</p><ul class="fn-vorteile"><li>Rollen und Pflichtenheft je Mitarbeiter</li><li>Mahnungen, Abo-Rechnungen, Nachfassen, Rapporte</li><li>Postkorb: nichts geht ohne Ihre Freigabe hinaus</li><li>Täglicher Rapport per E-Mail</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/vm.jpg" target="_blank" rel="noopener"><img src="media/seiten/vm.jpg" alt="Virtuelles Team in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Virtuelles Team in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
-</section>
-<section class="fn-teil" id="fn-tickets" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#DC2626">TI</span><div><h2>Tickets &amp; Service</h2><p class="fn-satz">Keine Kundenanfrage geht mehr verloren.</p></div></div>
-  <div class="fn-raster"><div><p class="fn-text">Support-Anfragen aus dem Posteingang werden automatisch zu Tickets mit Nummer, Priorität und Status. Sie antworten direkt aus DEXXUS, erfassen den Aufwand und verrechnen ihn mit einem Klick.</p><ul class="fn-vorteile"><li>Anfragen aus E-Mails automatisch als Ticket</li><li>Nummer, Priorität und Status je Anfrage</li><li>Antwort direkt aus DEXXUS, Verlauf pro Kunde</li><li>Aufwand erfassen und verrechnen</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/fn_ti.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_ti.jpg" alt="Tickets &amp; Service in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Tickets &amp; Service in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
-</section>
-<section class="fn-teil" id="fn-werbung" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#C026D3">WB</span><div><h2>Werbung &amp; Kampagnen</h2><p class="fn-satz">Ihre Kunden gezielt erreichen – gesetzeskonform.</p></div></div>
-  <div class="fn-raster"><div><p class="fn-text">Verwalten Sie Werbe-Kontakte mit Einwilligung, erstellen Sie E-Mail-Kampagnen mit persönlicher Anrede und senden Sie zuerst eine Testmail an sich selbst. Abgemeldete Kontakte werden nie mehr angeschrieben.</p><ul class="fn-vorteile"><li>E-Mail-Kampagnen mit {Name} und {Firma}</li><li>Nur Kontakte mit Einwilligung (Schweizer UWG)</li><li>Testmail an sich selbst, Protokoll jedes Versands</li><li>Werbebotschaften auch auf Offerten und Rechnungen</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/fn_wb.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_wb.jpg" alt="Werbung &amp; Kampagnen in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Werbung &amp; Kampagnen in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
-</section>
 <section class="fn-teil" id="fn-mandate" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#57534E">MA</span><div><h2>Mandate &amp; Akten</h2><p class="fn-satz">Fall, Akte und Fristen an einem Ort.</p></div></div>
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#57534E">MA</span><div><h2>Mandate &amp; Akten </h2><p class="fn-satz">Fall, Akte und Fristen an einem Ort.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p nein">Starter</span><span class="fn-p nein">Privat</span><span class="fn-p nein">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
   <div class="fn-raster"><div><p class="fn-text">Legen Sie Mandate und Fälle an: Jedes Dokument, jeder Brief und jede Frist landet chronologisch im Aktenverzeichnis. Fristen werden rot markiert, Gesetze und Bundesgerichtsurteile sind direkt verknüpft.</p><ul class="fn-vorteile"><li>Chronologisches Aktenverzeichnis je Fall</li><li>Fristen mit Warnung, nichts wird verpasst</li><li>Schweizer Gesetze und Bundesgerichtsurteile integriert</li><li>Suche in der ganzen Akte</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
   <figure class="fn-bild"><a href="media/seiten/fn_ma.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_ma.jpg" alt="Mandate &amp; Akten in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Mandate &amp; Akten in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
 </section>
 <section class="fn-teil" id="fn-korrespondenz" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#0284C7">KO</span><div><h2>Korrespondenz</h2><p class="fn-satz">Briefe auf Ihrem Briefpapier – in einer Minute.</p></div></div>
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#0284C7">KO</span><div><h2>Korrespondenz </h2><p class="fn-satz">Briefe auf Ihrem Briefpapier – in einer Minute.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p ja">Starter</span><span class="fn-p ja">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
   <div class="fn-raster"><div><p class="fn-text">Wählen Sie den Empfänger, schreiben Sie den Text selbst oder lassen Sie ihn von der KI vorschlagen, fügen Sie auf Wunsch den passenden Gesetzesartikel an und senden Sie den Brief als PDF oder Word – per Post oder E-Mail mit Beilagen.</p><ul class="fn-vorteile"><li>Briefe auf Ihrem Briefpapier, als PDF oder Word</li><li>Text mit KI vorschlagen, Vorlagen speichern</li><li>§ Rechtsbezug: passende Gesetzesartikel einfügen</li><li>Per E-Mail mit Beilagen senden</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
   <figure class="fn-bild"><a href="media/seiten/fn_ko.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_ko.jpg" alt="Korrespondenz in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Korrespondenz in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
 </section>
-<section class="fn-teil" id="fn-marktdaten" role="tabpanel">
-  <div class="fn-kopf"><span class="fn-m gross" style="background:#0369A1">MD</span><div><h2>Marktdaten &amp; Recherchen</h2><p class="fn-satz">Kurse, Abstimmungen und Suchaufträge – automatisch.</p></div></div>
-  <div class="fn-raster"><div><p class="fn-text">DEXXUS holt Wechselkurse, Börsenkurse, Abstimmungsresultate und Gesetzesänderungen selbständig ab und überwacht Ihre eigenen Suchaufträge – zum Beispiel Immobilien, Fahrzeuge oder Ausschreibungen.</p><ul class="fn-vorteile"><li>Wechselkurse und Börse täglich aktuell</li><li>Abstimmungen und Gesetzesänderungen</li><li>Eigene Suchaufträge mit Benachrichtigung</li><li>Verlauf als Zahlenreihe</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
-  <figure class="fn-bild"><a href="media/seiten/fn_md.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_md.jpg" alt="Marktdaten &amp; Recherchen in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Marktdaten &amp; Recherchen in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
+<section class="fn-teil" id="fn-team" role="tabpanel">
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#7C3AED">VM</span><div><h2>Virtuelles Team </h2><p class="fn-satz">Software-Assistenten erledigen die Routinearbeit.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p nein">Starter</span><span class="fn-p nein">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
+  <div class="fn-raster"><div><p class="fn-text">Geben Sie Ihren virtuellen Mitarbeitenden Rollen und Pflichten: Rechnungen und Mahnungen vorbereiten, Offerten nachfassen, den Posteingang sortieren, Rapporte schreiben. Alles, was nach aussen geht, bleibt ein Entwurf im Postkorb, bis Sie freigeben.</p><ul class="fn-vorteile"><li>Rollen und Pflichtenheft je Mitarbeiter</li><li>Mahnungen, Abo-Rechnungen, Nachfassen, Rapporte</li><li>Postkorb: nichts geht ohne Ihre Freigabe hinaus</li><li>Täglicher Rapport per E-Mail</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
+  <figure class="fn-bild"><a href="media/seiten/vm.jpg" target="_blank" rel="noopener"><img src="media/seiten/vm.jpg" alt="Virtuelles Team in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Virtuelles Team in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
 </section>
+<section class="fn-teil" id="fn-tresor" role="tabpanel">
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#D97706">TR</span><div><h2>Datentresor </h2><p class="fn-satz">Ausweise, Verträge, Passwörter – sicher verschlossen.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p nein">Starter</span><span class="fn-p ja">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
+  <div class="fn-raster"><div><p class="fn-text">Der Datentresor verschlüsselt Ihre heikelsten Dokumente mit AES-256 direkt auf Ihrer Festplatte. Ohne Ihr Passwort kommt niemand an die Inhalte – auch nicht bei einem Diebstahl des PCs.</p><ul class="fn-vorteile"><li>AES-256-Verschlüsselung auf Ihrer Festplatte</li><li>Gesperrt, bis Sie das Passwort eingeben</li><li>Für Ausweise, Verträge, Zugangsdaten</li><li>Keine Cloud – die Daten verlassen den PC nie</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
+  <figure class="fn-bild"><a href="media/seiten/tr.jpg" target="_blank" rel="noopener"><img src="media/seiten/tr.jpg" alt="Datentresor in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Datentresor in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
+</section>
+<section class="fn-teil" id="fn-datasweep" role="tabpanel">
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#E11D48">DS</span><div><h2>DataSweep </h2><p class="fn-satz">Dubletten finden, PC aufräumen – sicher.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p ja">Starter</span><span class="fn-p ja">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
+  <div class="fn-raster"><div><p class="fn-text">DataSweep findet doppelte Dateien auf Ihrem PC und verschiebt sie sicher in die Quarantäne – mit Rückgängig. Wichtige Ordner und Programme sind geschützt.</p><ul class="fn-vorteile"><li>Dubletten in gewählten Ordnern finden</li><li>Sichere Quarantäne statt Löschen</li><li>Jederzeit rückgängig machen</li><li>Geschützte Ordner werden nie angefasst</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
+  <figure class="fn-bild"><a href="media/seiten/ds.jpg" target="_blank" rel="noopener"><img src="media/seiten/ds.jpg" alt="DataSweep in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>DataSweep in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
+</section>
+<section class="fn-teil" id="fn-marktdaten" role="tabpanel">
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#0369A1">MD</span><div><h2>Marktdaten &amp; Recherchen </h2><p class="fn-satz">Kurse, Abstimmungen und Suchaufträge – automatisch.</p></div></div>
+  <div class="fn-paket"><b>Enthalten in:</b><span class="fn-p nein">Starter</span><span class="fn-p nein">Privat</span><span class="fn-p ja">KMU Pro</span><span class="fn-p ja">KMU Enterprise</span></div>
+  <div class="fn-raster"><div><p class="fn-text">DEXXUS holt Wechselkurse, Börsenkurse, Abstimmungsresultate und Gesetzesänderungen selbständig ab und überwacht Ihre eigenen Suchaufträge – zum Beispiel Immobilien, Fahrzeuge oder Ausschreibungen.</p><ul class="fn-vorteile"><li>Wechselkurse und Börse täglich aktuell</li><li>Abstimmungen und Gesetzesänderungen</li><li>Eigene Suchaufträge mit Benachrichtigung</li><li>Verlauf als Zahlenreihe</li></ul><div class="fn-knoepfe"><a class="fn-k gruen" href="testen.html">30 Tage gratis testen</a><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
+  <figure class="fn-bild"><a href="media/seiten/fn_md.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_md.jpg" alt="Marktdaten &amp; Recherchen in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Marktdaten in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
+</section>
+<section class="fn-teil" id="fn-dokument-analyse" role="tabpanel">
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#0E7490">DA</span><div><h2>Dokument-Analyse <span class="fn-bald">demnächst</span></h2><p class="fn-satz">Dokumente auswerten, zusammenfassen, vergleichen.</p></div></div>
+  <div class="fn-bald-hinweis"><b>Demnächst verfügbar.</b> Diese Funktion ist in Entwicklung und noch in keinem Paket enthalten. Wer DEXXUS jetzt kauft, erhält sie mit einem späteren Update.</div>
+  <div class="fn-raster"><div><p class="fn-text">Fügen Sie Verträge, Offerten oder Berichte ein und wählen Sie die Aufgabe: Zusammenfassung, Risiken, Fristen, Vergleich oder eine eigene Frage. Das Ergebnis erscheint als Arbeitsdokument – zum Speichern oder Drucken.</p><ul class="fn-vorteile"><li>Zusammenfassung, Risiken, Fristen oder eigene Frage</li><li>Mehrere Dokumente auf einmal auswerten</li><li>Ergebnis als Arbeitsdokument speichern oder drucken</li><li>Dokumente werden nur gelesen, nicht abgelegt</li></ul><div class="fn-knoepfe"><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
+  <figure class="fn-bild"><a href="media/seiten/fn_da.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_da.jpg" alt="Dokument-Analyse in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Dokument-Analyse in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
+</section>
+<section class="fn-teil" id="fn-rechtsfall" role="tabpanel">
+  <div class="fn-kopf"><span class="fn-m gross" style="background:#1D4ED8">RF</span><div><h2>Rechtsfall-Assistent <span class="fn-bald">demnächst</span></h2><p class="fn-satz">Behördenschreiben verstehen – Frist, Möglichkeiten, Antwort.</p></div></div>
+  <div class="fn-bald-hinweis"><b>Demnächst verfügbar.</b> Diese Funktion ist in Entwicklung und noch in keinem Paket enthalten. Wer DEXXUS jetzt kauft, erhält sie mit einem späteren Update.</div>
+  <div class="fn-raster"><div><p class="fn-text">Lesen Sie ein Schreiben vom Amt, Gericht oder einer Versicherung ein – als PDF, Foto oder Scan. DEXXUS erkennt die Art des Schreibens, berechnet die Frist, zeigt Ihre Möglichkeiten und entwirft die Antwort mit den passenden Gesetzesartikeln.</p><ul class="fn-vorteile"><li>Über 100 Arten von Behördenschreiben erkannt</li><li>Frist automatisch berechnet und als Aufgabe eingetragen</li><li>Antwortbrief mit Bezug auf Schweizer Gesetze</li><li>Interne Suche lokal oder externe Suche geschützt mit Shield</li></ul><div class="fn-knoepfe"><a class="fn-k rand" href="preise.html">Preise ansehen</a></div></div>
+  <figure class="fn-bild"><a href="media/seiten/fn_rf.jpg" target="_blank" rel="noopener"><img src="media/seiten/fn_rf.jpg" alt="Rechtsfall-Assistent in DEXXUS (Musterdaten)" loading="lazy"></a><figcaption>Rechtsfall-Assistent in DEXXUS · Musterdaten · zum Vergrössern anklicken</figcaption></figure></div>
+</section>
+<div class="fn-weiter"><b>Dazu: Offerten, QR-Rechnungen, Einkauf und Buchhaltung.</b><a class="fn-k rand" href="buerosoftware.html">Bürosoftware ansehen</a></div>
 </div>
 <script>
 (function () {
   var r = document.querySelectorAll(".fn-reiter"), t = document.querySelectorAll(".fn-teil");
-  function zeige(k, scroll) { r.forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-ziel") === k ? "true" : "false"); });
-    t.forEach(function (s) { s.hidden = s.id !== "fn-" + k; }); if (scroll) { history.replaceState(null, "", "#" + k); } }
+  function zeige(k, merken) { r.forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-ziel") === k ? "true" : "false"); });
+    t.forEach(function (s) { s.hidden = s.id !== "fn-" + k; }); if (merken) { history.replaceState(null, "", "#" + k); } }
   r.forEach(function (b) { b.addEventListener("click", function () { zeige(b.getAttribute("data-ziel"), true); }); });
-  var h = location.hash.replace("#", ""); zeige(document.getElementById("fn-" + h) ? h : "ki-suche", false);
+  document.querySelectorAll(".fn-thumb").forEach(function (b) { b.addEventListener("click", function () {
+    var f = b.closest("figure"), img = f.querySelector("img"), a = f.querySelector("a"), c = f.querySelector("figcaption");
+    img.src = a.href = b.getAttribute("data-bild"); c.firstChild.nodeValue = b.getAttribute("data-text") + " in DEXXUS · Musterdaten · zum Vergrössern anklicken";
+    f.querySelectorAll(".fn-thumb").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); }); });
+  var h = location.hash.replace("#", ""); zeige(document.getElementById("fn-" + h) ? h : r[0].getAttribute("data-ziel"), false);
 })();
 </script>
 </main>
