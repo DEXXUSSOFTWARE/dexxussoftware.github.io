@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEXXUS Installation – Schritt für Schritt</title>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="7a0ae6f3-3157-462a-adf0-4d28d2832ae1"></script>
+<meta name="description" content="Installation von App Shield, WEB Shield, PC Shield und Shield komplett – genaue Anleitung vom Erhalt der E-Mail bis zur fertigen Installation.">
+<link rel="canonical" href="https://dexxus.ch/installation.html">
+<meta property="og:title" content="DEXXUS Installation – Schritt für Schritt">
+<meta property="og:description" content="Installation von App Shield, WEB Shield, PC Shield und Shield komplett – genaue Anleitung vom Erhalt der E-Mail bis zur fertigen Installation.">
+<meta property="og:url" content="https://dexxus.ch/installation.html">
+<meta property="og:type" content="website">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body { margin: 0; background: #FAFAFF; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0F172A; -webkit-font-smoothing: antialiased; }
+
+  .dxw-top { position: sticky; top: 0; z-index: 20; background: rgba(250,250,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid #2563EB; }
+  .dxw-top .in { max-width: 1120px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; gap: 24px; }
+  .dxw-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A; font-weight: 700; letter-spacing: .02em; }
+  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #FAFAFF; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
+  .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 1240px) { .dxw-menu { gap: 14px !important; } .dxw-menu a { font-size: 13.5px; } }
+  .dxw-menu a:hover { color: #0F172A; }
+  .dxw-sp { flex: 1; }
+  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #FAFAFF !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-btn:hover { background: #1D4ED8; }
+  @media (max-width: 380px) { .dxw-btn { height: 36px; padding: 0 12px; font-size: 13px; } .dxw-logo span { font-size: 15px; } }   /* 12.11.2026: Handy schmal / grosse Schrift */
+  .dxw-foot { border-top: 1px solid #2563EB; background: #FAFAFF; }
+  .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
+  .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
+  .dxw-foot a:hover { color: #0F172A; }
+  .dxw-vorschau { background: #FFFBEB; color: #92400E; text-align: center; font-size: 12.5px; font-weight: 600; padding: 6px 16px; border-bottom: 1px solid #FDE68A; }
+  @media (max-width: 860px) { .dxw-menu { display: none; } }
+
+
+#w-inst{--blau:#2563EB;--dblau:#1E3A8A;--text:#0F172A;--grau:#64748B;--grau2:#334155;--linie:#E2E8F0;--weiss:#FAFAFF;line-height:1.6}
+#w-inst *{box-sizing:border-box}
+#w-inst .wrap{max-width:860px;margin:0 auto;padding:48px 16px 80px}
+#w-inst .titel{font-size:clamp(1.7rem,4vw,2.3rem);margin:0 0 10px}
+#w-inst .block{border:1px solid #E2E8F0;border-top:6px solid var(--farbe);box-shadow:0 18px 44px rgba(37,99,235,.14)!important}
+#w-inst .inhalt a{box-shadow:0 18px 44px rgba(37,99,235,.10);border:1px solid #E2E8F0}
+@media(max-width:700px){#w-inst .inhalt{grid-template-columns:1fr 1fr}#w-inst .b-kopf,#w-inst ol.ablauf{padding-left:20px;padding-right:20px}#w-inst .mailbox,#w-inst .geraet,#w-inst .weg,#w-inst .fertig,#w-inst .schluss{margin-left:20px;margin-right:20px}#w-inst .mailbox .z{grid-template-columns:1fr}}
+#w-inst .titel{margin:0 0 6px;font-size:24px}
+#w-inst .unter{margin:0 0 34px;color:var(--grau);font-size:14.5px}
+#w-inst .inhalt{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 40px}
+#w-inst .inhalt a{display:block;background:var(--weiss);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--dblau);font-weight:600;font-size:14px;box-shadow:0 3px 12px rgba(15,23,42,.07)}
+#w-inst .inhalt small{display:block;color:var(--grau);font-weight:400;font-size:12.5px}
+#w-inst .block{background:var(--weiss);border-radius:16px;box-shadow:0 16px 44px rgba(15,23,42,.12),0 2px 6px rgba(15,23,42,.05);overflow:hidden;margin:0 0 20px;border-top:6px solid var(--farbe)}
+#w-inst .trenner{height:0;border-top:2px solid #CBD5E1;margin:44px 0}
+#w-inst .b-kopf{padding:30px 38px 22px;border-bottom:1px solid var(--linie)}
+#w-inst .b-kopf .art{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--farbe)}
+#w-inst .b-kopf h2{margin:6px 0 6px;font-size:24px}
+#w-inst .b-kopf p{margin:0;color:var(--grau2);font-size:14.5px}
+#w-inst .mailbox{margin:22px 38px 6px;border-radius:12px;background:#F4F6FB;padding:16px 20px;font-size:14px;color:var(--grau2)}
+#w-inst .mailbox b{color:var(--text)}
+#w-inst .mailbox .z{display:grid;grid-template-columns:120px 1fr;gap:8px;margin:2px 0}
+#w-inst .mailbox .z span:first-child{color:var(--grau);font-weight:600}
+#w-inst .geraet{margin:26px 38px 4px;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--grau)}
+#w-inst ol.ablauf{list-style:none;margin:0;padding:0 38px}
+#w-inst ol.ablauf li{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--linie)}
+#w-inst ol.ablauf li:first-child{border-top:0}
+#w-inst .nr{width:32px;height:32px;border-radius:50%;background:var(--farbe);color:var(--weiss);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14.5px}
+#w-inst li b{display:block;font-size:15px;margin:4px 0 3px}
+#w-inst li p{margin:0;color:var(--grau2);font-size:14.5px}
+#w-inst .ref{display:inline-block;border:1px solid #CBD5E1;border-radius:6px;padding:0 7px;font-size:13px;font-weight:600;color:var(--text);background:#FFFFFF00;white-space:nowrap}
+#w-inst .hinweis{margin-top:6px;font-size:13px;color:var(--grau)}
+#w-inst .fertig{margin:18px 38px 32px;border-radius:12px;padding:14px 18px;font-size:14.5px;color:#166534;background:#F0FDF4;box-shadow:inset 0 0 0 1px #BBF7D0}
+#w-inst .fertig b{color:#14532D}
+#w-inst .weg{margin:26px 38px 6px;padding:14px 18px;border-radius:12px;background:#EEF2FF;color:#1E3A8A;font-weight:700;font-size:16px}
+#w-inst .weg span{display:inline-block;background:#1E3A8A;color:#FAFAFF;border-radius:6px;padding:1px 9px;font-size:12.5px;margin-right:8px;letter-spacing:.04em}
+#w-inst .weg small{display:block;font-weight:400;color:#475569;font-size:13.5px;margin-top:4px}
+#w-inst .schluss{margin:0 38px 34px;padding:16px 20px;border-radius:12px;background:#F4F6FB;font-size:14.5px;color:#334155}
+#w-inst .app{--farbe:#0E7490}
+#w-inst .web{--farbe:#2563EB}
+#w-inst .pc{--farbe:#4338CA}
+#w-inst .komplett{--farbe:#0F172A}
+@media(max-width:700px){#w-inst .inhalt{grid-template-columns:1fr 1fr!important}#w-inst .b-kopf,#w-inst ol.ablauf{padding-left:18px!important;padding-right:18px!important}#w-inst .mailbox,#w-inst .geraet,#w-inst .weg,#w-inst .fertig,#w-inst .schluss{margin-left:18px!important;margin-right:18px!important}#w-inst .mailbox .z{grid-template-columns:1fr!important;gap:0!important}#w-inst .mailbox .z+.z{margin-top:6px}}
+</style>
+<link rel="stylesheet" href="teilen-leiste.css?v=9">
+</head>
+<body>
+<header class="dxw-top"><div class="in">
+  <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
+  <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html">ERP</a>
+    <a href="index.html#vorteile">Vorteile</a>
+    <a href="videos.html">Videos</a>
+    <a href="web-shield.html" class="dx-shield-reiter" data-shield>Shield</a>
+    <a href="preise.html">Preise</a>
+    <a href="hilfe.html" style="color:#0F172A">Hilfe</a>
+    <a href="partner.html">Partner</a>
+    <a href="partner-portal.html">White-Label</a>
+    <a href="presse.html">Presse</a>
+  </nav>
+  <div class="dxw-sp"></div>
+</div></header>
+<main>
+<div id="w-inst"><div class="wrap">
+<h1 class="titel">Installation</h1>
+<p class="unter">Wählen Sie Ihre Shield-Version. Sie sehen genau, was zu tun ist – vom Erhalt der E-Mail bis zur fertigen Installation.</p>
+<div class="inhalt">
+  <a href="#app">App Shield<small>Mobile</small></a>
+  <a href="#web">WEB Shield<small>Browser am PC · inkl. App Shield</small></a>
+  <a href="#pc">PC Shield<small>Programm für Windows</small></a>
+  <a href="#komplett">Shield komplett<small>WEB, App und PC Shield</small></a>
+</div>
+
+<!-- ================= APP SHIELD ================= -->
+<div class="block app" id="app">
+  <div class="b-kopf"><div class="art">Version 1 · Mobile</div><h2>App Shield</h2>
+    <p>Enthalten in jeder WEB-Shield-Lizenz (Abo, Team und Gratis-Test). Die Installation erfolgt vollständig auf dem Mobile.</p></div>
+  <div class="mailbox">
+    <div class="z"><span>Absender</span><span>DEXXUS</span></div>
+    <div class="z"><span>Betreff</span><span>Ihre Lizenz App Shield und WEB Shield (L-2026-0123)</span></div>
+    <div class="z"><span>Enthält</span><span>Grüne Schaltfläche «App Shield freischalten»</span></div>
+  </div>
+  <div class="geraet">Auf dem Mobile</div>
+  <ol class="ablauf">
+    <li><div class="nr">1</div><div><b>E-Mail auf dem Mobile öffnen</b><p>Öffnen Sie die E-Mail von DEXXUS in der Mail-App Ihres Mobiles.</p></div></li>
+    <li><div class="nr">2</div><div><b>Freischalten</b><p>Tippen Sie in der E-Mail auf die grüne Schaltfläche <span class="ref">App Shield freischalten</span>. App Shield öffnet sich und meldet «App Shield ist freigeschaltet».</p></div></li>
+    <li><div class="nr">3</div><div><b>Installation starten</b><p>Tippen Sie in App Shield oben im grünen Feld auf <span class="ref">Installieren</span>.</p>
+      <p class="hinweis">Öffnet sich zuerst Chrome, tippen Sie dort erneut auf «Installieren». iPhone: Tippen Sie in Safari unten auf «Teilen» und wählen Sie «Zum Home-Bildschirm».</p></div></li>
+    <li><div class="nr">4</div><div><b>Installation bestätigen</b><p>Bestätigen Sie mit «Installieren» bzw. «Hinzufügen».</p></div></li>
+    <li><div class="nr">5</div><div><b>Kontrolle</b><p>Öffnen Sie App Shield von DEXXUS mit dem DX-Symbol auf dem Startbildschirm Ihres Mobiles. Fertig.</p></div></li>
+  </ol>
+  <div class="fertig"><b>Installation abgeschlossen.</b> Gratulation – Sie haben App Shield erfolgreich installiert.</div>
+  <div class="schluss">Gratulation, Sie haben sich für Shield, den KI-Schutz, entschieden – das ist clever.<br>Bei Fragen wenden Sie sich bitte an den Support von DEXXUS: info@dexxus.ch</div>
+</div>
+
+<div class="trenner"></div>
+
+<!-- ================= WEB SHIELD ================= -->
+<div class="block web" id="web">
+  <div class="b-kopf"><div class="art">Version 2 · Browser am PC</div><h2>WEB Shield</h2>
+    <p>Für Microsoft Edge und Google Chrome. Gilt für WEB Shield Abo, Team 4, Team 10 und Gratis-Test. Es gibt zwei Wege – wählen Sie den Weg, über den Sie WEB Shield erhalten haben.</p></div>
+
+  <div class="weg"><span>Weg 1</span> Kauf über den Store <small>Sie haben WEB Shield im Store von Microsoft oder Google gefunden.</small></div>
+  <ol class="ablauf">
+    <li><div class="nr">1</div><div><b>Im Store suchen</b><p>Öffnen Sie den Store Ihres Browsers – «Edge Add-ons» bzw. «Chrome Web Store» – und suchen Sie nach «DEXXUS WEB Shield».</p></div></li>
+    <li><div class="nr">2</div><div><b>Erweiterung installieren</b><p>Klicken Sie auf «Abrufen» (Edge) bzw. «Hinzufügen» (Chrome) und bestätigen Sie mit «Erweiterung hinzufügen».</p></div></li>
+    <li><div class="nr">3</div><div><b>Symbol anheften</b><p>Klicken Sie oben rechts neben der Adresszeile auf das Puzzle-Symbol und auf die Stecknadel neben «DEXXUS WEB Shield».</p></div></li>
+    <li><div class="nr">4</div><div><b>Gratis-Test beginnt</b><p>Öffnen Sie chatgpt.com und klicken Sie auf das blaue DX-Symbol. Der Gratis-Test über 30 Tage startet automatisch.</p></div></li>
+    <li><div class="nr">5</div><div><b>Abo kaufen</b><p>Klicken Sie in WEB Shield auf <span class="ref">Jetzt kaufen</span>. Sie gelangen auf dexxus.ch, wählen Ihr Abo und bezahlen.</p></div></li>
+    <li><div class="nr">6</div><div><b>Lizenz-E-Mail erhalten</b><p>Nach der Zahlung erhalten Sie eine E-Mail von DEXXUS mit dem Betreff «Ihre Lizenz App Shield und WEB Shield (L-…)». Speichern Sie den Anhang <span class="ref">L-….dxlic</span> mit «Speichern unter» auf dem Desktop.</p></div></li>
+    <li><div class="nr">7</div><div><b>Lizenz einlesen</b><p>Klicken Sie in WEB Shield auf <span class="ref">Lizenz erhalten?</span> und ziehen Sie die Lizenzdatei vom Desktop in das Feld.</p></div></li>
+  </ol>
+
+  <div class="weg"><span>Weg 2</span> Kauf über die Webseite dexxus.ch <small>Sie haben auf dexxus.ch bestellt oder einen Gratis-Test angefordert.</small></div>
+  <ol class="ablauf">
+    <li><div class="nr">1</div><div><b>Bestellen</b><p>Wählen Sie auf dexxus.ch unter «Preise» Ihr WEB-Shield-Abo bzw. den Gratis-Test und schliessen Sie die Bestellung ab.</p></div></li>
+    <li><div class="nr">2</div><div><b>Lizenz-E-Mail erhalten</b><p>Sie erhalten eine E-Mail von DEXXUS mit dem Betreff «Ihre Lizenz App Shield und WEB Shield (L-…)». Öffnen Sie diese E-Mail am PC.</p></div></li>
+    <li><div class="nr">3</div><div><b>Lizenzdatei speichern</b><p>Klicken Sie mit der rechten Maustaste auf den Anhang <span class="ref">L-….dxlic</span>, wählen Sie «Speichern unter» und speichern Sie die Datei auf dem Desktop.</p></div></li>
+    <li><div class="nr">4</div><div><b>Erweiterung installieren</b><p>Klicken Sie in der E-Mail auf die blaue Schaltfläche für Ihren Browser – <span class="ref">Für Microsoft Edge hinzufügen</span> oder <span class="ref">Für Google Chrome hinzufügen</span>. Klicken Sie im Store auf «Abrufen» bzw. «Hinzufügen» und bestätigen Sie mit «Erweiterung hinzufügen».</p>
+      <p class="hinweis">Edge erkennen Sie am blau-grünen Wellen-Symbol, Chrome am rot-gelb-grünen Kreis.</p></div></li>
+    <li><div class="nr">5</div><div><b>Symbol anheften</b><p>Klicken Sie oben rechts auf das Puzzle-Symbol und auf die Stecknadel neben «DEXXUS WEB Shield».</p></div></li>
+    <li><div class="nr">6</div><div><b>Lizenz einlesen</b><p>Öffnen Sie chatgpt.com, klicken Sie auf das blaue DX-Symbol, dann auf <span class="ref">Lizenz erhalten?</span>, und ziehen Sie die Lizenzdatei vom Desktop in das Feld.</p></div></li>
+  </ol>
+  <div class="fertig"><b>Installation abgeschlossen.</b> Gratulation – Sie haben WEB Shield erfolgreich installiert. WEB Shield zeigt oben «Gratis-Test bis …» bzw. «Abo aktiv bis …».</div>
+  <div class="schluss">Gratulation, Sie haben sich für Shield, den KI-Schutz, entschieden – das ist clever.<br>Bei Fragen wenden Sie sich bitte an den Support von DEXXUS: info@dexxus.ch</div>
+</div>
+
+<div class="trenner"></div>
+
+<!-- ================= PC SHIELD ================= -->
+<div class="block pc" id="pc">
+  <div class="b-kopf"><div class="art">Version 3 · Windows</div><h2>PC Shield</h2>
+    <p>Programm für Windows 10 und 11. Gilt für DEXXUS Shield sowie die Varianten bexio, Abacus, SelectLine und Praxis.</p></div>
+  <div class="mailbox">
+    <div class="z"><span>Absender</span><span>DEXXUS</span></div>
+    <div class="z"><span>Betreff</span><span>Ihre DEXXUS-Lizenz L-2026-0123</span></div>
+    <div class="z"><span>Enthält</span><span>Link «PC Shield herunterladen» · Anhang Lizenzdatei «L-2026-0123.dxlic»</span></div>
+  </div>
+  <div class="geraet">Am PC</div>
+  <ol class="ablauf">
+    <li><div class="nr">1</div><div><b>E-Mail am PC öffnen</b><p>Öffnen Sie die E-Mail von DEXXUS in Ihrem E-Mail-Programm am PC.</p></div></li>
+    <li><div class="nr">2</div><div><b>Lizenzdatei speichern</b><p>Klicken Sie mit der rechten Maustaste auf den Anhang <span class="ref">L-2026-0123.dxlic</span>, wählen Sie «Speichern unter» und speichern Sie die Datei auf dem Desktop.</p></div></li>
+    <li><div class="nr">3</div><div><b>Programm herunterladen</b><p>Klicken Sie in der E-Mail auf den Link <span class="ref">PC Shield herunterladen</span>. Die ZIP-Datei wird im Ordner «Downloads» gespeichert.</p></div></li>
+    <li><div class="nr">4</div><div><b>ZIP-Datei entpacken</b><p>Öffnen Sie den Ordner «Downloads». Klicken Sie mit der rechten Maustaste auf die ZIP-Datei, wählen Sie «Alle extrahieren» und klicken Sie auf «Extrahieren».</p></div></li>
+    <li><div class="nr">5</div><div><b>Installation starten</b><p>Doppelklicken Sie im entpackten Ordner auf <span class="ref">INSTALLIEREN.bat</span>. Die Installation läuft automatisch (Internetverbindung erforderlich).</p>
+      <p class="hinweis">Zeigt Windows «Der Computer wurde durch Windows geschützt», klicken Sie auf «Weitere Informationen» und dann auf «Trotzdem ausführen».</p></div></li>
+    <li><div class="nr">6</div><div><b>Programm starten</b><p>Doppelklicken Sie auf das neue Symbol auf dem Desktop.</p></div></li>
+    <li><div class="nr">7</div><div><b>Lizenz einlesen</b><p>Klicken Sie auf «Einstellungen», öffnen Sie den Reiter «Lizenz», klicken Sie auf <span class="ref">Lizenzdatei einlesen</span> und wählen Sie die Datei auf dem Desktop.</p></div></li>
+    <li><div class="nr">8</div><div><b>Neu starten</b><p>Schliessen Sie das Programm und starten Sie es erneut.</p></div></li>
+  </ol>
+  <div class="fertig"><b>Installation abgeschlossen.</b> Gratulation – Sie haben PC Shield erfolgreich installiert. Das Programm meldet «Auf diesem PC freigeschaltet».</div>
+  <div class="schluss">Gratulation, Sie haben sich für Shield, den KI-Schutz, entschieden – das ist clever.<br>Bei Fragen wenden Sie sich bitte an den Support von DEXXUS: info@dexxus.ch</div>
+</div>
+
+<div class="trenner"></div>
+
+<!-- ================= SHIELD KOMPLETT ================= -->
+<div class="block komplett" id="komplett">
+  <div class="b-kopf"><div class="art">Version 4 · PC und Mobile</div><h2>Shield komplett</h2>
+    <p>WEB Shield, PC Shield und App Shield in einer Lizenz. Bestellung über dexxus.ch. Führen Sie die Teile in dieser Reihenfolge aus: Vorbereitung, A, B, C.</p></div>
+  <div class="weg"><span>Vorbereitung</span> E-Mail und Lizenzdatei <small>Am PC · einmalig für alle drei Teile</small></div>
+  <ol class="ablauf"><li><div class="nr">1</div><div><b>Bestellen</b><p>Wählen Sie auf dexxus.ch unter «Preise» das Paket «Shield komplett» und schliessen Sie die Bestellung ab.</p></div></li><li><div class="nr">2</div><div><b>Lizenz-E-Mail öffnen</b><p>Nach der Zahlung erhalten Sie eine E-Mail von DEXXUS mit dem Betreff «Ihre Lizenz Shield komplett (L-…)». Öffnen Sie diese E-Mail am PC.</p></div></li><li><div class="nr">3</div><div><b>Lizenzdatei speichern</b><p>Klicken Sie mit der rechten Maustaste auf den Anhang <span class="ref">L-….dxlic</span>, wählen Sie «Speichern unter» und speichern Sie die Datei auf dem Desktop. Sie benötigen diese Datei in Teil A und Teil B.</p></div></li></ol>
+  <div class="weg"><span>Teil A</span> WEB Shield im Browser <small>Am PC · Microsoft Edge oder Google Chrome</small></div>
+  <ol class="ablauf"><li><div class="nr">1</div><div><b>Erweiterung installieren</b><p>Klicken Sie in der E-Mail auf die blaue Schaltfläche <span class="ref">Für Microsoft Edge hinzufügen</span> bzw. <span class="ref">Für Google Chrome hinzufügen</span>. Klicken Sie im Store auf «Abrufen» bzw. «Hinzufügen» und bestätigen Sie mit «Erweiterung hinzufügen».</p></div></li><li><div class="nr">2</div><div><b>Symbol anheften</b><p>Klicken Sie oben rechts neben der Adresszeile auf das Puzzle-Symbol und auf die Stecknadel neben «DEXXUS WEB Shield».</p></div></li><li><div class="nr">3</div><div><b>Lizenz einlesen</b><p>Öffnen Sie chatgpt.com, klicken Sie auf das blaue DX-Symbol, dann auf <span class="ref">Lizenz erhalten?</span>, und ziehen Sie die Lizenzdatei vom Desktop in das Feld.</p></div></li></ol>
+  <div class="weg"><span>Teil B</span> PC Shield <small>Am PC · Programm für Windows 10 und 11</small></div>
+  <ol class="ablauf"><li><div class="nr">1</div><div><b>Programm herunterladen</b><p>Klicken Sie in der E-Mail auf den Link <span class="ref">PC Shield herunterladen</span>. Die ZIP-Datei wird im Ordner «Downloads» gespeichert.</p></div></li><li><div class="nr">2</div><div><b>ZIP-Datei entpacken</b><p>Klicken Sie im Ordner «Downloads» mit der rechten Maustaste auf die ZIP-Datei, wählen Sie «Alle extrahieren» und klicken Sie auf «Extrahieren».</p></div></li><li><div class="nr">3</div><div><b>Installation starten</b><p>Doppelklicken Sie im entpackten Ordner auf <span class="ref">INSTALLIEREN.bat</span>. Die Installation läuft automatisch.</p><p class="hinweis">Zeigt Windows «Der Computer wurde durch Windows geschützt», klicken Sie auf «Weitere Informationen» und dann auf «Trotzdem ausführen».</p></div></li><li><div class="nr">4</div><div><b>Lizenz einlesen</b><p>Starten Sie das Programm über das neue Desktop-Symbol. Klicken Sie auf «Einstellungen», Reiter «Lizenz», <span class="ref">Lizenzdatei einlesen</span>, und wählen Sie die Lizenzdatei auf dem Desktop.</p></div></li><li><div class="nr">5</div><div><b>Neu starten</b><p>Schliessen Sie das Programm und starten Sie es erneut. Es meldet «Auf diesem PC freigeschaltet».</p></div></li></ol>
+  <div class="weg"><span>Teil C</span> App Shield <small>Auf dem Mobile</small></div>
+  <ol class="ablauf"><li><div class="nr">1</div><div><b>E-Mail auf dem Mobile öffnen</b><p>Öffnen Sie dieselbe E-Mail von DEXXUS in der Mail-App Ihres Mobiles.</p></div></li><li><div class="nr">2</div><div><b>Freischalten</b><p>Tippen Sie auf die grüne Schaltfläche <span class="ref">App Shield freischalten</span>. App Shield öffnet sich und meldet «App Shield ist freigeschaltet».</p></div></li><li><div class="nr">3</div><div><b>Installieren</b><p>Tippen Sie in App Shield oben auf <span class="ref">Installieren</span> und bestätigen Sie mit «Installieren» bzw. «Hinzufügen».</p><p class="hinweis">iPhone: Tippen Sie in Safari unten auf «Teilen» und wählen Sie «Zum Home-Bildschirm».</p></div></li><li><div class="nr">4</div><div><b>Kontrolle</b><p>Öffnen Sie App Shield von DEXXUS mit dem DX-Symbol auf dem Startbildschirm Ihres Mobiles. Fertig.</p></div></li></ol>
+  <div class="fertig"><b>Installation abgeschlossen.</b> Gratulation – Sie haben WEB Shield, PC Shield und App Shield erfolgreich installiert.</div>
+  <div class="schluss">Gratulation, Sie haben sich für Shield, den KI-Schutz, entschieden – das ist clever.<br>Bei Fragen wenden Sie sich bitte an den Support von DEXXUS: info@dexxus.ch</div>
+</div>
+
+</div></div>
+</main>
+<footer class="dxw-foot"><div class="in">
+  <span>© 2026 avotec AG · 8602 Wangen ZH</span>
+  <span style="flex:1"></span>
+  <a href="videos.html">Videos</a><a href="preise.html">Preise</a><a href="hilfe.html">Hilfe</a><a href="installation.html">Installation</a><a href="partner.html">Partner</a><a href="partner-portal.html">White-Label</a><a href="presse.html">Presse</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+</div></footer>
+<script src="teilen-leiste.js?v=8" defer></script>
+</body>
+</html>
