@@ -1089,6 +1089,9 @@
   document.getElementById("dk-zu").addEventListener("click", zu);
   ov.addEventListener("click", function (e) { if (e.target === ov) { zu(); } });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("an")) { zu(); } });
+  // Aus den DEXXUS-Mails: preise.html?kauf=DEXXUS%20WEB%20Shield öffnet den Kauf dieses Abos sofort (18.11.2026)
+  var kq = new URLSearchParams(location.search).get("kauf");
+  if (kq) { var kb = document.querySelector('[data-kauf="' + kq.replace(/"/g, "") + '"]'); if (kb) { kb.scrollIntoView({block: "center"}); setTimeout(function () { kb.click(); }, 300); } }
 })();
 </script>
 <script src="teilen-leiste.js?v=8" defer></script>
