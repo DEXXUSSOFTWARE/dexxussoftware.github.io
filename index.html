@@ -203,6 +203,18 @@
 .hero-ansehen::after { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.65) 50%, rgba(250,250,255,0) 100%); transform: skewX(-20deg); animation: dx-funkeln 2.6s ease-in-out infinite; }
 .hero-ansehen:hover { background: #15803D; }
 @media (prefers-reduced-motion: reduce) { .hero-ansehen, .hero-ansehen::after { animation: none; } }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.hero-tag { position: relative; overflow: hidden; font: 700 14px inherit; font-family: inherit; padding: 9px 16px; border-radius: 10px; background: #2563EB; color: #FAFAFF; border: 0; cursor: pointer; box-shadow: 0 6px 16px rgba(37,99,235,.35); transition: background .15s, transform .15s; }
+.hero-tag:hover, .hero-tag:focus-visible { background: #1D4ED8; transform: translateY(-2px); outline: none; }
+.hero-tag::after { content: ""; position: absolute; top: 0; left: -70%; width: 50%; height: 100%; background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.6) 50%, rgba(250,250,255,0) 100%); transform: skewX(-20deg); animation: dx-funkeln 3.2s ease-in-out infinite; }
+.hero-tag:nth-child(1)::after { animation-delay: 0.00s; }
+.hero-tag:nth-child(2)::after { animation-delay: 0.35s; }
+.hero-tag:nth-child(3)::after { animation-delay: 0.70s; }
+.hero-tag:nth-child(4)::after { animation-delay: 1.05s; }
+.hero-tag:nth-child(5)::after { animation-delay: 1.40s; }
+.hero-tag:nth-child(6)::after { animation-delay: 1.75s; }
+.hero-tag:nth-child(7)::after { animation-delay: 2.10s; }
+@media (prefers-reduced-motion: reduce) { .hero-tag::after { animation: none; } }
 @keyframes dx-funkeln { 0% { left: -60%; } 55%, 100% { left: 130%; } }
 @keyframes dx-puls { 0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(22,163,74,.32); } 50% { transform: scale(1.04); box-shadow: 0 10px 28px rgba(22,163,74,.5); } }
 @media (prefers-reduced-motion: reduce) { #w-funktionen .ansehen, #w-funktionen .ansehen::after { animation: none; } }
@@ -329,8 +341,8 @@
   <div class="hero-erp" style="align-self:center;background:#FAFAFF;border:1px solid #E2E8F0;border-radius:16px;padding:26px 26px 24px;box-shadow:0 18px 44px rgba(37,99,235,.14);text-align:left">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="width:44px;height:44px;border-radius:10px;background:#4F46E5;color:#FAFAFF;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px">RE</span><h2 style="margin:0;font-size:21px;color:#0F172A">ERP: von der Offerte bis zur Mahnung</h2></div>
     <p style="margin:0 0 14px;color:#475569;font-size:15.5px;line-height:1.6">Offerte erstellen, mit einem Klick zum Auftrag, Lieferschein und zur Schweizer QR-Rechnung – inklusive Mahnwesen. Belege gehen direkt per E-Mail an den Kunden, Zahlungseingänge werden automatisch zugeordnet.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px"><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Offerte</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Auftrag</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Lieferschein</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">QR-Rechnung</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Mahnung</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Artikel &amp; Preise</span><span style="font-size:13px;font-weight:600;padding:3px 11px;border-radius:99px;background:#FAFAFF;border:1px solid #2563EB;color:#334155">Lieferantenangebote übernehmen</span></div>
-    <a href="#funktionen" class="hero-ansehen" onclick="var c=document.querySelector('#w-funktionen .card[data-seite=&quot;re&quot;]');if(c){event.preventDefault();c.click();}">Seite ansehen ›</a>
+    <p style="margin:0 0 10px;font-weight:700;color:#1E3A8A;font-size:15px">Klicken Sie auf eine Funktion – Sie sehen die Seite direkt aus DEXXUS.</p><div class="hero-tags"><button type="button" class="hero-tag" onclick="dxSeite('re','Offerte','Offerte erfassen, Artikel wählen, als PDF mit Ihrem Briefpapier per E-Mail senden.','#4F46E5',this)">Offerte</button><button type="button" class="hero-tag" onclick="dxSeite('re','Auftrag','Aus der Offerte mit einem Klick ein Auftrag – alle Positionen werden übernommen.','#4F46E5',this)">Auftrag</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferschein','Lieferschein direkt aus dem Auftrag, mit Unterschriftsfeld für den Kunden.','#4F46E5',this)">Lieferschein</button><button type="button" class="hero-tag" onclick="dxSeite('re','QR-Rechnung','Schweizer QR-Rechnung mit einem Klick – Status offen, bezahlt, gemahnt.','#4F46E5',this)">QR-Rechnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Mahnung','Überfällige Rechnungen werden erkannt, Mahnungen in Stufen erstellt.','#4F46E5',this)">Mahnung</button><button type="button" class="hero-tag" onclick="dxSeite('re','Artikel & Preise','Artikelstamm mit Einkaufs- und Verkaufspreisen, Rabatten und Einheiten.','#4F46E5',this)">Artikel &amp; Preise</button><button type="button" class="hero-tag" onclick="dxSeite('re','Lieferantenangebote übernehmen','Lieferanten-PDF hineinziehen – DEXXUS macht daraus Ihre Offerte mit Aufschlag.','#4F46E5',this)">Lieferantenangebote übernehmen</button></div>
+    <a href="#funktionen" class="hero-ansehen" onclick="event.preventDefault();dxSeite('re','ERP &amp; Offerten','Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.','#4F46E5',this)">Seite ansehen ›</a>
   </div>
 </div></section>
 <div id="w-funktionen">
@@ -344,12 +356,6 @@
       </div>
 
       <div class="grid">
-        <article class="card feature voll" data-seite="re" data-titel="ERP &amp; Offerten" data-farbe="#4F46E5" data-text="Rechnungen mit QR-Status: offen, bezahlt, gemahnt – ansehen, senden, bearbeiten mit einem Klick.">
-          <div class="top"><span class="mod re" aria-hidden="true">RE</span><h3>ERP: von der Offerte bis zur Mahnung</h3></div>
-          <p>Offerte erstellen, mit einem Klick zum Auftrag, Lieferschein und zur Schweizer QR-Rechnung – inklusive Mahnwesen. Belege gehen direkt per E-Mail an den Kunden, Zahlungseingänge werden automatisch zugeordnet.</p>
-          <div class="tags"><span class="tag">Offerte</span><span class="tag">Auftrag</span><span class="tag">Lieferschein</span><span class="tag">QR-Rechnung</span><span class="tag">Mahnung</span><span class="tag">Artikel &amp; Preise</span><span class="tag">Lieferantenangebote übernehmen</span></div>
-        </article>
-
         <article class="card">
           <div class="top"><span class="mod" style="background:#DB2777" aria-hidden="true">KU</span><h3>Kunden &amp; Kontakte</h3></div>
           <p>Alle Kunden, Lieferanten und Ansprechpartner an einem Ort – mit Offerten, Rechnungen, Dokumenten und E-Mails auf einen Blick.</p>
@@ -565,14 +571,15 @@
 <script>
 (function () {
   var lb = document.getElementById("dx-lb"), zuletzt = null;
-  function auf(c) {
-    var k = c.getAttribute("data-seite"), m = document.getElementById("dx-lb-m");
+  function auf(c) { zeige(c.getAttribute("data-seite"), c.getAttribute("data-titel"), c.getAttribute("data-text"), getComputedStyle(c.querySelector(".mod")).backgroundColor, c); }
+  function zeige(k, titel, text, farbe, c) {
+    var m = document.getElementById("dx-lb-m");
     document.getElementById("dx-lb-bild").src = "media/seiten/" + k + ".jpg";
-    document.getElementById("dx-lb-bild").alt = c.getAttribute("data-titel") + " in DEXXUS";
-    document.getElementById("dx-lb-titel").textContent = c.getAttribute("data-titel") + " – so sieht es in DEXXUS aus";
-    document.getElementById("dx-lb-text").textContent = c.getAttribute("data-text");
-    m.textContent = k.toUpperCase(); m.style.background = getComputedStyle(c.querySelector(".mod")).backgroundColor;
-    zuletzt = c; lb.classList.add("an"); document.getElementById("dx-lb-zu").focus();
+    document.getElementById("dx-lb-bild").alt = titel + " in DEXXUS";
+    document.getElementById("dx-lb-titel").textContent = titel + " – so sieht es in DEXXUS aus";
+    document.getElementById("dx-lb-text").textContent = text;
+    m.textContent = k.toUpperCase(); m.style.background = farbe;
+    zuletzt = c || document.activeElement; lb.classList.add("an"); document.getElementById("dx-lb-zu").focus();
   }
   function zu() { lb.classList.remove("an"); if (zuletzt) { zuletzt.focus(); } }
   document.querySelectorAll("#w-funktionen .card[data-seite]").forEach(function (c) {
@@ -581,6 +588,7 @@
     c.addEventListener("click", function () { auf(c); });
     c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); auf(c); } });
   });
+  window.dxSeite = zeige;
   document.getElementById("dx-lb-zu").addEventListener("click", zu);
   lb.addEventListener("click", function (e) { if (e.target === lb) { zu(); } });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && lb.classList.contains("an")) { zu(); } });
