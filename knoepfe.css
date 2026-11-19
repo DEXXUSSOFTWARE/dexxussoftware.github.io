@@ -1,0 +1,43 @@
+/* Knöpfe wie in der DEXXUS-Masterversion (Variante 7b, 19.11.2026)
+   Hauptknopf = #3B82F6 weiss fett · Auswahl/zweiter Knopf = #DBEAFE Schrift #1D4ED8 normal · Rot = #F87171 weiss fett
+   Kaufen bleibt grün. Keine Animationen. */
+a.btn, button.btn, a.p, a.btn.p, a.btn.s, .b a.s, .b a.p, a.k, a.k.p, a.k.w, a.k.rand, a.cta, a.cta-k, a.fn-k, button.fn-reiter, button.fn-thumb,
+button.hero-tag, a.mk-k1, a.mk-k2, a.mk-k3, button.dk-los, button.dk-zu, button.dx-lb-zu, button.q, button.pp-btn, button.su-btn, a.kik, a.ki, a.mk-ki,
+a.dxw-btn, a.yt-knopf, button.knopf, a.knopf {
+  border-radius: 9px !important; box-shadow: none !important; animation: none !important; transform: none !important; text-shadow: none !important;
+  transition: background .15s, color .15s !important;
+}
+a.btn::after, a.k::after, a.cta::after, button.hero-tag::after, a.fn-k::after, .hero-tag::after { content: none !important; animation: none !important; }
+
+/* Auswahl / zweiter Knopf */
+a.btn, button.btn, a.btn.s, .b a.s, a.k.w, a.k.rand, a.cta:not([data-kauf]):not(.primaer), a.cta-k.w, a.fn-k.rand, button.fn-reiter, button.fn-thumb,
+button.hero-tag, a.mk-k1, button.dk-zu, button.dx-lb-zu, button.q, button.pp-btn:not(.gruen), button.su-btn, a.kik, a.ki, a.mk-ki, a.yt-knopf, button.knopf.w {
+  background: #DBEAFE !important; border: 0 !important; color: #1D4ED8 !important; font-weight: 400 !important;
+}
+a.btn:hover, button.btn:hover, a.btn.s:hover, .b a.s:hover, a.k.w:hover, a.k.rand:hover, a.cta:not([data-kauf]):not(.primaer):hover, a.cta-k.w:hover, a.fn-k.rand:hover,
+button.fn-reiter:hover, button.fn-thumb:hover, button.hero-tag:hover, a.mk-k1:hover, button.dk-zu:hover, button.dx-lb-zu:hover, button.q:hover,
+button.pp-btn:not(.gruen):hover, button.su-btn:hover, a.kik:hover, a.ki:hover, a.mk-ki:hover, a.yt-knopf:hover, button.knopf.w:hover {
+  background: #BFDBFE !important; color: #1E40AF !important;
+}
+/* gewählter Reiter / gewählte Auswahl = aktiv */
+button.fn-reiter[aria-selected="true"], button.fn-thumb[aria-pressed="true"], .lz button[aria-checked="true"], .dk-lz button[aria-checked="true"] {
+  background: #3B82F6 !important; border: 0 !important; color: #FAFAFF !important; font-weight: 700 !important;
+}
+
+/* Hauptknopf */
+a.btn.p, a.p, .b a.p, a.k.p, button.dk-los, a.knopf.voll, button.knopf.voll {
+  background: #3B82F6 !important; border: 0 !important; color: #FAFAFF !important; font-weight: 700 !important;
+}
+a.btn.p:hover, a.p:hover, .b a.p:hover, a.k.p:hover, button.dk-los:hover:not(:disabled), a.knopf.voll:hover, button.knopf.voll:hover { background: #2563EB !important; }
+
+/* Rot */
+button.knopf.rot, a.knopf.rot { background: #F87171 !important; border: 0 !important; color: #FAFAFF !important; font-weight: 700 !important; }
+button.knopf.rot:hover, a.knopf.rot:hover { background: #EF4444 !important; }
+
+/* Kaufen = grün (einheitlich, ohne Schimmer) */
+:root body [data-kauf], :root body [data-kaufen], :root body #ws-kauf, :root body a.fn-k.gruen, :root body a.k.gruen, :root body a.sp-kauf, :root body a.knopf.gruen, :root body a.schwebe, :root body .kaufleiste a, :root body a.mk-k2, :root body a.dxw-btn, :root body button.pp-btn.gruen {
+  background: #16A34A !important; border: 0 !important; color: #FAFAFF !important; font-weight: 700 !important; box-shadow: none !important; animation: none !important;
+}
+:root body [data-kauf]:hover, :root body [data-kaufen]:hover, :root body #ws-kauf:hover, :root body a.fn-k.gruen:hover, :root body a.k.gruen:hover, :root body a.sp-kauf:hover, :root body a.knopf.gruen:hover, :root body a.schwebe:hover, :root body .kaufleiste a:hover,
+:root body a.mk-k2:hover, :root body a.dxw-btn:hover, :root body button.pp-btn.gruen:hover { background: #15803D !important; }
+:root body .cta.primaer[data-kauf], :root body .kaufleiste a[href*="komplett"] { background: #166534 !important; }
