@@ -252,8 +252,8 @@
   <a href="videos.html">Videos</a><a href="preise.html">Preise</a><a href="hilfe.html">Hilfe</a><a href="partner.html">Partner</a><a href="partner-portal.html">White-Label</a><a href="presse.html">Presse</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
 </div></footer>
 <script>
-/* 13.11.2026: Support-Partner. Neue Partner nach Freigabe hier eintragen:
-   { firma: "...", ort: "PLZ Ort", kantone: ["ZH","AG"], leistungen: ["Installation Einzelplatz"], tel: "...", web: "https://..." } */
+/* 19.11.2026: Support-Partner kommen aus support_partner.json – Elena schreibt die Datei nach der Freigabe in DEXXUS
+   und lädt sie automatisch hoch. Eintrag: { firma, ort, kantone: ["ZH"], leistungen: [..], tel, web } */
 var DX_PARTNER = [];
 function spEsc(s) { return String(s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 function spListe() {
@@ -285,6 +285,8 @@ function spSenden(e) {
   return false;
 }
 spListe();
+fetch("support_partner.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : []; })
+  .then(function (l) { if (Array.isArray(l)) { DX_PARTNER = l; spListe(); } }).catch(function () {});
 </script>
 <script src="teilen-leiste.js?v=8" defer></script>
 </body>
