@@ -11,12 +11,12 @@ a.btn::after, a.k::after, a.cta::after, button.hero-tag::after, a.fn-k::after, .
 
 /* Auswahl / zweiter Knopf */
 a.btn, button.btn, a.btn.s, .b a.s, a.k.w, a.k.rand, a.cta:not([data-kauf]):not(.primaer), a.cta-k.w, a.fn-k.rand, button.fn-reiter, button.fn-thumb,
-button.hero-tag, a.mk-k1, button.dk-zu, button.dx-lb-zu, button.q, button.pp-btn:not(.gruen), button.su-btn, a.kik, a.ki, a.mk-ki, a.yt-knopf, button.knopf.w {
+button.hero-tag, a.mk-k1, button.dk-zu, button.dx-lb-zu, button.pp-btn:not(.gruen), button.su-btn, a.ki, a.mk-ki, a.yt-knopf, button.knopf.w {
   background: #DBEAFE !important; border: 0 !important; color: #1D4ED8 !important; font-weight: 400 !important;
 }
 a.btn:hover, button.btn:hover, a.btn.s:hover, .b a.s:hover, a.k.w:hover, a.k.rand:hover, a.cta:not([data-kauf]):not(.primaer):hover, a.cta-k.w:hover, a.fn-k.rand:hover,
-button.fn-reiter:hover, button.fn-thumb:hover, button.hero-tag:hover, a.mk-k1:hover, button.dk-zu:hover, button.dx-lb-zu:hover, button.q:hover,
-button.pp-btn:not(.gruen):hover, button.su-btn:hover, a.kik:hover, a.ki:hover, a.mk-ki:hover, a.yt-knopf:hover, button.knopf.w:hover {
+button.fn-reiter:hover, button.fn-thumb:hover, button.hero-tag:hover, a.mk-k1:hover, button.dk-zu:hover, button.dx-lb-zu:hover,
+button.pp-btn:not(.gruen):hover, button.su-btn:hover, a.ki:hover, a.mk-ki:hover, a.yt-knopf:hover, button.knopf.w:hover {
   background: #BFDBFE !important; color: #1E40AF !important;
 }
 /* gewählter Reiter / gewählte Auswahl = aktiv */
@@ -36,8 +36,36 @@ button.knopf.rot:hover, a.knopf.rot:hover { background: #EF4444 !important; }
 
 /* Kaufen = grün (einheitlich, ohne Schimmer) */
 :root body [data-kauf], :root body [data-kaufen], :root body #ws-kauf, :root body a.fn-k.gruen, :root body a.k.gruen, :root body a.sp-kauf, :root body a.knopf.gruen, :root body a.schwebe, :root body .kaufleiste a, :root body a.mk-k2, :root body a.dxw-btn, :root body button.pp-btn.gruen {
-  background: #16A34A !important; border: 0 !important; color: #FAFAFF !important; font-weight: 700 !important; box-shadow: none !important; animation: none !important;
+  background: #22C55E !important; border: 0 !important; color: #FAFAFF !important; font-weight: 700 !important; box-shadow: none !important; animation: none !important;
 }
 :root body [data-kauf]:hover, :root body [data-kaufen]:hover, :root body #ws-kauf:hover, :root body a.fn-k.gruen:hover, :root body a.k.gruen:hover, :root body a.sp-kauf:hover, :root body a.knopf.gruen:hover, :root body a.schwebe:hover, :root body .kaufleiste a:hover,
-:root body a.mk-k2:hover, :root body a.dxw-btn:hover, :root body button.pp-btn.gruen:hover { background: #15803D !important; }
-:root body .cta.primaer[data-kauf], :root body .kaufleiste a[href*="komplett"] { background: #166534 !important; }
+:root body a.mk-k2:hover, :root body a.dxw-btn:hover, :root body button.pp-btn.gruen:hover { background: #16A34A !important; }
+:root body .cta.primaer[data-kauf], :root body .kaufleiste a[href*="komplett"] { background: #16A34A !important; }
+:root body .cta.primaer[data-kauf]:hover, :root body .kaufleiste a[href*="komplett"]:hover { background: #15803D !important; }
+
+/* Kauf-Leiste kompakt (19.11.2026) */
+:root body .kaufleiste { gap: 8px !important; }
+:root body .kaufleiste a { flex: 0 1 auto !important; max-width: none !important; padding: 8px 14px !important; border-radius: 9px !important; box-shadow: none !important; }
+:root body .kaufleiste a span:nth-child(1) { font-size: 13.5px !important; font-weight: 700 !important; }
+:root body .kaufleiste a span:nth-child(2) { font-size: 12.5px !important; font-weight: 400 !important; margin-top: 1px !important; }
+:root body .kaufleiste a span:nth-child(3) { display: none !important; }
+:root body .kaufleiste a span[style*="EA580C"] { display: inline-block !important; font-size: 11px !important; padding: 1px 6px !important; margin-top: 3px !important; }
+
+/* Häufige Fragen = weiss */
+:root body button.q { background: #FAFAFF !important; color: #0F172A !important; font-weight: 600 !important; border: 0 !important; }
+:root body button.q:hover { background: #EFF6FF !important; }
+
+/* KI-Knöpfe (ChatGPT, Claude …) hervorheben */
+:root body a.kik, :root body .galerie-wahl button { background: #3B82F6 !important; color: #FAFAFF !important; font-weight: 700 !important; border: 0 !important; border-radius: 9px !important; box-shadow: 0 6px 16px rgba(59,130,246,.30) !important; }
+:root body a.kik b { color: #FAFAFF !important; } :root body a.kik small { color: #DBEAFE !important; }
+:root body a.kik:hover, :root body .galerie-wahl button:hover { background: #2563EB !important; }
+:root body a.kik.an, :root body .galerie-wahl button.an { background: #1E3A8A !important; }
+
+/* Eingabemasken wie «Zugang anfragen» (hellblau, Linie unten, Schatten) */
+:root body input[type=text]:not(.pp-code), :root body input[type=email], :root body input[type=tel], :root body input[type=url], :root body input[type=password],
+:root body input[type=number], :root body input[type=search], :root body input:not([type]):not(.pp-code), :root body select, :root body textarea {
+  background: #EEF4FF !important; color: #0F172A !important; border: 0 !important; border-bottom: 2px solid #93C5FD !important; border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(37,99,235,.12) !important;
+}
+:root body input:focus, :root body select:focus, :root body textarea:focus { outline: 3px solid #BFDBFE !important; border-bottom-color: #3B82F6 !important; }
+:root body form.su-form, :root body form.sp-form, :root body .pp-box { border: 1px solid #BFDBFE !important; border-radius: 16px !important; box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
