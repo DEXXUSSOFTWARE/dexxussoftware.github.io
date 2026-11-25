@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEXXUS Payrolling | Rollouts und Einsätze externer Teams steuern</title>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="7a0ae6f3-3157-462a-adf0-4d28d2832ae1"></script>
+<meta name="description" content="Zusatzmodul auf Anfrage: Rollouts mit vielen Standorten planen, Techniker, Elektriker und Lieferanten verbinden, Fortschritt live – ohne Lohnabrechnung.">
+<meta name="google-site-verification" content="ZGaTKHBGgpZJYj1Cda85_UbUGOCVJuI1qjEDc0LRcfo" />
+<link rel="canonical" href="https://dexxus.ch/payrolling.html">
+<meta property="og:title" content="DEXXUS Payrolling | Rollouts und Einsätze externer Teams steuern">
+<meta property="og:description" content="Zusatzmodul auf Anfrage: Rollouts mit vielen Standorten planen, Techniker, Elektriker und Lieferanten verbinden, Fortschritt live – ohne Lohnabrechnung.">
+<meta property="og:url" content="https://dexxus.ch/payrolling.html">
+<meta property="og:type" content="website">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body { margin: 0; background: #FAFAFF; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0F172A; -webkit-font-smoothing: antialiased; }
+
+  .dxw-top { position: sticky; top: 0; z-index: 20; background: rgba(250,250,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid #2563EB; }
+  .dxw-top .in { max-width: 1120px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; gap: 24px; }
+  .dxw-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0F172A; font-weight: 700; letter-spacing: .02em; }
+  .dxw-logo b { position: relative; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #080E29 0%, #0D1849 38%, #1F41A0 58%, #2854D6 70%, #0F1E5A 100%); color: #FAFAFF; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(40,84,214,.30); }
+  .dxw-logo span { font-weight: 800; letter-spacing: .04em; background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .dxw-menu { display: flex; gap: 22px; margin-left: 12px; }
+  .dxw-menu a { color: #475569; text-decoration: none; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 1240px) { .dxw-menu { gap: 14px !important; } .dxw-menu a { font-size: 13.5px; } }
+  .dxw-menu a:hover { color: #0F172A; }
+  .dxw-sp { flex: 1; }
+  .dxw-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2563EB; color: #FAFAFF !important; font-weight: 650; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .dxw-btn:hover { background: #1D4ED8; }
+  @media (max-width: 380px) { .dxw-btn { height: 36px; padding: 0 12px; font-size: 13px; } .dxw-logo span { font-size: 15px; } }   /* 12.11.2026: Handy schmal / grosse Schrift */
+  .dxw-foot { border-top: 1px solid #2563EB; background: #FAFAFF; }
+  .dxw-foot .in { max-width: 1120px; margin: 0 auto; padding: 28px 16px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; color: #64748B; font-size: 13.5px; }
+  .dxw-foot a { color: #475569; text-decoration: none; font-weight: 600; }
+  .dxw-foot a:hover { color: #0F172A; }
+  .dxw-vorschau { background: #EFF6FF; color: #1D4ED8; text-align: center; font-size: 12.5px; font-weight: 600; padding: 6px 16px; border-bottom: 1px solid #BFDBFE; }
+  @media (max-width: 860px) { .dxw-menu { display: none; } }
+
+
+  #hero { background: #FAFAFF; border-bottom: 1px solid #E2E8F0; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0F172A; }
+  #hero .in { max-width: 1120px; margin: 0 auto; padding: 72px 16px 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+  #hero .ey { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #047857; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 4px 12px; border-radius: 99px; }
+  #hero h1 { margin: 18px 0 0; font-size: 46px; line-height: 1.1; font-weight: 750; letter-spacing: -.03em; }
+  #hero p.l { margin: 18px 0 0; font-size: 18px; line-height: 1.6; color: #475569; max-width: 520px; }
+  #hero .b { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  #hero .b a { display: inline-flex; align-items: center; height: 50px; padding: 0 24px; border-radius: 12px; font-weight: 650; font-size: 15.5px; text-decoration: none; }
+  #hero .p { background: #2563EB; color: #FAFAFF; box-shadow: 0 6px 18px rgba(37,99,235,.22); }
+  #hero .p:hover { background: #1D4ED8; }
+  #hero .s { border: 1px solid #E2E8F0; color: #0F172A; background: #FAFAFF; }
+  #hero .s:hover { background: #FAFAFF; }
+  #hero .k { margin-top: 18px; color: #64748B; font-size: 13.5px; }
+  #hero .app { border: 1px solid #E2E8F0; border-radius: 14px; overflow: hidden; display: grid; grid-template-columns: 150px 1fr; background: #FAFAFF; box-shadow: 0 20px 50px rgba(15,23,42,.08); min-height: 330px; }
+  #hero .sb { background: #FAFAFF; border-right: 1px solid #E2E8F0; padding: 14px 10px; display: grid; gap: 4px; align-content: start; font-size: 12.5px; color: #475569; }
+  #hero .ni { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: 6px; }
+  #hero .ni.on { background: #FAFAFF; color: #0F172A; font-weight: 600; }
+  #hero .m { width: 20px; height: 20px; border-radius: 5px; color: #FAFAFF; font-size: 8.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  #hero .wk { padding: 16px; display: grid; gap: 10px; align-content: start; }
+  #hero .tl { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  #hero .t { background: #FAFAFF; border: 1px solid #E2E8F0; border-radius: 9px; padding: 10px; }
+  #hero .t b { display: block; font-size: 15px; }
+  #hero .t span { font-size: 11px; color: #64748B; }
+  #hero .tb { background: #FAFAFF; border: 1px solid #E2E8F0; border-radius: 9px; font-size: 12px; }
+  #hero .tr { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 8px; padding: 9px 12px; border-bottom: 1px solid #F1F5F9; align-items: center; }
+  #hero .tr:last-child { border-bottom: 0; }
+  #hero .pl { font-size: 10.5px; font-weight: 600; padding: 1px 8px; border-radius: 99px; }
+  @media (max-width: 900px) { #hero .in { grid-template-columns: 1fr; padding-top: 48px; } #hero h1 { font-size: 34px; } }
+  @media (max-width: 520px) { #hero .app { grid-template-columns: 1fr; } #hero .sb { display: none; } }
+  /* 12.11.2026: Handy – Muster-Fenster nie abschneiden (auch bei grosser Schrift) */
+  #hero .in > * { min-width: 0; }
+  #hero .app { grid-template-columns: 150px minmax(0, 1fr); }
+  #hero .tl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #hero .t, #hero .tr > * { min-width: 0; overflow-wrap: anywhere; }
+  #hero .tr { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; }
+  @media (max-width: 520px) {
+    #hero .app { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+    #hero .wk { padding: 12px; }
+    #hero .tl { gap: 6px; }
+    #hero .t { padding: 8px; }
+    #hero .t b { font-size: 14px; }
+    #hero .tr { grid-template-columns: minmax(0, 1fr) auto; row-gap: 2px; padding: 9px 10px; }
+    #hero .tr b { grid-column: 1; grid-row: 1; }
+    #hero .tr span:not(.pl) { grid-column: 1; grid-row: 2; color: #475569; }
+    #hero .tr .pl { grid-column: 2; grid-row: 1 / span 2; }
+  }
+  @media (max-width: 360px) { #hero .tl { grid-template-columns: minmax(0, 1fr); } }
+#w-funktionen {
+    --white: #FAFAFF; --panel: #FAFAFF; --line: #E2E8F0;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B;
+    --re: #4F46E5; --qs: #059669; --vm: #7C3AED; --bh: #C53030; --tr: #D97706; --ds: #E11D48; --ze: #65A30D; --db: #2563EB;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-funktionen * { box-sizing: border-box; }
+#w-funktionen { margin: 0; }
+#w-funktionen { background: var(--white); color: var(--text); font: 15px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+#w-funktionen .section { padding: 72px 16px 80px; }
+#w-funktionen .wrap { max-width: 1120px; margin: 0 auto; }
+#w-funktionen .head { max-width: 680px; margin: 0 auto 44px; text-align: center; }
+#w-funktionen .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--db); margin-bottom: 10px; }
+#w-funktionen h2 { margin: 0; font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-funktionen .lead { margin: 14px 0 0; font-size: 17px; color: var(--text-2); }
+#w-funktionen .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+#w-funktionen .card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px 24px 22px; display: flex; flex-direction: column; gap: 12px; transition: border-color .15s, transform .15s; }
+#w-funktionen .card:hover { border-color: #CBD5E1; transform: translateY(-2px); }
+#w-funktionen .card.feature { grid-column: span 2; background: var(--panel); }
+#w-funktionen .top { display: flex; align-items: center; gap: 12px; }
+#w-funktionen .mod { flex: none; width: 40px; height: 40px; border-radius: 10px; color: #FAFAFF; font-weight: 700; font-size: 14px; letter-spacing: .02em; display: inline-flex; align-items: center; justify-content: center; }
+#w-funktionen .mod.re { background: var(--re); }
+#w-funktionen .mod.qs { background: var(--qs); }
+#w-funktionen .mod.vm { background: var(--vm); }
+#w-funktionen .mod.bh { background: var(--bh); }
+#w-funktionen .mod.tr { background: var(--tr); }
+#w-funktionen .mod.ds { background: var(--ds); }
+#w-funktionen .mod.ze { background: var(--ze); }
+#w-funktionen .card h3 { margin: 0; font-size: 18px; font-weight: 650; letter-spacing: -.01em; }
+#w-funktionen .card p { margin: 0; color: var(--text-2); }
+#w-funktionen .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+#w-funktionen .tag { font-size: 12.5px; font-weight: 600; padding: 2px 10px; border-radius: 99px; background: #FAFAFF; color: var(--text-2); }
+#w-funktionen .card.feature .tag { background: #FAFAFF; border: 1px solid var(--line); }
+#w-funktionen .cta { margin-top: 40px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 32px 24px; text-align: center; display: grid; gap: 14px; justify-items: center; }
+#w-funktionen .cta p { margin: 0; color: var(--text-2); }
+#w-funktionen .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 28px; border-radius: 12px; background: var(--db); color: #FAFAFF; font-weight: 650; font-size: 16px; text-decoration: none; text-align: center; box-shadow: 0 6px 18px rgba(37, 99, 235, .22); }
+#w-funktionen .btn:hover { background: #1D4ED8; }
+#w-funktionen .btn:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+#w-funktionen .small { font-size: 13px; color: var(--muted); }
+@media (max-width: 960px) {
+#w-funktionen .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#w-funktionen .card.feature { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+#w-funktionen .grid { grid-template-columns: 1fr; }
+#w-funktionen .card.feature { grid-column: auto; }
+#w-funktionen h2 { font-size: 27px; }
+#w-funktionen .section { padding-top: 48px; }
+}#w-faq {
+    --white: #FAFAFF; --panel: #FAFAFF; --line: #E2E8F0;
+    --text: #0F172A; --text-2: #475569; --muted: #64748B; --db: #2563EB;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+#w-faq * { box-sizing: border-box; }
+#w-faq { margin: 0; }
+#w-faq { background: var(--panel); color: var(--text); font: 15px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+#w-faq .section { padding: 72px 16px 80px; }
+#w-faq .wrap { max-width: 780px; margin: 0 auto; }
+#w-faq .head { text-align: center; margin-bottom: 36px; }
+#w-faq .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--db); margin-bottom: 10px; }
+#w-faq h2 { margin: 0; font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+#w-faq .lead { margin: 12px 0 0; color: var(--text-2); font-size: 16px; }
+#w-faq .faq { display: grid; gap: 12px; }
+#w-faq .item { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: border-color .15s; }
+#w-faq .item.open { border-color: #BFDBFE; }
+#w-faq .q { width: 100%; display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: transparent; border: 0; text-align: left; cursor: pointer; font: 600 16px/1.4 var(--font); color: var(--text); }
+#w-faq .q:hover { background: #FAFBFC; }
+#w-faq .q:focus-visible { outline: 2px solid var(--db); outline-offset: -2px; border-radius: 12px; }
+#w-faq .q span.t { flex: 1; }
+#w-faq .plus { flex: none; width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line); position: relative; transition: transform .2s, background .2s; }
+#w-faq .plus::before, #w-faq .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--text-2); border-radius: 2px; transform: translate(-50%, -50%); }
+#w-faq .plus::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .2s; }
+#w-faq .item.open .plus { background: #EFF6FF; border-color: #BFDBFE; }
+#w-faq .item.open .plus::before, #w-faq .item.open .plus::after { background: var(--db); }
+#w-faq .item.open .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+#w-faq .a { height: 0; overflow: hidden; transition: height .25s ease; }
+#w-faq .a-inner { padding: 0 22px 20px; color: var(--text-2); }
+#w-faq .a-inner p { margin: 0; }
+#w-faq .more { margin-top: 28px; text-align: center; color: var(--muted); font-size: 14px; }
+#w-faq .more a { color: var(--db); font-weight: 600; text-decoration: none; }
+#w-faq .more a:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) {
+#w-faq .a, #w-faq .plus, #w-faq .plus::after { transition: none; }
+}
+@media (max-width: 600px) {
+#w-faq h2 { font-size: 27px; }
+#w-faq .section { padding-top: 48px; }
+#w-faq .q { padding: 16px 18px; font-size: 15px; }
+#w-faq .a-inner { padding: 0 18px 18px; }
+}
+/* Blaue Ränder nur: kleine Kärtchen, Antworten «Gut zu wissen», Laufzeit-Knöpfe einzeln (11.11.2026) */
+#hero .s { background: #FAFAFF !important; border: 2px solid #2563EB !important; }
+#w-faq .item, #w-funktionen .cta { box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
+#w-funktionen .card { box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
+#hero .app { box-shadow: 0 18px 44px rgba(37,99,235,.14) !important; }
+#hero .app, #hero .sb, #hero .ni.on, #hero .t, #hero .tb { background: #FAFAFF !important; }
+#w-funktionen .card { background: #FAFAFF !important; }
+#w-funktionen .tag, #w-funktionen .card.feature .tag { background: #FAFAFF !important; border: 1px solid #2563EB !important; }
+#w-faq .item { background: #FAFAFF !important; }
+
+/* 12.11.2026: Shield-Karte (unser Kern) + Klick auf Karte zeigt die Seite aus DEXXUS */
+#w-funktionen .mod.sh { background: #0891B2; }
+#w-funktionen .card.voll { grid-column: 1 / -1; }
+#w-funktionen .card[data-seite] { cursor: pointer; position: relative; }
+#w-funktionen .card[data-seite]:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+/* 18.11.2026: «Seite ansehen» als auffälliger grüner Knopf, der funkelt (Lichtstreifen + leichtes Pulsieren) */
+#w-funktionen .ansehen { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+  margin-top: 4px; padding: 9px 18px; border-radius: 10px; background: #16A34A; color: #FAFAFF; font-size: 14px; font-weight: 800;
+  box-shadow: 0 8px 20px rgba(22,163,74,.32); cursor: pointer; animation: dx-puls 2.6s ease-in-out infinite; }
+#w-funktionen .ansehen::after { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.65) 50%, rgba(250,250,255,0) 100%);
+  transform: skewX(-20deg); animation: dx-funkeln 2.6s ease-in-out infinite; }
+#w-funktionen .card[data-seite]:hover .ansehen { background: #15803D; animation-play-state: paused; }
+#w-funktionen .card[data-seite]:nth-child(2n) .ansehen, #w-funktionen .card[data-seite]:nth-child(2n) .ansehen::after { animation-delay: .9s; }
+#w-funktionen .card[data-seite]:nth-child(3n) .ansehen, #w-funktionen .card[data-seite]:nth-child(3n) .ansehen::after { animation-delay: 1.7s; }
+/* 18.11.2026: Hero rechts = ERP-Karte mit funkelndem grünem Knopf */
+.hero-ansehen { position: relative; overflow: hidden; display: inline-flex; align-items: center; padding: 11px 22px; border-radius: 10px; background: #16A34A; color: #FAFAFF; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(22,163,74,.32); animation: dx-puls 2.6s ease-in-out infinite; }
+.hero-ansehen::after { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.65) 50%, rgba(250,250,255,0) 100%); transform: skewX(-20deg); animation: dx-funkeln 2.6s ease-in-out infinite; }
+.hero-ansehen:hover { background: #15803D; }
+@media (prefers-reduced-motion: reduce) { .hero-ansehen, .hero-ansehen::after { animation: none; } }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.hero-tag { position: relative; overflow: hidden; font: 700 14px inherit; font-family: inherit; padding: 9px 16px; border-radius: 10px; background: #DBEAFE; color: #1E3A8A; border: 1px solid #93C5FD; cursor: pointer; box-shadow: 0 4px 12px rgba(37,99,235,.15); transition: background .15s, color .15s, transform .15s; }
+.hero-tag:nth-child(even) { background: #BFDBFE; }
+.hero-tag { animation: dx-schatten 2.4s ease-in-out infinite; }
+.hero-tag:nth-child(even) { animation-delay: 1.2s; }
+@keyframes dx-schatten { 0%, 100% { box-shadow: 0 3px 8px rgba(37,99,235,.15); } 50% { box-shadow: 0 6px 18px rgba(37,99,235,.45); } }
+#w-funktionen .hero-tags { margin-bottom: 4px; }
+.hero-tag:hover, .hero-tag:focus-visible { background: #2563EB; color: #FAFAFF; border-color: #2563EB; transform: translateY(-2px); outline: none; }
+.hero-tag::after { content: ""; position: absolute; top: 0; left: -70%; width: 50%; height: 100%; background: linear-gradient(100deg, rgba(250,250,255,0) 0%, rgba(250,250,255,.6) 50%, rgba(250,250,255,0) 100%); transform: skewX(-20deg); animation: dx-funkeln 3.2s ease-in-out infinite; }
+.hero-tag:nth-child(1)::after { animation-delay: 0.00s; }
+.hero-tag:nth-child(2)::after { animation-delay: 0.35s; }
+.hero-tag:nth-child(3)::after { animation-delay: 0.70s; }
+.hero-tag:nth-child(4)::after { animation-delay: 1.05s; }
+.hero-tag:nth-child(5)::after { animation-delay: 1.40s; }
+.hero-tag:nth-child(6)::after { animation-delay: 1.75s; }
+.hero-tag:nth-child(7)::after { animation-delay: 2.10s; }
+@media (prefers-reduced-motion: reduce) { .hero-tag, .hero-tag::after { animation: none; } }
+@keyframes dx-funkeln { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+@keyframes dx-puls { 0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(22,163,74,.32); } 50% { transform: scale(1.04); box-shadow: 0 10px 28px rgba(22,163,74,.5); } }
+@media (prefers-reduced-motion: reduce) { #w-funktionen .ansehen, #w-funktionen .ansehen::after { animation: none; } }
+#w-funktionen .kern { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #FAFAFF; background: #0891B2; border-radius: 99px; padding: 2px 10px; vertical-align: middle; }
+.dx-lb { position: fixed; inset: 0; z-index: 9000; background: rgba(15,23,42,.6); display: none; align-items: center; justify-content: center; padding: 16px; }
+.dx-lb.an { display: flex; }
+.dx-lb-box { background: #FAFAFF; border-radius: 16px; width: 100%; max-width: 1120px; max-height: calc(100vh - 32px); overflow: auto; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.dx-lb-kopf { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #2563EB; }
+.dx-lb-kopf b { flex: 1; font-size: 17px; }
+.dx-lb-kopf .m { width: 34px; height: 34px; border-radius: 9px; color: #FAFAFF; font-weight: 800; font-size: 12.5px; display: grid; place-items: center; }
+.dx-lb-zu { border: 0; background: #DBEAFE; color: #1D4ED8; border-radius: 9px; height: 36px; padding: 0 14px; font: 600 14px inherit; cursor: pointer; }
+.dx-lb img { display: block; width: 100%; height: auto; }
+.dx-lb img.beleg { width: auto; max-width: 100%; max-height: calc(100vh - 150px); margin: 8px auto; box-shadow: 0 6px 20px rgba(15,23,42,.15); }
+.dx-lb-fuss { padding: 12px 16px; font-size: 14.5px; color: #334155; }
+
+/* 12.11.2026: «So sieht die Schwärzung aus» – vorher/nachher mit gelben Platzhaltern (Variante B) */
+#w-funktionen .sw-block { grid-column: 1 / -1; padding: 6px 0 10px; }
+#w-funktionen .sw-block h3.sw-titel { margin: 0 0 4px; font-size: 20px; text-align: center; }
+#w-funktionen .sw-block p.sw-lead { margin: 0 auto 16px; max-width: 720px; text-align: center; color: var(--text-2); }
+#w-funktionen .sw-vergleich { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#w-funktionen .sw-spalte { background: #FAFAFF; border-radius: 14px; box-shadow: 0 18px 44px rgba(37,99,235,.10); padding: 18px 20px; }
+#w-funktionen .sw-spalte h4 { margin: 0 0 10px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+#w-funktionen .sw-spalte .t { font-size: 15.5px; line-height: 1.75; color: var(--text); }
+#w-funktionen .sw-pill { font-size: 11px; font-weight: 800; letter-spacing: .05em; padding: 2px 9px; border-radius: 99px; color: #FAFAFF; }
+#w-funktionen .sw-pill.v { background: #64748B; } #w-funktionen .sw-pill.n { background: #0891B2; }
+#w-funktionen .ph { font-family: Consolas, ui-monospace, monospace; font-size: .88em; background: #FEF3C7; color: #92400E; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+#w-funktionen .sw-flow { margin-top: 16px; padding: 14px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; box-shadow: 0 18px 44px rgba(37,99,235,.07); }
+#w-funktionen .sw-flow .box { padding: 7px 14px; border-radius: 9px; background: #0891B2; color: #FAFAFF; font-weight: 600; font-size: 14px; }
+#w-funktionen .sw-flow .pfeil { color: var(--muted); }
+@media (max-width: 760px) { #w-funktionen .sw-vergleich { grid-template-columns: 1fr; } }
+
+/* 13.11.2026: Inhalte der Module */
+#w-module{--text:#0F172A;--text2:#334155}
+#w-module .pv-sec{padding:56px 16px 24px}#w-module .pv-in{max-width:1120px;margin:0 auto}
+#w-module .eyebrow{display:block;text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#2563EB}
+#w-module h2{text-align:center;font-size:32px;margin:6px 0 10px;letter-spacing:-.02em}
+#w-module .lead{text-align:center;max-width:740px;margin:0 auto 26px;color:#334155;font-size:16.5px}
+#w-module .vk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#w-module .vk div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:18px;font-size:14.5px;color:var(--text2)}
+#w-module .vk b{display:block;font-size:16px;color:var(--text);margin:8px 0 4px}
+#w-module .vk .vi{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#DBEAFE;font-size:19px}
+@media(max-width:800px){#w-module .vk{grid-template-columns:1fr}#w-module h2{font-size:26px}}
+
+/* 12.11.2026: Vorteile gegenüber typischen Cloud-Lösungen */
+#w-vorteile{--blau:#2563EB;--text:#0F172A;--text2:#334155;--muted:#64748B;--line:#E2E8F0;--ok:#047857;}
+#w-vorteile .pv-sec{padding:56px 16px 24px}#w-vorteile .pv-in{max-width:1120px;margin:0 auto}
+#w-vorteile .eyebrow{display:block;text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#2563EB}
+#w-vorteile h2{text-align:center;font-size:32px;margin:6px 0 10px;letter-spacing:-.02em}
+#w-vorteile .lead{text-align:center;max-width:740px;margin:0 auto 26px;color:#334155;font-size:16.5px}
+#w-vorteile .karte{background:#FAFAFF;border-radius:16px;box-shadow:0 18px 44px rgba(37,99,235,.10);overflow:hidden}
+#w-vorteile .scroll{overflow-x:auto}
+#w-vorteile table.pv{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;min-width:720px}
+#w-vorteile .pv th,#w-vorteile .pv td{padding:10px 14px;border-bottom:1px solid #EEF2F7;text-align:center;vertical-align:middle}
+#w-vorteile .pv td:first-child,#w-vorteile .pv th:first-child{text-align:left}
+#w-vorteile .pv thead th{position:sticky;top:0;background:#FAFAFF;z-index:1;padding:16px 14px 12px;border-bottom:2px solid var(--blau)}
+#w-vorteile .pv thead th b{display:block;font-size:15.5px}
+#w-vorteile .pv thead th .pr{display:block;font-size:20px;font-weight:800;margin-top:4px}
+#w-vorteile .pv thead th .ei{display:block;font-size:12px;color:var(--muted);font-weight:400}
+#w-vorteile .pv thead th.top{background:#FAFAFF}
+#w-vorteile .pv thead th .band{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;color:#FAFAFF;background:var(--blau);border-radius:99px;padding:2px 8px;margin-bottom:4px}
+#w-vorteile .pv tr.grp td{background:#FAFAFF;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#1E3A8A;padding-top:18px;border-bottom:1px solid var(--blau)}
+#w-vorteile .pv td.top{background:#FAFAFF}
+#w-vorteile .ja{color:var(--ok);font-weight:800;font-size:16px}
+#w-vorteile .nein{color:#CBD5E1;font-size:16px}
+#w-vorteile .mod{display:inline-flex;width:22px;height:22px;border-radius:6px;color:#FAFAFF;font-size:9.5px;font-weight:800;align-items:center;justify-content:center;margin-right:8px;vertical-align:middle}
+#w-vorteile .pv .lz td{font-size:13px}
+#w-vorteile .pv .cta td{border-bottom:0;padding:16px 10px}
+#w-vorteile .btn{display:inline-block;height:38px;line-height:38px;padding:0 14px;border-radius:9px;font-weight:700;font-size:13.5px;text-decoration:none;border:2px solid var(--blau);color:var(--blau)}
+#w-vorteile .btn.p{background:var(--blau);color:#FAFAFF}
+#w-vorteile .fuss{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+#w-vorteile .zwei{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#w-vorteile .sys{padding:20px 22px}
+#w-vorteile .sys h3{margin:0 0 4px;font-size:18px;display:flex;align-items:center;gap:10px}
+#w-vorteile .sys .unter{color:var(--muted);font-size:13.5px;margin:0 0 12px}
+#w-vorteile .sys table{width:100%;border-collapse:collapse;font-size:14px}
+#w-vorteile .sys td{padding:8px 0;border-bottom:1px solid #EEF2F7;vertical-align:top}
+#w-vorteile .sys td:first-child{width:38%;color:var(--text2);font-weight:600;padding-right:12px}
+#w-vorteile .ic{width:34px;height:34px;border-radius:9px;background:var(--blau);color:#FAFAFF;display:grid;place-items:center;font-size:17px}
+#w-vorteile .kurz{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+#w-vorteile .kurz div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:14px 16px;font-size:14px}
+#w-vorteile .kurz b{display:block;font-size:15.5px;margin-bottom:2px}
+#w-vorteile .gut{margin-top:22px;padding:18px 22px}
+#w-vorteile .gut h3{margin:0 0 8px;font-size:16px}
+#w-vorteile .gut ul{margin:0;padding-left:18px;color:var(--text2);font-size:14px}
+#w-vorteile .gut li{margin-bottom:6px}
+#w-vorteile .vk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#w-vorteile .vk div{background:#FAFAFF;border-radius:14px;box-shadow:0 18px 44px rgba(37,99,235,.08);padding:18px;font-size:14.5px;color:var(--text2)}
+#w-vorteile .vk b{display:block;font-size:16px;color:var(--text);margin:8px 0 4px}
+#w-vorteile .vk .vi{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#DBEAFE;font-size:19px}
+#w-vorteile table.vg{min-width:600px}
+#w-vorteile .vg td{text-align:left}
+#w-vorteile .vg td.top{font-weight:600}
+@media(max-width:800px){#w-vorteile .zwei,#w-vorteile .kurz,#w-vorteile .vk{grid-template-columns:1fr}#w-vorteile h2{font-size:26px}}
+
+#w-vorteile .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+#w-vorteile .pv thead th{position:static}
+</style>
+<link rel="stylesheet" href="teilen-leiste.css?v=9">
+<link rel="stylesheet" href="knoepfe.css?v=2">
+<style>
+.py .in{max-width:1120px;margin:0 auto;padding:0 16px}
+.py-hero{padding:52px 0 30px;background:linear-gradient(180deg,#EEF3FD 0%,#FAFAFF 100%)}
+.py-hero .in{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;align-items:center}
+.py-ey{display:inline-block;font-size:13px;font-weight:700;color:#92400E;background:#FEF3C7;border-radius:999px;padding:4px 12px}
+.py-hero h1{font-size:38px;line-height:1.15;margin:14px 0 10px;color:#0F172A}
+.py-hero p.l{font-size:17.5px;color:#334155;margin:0 0 18px}
+.py-b{display:flex;gap:12px;flex-wrap:wrap}.py-b a{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none}
+.py-p{background:#2563EB;color:#FAFAFF !important}.py-p:hover{background:#1D4ED8}.py-s{background:#FAFAFF;color:#1D4ED8;border:2px solid #1D4ED8}
+.py-k{font-size:13.5px;color:#64748B;margin-top:12px}
+.py-bild{display:block;border:1px solid #DBE4F5;border-radius:14px;overflow:hidden;box-shadow:0 18px 44px rgba(37,99,235,.14);background:#FAFAFF}.py-bild img{display:block;width:100%;height:auto}.py-bild span{display:block;padding:8px 12px;font-size:13px;color:#64748B;border-top:1px solid #E2E8F0}
+.py-sec{padding:34px 0}.py-sec h2{font-size:28px;margin:0 0 6px;color:#0F172A}.py-sec .sub{color:#475569;font-size:16px;margin:0 0 18px}
+.py-raster{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.py-karte{background:#FAFAFF;border:1px solid #DBE4F5;border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(30,58,138,.06)}.py-karte h3{margin:0 0 6px;font-size:17px;color:#1E3A8A}.py-karte p{margin:0;color:#475569;font-size:15px;line-height:1.5}
+.py-ablauf{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;counter-reset:s}
+.py-ablauf div{background:#EEF3FD;border-radius:12px;padding:12px;font-size:14px;color:#334155}.py-ablauf div b{display:block;color:#1E3A8A;font-size:15px;margin-bottom:3px}
+.py-zwei{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.py-liste{margin:0;padding-left:20px;color:#334155;font-size:15.5px;line-height:1.7}
+.py-box{background:#0F172A;color:#FAFAFF;border-radius:18px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}.py-box h2{color:#FAFAFF;margin:0 0 6px}.py-box p{color:#C7D7F5;margin:0;font-size:16px}
+.py-hinw{font-size:13.5px;color:#64748B;margin-top:10px}
+@media (max-width:900px){.py-hero .in,.py-zwei,.py-box{grid-template-columns:1fr}.py-raster{grid-template-columns:1fr}.py-ablauf{grid-template-columns:1fr 1fr}.py-hero h1{font-size:30px}}
+</style>
+
+</head>
+<body>
+<header class="dxw-top"><div class="in">
+  <a class="dxw-logo" href="index.html"><b>DX</b><span>DEXXUS</span></a>
+  <nav class="dxw-menu" aria-label="Hauptmenü">
+    <a href="index.html">Start</a>
+    <a href="buerosoftware.html">Bürosoftware</a>
+    <a href="funktionen.html">KI &amp; Dokumente</a>
+    <a href="demo.html">Demo</a>
+    <a href="index.html#vorteile">Vorteile</a>
+    <a href="videos.html">Videos</a>
+    <a href="web-shield.html" class="dx-shield-reiter" data-shield>Shield</a>
+    <a href="payrolling.html" class="an">Payrolling</a>
+    <a href="preise.html">Preise</a>
+    <a href="hilfe.html">Hilfe</a>
+    <a href="partner.html">Partner</a>
+    <a href="partner-portal.html">White-Label</a>
+    <a href="presse.html">Presse</a>
+  </nav>
+  <div class="dxw-sp"></div>
+</div></header>
+<main class="py">
+<section class="py-hero"><div class="in">
+  <div>
+    <span class="py-ey">Zusatzmodul · auf Anfrage</span>
+    <h1>Rollouts und Einsätze externer Teams im Griff</h1>
+    <p class="l">DEXXUS Payrolling verbindet Techniker, Elektriker, Lieferanten und Kunde in einem Projekt: Jede Filiale mit Terminen, Material, Fotos und Abnahme – geplant im Takt, mit Fortschritt auf einen Blick.</p>
+    <div class="py-b"><a class="py-p" href="mailto:info@dexxus.ch?subject=Anfrage%20DEXXUS%20Payrolling" data-py="anfrage">Anfrage senden</a><a class="py-s" href="#ablauf">So funktioniert es</a></div>
+    <p class="py-k">Für Projekte mit vielen Standorten · ohne Lohnabrechnung – DEXXUS verbindet Daten, wertet aus und gibt Anweisungen</p>
+  </div>
+  <div class="py-bild"><img src="media/payrolling/projekt.jpg" alt="Rollout-Projekt in DEXXUS mit Filialen, Status und Übersicht" width="1440" height="900"><span>Beispiel mit Testdaten: Rollout 220 Filialen</span></div>
+</div></section>
+
+<section class="py-sec"><div class="in">
+  <h2>Was das Modul kann</h2><p class="sub">Alles, was ein Rollout mit vielen Beteiligten braucht – an einem Ort.</p>
+  <div class="py-raster">
+    <div class="py-karte"><h3>Planung im Takt</h3><p>Standortliste importieren, Takt wählen (z. B. 6 Filialen pro Woche) – DEXXUS plant je Filiale rückwärts: Aufnahme, Material, Elektro, Lieferung, Montage, Abnahme.</p></div>
+    <div class="py-karte"><h3>Jede Filiale eine Akte</h3><p>Grundrissplan, Materialaufstellung mit Artikelnummern, Einsätze mit Ankunftszeit, Fotos, Protokolle und alle Nachrichten – sauber abgelegt.</p></div>
+    <div class="py-karte"><h3>Mobile für Techniker</h3><p>Persönlicher Link statt App: Einsätze sehen, Ankunft melden, Abnahme mit Fotos und Unterschrift, Arbeitszeit und Spesen erfassen – auch ohne Netz.</p></div>
+    <div class="py-karte"><h3>Lieferanten direkt verbunden</h3><p>Bestellungen je Filiale, Lieferanten melden konfektioniert, programmiert, versendet und zugestellt – mit Protokoll und Foto.</p></div>
+    <div class="py-karte"><h3>Rollen, Rechte, Kanäle</h3><p>Projektleiter, Teamleiter, Elektriker, Kunde: jeder sieht nur, was er darf. Nachrichten per E-Mail und WhatsApp – jede wird protokolliert.</p></div>
+    <div class="py-karte"><h3>Fortschritt für den Kunden</h3><p>Ein Link zeigt dem Auftraggeber Stand, Regionen und Abnahmeprotokolle – ohne Preise. Wochenbericht automatisch.</p></div>
+  </div>
+</div></section>
+
+<section class="py-sec" id="ablauf" style="background:#F5F8FE"><div class="in">
+  <h2>So läuft eine Filiale</h2><p class="sub">DEXXUS gibt jedem Beteiligten rechtzeitig die richtige Anweisung – automatisch.</p>
+  <div class="py-ablauf">
+    <div><b>1 · Aufnahme</b>vor Ort: Fotos, Grundriss, Voraussetzungen</div>
+    <div><b>2 · Material</b>Plan mit Montageorten, Materialaufstellung</div>
+    <div><b>3 · Vorarbeit</b>Elektriker meldet fertig – mit Fotos</div>
+    <div><b>4 · Lieferung</b>konfiguriert, direkt in die Filiale</div>
+    <div><b>5 · Montage</b>Team montiert und nimmt in Betrieb</div>
+    <div><b>6 · Abnahme</b>Protokoll, Unterschrift, Support</div>
+  </div>
+  <div class="py-zwei" style="margin-top:24px">
+    <div class="py-bild"><img src="media/payrolling/schritt1.jpg" alt="Aufnahme und Materialaufstellung mit Grundrissplan" width="1440" height="900" loading="lazy"><span>Grundrissplan mit Montageorten – die Materialaufstellung rechnet mit</span></div>
+    <div class="py-bild"><img src="media/payrolling/schritt15.jpg" alt="Mobile der Techniker mit Personalien, Zeit und Spesen" width="1440" height="900" loading="lazy"><span>Mobile der Mitarbeitenden: Zeit, Spesen, «im Auftrag von» – geprüft in DEXXUS</span></div>
+  </div>
+</div></section>
+
+<section class="py-sec"><div class="in py-zwei">
+  <div><h2>Organisation und Ausfallsicherheit</h2><p class="sub">Gebaut für Projekte, bei denen nichts stillstehen darf.</p>
+    <ul class="py-liste"><li>Regionen nach Sprache (Deutschschweiz, Romandie, Tessin), Texte in DE/FR/IT</li><li>Vertretung springt automatisch ein, wenn jemand fehlt</li><li>Abgleich mit Projektleitern jede Minute, vollautomatisch</li><li>Standby übernimmt bei technischem Ausfall automatisch</li><li>Support nach der Übergabe: Techniker vor Ort und geschulte Alarmzentrale</li></ul></div>
+  <div class="py-bild"><img src="media/payrolling/schritt6.jpg" alt="Organigramm eines Rollout-Projekts" width="1440" height="900" loading="lazy"><span>Organigramm eines Rollouts (Beispiel, Namen erfunden)</span></div>
+</div></section>
+
+<section class="py-sec" style="padding-bottom:48px"><div class="in">
+  <div class="py-box"><div><h2>Auf Anfrage</h2><p>DEXXUS Payrolling ist ein Zusatzmodul zu DEXXUS KMU Enterprise. Wir richten es auf Ihr Projekt ein – Umfang und Preis nach Anzahl Standorte und Beteiligte.</p></div>
+    <div class="py-b" style="justify-content:flex-end"><a class="py-p" href="mailto:info@dexxus.ch?subject=Anfrage%20DEXXUS%20Payrolling" data-py="anfrage">Anfrage senden</a><a class="py-s" href="demo.html" style="background:transparent;color:#FAFAFF;border-color:#FAFAFF">DEXXUS-Demo ansehen</a></div></div>
+  <p class="py-hinw">Bilder: Beispiel mit Testdaten, alle Namen erfunden. Keine Lohnabrechnung und keine Zahlungen – Löhne und Verträge bleiben beim Personalbüro.</p>
+</div></section>
+</main>
+<footer class="dxw-foot"><div class="in">
+  <span>© 2026 avotec AG · Division Datenmanagement &amp; Softwareentwicklung · 8602 Wangen ZH</span>
+  <span style="flex:1"></span>
+  <a href="videos.html">Videos</a><a href="preise.html">Preise</a><a href="hilfe.html">Hilfe</a><a href="partner.html">Partner</a><a href="partner-portal.html">White-Label</a><a href="presse.html">Presse</a><a href="rechtliches.html#impressum">Impressum</a><a href="rechtliches.html#datenschutz">Datenschutz</a><a href="agb.html">AGB</a>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) { var a = e.target.closest("[data-py]"); if (a) { try { if (window.umami && umami.track) umami.track("Payrolling Anfrage"); } catch (x) {} } });
+</script>
+</body>
+</html>
