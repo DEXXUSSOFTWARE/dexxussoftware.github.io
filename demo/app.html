@@ -1380,7 +1380,7 @@ document.addEventListener("klickBereit", function () {
 </script>
 <script>
 "use strict";
-/* ===== 26.11.: Modul «Payrolling-Projekte» (NEU) – Daten verbinden, auswerten, Anweisungen per E-Mail/WhatsApp; keine Lohnabrechnung, keine Zahlungen ===== */
+/* ===== 26.11.: Modul «Rollout-Projekte» (NEU) – Daten verbinden, auswerten, Anweisungen per E-Mail/WhatsApp; keine Lohnabrechnung, keine Zahlungen ===== */
 var PP = {
   personen: [{ id: "x1", name: "Erika Muster", tel: "079 111 22 01", mail: "erika@beispiel-mail.ch", link: "aktiv" }, { id: "x2", name: "Hans Beispiel", tel: "079 111 22 02", mail: "hans@beispiel-mail.ch", link: "aktiv" },
     { id: "x3", name: "Lea Muster", tel: "079 111 22 03", mail: "lea@beispiel-mail.ch", link: "aktiv" }, { id: "x4", name: "Noah Beispiel", tel: "079 111 22 04", mail: "noah@beispiel-mail.ch", link: "eingeladen" }],
@@ -1401,7 +1401,7 @@ function ppZeile(id, nr, projekt, betrieb, ort, zeit, bedarf, st) {
     return [b2(nr, ""), b2(projekt, betrieb + " · " + ort), zeit, besetzt + " / " + (PP.plan[id] || []).length + " Schichten", off ? P("ueber", off + " offen") : fe ? P("gelb", "Rapport fehlt") : P(st === "abgeschlossen" ? "ok" : "offen", st), '<span class="r">' + (PP.stunden[id] || 0).toFixed(1) + '</span>']; } });
   return z;
 }
-seite({ id: "pp", kz: "PP", titel: "Payrolling-Projekte", kurz: "Einsätze, Rapporte, Anweisungen", gruppe: "ERP", paket: "KMU Enterprise (Zusatzmodul)", typ: "liste", start: "e1",
+seite({ id: "pp", kz: "PP", titel: "Rollout-Projekte", kurz: "Einsätze, Rapporte, Anweisungen", gruppe: "ERP", paket: "KMU Enterprise (Zusatzmodul)", typ: "liste", start: "e1",
   sub: "Einsätze externer Personen: Plan, Rapporte, Fotos, Belege, Auswertung, Anweisungen per E-Mail/WhatsApp – keine Lohnabrechnung, keine Zahlungen",
   knoepfe: [["Personen einladen", "ov:einladen"], ["Auswertung", "ov:auswertung"], ["+ Einsatz", "form", ""]],
   chips: [["*", "Alle"], ["laufend", "Laufend"], ["offen", "Offene Schichten", null, 1], ["fehlt", "Rapport fehlt"], ["abgeschlossen", "Abgeschlossen"]], suche: "Projekt, Einsatzbetrieb, Person …",
@@ -1414,7 +1414,7 @@ seite({ id: "pp", kz: "PP", titel: "Payrolling-Projekte", kurz: "Einsätze, Rapp
     var neu = eing.filter(function (u) { return u.st === "neu"; }).length;
     return { titel: d.projekt, sub: d.nr + " · " + d.betrieb + " · " + d.ort, kurz: "PP",
       reiter: [["Übersicht", '<div class="zahlen"><div><small>Schichten offen</small><b class="' + (ppOffen(z.id) ? "rottext" : "") + '">' + ppOffen(z.id) + '</b></div><div><small>Stunden (Rapporte)</small><b>' + (PP.stunden[z.id] || 0).toFixed(1) + '</b></div><div><small>Neu im Eingang</small><b>' + neu + '</b></div><div><small>Fehlt</small><b class="' + (fehlt.length ? "rottext" : "") + '">' + fehlt.length + '</b></div></div>' +
-          box("Einsatz", kv([["Einsatzbetrieb", d.betrieb], ["Ort", d.ort], ["Zeitraum", d.zeit], ["Dropbox-Ordner", "Payrolling/" + d.nr + " (Uploads werden automatisch zugeordnet)"]])) +
+          box("Einsatz", kv([["Einsatzbetrieb", d.betrieb], ["Ort", d.ort], ["Zeitraum", d.zeit], ["Dropbox-Ordner", "Rollout/" + d.nr + " (Uploads werden automatisch zugeordnet)"]])) +
           (fehlt.length ? '<div class="box" style="border:2px solid var(--rot)"><div class="bt rottext">Fehlt</div>' + fehlt.map(function (x) { return '<div class="hinw">' + x.wer + ' · ' + x.was + '</div>'; }).join("") + '<div style="margin-top:6px">' + knopf("Erinnern (E-Mail / WhatsApp)", "ov:erinnern", "k") + '</div></div>' : '')],
         ["Plan", '<table class="tab2"><tr><th>Tag</th><th>Zeit</th><th>Person</th><th></th></tr>' + plan.map(function (s, i) { return '<tr><td>' + s[0] + '</td><td>' + s[1] + '</td><td>' + (s[2] ? '<b>' + s[2] + '</b>' : '<span class="rottext">offen</span>') + '</td><td style="text-align:right">' + (s[2] ? knopf("Ändern", "ppZuweisen:" + z.id + "|" + i, "w k") : knopf("Zuweisen", "ppZuweisen:" + z.id + "|" + i, "k")) + '</td></tr>'; }).join("") + '</table>' +
           '<div style="display:flex;gap:6px;flex-wrap:wrap">' + knopf("Plan-Link senden", "ov:planlink", "w k") + knopf("+ Schicht", "m:Neue Schicht: Tag, Zeit, Anzahl Personen", "w k") + '</div><div class="hinw">Die Personen sehen den Plan über einen Link (nur lesen) und tippen bei offenen Schichten «Übernehmen» – die Antwort kommt hier im Eingang an.</div>'],
@@ -1455,7 +1455,7 @@ seite({ id: "pp", kz: "PP", titel: "Payrolling-Projekte", kurz: "Einsätze, Rapp
   },
   idee: "NEU (heute nicht in DEXXUS): Einsätze externer Personen verbinden – Plan, Rapporte, Fotos, Belege, Auswertung und Anweisungen. Uploads über Dropbox-Links, Antworten über den Mail-Import. Keine Lohnabrechnung, keine Zahlungen.",
   ablaufNeu: ["«+ Einsatz» anlegen (Projekt, Einsatzbetrieb, Zeitraum) und Schichten erfassen.", "«Personen einladen»: jede Person erhält per E-Mail/WhatsApp ihren Dropbox-Link (Upload) und den Plan-Link.", "Personen sehen den Plan und tippen bei offenen Schichten «Übernehmen» – die Antwort erscheint im Reiter «Eingang» → «Schicht zuteilen».", "Rapporte, Fotos und Belege landen im «Eingang» → «Übernehmen»; fehlende Rapporte stehen rot mit «Erinnern».", "«Auswertung» nach Person/Einsatz → Excel/PDF für Lohnbüro oder Rechnung an den Einsatzbetrieb.", "«Anweisung senden»: Vorlage wählen, E-Mail automatisch oder WhatsApp mit fertigem Text."],
-  inventar: [["–", "Ganze Seite «Payrolling-Projekte»", "neu", "Zusatzmodul, z. B. zu KMU Enterprise."], ["Projekte (heute)", "Bleiben; Payrolling-Einsätze sind eigene Seite", "gleich", ""], ["Mail-Import (heute)", "Nimmt «Übernehmen»-Antworten der Personen entgegen", "gleich", ""], ["Dokumente importieren (heute)", "Liest den Dropbox-Ordner Payrolling und ordnet zu", "gleich", ""]]
+  inventar: [["–", "Ganze Seite «Rollout-Projekte»", "neu", "Zusatzmodul, z. B. zu KMU Enterprise."], ["Projekte (heute)", "Bleiben; Rollout-Einsätze sind eigene Seite", "gleich", ""], ["Mail-Import (heute)", "Nimmt «Übernehmen»-Antworten der Personen entgegen", "gleich", ""], ["Dokumente importieren (heute)", "Liest den Dropbox-Ordner Rollout und ordnet zu", "gleich", ""]]
 });
 SEITEN.pp.inventar.push(["Hilfe-Knopf «i» (F1)", "Auch auf dieser Seite", "gleich", ""]);
 pruef("pp", [["Person übernimmt eine offene Schicht (Mail)", "Antwort erscheint im Eingang → «Schicht zuteilen»: Plan wird aktualisiert, Bestätigung geht raus. Ist die Schicht schon vergeben, geht automatisch eine Absage.", "besser"],
@@ -1467,9 +1467,9 @@ pruef("pp", [["Person übernimmt eine offene Schicht (Mail)", "Antwort erscheint
 </script>
 <script>
 "use strict";
-/* ===== 26.11.: Payrolling – Rollout-Projekt (Beispiel 450 Filialen, 8 pro Woche) – nur Daten verbinden, Termine rückwärts planen, Anweisungen automatisch; keine Löhne, keine Zahlungen ===== */
+/* ===== 26.11.: Rollout-Projekt (Beispiel 220 Filialen, 8 pro Woche) – nur Daten verbinden, Termine rückwärts planen, Anweisungen automatisch; keine Löhne, keine Zahlungen ===== */
 var RL = {
-  start: new Date(2027, 0, 11), proWoche: 8, anzahl: 450, seite: 0,
+  start: new Date(2027, 0, 11), proWoche: 8, anzahl: 220, seite: 0,
   regionen: [["Deutschschweiz", "Marco Beispiel", "Deutsch"], ["Romandie", "Claire Exemple", "Französisch"], ["Tessin", "Paolo Esempio", "Italienisch"]],
   teams: [["Team A", "Deutschschweiz", "Leo Beispiel, Mia Muster, Jan Beispiel"], ["Team B", "Deutschschweiz", "Nina Muster, Ben Beispiel, Ali Muster"], ["Team C", "Romandie + Tessin", "Luc Exemple, Eva Beispiel, Marco Esempio"]],
   elektro: [["Elektro Beispiel GmbH", "Deutschschweiz"], ["Strom Muster AG", "Deutschschweiz"], ["Beispiel Installationen AG", "Deutschschweiz"], ["Électricité Exemple SA", "Romandie"], ["Exemple Installations Sàrl", "Romandie"], ["Elettro Esempio SA", "Tessin"]],
@@ -1499,17 +1499,17 @@ function rlWocheFil(w) { var l = []; for (var n = 1; n <= RL.anzahl; n++) { var 
 function rlWarnungen() { var l = []; for (var n in RL.stand) if (RL.stand[n].indexOf(2) >= 0) { var f = rlFiliale(+n); l.push(f); } return l; }
 
 function rlZeile() {
-  var z = { id: "r1", loesch: false, d: { nr: "R-0450", projekt: "Rollout Sicherheitssystem 450 Filialen", betrieb: "Detailhandel Beispiel AG", ort: "ganze Schweiz", zeit: "11.01.2027–" + rlDat(rlTag(rlWochen(), 7)), st: "laufend" } };
+  var z = { id: "r1", loesch: false, d: { nr: "R-0220", projekt: "Rollout Sicherheitssystem 220 Filialen", betrieb: "Detailhandel Beispiel AG", ort: "ganze Schweiz", zeit: "11.01.2027–" + rlDat(rlTag(rlWochen(), 7)), st: "laufend" } };
   Object.defineProperty(z, "f", { get: function () { return "laufend" + (rlWarnungen().length ? " fehlt" : ""); } });
-  Object.defineProperty(z, "c", { get: function () { var w = rlWarnungen().length; return [b2("R-0450", ""), b2(z.d.projekt, z.d.betrieb + " · " + z.d.ort), "KW 2/2027 – " + rlWochen() + " Wo.", "3 Teams · 6 Elektriker", w ? P("ueber", w + " verspätet") : P("offen", "Vorbereitung"), '<span class="r">0 / 450</span>']; } });
+  Object.defineProperty(z, "c", { get: function () { var w = rlWarnungen().length; return [b2("R-0220", ""), b2(z.d.projekt, z.d.betrieb + " · " + z.d.ort), "KW 2/2027 – " + rlWochen() + " Wo.", "3 Teams · 6 Elektriker", w ? P("ueber", w + " verspätet") : P("offen", "Vorbereitung"), '<span class="r">0 / 220</span>']; } });
   return z;
 }
 function rlUebersicht() {
   var w = rlWarnungen(), kap = RL.teams.length * 3;
-  return '<div class="zahlen"><div><small>Fertig</small><b>0 / 450</b></div><div><small>Soll / Kapazität</small><b>' + RL.proWoche + ' / ' + kap + '</b><small>pro Woche</small></div><div><small>Dauer</small><b>' + rlWochen() + ' Wo.</b><small>bis ' + rlDat(rlTag(rlWochen(), 7)) + '</small></div></div>' +
+  return '<div class="zahlen"><div><small>Fertig</small><b>0 / 220</b></div><div><small>Soll / Kapazität</small><b>' + RL.proWoche + ' / ' + kap + '</b><small>pro Woche</small></div><div><small>Dauer</small><b>' + rlWochen() + ' Wo.</b><small>bis ' + rlDat(rlTag(rlWochen(), 7)) + '</small></div></div>' +
     (w.length ? '<div class="box" style="border:2px solid var(--rot)"><div class="bt rottext">Verspätet – Montage in Gefahr</div>' + w.map(function (f) { return '<div class="hinw">' + f.nr + ' ' + f.ort + ' · Elektro-Meldung fehlt · Montage ' + rlDat(f.tag) + '</div>'; }).join("") +
       '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">' + knopf("Elektriker erinnern", "rlErinnern:" + w[0].n, "k") + knopf("Tauschen", "rlTausch:" + w[0].n, "w k") + '</div></div>' : '<div class="hinw">Keine Verspätungen.</div>') +
-    '<div class="hinw">Detailhandel Beispiel AG · 450 Filialen (Excel importiert) · Dropbox Payrolling/R-0450</div>';
+    '<div class="hinw">Detailhandel Beispiel AG · 220 Filialen (Excel importiert) · Dropbox Rollout/R-0220</div>';
 }
 function rlKurzWochen() { var h = ""; for (var w = 1; w <= 4; w++) { var l = rlWocheFil(w), sp = l.filter(function (f) { return RL.stand[f.n] && RL.stand[f.n].indexOf(2) >= 0; }).length;
     h += '<div class="mini" data-act="rlWoche:' + w + '"><div class="f"><b>Woche ' + w + ' · ab ' + rlDat(rlTag(w, 0)) + '</b><small>' + l.length + ' Filialen · ' + (sp ? '<span class="rottext">' + sp + ' verspätet</span>' : RL.stand[l[0].n] ? 'in Vorbereitung' : 'geplant') + '</small></div></div>'; }
@@ -1543,7 +1543,7 @@ function rlWocheFenster(w) {
 }
 function rlFilFenster(n) {
   var f = rlFiliale(n), st = RL.stand[n] || [0, 0, 0, 0, 0, 0];
-  return fenster(f.nr + " " + f.ort + " – Montage " + rlDat(f.tag), '<div class="raster2">' + box("Zuständig", kv([["Projektleiter", f.pl + " (Region " + f.region + ")"], ["Elektriker", f.elektro], ["Team", f.team], ["Lieferanten", "A Alarm + Zutritt, B Video"], ["Dropbox", "Payrolling/R-0450/" + f.nr]])) +
+  return fenster(f.nr + " " + f.ort + " – Montage " + rlDat(f.tag), '<div class="raster2">' + box("Zuständig", kv([["Projektleiter", f.pl + " (Region " + f.region + ")"], ["Elektriker", f.elektro], ["Team", f.team], ["Lieferanten", "A Alarm + Zutritt, B Video"], ["Dropbox", "Rollout/R-0220/" + f.nr]])) +
     box("Stand", RL.schritte.map(function (s, k) { return '<div style="display:flex;justify-content:space-between;align-items:center;margin:3px 0"><span>' + s[0] + '</span>' + rlPill(f, k) + '</div>'; }).join("")) + '</div>' +
     (st[1] === 2 ? '<div class="hinw rottext">Elektro-Fertigmeldung fehlt seit 2 Tagen.</div>' : st[1] === 1 ? '<div class="hinw">Eingang: Elektro-Fertigmeldung mit 3 Fotos (Strom, Netzwerk-Dose, Schrank).</div>' : ''),
     (st[1] === 2 ? knopf("Elektriker erinnern", "rlErinnern:" + n, "w") + knopf("Mit nächster Filiale tauschen", "rlTausch:" + n, "w") : '') + '<span class="sp"></span>' + knopf("Zurück zur Woche", "rlWoche:" + f.w, "w") + (st[1] !== 1 ? knopf("Elektro-Meldung übernehmen", "rlElektroOk:" + n, "") : knopf("Schliessen", "zu", "")), "breit");
@@ -1551,15 +1551,15 @@ function rlFilFenster(n) {
 SEITEN.pp.zeilen.unshift(rlZeile());
 SEITEN.pp.start = "r1";
 SEITEN.pp.detail = (function (alt) { return function (z) { if (z.id !== "r1") return alt(z);
-  return { titel: z.d.projekt, sub: "R-0450 · Detailhandel Beispiel AG · 8 Filialen pro Woche", kurz: "RL",
+  return { titel: z.d.projekt, sub: "R-0220 · Detailhandel Beispiel AG · 8 Filialen pro Woche", kurz: "RL",
     reiter: [["Übersicht", rlUebersicht()], ["Wochen", rlKurzWochen()], ["Beteiligte", rlKurzBeteiligte()], ["Automatik", rlKurzAutomatik()], ["Anweisungen", PP.log.map(function (l) { return '<div class="mini" style="cursor:default"><div class="f"><b>' + l[1] + ' an ' + l[2] + '</b><small>' + l[0] + ' · ' + l[3] + '</small></div></div>'; }).join("") + knopf("Neue Anweisung", "ov:anweisung", "k")]],
-    fuss: [["Anweisung senden", "ov:anweisung", ""], ["Filialliste importieren", "m:Excel mit 450 Filialen (Nr., Adresse, Kontakt, Öffnungszeiten) – DEXXUS verteilt nach Region auf Wochen"], ["Auswertung", "ov:auswertung"]] }; }; })(SEITEN.pp.detail);
+    fuss: [["Anweisung senden", "ov:anweisung", ""], ["Filialliste importieren", "m:Excel mit 220 Filialen (Nr., Adresse, Kontakt, Öffnungszeiten) – DEXXUS verteilt nach Region auf Wochen"], ["Auswertung", "ov:auswertung"]] }; }; })(SEITEN.pp.detail);
 SEITEN.pp.aktion = (function (alt) { return function (a) {
   var n;
   if (a.indexOf("rlSeite:") === 0) { RL.seite = Math.max(0, RL.seite + +a.slice(8)); a = "rlPlan"; }
-  if (a === "rlPlan") return fenster("Wochenplan R-0450 – 450 Filialen, 8 pro Woche", rlWochenTab(), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit");
-  if (a === "rlBet") return fenster("Beteiligte R-0450", rlRessourcen(), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit");
-  if (a === "rlAuto") return fenster("Automatik R-0450", rlAutomatik(), '<span class="sp"></span>' + knopf("Abbrechen", "zu", "w") + knopf("Speichern", "m!Gespeichert", ""), "breit");
+  if (a === "rlPlan") return fenster("Wochenplan R-0220 – 220 Filialen, 8 pro Woche", rlWochenTab(), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit");
+  if (a === "rlBet") return fenster("Beteiligte R-0220", rlRessourcen(), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit");
+  if (a === "rlAuto") return fenster("Automatik R-0220", rlAutomatik(), '<span class="sp"></span>' + knopf("Abbrechen", "zu", "w") + knopf("Speichern", "m!Gespeichert", ""), "breit");
   if (a.indexOf("rlWoche:") === 0) return rlWocheFenster(+a.slice(8));
   if (a.indexOf("rlFil:") === 0) return rlFilFenster(+a.slice(6));
   if (a.indexOf("rlElektroOk:") === 0) { n = +a.slice(12); RL.stand[n] = RL.stand[n] || [1, 0, 0, 0, 0, 0]; RL.stand[n][1] = 1; rlFilFenster(n); return meldung("Elektro-Meldung übernommen – Lieferant erhält Freigabe zum Konfigurieren"); }
@@ -1570,7 +1570,7 @@ SEITEN.pp.aktion = (function (alt) { return function (a) {
   return alt(a);
 }; })(SEITEN.pp.aktion);
 SEITEN.pp.ablaufNeu.push("Rollout (viele Standorte): Filialliste importieren → DEXXUS verteilt auf Wochen (z. B. 8 pro Woche) und plant je Filiale rückwärts: Bestellung, Elektriker, Konfiguration, Lieferung just in time, Montage + IB, Abnahme – Anweisungen gehen automatisch.");
-SEITEN.pp.inventar.push(["–", "Rollout-Projekt mit Wochenplan, Beteiligten und Automatik", "neu", "Beispiel 450 Filialen."]);
+SEITEN.pp.inventar.push(["–", "Rollout-Projekt mit Wochenplan, Beteiligten und Automatik", "neu", "Beispiel 220 Filialen."]);
 pruef("pp", SEITEN.pp.pruefung.concat([["Rollout: Elektriker meldet nicht rechtzeitig", "Filiale wird rot «verspätet» (Übersicht, Woche, Liste). «Elektriker erinnern» (E-Mail + WhatsApp, Kopie Projektleiter) oder «Mit nächster Filiale tauschen» (gleiche Region) – alle werden informiert.", "besser"],
   ["Rollout: Elektro-Meldung mit Fotos kommt", "Filiale öffnen → «Elektro-Meldung übernehmen»: Lieferant erhält Freigabe zum Konfigurieren.", "besser"],
   ["Rollout: Wochenplan verteilen", "Woche öffnen → «Wochenplan an alle senden»; Protokoll im Reiter «Anweisungen». Danach gehen die Anweisungen automatisch nach Reiter «Automatik».", "besser"],
@@ -1582,7 +1582,7 @@ document.addEventListener("klickBereit", function () { var q = new URLSearchPara
 </script>
 <script>
 "use strict";
-/* ===== 26.11.: Rollout R-0450 – Ergänzungen: Offerte, Abnahmeprotokoll, Material/Seriennummern, Mängel/Nacharbeit, Kunden-Fortschritt, Filial-Angaben, Abwesenheiten ===== */
+/* ===== 26.11.: Rollout R-0220 – Ergänzungen: Offerte, Abnahmeprotokoll, Material/Seriennummern, Mängel/Nacharbeit, Kunden-Fortschritt, Filial-Angaben, Abwesenheiten ===== */
 RL.abnahme = {}; RL.nacharbeit = {}; RL.abwesend = [["Ben Beispiel (Team B)", "08.02.–12.02.2027", "Ferien", "Team B nur 2 Filialen in Woche 5 – 1 Filiale übernimmt Team A (Puffer)"]];
 RL.kalk = [["Alarmsystem + Zutritt (Lieferant A, Typ M)", 3150], ["Video: 8 Kameras + Videoserver (Lieferant B, Typ M)", 3400], ["Aufnahme vor Ort + Grundrissplan", 240], ["Konfektionieren und Programmieren", 260], ["Elektriker Vorinstallation", 650], ["Montage + IB Team (3 Pers. × 6 Std. × CHF 95)", 1710], ["Fahrt, Spesen", 220], ["Projektleitung und Dokumentation", 260]];
 function rlKalkSumme() { return RL.kalk.reduce(function (s, x) { return s + x[1]; }, 0); }
@@ -1600,7 +1600,7 @@ rlFilFenster = function (n) {
   if (na && na.geplant && !na.erledigt) fuss += '<span class="hinw">Prüf-Werkzeug:</span>' + knopf("Nacharbeit erledigt", "rlNachFertig:" + n, "w k");
   if (!ab && st[1] === 1) fuss += '<span class="hinw">Prüf-Werkzeug:</span>' + knopf("Abnahme kommt rein", "rlTestAb:" + n + "|0", "w k") + knopf("Abnahme mit Mangel", "rlTestAb:" + n + "|1", "w k");
   return fenster(f.nr + " " + f.ort + " – Montage " + rlDat(f.tag) + (na && !na.erledigt ? (na.geplant ? " · Nacharbeit " + na.geplant : " · Nacharbeit offen") : ""), '<div class="raster2"><div>' +
-    box("Zuständig", kv([["Projektleiter", f.pl + " (Region " + f.region + ")"], ["Elektriker", f.elektro], ["Team", f.team], ["Dropbox", "Payrolling/R-0450/" + f.nr]])) +
+    box("Zuständig", kv([["Projektleiter", f.pl + " (Region " + f.region + ")"], ["Elektriker", f.elektro], ["Team", f.team], ["Dropbox", "Rollout/R-0220/" + f.nr]])) +
     box("Filial-Angaben", rlAngaben(f)) + '</div><div>' +
     box("Stand", '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 12px">' + RL.schritte.map(function (s, k) { return '<div style="display:flex;justify-content:space-between;align-items:center"><span>' + s[0] + '</span>' + (k === 5 && na && !na.erledigt ? P("ueber", "Nacharbeit") : rlPill(f, k)) + '</div>'; }).join("") + '</div>' +
       (st[1] === 2 ? '<div class="hinw rottext">Elektro-Fertigmeldung fehlt seit 2 Tagen.</div>' : st[1] === 1 && !ab ? '<div class="hinw">Eingang: Elektro-Fertigmeldung mit 3 Fotos.</div>' : '') + (na && !na.erledigt ? '<div class="hinw rottext">Mangel: ' + na.text + '</div>' : '')) +
@@ -1614,30 +1614,30 @@ function rlProtFenster(n) { var f = rlFiliale(n), a = RL.abnahme[n];
 function rlNacharbeiten() { return Object.keys(RL.nacharbeit).map(function (n) { return rlFiliale(+n); }); }
 function rlFertig() { return Object.keys(RL.abnahme).filter(function (n) { return !RL.nacharbeit[n] || RL.nacharbeit[n].erledigt; }).length; }
 /* Übersicht: Fertig-Zahl, Nacharbeit-Kasten, Kunden-Link */
-rlUebersicht = (function (alt) { return function () { var h = alt().replace("<b>0 / 450</b>", "<b>" + rlFertig() + " / 450</b>"), na = rlNacharbeiten().filter(function (f) { return !RL.nacharbeit[f.n].erledigt; });
+rlUebersicht = (function (alt) { return function () { var h = alt().replace("<b>0 / 220</b>", "<b>" + rlFertig() + " / 220</b>"), na = rlNacharbeiten().filter(function (f) { return !RL.nacharbeit[f.n].erledigt; });
   if (na.length) h = h.replace('<div class="hinw">Detailhandel', '<div class="box" style="border:2px solid var(--rot)"><div class="bt rottext">Nacharbeit</div>' + na.map(function (f) { var x = RL.nacharbeit[f.n]; return '<div class="hinw">' + f.nr + ' ' + f.ort + ' · ' + x.text + ' · ' + (x.geplant ? "geplant " + x.geplant : '<span class="rottext">noch kein Termin</span>') + '</div>'; }).join("") + '<div style="margin-top:6px">' + knopf("Öffnen", "rlFil:" + na[0].n, "w k") + '</div></div><div class="hinw" style="display:none">Detailhandel');
   return h; }; })(rlUebersicht);
 rlRessourcen = (function (alt) { return function () { return alt() + box("Abwesenheiten (Ferien, Krankheit)", (RL.abwesend.length ? RL.abwesend.map(function (x) { return '<div class="hinw"><b>' + x[0] + '</b> · ' + x[1] + ' · ' + x[2] + ' → ' + x[3] + '</div>'; }).join("") : '<div class="hinw">Keine.</div>') + '<div style="margin-top:6px">' + knopf("Abwesenheit eintragen", "rlAbw", "k") + '</div>'); }; })(rlRessourcen);
 rlKurzBeteiligte = (function (alt) { return function () { return alt().replace('<div class="kv">', '<div class="kv"><span>Abwesend</span><span>' + RL.abwesend.length + ' eingetragen</span>'); }; })(rlKurzBeteiligte);
 rlWochenTab = (function (alt) { return function () { return '<div class="hinw">Sperrtage der Filialen sind berücksichtigt (z. B. 01.–24.12.: keine Montagen) · Abwesenheiten verteilen die Filialen automatisch um.</div>' + alt(); }; })(rlWochenTab);
 function rlOfferte() { var s = rlKalkSumme(), t = s * RL.anzahl;
-  return fenster("Offerte R-0450 – Kalkulation je Filiale", '<div class="raster2" style="grid-template-columns:1.3fr 1fr"><div>' + tab(["Position je Filiale", "CHF"], RL.kalk.map(function (x) { return [x[0], '<span class="r">' + chf(x[1]) + '</span>']; }).concat([["<b>Total je Filiale</b>", '<b>' + chf(s) + '</b>']])) + '</div><div>' +
-    box("Total 450 Filialen", '<div style="font-size:20px;font-weight:800;color:var(--dunkel)">CHF ' + chf(t) + '</div><div class="hinw">exkl. MWST · Preise aus Lieferanten-Import, Ansätze aus Einstellungen</div>') +
+  return fenster("Offerte R-0220 – Kalkulation je Filiale", '<div class="raster2" style="grid-template-columns:1.3fr 1fr"><div>' + tab(["Position je Filiale", "CHF"], RL.kalk.map(function (x) { return [x[0], '<span class="r">' + chf(x[1]) + '</span>']; }).concat([["<b>Total je Filiale</b>", '<b>' + chf(s) + '</b>']])) + '</div><div>' +
+    box("Total 220 Filialen", '<div style="font-size:20px;font-weight:800;color:var(--dunkel)">CHF ' + chf(t) + '</div><div class="hinw">exkl. MWST · Preise aus Lieferanten-Import, Ansätze aus Einstellungen</div>') +
     box("Zahlungsplan", kv([["Bei Auftrag", "20 % · CHF " + chf(t * .2)], ["Monatlich nach Abnahmen", "70 % · je Filiale CHF " + chf(s * .7)], ["Schlussabnahme", "10 % · CHF " + chf(t * .1)]])) + '</div></div>',
     knopf("Positionen ändern", "m:Positionen und Preise anpassen – Total rechnet neu", "w") + '<span class="sp"></span>' + knopf("Abbrechen", "zu", "w") + knopf("Als Offerte speichern", "rlOffOk", ""), "breit"); }
 function rlKunde() { var f = rlFertig(), na = rlNacharbeiten().filter(function (x) { return !RL.nacharbeit[x.n].erledigt; }).length;
   var bar = function (r, i) { var ist = Object.keys(RL.abnahme).filter(function (n) { return rlFiliale(+n).region === r[0]; }).length, tot = rlRegionAnzahl(r[0]); return '<div style="margin:4px 0"><div class="hinw">Region ' + r[0] + ' · ' + ist + ' / ' + tot + '</div><div style="height:10px;background:#E2E8F0;border-radius:6px"><div style="height:10px;width:' + Math.max(1, ist / tot * 100) + '%;background:var(--gruen);border-radius:6px"></div></div></div>'; };
-  return fenster("Fortschritt für den Kunden", '<div class="raster2"><div>' + box("So sieht es der Kunde (Link, nur lesen)", '<div class="hinw">dexxus.ch/fortschritt/R-0450</div><div class="zahlen"><div><small>Abgenommen</small><b>' + f + '</b></div><div><small>Geplant</small><b>' + (450 - f) + '</b></div><div><small>Nacharbeit</small><b class="' + (na ? "rottext" : "") + '">' + na + '</b></div></div>' + RL.regionen.map(bar).join("") + '<div class="hinw">Je Filiale: Datum, Stand, Abnahmeprotokoll als PDF. Keine Preise, keine Namen der Techniker.</div>') + '</div><div>' +
+  return fenster("Fortschritt für den Kunden", '<div class="raster2"><div>' + box("So sieht es der Kunde (Link, nur lesen)", '<div class="hinw">dexxus.ch/fortschritt/R-0220</div><div class="zahlen"><div><small>Abgenommen</small><b>' + f + '</b></div><div><small>Geplant</small><b>' + (220 - f) + '</b></div><div><small>Nacharbeit</small><b class="' + (na ? "rottext" : "") + '">' + na + '</b></div></div>' + RL.regionen.map(bar).join("") + '<div class="hinw">Je Filiale: Datum, Stand, Abnahmeprotokoll als PDF. Keine Preise, keine Namen der Techniker.</div>') + '</div><div>' +
     box("Einstellungen", '<label><input type="checkbox" checked> Abnahmeprotokolle zeigen</label><br><label><input type="checkbox" checked> Wochenbericht jeden Freitag per E-Mail</label><br><label><input type="checkbox"> Kosten zeigen</label>' + feldH("An", "projekt@detailhandel-beispiel.ch")) + '</div></div>',
     knopf("Link sperren", "m!Link gesperrt – der Kunde sieht nichts mehr", "w") + '<span class="sp"></span>' + knopf("Abbrechen", "zu", "w") + knopf("Link per E-Mail senden", "rlKundeOk", ""), "breit"); }
-SEITEN.pp.detail = (function (alt) { return function (z) { var d = alt(z); if (z.id === "r1") d.fuss = [["Anweisung senden", "ov:anweisung", ""], ["Offerte", "rlOff"], ["Kunden-Link", "rlKunde"], ["Filialliste importieren", "m:Excel mit 450 Filialen (Nr., Adresse, Kontakt, Öffnungszeiten, Zugang, Sperrtage) – DEXXUS verteilt nach Region auf Wochen"]]; return d; }; })(SEITEN.pp.detail);
+SEITEN.pp.detail = (function (alt) { return function (z) { var d = alt(z); if (z.id === "r1") d.fuss = [["Anweisung senden", "ov:anweisung", ""], ["Offerte", "rlOff"], ["Kunden-Link", "rlKunde"], ["Filialliste importieren", "m:Excel mit 220 Filialen (Nr., Adresse, Kontakt, Öffnungszeiten, Zugang, Sperrtage) – DEXXUS verteilt nach Region auf Wochen"]]; return d; }; })(SEITEN.pp.detail);
 SEITEN.pp.aktion = (function (alt) { return function (a) {
   var n, t;
   function log(k, an, was) { PP.log.unshift(["26.11. " + new Date().toTimeString().slice(0, 5), k, an, was]); }
   if (a === "rlOff") return rlOfferte();
-  if (a === "rlOffOk") { var nr = "OF-2026-" + (blNr++); SEITEN.bl.zeilen.unshift(blZ("rl" + blNr, nr, "Offerte", "Detailhandel Beispiel AG", "26.11.2026", "Rollout Sicherheitssystem 450 Filialen", "Entwurf", chf(rlKalkSumme() * RL.anzahl), "26.12.2026")); S.ov = null; zeigen(); return meldung("Offerte " + nr + " als Entwurf gespeichert – unter Belege, zum Senden oder Ändern"); }
+  if (a === "rlOffOk") { var nr = "OF-2026-" + (blNr++); SEITEN.bl.zeilen.unshift(blZ("rl" + blNr, nr, "Offerte", "Detailhandel Beispiel AG", "26.11.2026", "Rollout Sicherheitssystem 220 Filialen", "Entwurf", chf(rlKalkSumme() * RL.anzahl), "26.12.2026")); S.ov = null; zeigen(); return meldung("Offerte " + nr + " als Entwurf gespeichert – unter Belege, zum Senden oder Ändern"); }
   if (a === "rlKunde") return rlKunde();
-  if (a === "rlKundeOk") { log("E-Mail", "Detailhandel Beispiel AG", "Fortschritt-Link dexxus.ch/fortschritt/R-0450"); S.ov = null; zeigen(); return meldung("Fortschritt-Link an den Kunden gesendet"); }
+  if (a === "rlKundeOk") { log("E-Mail", "Detailhandel Beispiel AG", "Fortschritt-Link dexxus.ch/fortschritt/R-0220"); S.ov = null; zeigen(); return meldung("Fortschritt-Link an den Kunden gesendet"); }
   if (a.indexOf("rlTestAb:") === 0) { t = a.slice(9).split("|"); n = +t[0]; RL.stand[n] = [1, 1, 1, 1, 1, 1]; RL.abnahme[n] = { mangel: t[1] === "1" };
     if (t[1] === "1") { RL.nacharbeit[n] = { text: "Alarmzentrale meldet Störung Melder 3" }; rlFilFenster(n); return meldung("Abnahme mit Mangel eingegangen – Filiale auf «Nacharbeit», Projektleiter informiert"); }
     rlFilFenster(n); return meldung("Abnahme eingegangen – Filiale fertig, zählt für die Monatsrechnung"); }
@@ -1656,7 +1656,7 @@ SEITEN.pp.aktion = (function (alt) { return function (a) {
   return alt(a);
 }; })(SEITEN.pp.aktion);
 SEITEN.pp.ablaufNeu.push("Rollout ergänzt: Offerte aus der Kalkulation je Filiale × Anzahl, Abnahmeprotokoll vom Mobile des Teams, Seriennummern aus den Programmier-Protokollen, Mangel → Nacharbeit mit Terminvorschlag, Fortschritt-Link für den Kunden, Filial-Angaben (Öffnungszeiten, Zugang, Sperrtage), Abwesenheiten mit Umverteilung.");
-pruef("pp", SEITEN.pp.pruefung.concat([["Rollout: Offerte", "«Offerte» unten: Kalkulation je Filiale × 450 mit Zahlungsplan → «Als Offerte speichern» = Entwurf unter Belege.", "besser"],
+pruef("pp", SEITEN.pp.pruefung.concat([["Rollout: Offerte", "«Offerte» unten: Kalkulation je Filiale × 220 mit Zahlungsplan → «Als Offerte speichern» = Entwurf unter Belege.", "besser"],
   ["Rollout: Abnahme", "Techniker füllt das Protokoll auf dem Mobile aus (Checkliste, Fotos, Unterschrift Filialleitung). Filiale wird «fertig», zählt für die Monatsrechnung; «Abnahmeprotokoll» → PDF oder an Kunden.", "besser"],
   ["Rollout: Mangel bei der Abnahme", "Filiale rot «Nacharbeit» (Übersicht, Filiale). «Nacharbeit einplanen»: Vorschlag mit Team, Termin und Ersatzmaterial → alle informiert.", "besser"],
   ["Rollout: Material", "Filiale zeigt Artikel und Seriennummern aus den Programmier-Protokollen; nach der Abnahme Lieferschein = Abnahme.", "besser"],
@@ -1665,7 +1665,7 @@ pruef("pp", SEITEN.pp.pruefung.concat([["Rollout: Offerte", "«Offerte» unten: 
 </script>
 <script>
 "use strict";
-/* ===== 26.11.: Rollout R-0450 – Liste aller Filialen + Filial-Akte (Einsätze mit Personen und Ankunft, Dokumente, Material, Verlauf) ===== */
+/* ===== 26.11.: Rollout R-0220 – Liste aller Filialen + Filial-Akte (Einsätze mit Personen und Ankunft, Dokumente, Material, Verlauf) ===== */
 RL.fl = { seite: 0, filter: "*", q: "" }; RL.tab = 0; RL.akteN = 0;
 RL.personen = { "Team A": ["Leo Beispiel", "Mia Muster", "Jan Beispiel"], "Team B": ["Nina Muster", "Ben Beispiel", "Ali Muster"], "Team C": ["Luc Exemple", "Eva Beispiel", "Marco Esempio"] };
 RL.monteure = ["Kurt Beispiel", "Sven Muster", "Paul Exemple", "Léa Exemple", "Gino Esempio", "Sara Esempio"];
@@ -1711,7 +1711,7 @@ rlFilFenster = function (n) {
       '<div class="hinw">«Ankunft effektiv» kommt vom Mobile: Die Person tippt im Link «Angekommen». Fehlt die Ankunft 30 Minuten nach der geplanten Zeit, meldet DEXXUS es dem Projektleiter.</div>'; }
   if (RL.tab === 2) { doks = rlDokumente(f);
     inh = '<table class="tab2"><tr><th>Dokument</th><th>Art</th><th>Von</th><th>Datum</th><th></th></tr>' + doks.map(function (x) { return '<tr><td>' + (x[4] ? '<b>' + x[0] + '</b>' : '<span class="hinw">' + x[0] + '</span>') + '</td><td>' + x[1] + '</td><td>' + x[2] + '</td><td>' + x[3] + '</td><td style="text-align:right">' + (x[4] ? knopf("Ansehen", "m:" + x[0] + " öffnet sich", "w k") : '<span class="hinw">erwartet</span>') + '</td></tr>'; }).join("") + '</table>' +
-      '<div class="hinw">Alles aus dem Dropbox-Ordner Payrolling/R-0450/' + f.nr + ' – automatisch zugeordnet. Graue Zeilen: noch nicht eingegangen, mit dem Datum, bis wann sie kommen müssen.</div>'; }
+      '<div class="hinw">Alles aus dem Dropbox-Ordner Rollout/R-0220/' + f.nr + ' – automatisch zugeordnet. Graue Zeilen: noch nicht eingegangen, mit dem Datum, bis wann sie kommen müssen.</div>'; }
   if (RL.tab === 3) inh = box("Material " + f.nr, rlMaterial(f));
   if (RL.tab === 4) { var l = PP.log.filter(function (x) { return x[3].indexOf(f.nr) >= 0 || x[2].indexOf(f.nr) >= 0; });
     inh = (l.length ? l : [["26.11. 10:02", "E-Mail", f.elektro, "Auftrag Vorinstallation " + f.nr + " (automatisch)"], ["26.11. 10:02", "E-Mail", "Lieferant A + B", "Bestellung Woche " + f.w + " inkl. " + f.nr]]).map(function (x) { return '<div class="mini" style="cursor:default"><div class="f"><b>' + x[1] + ' an ' + x[2] + '</b><small>' + x[0] + ' · ' + x[3] + '</small></div></div>'; }).join("") + '<div class="hinw">Alle Nachrichten zu dieser Filiale (E-Mail, WhatsApp), automatisch und von Hand.</div>'; }
@@ -1729,13 +1729,13 @@ function rlListe() {
     if (fi === "spaet") return st && st.indexOf(2) >= 0; if (fi === "nach") return na && !na.erledigt; if (fi === "fertig") return RL.abnahme[f.n] && (!na || na.erledigt); if (fi === "woche") return f.w <= 2; return true; });
   l.sort(function (a, b) { return a.w - b.w || a.n - b.n; });
   var pro = 8, max = Math.max(1, Math.ceil(l.length / pro)); if (RL.fl.seite >= max) RL.fl.seite = max - 1; var von = RL.fl.seite * pro, teil = l.slice(von, von + pro);
-  var chips = [["*", "Alle 450"], ["woche", "Nächste 2 Wochen"], ["spaet", "Verspätet"], ["nach", "Nacharbeit"], ["fertig", "Fertig"], ["R:Deutschschweiz", "Deutschschweiz"], ["R:Romandie", "Romandie"], ["R:Tessin", "Tessin"]];
+  var chips = [["*", "Alle 220"], ["woche", "Nächste 2 Wochen"], ["spaet", "Verspätet"], ["nach", "Nacharbeit"], ["fertig", "Fertig"], ["R:Deutschschweiz", "Deutschschweiz"], ["R:Romandie", "Romandie"], ["R:Tessin", "Tessin"]];
   var naechst = function (f) { var e = rlEinsaetze(f).filter(function (x) { return x[5] !== "erledigt"; })[0]; return e ? e[0] + ' <span class="hinw">' + e[1].slice(0, 6) + ' ' + e[3] + '</span>' : P("ok", "alles erledigt"); };
   return '<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px">' + chips.map(function (c) { return knopf(c[1], "rlFl:" + c[0], c[0] === fi ? "k" : "w k"); }).join("") + '<span class="sp"></span><input id="rlQ" class="feld" style="width:220px" placeholder="Filiale, Ort, Person, Firma …" value="' + RL.fl.q + '" onkeydown="if(event.key===\'Enter\')aktion(\'rlQ\')">' + knopf("Suchen", "rlQ", "w k") + '</div>' +
     '<table class="tab2"><tr><th>Filiale</th><th>Region · Projektleiter · Team</th><th>Montage</th><th>Stand</th><th>Nächster Einsatz</th></tr>' +
     (teil.length ? teil.map(function (f) { return '<tr data-act="rlAkte:' + f.n + '" style="cursor:pointer"><td><b>' + f.nr + '</b> ' + f.ort + '</td><td>' + f.region + ' · ' + f.pl + ' · ' + f.team + '</td><td style="white-space:nowrap">' + rlDat(f.tag) + ' <span class="hinw">W' + f.w + '</span></td><td>' + rlStufe(f) + '</td><td>' + naechst(f) + '</td></tr>'; }).join("") : '<tr><td colspan="5" class="hinw">Keine Filiale gefunden.</td></tr>') + '</table>' +
     '<div style="display:flex;gap:6px;align-items:center">' + (RL.fl.seite ? knopf("‹ Zurück", "rlFlS:-1", "w k") : "") + '<span class="hinw">' + (l.length ? (von + 1) + '–' + Math.min(l.length, von + pro) + ' von ' + l.length : '0') + ' Filialen · Zeile anklicken = Filial-Akte</span>' + (RL.fl.seite < max - 1 ? knopf("Weiter ›", "rlFlS:1", "w k") : "") + '</div>'; }
-function rlListeFenster() { RL.akteN = 0; return fenster("Alle Filialen R-0450", rlListe(), knopf("Excel", "m!Liste als Excel gespeichert", "w") + '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit"); }
+function rlListeFenster() { RL.akteN = 0; return fenster("Alle Filialen R-0220", rlListe(), knopf("Excel", "m!Liste als Excel gespeichert", "w") + '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit"); }
 /* «Zurück» aus der Akte führt zur Liste, wenn man von dort kam */
 SEITEN.pp.aktion = (function (alt) { return function (a) {
   if (a === "rlListe") return rlListeFenster();
@@ -1751,7 +1751,7 @@ var rlFilNeu = rlFilFenster;
 rlFilFenster = function (n) { rlFilNeu(n); if (RL.vonListe) { S.ov = S.ov.replace(/data-act="rlWoche:\d+">Zurück zur Woche/, 'data-act="rlListe">Zurück zur Liste'); zeigen(); } };
 /* Karte: Reiter «Filialen» + Knopf in der Übersicht */
 function rlKurzFilialen() { var w = rlWarnungen().length, na = rlNacharbeiten().filter(function (f) { return !RL.nacharbeit[f.n].erledigt; }).length;
-  return kv([["Alle Filialen", "450"], ["Fertig", rlFertig()], ["Verspätet", w], ["Nacharbeit", na]]) + '<div class="hinw">Jede Filiale mit Einsätzen (wer, wann, Ankunft), Dokumenten, Material und Verlauf.</div>' + knopf("Alle Filialen", "rlListe", "k"); }
+  return kv([["Alle Filialen", "220"], ["Fertig", rlFertig()], ["Verspätet", w], ["Nacharbeit", na]]) + '<div class="hinw">Jede Filiale mit Einsätzen (wer, wann, Ankunft), Dokumenten, Material und Verlauf.</div>' + knopf("Alle Filialen", "rlListe", "k"); }
 SEITEN.pp.detail = (function (alt) { return function (z) { var d = alt(z); if (z.id === "r1") d.reiter.splice(1, 0, ["Filialen", rlKurzFilialen()]); return d; }; })(SEITEN.pp.detail);
 SEITEN.pp.ablaufNeu.push("Filialen: Reiter «Filialen» → «Alle Filialen» (Filter, Suche, 10 pro Seite) → Zeile = Filial-Akte mit Einsätzen (wer, wann, Ankunft geplant/effektiv), Dokumenten, Material und Verlauf.");
 pruef("pp", SEITEN.pp.pruefung.concat([["Rollout: Eine bestimmte Filiale finden", "Reiter «Filialen» → «Alle Filialen»: Suche nach Nr., Ort, Person oder Firma; Filter Region, Verspätet, Nacharbeit, Fertig, Nächste 2 Wochen.", "besser"],
@@ -1760,7 +1760,7 @@ pruef("pp", SEITEN.pp.pruefung.concat([["Rollout: Eine bestimmte Filiale finden"
 </script>
 <script>
 "use strict";
-/* ===== 26.11.: Rollout R-0450 – Sprachregionen, Rollen und Rechte (frei einstellbar), Stellvertretung, Support nach der Übergabe ===== */
+/* ===== 26.11.: Rollout R-0220 – Sprachregionen, Rollen und Rechte (frei einstellbar), Stellvertretung, Support nach der Übergabe ===== */
 RL.rechte = ["Stand sehen", "Dokumente", "Personen / Telefon", "Preise", "Anweisungen senden", "Einsätze zuteilen", "Hochladen / Melden"];
 RL.zugaenge = ["DEXXUS (dieser PC)", "Link im Browser", "Mobile-Link", "kein Zugang"];
 RL.bereiche = ["alle Filialen", "eigene Region", "eigene Einsätze", "eigene Lieferungen"];
@@ -1784,11 +1784,11 @@ function rlRollenHTML() {
         o.r.map(function (v, k) { return '<td style="text-align:center"><input type="checkbox"' + (v ? " checked" : "") + (o.fest ? " disabled" : ' onclick="aktion(\'rlR:' + i + '|' + k + '\')"') + '></td>'; }).join("") +
         '<td style="text-align:right">' + knopf("Ansicht", "rlAls:" + i, "w k") + (o.neu ? '<div style="margin-top:4px">' + knopf("Löschen", "rlRDel:" + i, "rot k") + '</div>' : "") + '</td></tr>'; }).join("") + '</table>' +
     '<div class="hinw">Häkchen anklicken = Recht ein/aus. «Ansicht» zeigt genau, was diese Rolle sieht. Rollen gelten für dieses Projekt; als Vorlage für weitere Projekte speicherbar.</div>'; }
-function rlRollenFenster() { return fenster("Rollen und Rechte R-0450", rlRollenHTML(), knopf("+ Neue Rolle", "rlRNeu", "w") + knopf("Als Vorlage speichern", "m!Als Vorlage «Rollout» gespeichert", "w") + '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit"); }
+function rlRollenFenster() { return fenster("Rollen und Rechte R-0220", rlRollenHTML(), knopf("+ Neue Rolle", "rlRNeu", "w") + knopf("Als Vorlage speichern", "m!Als Vorlage «Rollout» gespeichert", "w") + '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit"); }
 function rlAlsFenster(i) {
   var o = RL.rollen[i], alle = []; for (var n = 1; n <= 24; n++) alle.push(rlFiliale(n));
   var l = alle.filter(function (f) { return o.fil === 0 || (o.fil === 1 ? f.region === "Deutschschweiz" : o.fil === 2 ? f.team === "Team A" || f.elektro === "Elektro Beispiel GmbH" : f.w <= 2); }).slice(0, 5);
-  var anz = o.fil === 0 ? 450 : o.fil === 1 ? rlRegionAnzahl("Deutschschweiz") : o.fil === 2 ? "nur zugeteilte" : "nur zu liefernde";
+  var anz = o.fil === 0 ? 220 : o.fil === 1 ? rlRegionAnzahl("Deutschschweiz") : o.fil === 2 ? "nur zugeteilte" : "nur zu liefernde";
   var kopf = ["Filiale", "Montage"].concat(o.r[0] ? ["Stand"] : []).concat(o.r[2] ? ["Kontakt vor Ort"] : []).concat(o.r[3] ? ["Preis"] : []).concat(o.r[1] ? ["Dokumente"] : []);
   var zeilen = l.map(function (f) { var z = ['<b>' + f.nr + '</b> ' + f.ort, rlDat(f.tag)]; if (o.r[0]) z.push(rlStufe(f)); if (o.r[2]) z.push("Filialleitung · Telefon"); if (o.r[3]) z.push("CHF " + chf(rlKalkSumme())); if (o.r[1]) z.push(rlDokumente(f).filter(function (d) { return d[4]; }).length + " Dokumente"); return z; });
   return fenster("So sieht es: " + o.name + (o.fil === 1 ? " (Beispiel Deutschschweiz)" : ""), '<div class="raster2" style="grid-template-columns:1.6fr 1fr"><div>' + box(RL.zugaenge[o.zugang] + " · " + RL.bereiche[o.fil] + " (" + anz + ")", tab(kopf, zeilen)) + '</div><div>' +
@@ -1855,7 +1855,7 @@ rlUebersicht = function () {
   rlNacharbeiten().forEach(function (f) { var x = RL.nacharbeit[f.n]; if (x.erledigt) return; l.push([f.nr + " " + f.ort + ": Nacharbeit " + (x.geplant ? "am " + x.geplant : "ohne Termin"), knopf(x.geplant ? "Öffnen" : "Einplanen", x.geplant ? "rlAkte:" + f.n : "rlNach:" + f.n, x.geplant ? "w k" : "k")]); });
   Object.keys(RL.support.stoerungen).forEach(function (n) { RL.support.stoerungen[n].forEach(function (s) { if (!s[2]) l.push([rlFiliale(+n).nr + " " + rlFiliale(+n).ort + ": Störung " + s[0], knopf("Öffnen", "rlAkte:" + n, "w k")]); }); });
   var max = RL._alle ? 99 : v ? 2 : 4, mehr = l.length > max ? l.length - max : 0;
-  return '<div class="zahlen"><div><small>Fertig</small><b>' + rlFertig() + ' / 450</b></div><div><small>Soll / Kapazität</small><b>' + RL.proWoche + ' / ' + kap + '</b><small>pro Woche</small></div><div><small>Dauer</small><b>' + rlWochen() + ' Wo.</b><small>bis ' + rlDat(rlTag(rlWochen(), 7)) + '</small></div></div>' +
+  return '<div class="zahlen"><div><small>Fertig</small><b>' + rlFertig() + ' / 220</b></div><div><small>Soll / Kapazität</small><b>' + RL.proWoche + ' / ' + kap + '</b><small>pro Woche</small></div><div><small>Dauer</small><b>' + rlWochen() + ' Wo.</b><small>bis ' + rlDat(rlTag(rlWochen(), 7)) + '</small></div></div>' +
     (v ? '<div class="box" style="border:2px solid var(--blau);display:flex;align-items:center;gap:8px;padding:6px 10px"><div class="hinw" style="flex:1"><b>Vertretung:</b> ' + v.durch + ' für ' + v.fuer + ' bis ' + v.bis + '</div>' + knopf("Beenden", "rlVEnde", "w k") + '</div>' : '') +
     (l.length ? '<div class="box" style="border:2px solid var(--rot);padding:8px 10px"><div class="bt rottext">Zu erledigen (' + l.length + ')</div>' + l.slice(0, max).map(function (x) { return '<div style="display:flex;align-items:center;gap:6px;margin:3px 0"><span class="hinw" style="flex:1">' + x[0] + '</span>' + x[1] + '</div>'; }).join("") + (mehr ? '<div style="margin-top:4px">' + knopf("+ " + mehr + " weitere", "rlZuErl", "w k") + '</div>' : '') + '</div>' : '<div class="hinw">Keine offenen Punkte.</div>');
 };
@@ -1865,7 +1865,7 @@ rlUebersicht = function () {
 SEITEN.pp.aktion = (function (alt) { return function (a) {
   if (a === "rlZuErl") { var h = rlUebersicht(), i = h.indexOf('<div class="box" style="border:2px solid var(--rot)'); RL._alle = true; h = rlUebersicht(); RL._alle = false;
     return fenster("Zu erledigen", h.slice(h.indexOf('<div class="box" style="border:2px solid var(--rot)')), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit"); }
-  if (a === "rlLogAlle") return fenster("Anweisungen R-0450", PP.log.slice(0, 12).map(function (l) { return '<div class="mini" style="cursor:default"><div class="f"><b>' + l[1] + ' an ' + l[2] + '</b><small>' + l[0] + ' · ' + l[3] + '</small></div></div>'; }).join(""), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit");
+  if (a === "rlLogAlle") return fenster("Anweisungen R-0220", PP.log.slice(0, 12).map(function (l) { return '<div class="mini" style="cursor:default"><div class="f"><b>' + l[1] + ' an ' + l[2] + '</b><small>' + l[0] + ' · ' + l[3] + '</small></div></div>'; }).join(""), '<span class="sp"></span>' + knopf("Schliessen", "zu", ""), "breit");
   return alt(a);
 }; })(SEITEN.pp.aktion);
 SEITEN.pp.detail = (function (alt) { return function (z) { var d = alt(z); if (z.id === "r1") d.reiter.forEach(function (r) { if (r[0] === "Anweisungen") r[1] = PP.log.slice(0, 4).map(function (l) { return '<div class="mini" style="cursor:default"><div class="f"><b>' + l[1] + ' an ' + l[2] + '</b><small>' + l[0] + ' · ' + l[3] + '</small></div></div>'; }).join("") + '<div style="display:flex;gap:6px">' + knopf("Neue Anweisung", "ov:anweisung", "k") + (PP.log.length > 4 ? knopf("Alle (" + PP.log.length + ")", "rlLogAlle", "w k") : "") + '</div>'; }); return d; }; })(SEITEN.pp.detail);
