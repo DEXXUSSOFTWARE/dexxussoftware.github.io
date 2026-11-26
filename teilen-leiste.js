@@ -80,7 +80,7 @@
       '<button class="dx-sk-zu" type="button" aria-label="Schliessen">&times;</button>' +
       '<h3 id="dx-sk-t">Welches Shield möchten Sie?</h3>' +
       '<p class="dx-sk-u">Alle Shields schwärzen Namen, Adressen und IBAN, bevor etwas an ChatGPT &amp; Co. geht.</p>' +
-      '<label class="dx-sk-w"><input type="radio" name="dxsk" value="web" checked><span><b>WEB Shield + App Shield</b><small>Im Browser (Edge, Chrome) und auf dem Handy · Abo 1, 2 oder 3 Jahre · Team-Lizenzen möglich</small></span><em>ab CHF 9.90/Mt</em></label>' +
+      '<label class="dx-sk-w"><input type="radio" name="dxsk" value="web" checked><span><b>WEB Shield Abo</b><small>WEB Shield + App Shield · im Browser (Edge, Chrome) und auf dem Mobile · Abo 1, 2 oder 3 Jahre · Team-Lizenzen möglich</small></span><em>ab CHF 9.90/Mt</em></label>' +
       '<label class="dx-sk-w"><input type="radio" name="dxsk" value="pc"><span><b>PC Shield</b><small>Programm für Windows · für Dateien, PDFs und jede KI</small></span><em>CHF 49.– einmalig</em></label>' +
       '<label class="dx-sk-w beste"><input type="radio" name="dxsk" value="komplett"><span><b>Shield komplett</b><small>PC Shield + WEB Shield + App Shield · 1 Jahr</small><i>Sie sparen CHF 28.80</i></span><em>CHF 139.–<s>CHF 167.80</s></em></label>' +
       '<label class="dx-sk-agb" id="dx-sk-agb-z" hidden><input type="checkbox" id="dx-sk-agb"> Ich akzeptiere die <a href="/agb.html" target="_blank">AGB</a>. Die Lizenz kommt nach der Zahlung per E-Mail.</label>' +

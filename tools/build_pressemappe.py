@@ -160,7 +160,7 @@ CARDS = [
 ]
 
 PAKETE_TEXT = (
-    "DEXXUS Shield CHF 49.– einmalig · Starter CHF 19.90 einmalig · Privat CHF 79.– einmalig · KMU Pro CHF 29.– / Monat · "
+    "PC Shield CHF 49.– einmalig · Starter CHF 19.90 einmalig · Privat CHF 79.– einmalig · KMU Pro CHF 29.– / Monat · "
     "KMU Enterprise CHF 49.– / Monat (Abos 1–3 Jahre, bis 10 % Rabatt). Netzwerk ab 2 Arbeitsplätzen als Zusatzpaket. "
     "Alle Preise inkl. 8.1 % MWST, aktuelle Preise auf dexxus.ch/preise.html."
 )
