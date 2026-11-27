@@ -17,8 +17,36 @@
     return pdfjs;
   }
 
+  /* ---------- Sprache der Texterkennung (26.11.2026): zuerst die Sprache der Oberfläche, dann anhand des erkannten
+     Textes prüfen – ist das Dokument in einer anderen Sprache, wird die Seite mit dieser Sprache nochmals gelesen. ---------- */
+  const OCR_SPR = { de: "deu", fr: "fra", it: "ita", es: "spa", en: "eng" };
+  const KAPUTT = new Set();     // Sprachdateien, die nicht geladen werden konnten
+  const WORTE = {
+    deu: "der die das und ist nicht mit für auf dem den ein eine sie wir ich zu von bitte sehr wird werden oder auch",
+    fra: "le la les et est des une pour dans avec vous nous pas sur du au qui que sont votre être",
+    ita: "il lo gli e è della di che per con una non sono alla del nel le la si questo",
+    spa: "el los las y es del una para con por que no está al se su sus como más",
+    eng: "the and is of to for with you we are this that on in not your be will have"
+  };
+  const WORT_SET = Object.fromEntries(Object.entries(WORTE).map(([k, v]) => [k, new Set(v.split(" "))]));
+  function ocrSprache(opt) {
+    if (opt && opt.sprachen) return opt.sprachen;
+    if (opt && opt._ocrSpr) return opt._ocrSpr;
+    const ui = String((document.documentElement && document.documentElement.lang) || navigator.language || "de").slice(0, 2).toLowerCase();
+    const s = OCR_SPR[ui] || "deu";
+    return KAPUTT.has(s) ? "deu" : s;
+  }
+  function spracheVon(text) {                // -> "fra" usw. nur wenn eindeutig, sonst null
+    const zahl = {};
+    for (const w of (text || "").toLowerCase().match(/[\p{L}']+/gu) || [])
+      for (const [k, set] of Object.entries(WORT_SET)) if (set.has(w)) zahl[k] = (zahl[k] || 0) + 1;
+    const r = Object.entries(zahl).sort((a, b) => b[1] - a[1]);
+    if (!r.length || r[0][1] < 6 || (r[1] && r[0][1] < r[1][1] * 1.5)) return null;
+    return KAPUTT.has(r[0][0]) ? null : r[0][0];
+  }
+
   /* ---------- Tesseract: mehrere Worker parallel (eine Seite je Worker), vorgewärmt beim Öffnen ---------- */
-  const POOL = [];            // {w, frei, melden}
+  const POOL = [];            // {w, frei, melden, spr}
   let warteschlange = [], tessLaden = null;
   async function tessSkript(opt) {
     if (glob.Tesseract) return;
@@ -28,18 +56,19 @@
     });
     await tessLaden;
   }
-  function workerErstellen(opt) {
-    const b = basis(opt), slot = { w: null, frei: false, melden: null };
+  function workerErstellen(opt, spr) {
+    spr = spr || ocrSprache(opt);
+    const b = basis(opt), slot = { w: null, frei: false, melden: null, spr };
     slot.bereit = new Promise((ok, nok) => {
       const zeit = setTimeout(() => nok(new Error("Texterkennung startet nicht (Zeitüberschreitung).")), 40000);
-      glob.Tesseract.createWorker((opt && opt.sprachen) || "deu", 1, {
+      glob.Tesseract.createWorker(spr, 1, {
         workerPath: b + "tesseract/worker.min.js", corePath: b + "tesseract/", langPath: b + "sprachen",
         gzip: true, workerBlobURL: false, cacheMethod: "none",
         logger: m => { if (slot.melden && m.status === "recognizing text") slot.melden(m.progress); },
         errorHandler: e => { clearTimeout(zeit); nok(e instanceof Error ? e : new Error(String(e))); }
       }).then(w => { clearTimeout(zeit); slot.w = w; slot.frei = true; ok(slot); naechster(); }, e => { clearTimeout(zeit); nok(e); });
     });
-    slot.bereit.catch(() => { const i = POOL.indexOf(slot); if (i >= 0) POOL.splice(i, 1); });
+    slot.bereit.catch(() => { const i = POOL.indexOf(slot); if (i >= 0) POOL.splice(i, 1); if (spr !== "deu") KAPUTT.add(spr); });
     POOL.push(slot);
     return slot.bereit;
   }
@@ -49,20 +78,25 @@
   }
   async function vorwaermen(opt) {
     await tessSkript(opt);
-    if (!POOL.length) await workerErstellen(opt);
+    const spr = ocrSprache(opt);
+    if (!POOL.some(x => x.spr === spr)) await workerErstellen(opt, spr);
   }
   function naechster() {
-    while (warteschlange.length) {
-      const slot = POOL.find(x => x.frei); if (!slot) return;
-      slot.frei = false; warteschlange.shift()(slot);
+    for (let i = 0; i < warteschlange.length; i++) {
+      const slot = POOL.find(x => x.frei && x.spr === warteschlange[i].spr); if (!slot) continue;
+      slot.frei = false; warteschlange.splice(i, 1)[0].ok(slot); i--;
     }
   }
-  async function workerHolen(opt, gebraucht) {
+  async function workerHolen(opt, gebraucht, spr) {
     await tessSkript(opt);
-    const fehlend = Math.min(ZIEL(opt), gebraucht) - POOL.length;
-    for (let i = 0; i < fehlend; i++) workerErstellen(opt).catch(() => {});
-    if (!POOL.length) await workerErstellen(opt);
-    return new Promise(ok => { warteschlange.push(ok); naechster(); });
+    const eigene = POOL.filter(x => x.spr === spr);
+    if (!eigene.length) {                    // andere Sprache: freie Worker der alten Sprache beenden (Speicher)
+      for (const x of POOL.filter(x => x.frei && x.spr !== spr)) { POOL.splice(POOL.indexOf(x), 1); x.w.terminate().catch(() => {}); }
+    }
+    const fehlend = Math.min(ZIEL(opt), gebraucht) - eigene.length;
+    for (let i = 1; i < fehlend; i++) workerErstellen(opt, spr).catch(() => {});
+    if (!eigene.length) await workerErstellen(opt, spr);
+    return new Promise(ok => { warteschlange.push({ ok, spr }); naechster(); });
   }
 
   /* Canvas -> Wörter mit Position (Koordinaten im Pixelraum von canvas) */
@@ -75,7 +109,24 @@
       quelle.width = Math.round(canvas.width * f); quelle.height = Math.round(canvas.height * f);
       quelle.getContext("2d").drawImage(canvas, 0, 0, quelle.width, quelle.height);
     }
-    const slot = await workerHolen(opt, gebraucht || 1);
+    let spr = ocrSprache(opt), r;
+    try { r = await ocrEinmal(quelle, f, opt, melden, gebraucht, spr); }
+    catch (e) { if (spr === "deu") throw e; KAPUTT.add(spr); spr = "deu"; r = await ocrEinmal(quelle, f, opt, melden, gebraucht, spr); }
+    if (!(opt && opt.sprachen)) {            // automatische Wahl: passt die Sprache zum erkannten Text?
+      const erkannt = spracheVon(r.text);
+      if (erkannt && erkannt !== spr) {
+        try {
+          const r2 = await ocrEinmal(quelle, f, opt, melden, gebraucht, erkannt);
+          if (r2.sicherheit >= r.sicherheit) { r = r2; spr = erkannt; }
+        } catch (e) { KAPUTT.add(erkannt); }
+      }
+      if (opt) opt._ocrSpr = spr;            // nächste Seiten desselben Dokuments gleich in dieser Sprache
+    }
+    r.sprache = spr;
+    return r;
+  }
+  async function ocrEinmal(quelle, f, opt, melden, gebraucht, spr) {
+    const slot = await workerHolen(opt, gebraucht || 1, spr);
     let data;
     try { slot.melden = melden; data = (await slot.w.recognize(quelle, {}, { blocks: true, text: true })).data; }
     finally { slot.melden = null; slot.frei = true; naechster(); }
@@ -213,5 +264,5 @@
     };
   }
 
-  glob.ShieldDokumente = { lesen, vorwaermen, zuruecksetzen, akzeptiert: ".pdf,.docx,.txt,.md,.csv,.png,.jpg,.jpeg,.webp,.bmp,.gif" };
+  glob.ShieldDokumente = { lesen, vorwaermen, zuruecksetzen, spracheVon, ocrSprache, akzeptiert: ".pdf,.docx,.txt,.md,.csv,.png,.jpg,.jpeg,.webp,.bmp,.gif" };
 })(window);

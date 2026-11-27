@@ -1,40 +1,11 @@
-/* App Shield – Ergänzungen zum Aussehen der PC-Seitenleiste (panel.css = Kopie von shield_browser/sidepanel.css) */
-:root { --gruen:#16A34A; }
-html, body { height:auto; min-height:100%; }
-.kopf { position:sticky; top:0; z-index:5; padding-top:calc(12px + env(safe-area-inset-top)); }
-.ansicht { overflow:visible; padding-bottom:calc(24px + env(safe-area-inset-bottom)); }
-textarea { font-size:16px; }
-.schritt { display:flex; flex-direction:column; gap:12px; }
-.schritt[hidden], #verlaufListe[hidden], #verlaufEintrag[hidden] { display:none !important; }
-.foto-link { text-align:center; padding:2px; margin-top:-4px; cursor:pointer; }
-.gross.gruen { background:var(--gruen); border-color:var(--gruen); width:auto; min-width:200px; margin:0 auto; padding:10px 26px; }
-
-.ok-box { background:var(--okbg); border:2px solid var(--ok); color:#065F46; border-radius:12px; padding:9px 12px; font-weight:700; font-size:15px; }
-.ok-box small { display:block; font-weight:600; }
-.ki-wahl { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.ki { display:block; text-align:center; text-decoration:none; font-weight:800; font-size:15px; padding:10px; border-radius:12px; color:#FAFAFF; }
-.ki:nth-child(1) { background:#10A37F; } .ki:nth-child(2) { background:#C2410C; } .ki:nth-child(3) { background:#2563EB; } .ki:nth-child(4) { background:#7C3AED; }
-.vorschau { white-space:pre-wrap; font-family:inherit; font-size:13.5px; background:#FAFAFF; border-radius:10px; padding:10px; max-height:220px; overflow:auto; margin:0; }
-.platz { background:#FEF3C7; border-radius:4px; padding:0 2px; font-weight:600; }
-.dok { margin:2px 4px 2px 0; } .dok small { color:var(--muted); }
-.knopf { display:flex; align-items:center; justify-content:center; text-align:center; border:2px solid var(--blau); background:var(--bg); color:var(--blau); border-radius:12px; padding:9px 8px; font-weight:700; font-size:15px; text-decoration:none; cursor:pointer; }
-.knopf.voll { background:var(--blau); color:#FAFAFF; }
-.knopf.rot { background:#BE123C; border-color:#BE123C; color:#FAFAFF; }
-.knopf.gruen { background:var(--gruen); border-color:var(--gruen); color:#FAFAFF; }
-.knopf.wa { background:#25D366; border-color:#25D366; color:#FAFAFF; }
-.knopf.breit { width:100%; margin-top:6px; }
-.chk { display:flex; gap:10px; align-items:flex-start; } .chk input { width:20px; height:20px; margin-top:2px; }
-.feld { display:block; font-weight:700; font-size:14px; }
-.feld textarea { margin-top:6px; min-height:70px; }
-#lizText { min-height:60px; }
-.liz-status { font-weight:700; font-size:14px; padding:8px 10px; border-radius:10px; background:var(--soft); }
-.liz-status.ok { background:var(--okbg); color:var(--ok); } .liz-status.leer { background:var(--rotbg); color:var(--rot); }
-.leer { text-align:center; color:var(--muted); padding:30px 10px; }
-.meldung { position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom)); transform:translateX(-50%); background:var(--text); color:#FAFAFF; padding:10px 16px; border-radius:12px; font-weight:600; z-index:30; max-width:92%; text-align:center; }
-.abo-banner a { border:0; background:var(--gruen); color:#FAFAFF; border-radius:10px; padding:6px 12px; font-weight:800; font-size:14px; text-decoration:none; white-space:nowrap; }
-.abo-banner.ok a { display:none; }
-.werbe-karte a { display:inline-block; margin-top:8px; background:var(--gruen); color:#FAFAFF; border-radius:10px; padding:7px 14px; font-weight:800; text-decoration:none; }
-
+/* App Shield – Verkaufsseite um die App herum (25.11.2026). Die App selbst: panel.css (= Kopie von shield_browser/sidepanel.css, Layout D). */
+:root { --bg:#FAFAFF; --line:#E5E7EB; --muted:#64748B; --text:#0F172A; --blau:#2563EB; --gruen:#16A34A; }
+* { box-sizing:border-box; }
+html, body { margin:0; }
+body { background:#FAFAFF; color:#0F172A; font-family:"Segoe UI Variable Text","Segoe UI",Arial,sans-serif; font-size:16px; line-height:1.5; }
+/* Mobile: die App füllt den Bildschirm. PC-Verkaufsseite: App im Mobile-Rahmen, scrollt in sich */
+.handy .sh { height:100dvh; }
+@media (min-width: 900px) { .handy { overflow:hidden !important; } .handy .sh { height:100%; } .handy .sh-meld { position:absolute; } }
 /* Mobile: nur die App. PC: Verkaufsseite, App live im Mobile-Rahmen in der Mitte */
 @media (max-width: 899px) {
   .mk-held-text, .mk-kis, .mk-mitte2, .mk-klein,
@@ -88,57 +59,6 @@ textarea { font-size:16px; }
   .mk-fuss { margin-top:30px; font-size:13px; color:#64748B; } .mk-fuss a { color:#64748B; }
 }
 
-/* Sperre: ohne Lizenz/Test keine Nutzung (17.11.2026) */
-.gesperrt #arbeiten > :not(#sperre), .gesperrt .reiter, .gesperrt #uebersicht, .gesperrt #aboBanner, .gesperrt #knopfEinst { display:none !important; }
-#sperre { padding:14px 16px 20px; }
-.sp-titel { margin:4px 0 6px; font-size:20px; color:#2563EB; }
-.sp-text { margin:0 0 12px; font-size:14.5px; color:#475569; }
-.sp-box { background:#FAFAFF; border:1px solid #E5E7EB; border-radius:14px; padding:12px; margin-bottom:12px; display:flex; flex-direction:column; gap:8px; }
-.sp-box input:not([type=checkbox]), .sp-box textarea { width:100%; box-sizing:border-box; font:inherit; font-size:15px; padding:9px 10px; border:1px solid #CBD5E1; border-radius:10px; background:#FAFAFF; }
-.sp-box textarea { min-height:70px; }
-.sp-box .gross { width:auto; margin:0 auto; padding:9px 24px; }
-.sp-info { font-size:13.5px; font-weight:600; color:#047857; background:#ECFDF5; border-radius:10px; padding:8px 10px; }
-.sp-info.rot { color:#BE123C; background:#FFF1F2; }
-.sp-kauf { display:block; text-align:center; text-decoration:none; color:#FAFAFF !important; }
-
-/* Vereinfachter Ablauf 17.11.2026 */
-#textFeld { min-height:150px; }
-.gross.haupt { font-size:17px; padding:13px 10px; }
-.dok-knoepfe { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.thema { font-size:13.5px; font-weight:600; color:#1E40AF; background:#EFF6FF; border-radius:10px; padding:8px 10px; }
-.thema .link { font-size:13.5px; padding:0 0 0 6px; }
-.titel2 { font-size:16px; }
-.ki-wahl .ki { font-size:17px; padding:15px 10px; }
-.zurueck { font-size:14.5px; font-weight:600; color:#334155; text-align:center; margin-top:6px; }
-.klein-links { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
-.klein-links .link { font-size:13.5px; }
-.gross.puls { animation:puls .8s ease-in-out 3; }
-@keyframes puls { 50% { box-shadow:0 0 0 8px rgba(22,163,74,.35); } }
-.gespeichert { font-size:13px; font-weight:700; color:#047857; text-align:center; }
-.drei-knoepfe { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-.drei-knoepfe .gross { font-size:15px; padding:11px 4px; }
-#verlaufEintrag { display:flex; flex-direction:column; gap:12px; }
-.eintrag-kopf b { display:block; font-size:16px; } .eintrag-kopf small { color:var(--muted); font-size:13px; }
-.zurueck-link { align-self:flex-start; font-size:15px; padding:0; }
-.gross.loeschen { background:#BE123C; border-color:#BE123C; color:#FAFAFF; }
-.ueb { align-items:center; cursor:pointer; } .ueb .pfeil { font-size:24px; color:var(--muted); flex:none; }
-.ueb .vorsch { display:block; font-size:13px; color:#475569; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-#uebListe { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
-.gross-wahl { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0 14px; }
-.gross-wahl button { display:flex; flex-direction:column; align-items:center; gap:6px; padding:12px 4px; border:2px solid var(--line); border-radius:12px; background:#FAFAFF; font-weight:700; font-size:14px; cursor:pointer; }
-.gross-wahl .ft { width:34px; height:42px; }
-#textFeld.dran { border-color:#047857; box-shadow:0 0 0 4px rgba(4,120,87,.18); }
-.gross.gruen.haupt { width:100%; margin:0; }
-.sp-klein { font-size:12.5px; color:#64748B; }
-.sp-box .knopf.voll { padding:11px 8px; }
-
-/* Symbol auf dem Startbildschirm (17.11.2026) */
-.install { margin:10px 12px 0; background:#ECFDF5; border:2px solid #16A34A; border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:6px; }
-.install b { font-size:15px; color:#065F46; } .install span { font-size:14px; color:#334155; }
-.install-knoepfe { display:flex; align-items:center; gap:12px; } .install-knoepfe .gross { width:auto; min-width:0; margin:0; padding:9px 18px; }
-.install[hidden] { display:none; }
-.gesperrt .install { display:none !important; }
-
 /* 17.11.2026: oberer Bereich neu – Text links, live App rechts, darunter KI-Kacheln, dann Foto + Vorteile */
 @media (min-width: 900px) {
   .mk-held { display:grid; grid-template-columns:1.15fr 300px; gap:48px; align-items:center; text-align:left; margin-top:26px; }
@@ -186,3 +106,4 @@ textarea { font-size:16px; }
 /* 17.11.2026: Vorführung im Mobile (Verkaufsseite PC) */
 .vf-schild { position:sticky; bottom:0; margin-top:auto; background:#16A34A; color:#FAFAFF; text-align:center; font-weight:800; font-size:14px; padding:10px 8px; cursor:pointer; z-index:6; }
 .handy { cursor:default; }
+.handy .vf-schild { position:absolute; left:0; right:0; bottom:0; }

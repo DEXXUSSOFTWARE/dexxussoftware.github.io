@@ -1,11 +1,13 @@
 /* DEXXUS Shield – Schwärz-Engine (Browser).  1:1-Übertragung von anonymisieren()/deanonymisieren() aus SHIELD.py.
-   Regeln kommen aus daten.js (automatisch aus SHIELD.py erzeugt).  Alles läuft lokal, nichts wird gesendet. */
+   Regeln kommen aus daten.js (automatisch aus SHIELD.py erzeugt).  Alles läuft lokal, nichts wird gesendet.
+   26.11.2026: international (DE/FR/IT/EN UK+USA/ES) – gleiche Schritte wie SHIELD.py (Vornamen gross, Mittelnamen,
+   Partikel, zweiter Nachname, Initiale + Nachname, Muster mit Gruppe «w», Kleinschreibung ist kein Name). */
 "use strict";
 (function (glob) {
   const D = typeof SHIELD_DATEN !== "undefined" ? SHIELD_DATEN : glob.SHIELD_DATEN;
   const W = "\\p{L}\\p{N}_";                       // Python-\w (Unicode)
 
-  /* Python-Regex -> JS: \w und \b Unicode-fähig machen. (?i:...) versteht Chrome/Edge direkt. */
+  /* Python-Regex -> JS: \w und \b Unicode-fähig, (?P<name> -> (?<name>. (?i:...) / (?-i:...) versteht Chrome/Edge direkt. */
   function rx(src, flags) {
     let out = "", inKl = false;
     for (let i = 0; i < src.length; i++) {
@@ -14,8 +16,11 @@
         const n = src[i + 1];
         if (n === "w") { out += inKl ? W : "[" + W + "]"; i++; continue; }
         if (n === "b" && !inKl) { out += "(?:(?<=[" + W + "])(?![" + W + "])|(?<![" + W + "])(?=[" + W + "]))"; i++; continue; }
+        // Python erlaubt «\"», «\-» usw., der Unicode-Modus von JS nicht -> Zeichen ohne Rückstrich
+        if (n !== undefined && !/[A-Za-z0-9]/.test(n) && !"^$\\.*+?()[]{}|/".includes(n) && !(inKl && n === "-")) { out += n; i++; continue; }
         out += c + n; i++; continue;
       }
+      if (c === "(" && !inKl && src.startsWith("(?P<", i)) { out += "(?<"; i += 3; continue; }
       if (c === "[" && !inKl) inKl = true;
       else if (c === "]" && inKl) inKl = false;
       out += c;
@@ -24,8 +29,9 @@
   }
   const esc = s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&");
   const lowerSet = arr => new Set(arr.map(x => x.toLowerCase()));
+  const istGross = w => /^\p{Lu}/u.test(w || ""), istKlein = w => /^\p{Ll}/u.test(w || "");
 
-  // Ergänzung zu Shield PC: häufige Schweizer Vornamen, die dort fehlen (Vorschlag: auch in SHIELD.py übernehmen)
+  // Ergänzung zu Shield PC: häufige Schweizer Vornamen, die dort fehlen
   const VN_EXTRA = ["Hans", "Fritz", "Kurt", "Rolf", "Ernst", "Hansjörg", "Hansueli", "Köbi", "Sepp", "Jan", "Nils", "Lars",
                     "Mia", "Ella", "Lara", "Nora", "Elin", "Leni", "Luana", "Gian", "Flurin", "Seraina", "Ladina", "Jürgen", "Hedi"];
   const VORNAMEN = [...new Set([...D.ANON_VORNAMEN, ...VN_EXTRA])], VN_KLEIN = lowerSet(VORNAMEN);
@@ -34,20 +40,30 @@
   const NOMEN_STOP = new Set(D.ANON_NOMEN_STOP), NOMEN_END = D.ANON_NOMEN_ENDUNGEN;
   const CAPS_STOP = new Set(D.ANON_CAPS_STOP);
   const BANK_STOP = new Set([...D.ANON_BANK_STOPWORTE, ...D.ANON_BANK_STOPWORTE_EXTRA]);
+  const MEHRD = lowerSet(D.ANON_VORNAMEN_MEHRDEUTIG || []), NACH = lowerSet(D.ANON_NACHNAMEN || []);
+  const PARTIKEL = new Set(D.ANON_PARTIKEL || []);
   const endetNomen = w => NOMEN_END.some(e => w.endsWith(e));
 
   const MUSTER = D.ANON_MUSTER.map(([a, p]) => [a, rx(p)]);
   const DATUM = D.ANON_DATUM.map(([a, p]) => [a, rx(p)]);
-  const VN_ALT = [...VORNAMEN].sort((a, b) => b.length - a.length).map(esc).join("|");
-  const RX_MAILNAME = rx("[\"']{0,2}([A-ZÄÖÜ][a-zäöüéè]+(?:[ -][A-ZÄÖÜ][a-zäöüéè]+){1,2})[\"']{0,2}\\s*<");
-  const RX_ROLLE = new RegExp(rx("(?i:(?<!\\w)(?:(?:" + D.ANON_ROLLEN + ")\\s+)+((?:[A-ZÄÖÜ]\\.\\s?){0,2}[A-Za-zÄÖÜäöü][\\wäöüéè\\-]+" +
-                              "(?:[ \\t][A-Za-zÄÖÜäöü][\\wäöüéè\\-]+){0,2})(?![\\wäöü]))").source, "gud");
-  const RX_VORNAME = rx("(?i:\\b(" + VN_ALT + ")(?:[ \\t]+([A-Za-zÄÖÜäöü][\\wäöüéè]+(?:-[A-Za-zÄÖÜäöü][\\wäöüéè]+)?))?(?![\\wäöü]))");
-  const RX_CAPS = rx("\\b([A-ZÄÖÜ]{2,}(?:[ \\-][A-ZÄÖÜ]{2,}){1,2})\\b");
-  const RX_KONTOZEILE = /gutschrift|belastung|zahlungseingang|überweisung|auftraggeber|begünstigt|empfänger|einzahler|zahlung von|zahlung an/i;
-  const RX_CAPS2 = rx("(?<![\\w])([A-ZÄÖÜ][A-ZÄÖÜ'\\-]{1,}(?:\\s[A-ZÄÖÜ][A-ZÄÖÜ'\\-]{1,}){1,2})(?![\\w])");
+  const VN_SORT = [...VORNAMEN].sort((a, b) => b.length - a.length);
+  const VN_ALT = VN_SORT.map(esc).join("|");
+  const RX_MAILNAME = rx("[\"']{0,2}([A-ZÀ-ÖØ-Þ][a-zß-öø-ÿ'’]+(?:[ -][A-ZÀ-ÖØ-Þ][a-zß-öø-ÿ'’]+){1,2})[\"']{0,2}\\s*<");
+  const RX_ROLLE = new RegExp(rx("(?i:(?<!\\w)(?:(?:" + D.ANON_ROLLEN + (D.ANON_ROLLEN_GROSS ? "|(?-i:" + D.ANON_ROLLEN_GROSS + ")" : "") +
+                              ")\\s+)+((?:[A-ZÀ-Þ]\\.\\s?){0,2}[A-Za-zÀ-ÖØ-öø-ÿ][\\w'’\\-]+(?:[ \\t](?:[A-ZÀ-Þ]\\.|[A-Za-zÀ-ÖØ-öø-ÿ][\\w'’\\-]*)){0,3})(?![\\w]))").source, "gud");
+  const RX_VORNAME = rx("(?i:(?<![\\w'’\\-])(" + VN_ALT + ")(-[A-ZÀ-Þ][\\w]+)?((?:[ \\t](?:[A-ZÀ-Þ]\\.|[A-Za-zÀ-ÖØ-öø-ÿ][\\w'’]*" +
+                        "(?:-[A-Za-zÀ-ÖØ-öø-ÿ][\\w'’]*)?)){0,4})(?![\\w'’]))");
+  const RX_INITIALE = rx("(?<![\\w.])([A-ZÀ-Þ]\\.(?:[ \\t][A-ZÀ-Þ]\\.)?[ \\t])([A-ZÀ-Þ][a-zß-öø-ÿ'’]{2,}(?:-[A-ZÀ-Þ][a-zß-öø-ÿ]+)?)(?![\\w])");
+  const RX_CAPS = rx("(?<![\\w])((?:" + VN_SORT.map(v => esc(v.toUpperCase())).join("|") +
+                     ")(?:[ \\-](?:[A-ZÀ-Þ]\\.?[ ])?[A-ZÀ-Þ][A-ZÀ-Þ'’\\-]+){1,2})(?![\\w])");
+  const RX_KONTOZEILE = new RegExp(rx("(?i:" + (D.ANON_KONTOZEILE || "gutschrift|belastung|zahlungseingang|überweisung|auftraggeber|" +
+                                  "begünstigt|empfänger|einzahler|zahlung von|zahlung an") + ")").source, "u");
+  const RX_CAPS2 = rx("(?<![\\w])([A-ZÀ-Þ][A-ZÀ-Þ'\\-]{1,}(?:[ \\t][A-ZÀ-Þ][A-ZÀ-Þ'\\-]{1,}){1,2})(?![\\w])");
+  const RX_ARTIKEL_VOR = /(?:^|\s)(?:die|der|das|den|dem|des|eine?|the|a|an|la|le|les|il|lo|el|los|las|una?|un)\s+$/i;
+  const RX_INI_WORT = /^\p{Lu}\.?$/u;
   const RX_VN_VOR_PERSON = rx("\\b(" + VN_ALT + ")[ \\t](\\[Person \\d+\\])");
   const RX_GROSSWORT = rx("\\b[A-ZÄÖÜ][\\wäöüÀ-ÿ\\-]+(?:\\s[A-ZÄÖÜ][\\wäöüÀ-ÿ\\-]+){0,2}\\b");
+  const RX_BANKWORT = /bank|banque|banca|banco|kasse|cassa|caja|caixa|cr[ée]dit|finan|savings|raiffeisen|^[A-Z]{2,5}$/i;
 
   let ORTE = null, RX_ORT_S = null, RX_ORT_K = null;
   function orteSetzen(textDatei) {                  // Inhalt von orte_ch.txt
@@ -100,30 +116,67 @@
         const erstes = m[1].split(/\s+/)[0].toLowerCase();
         if (!VN_KLEIN.has(erstes) && (NOMEN_STOP.has(erstes) || endetNomen(erstes))) continue;
       }
-      const woerter = [];
-      for (const w of m[1].split(/\s+/)) {
-        if (FUNKTION.has(w.toLowerCase()) || !/^\p{Lu}/u.test(w)) break;
+      const woerter = [], teile = m[1].split(/\s+/);
+      for (let k = 0; k < teile.length; k++) {
+        const w = teile[k];
+        if (PARTIKEL.has(w.toLowerCase()) && woerter.length && k + 1 < teile.length && istGross(teile[k + 1])) { woerter.push(w); continue; }
+        if (FUNKTION.has(w.toLowerCase()) || !istGross(w)) break;
         if (woerter.length && (NOMEN_STOP.has(w.toLowerCase()) || endetNomen(w.toLowerCase()))) break;
         if (!KEINE_NAMEN_KL.has(w.toLowerCase())) woerter.push(w);
       }
-      const n = woerter.map(w => w[0].toUpperCase() + w.slice(1)).join(" ").trim();
+      while (woerter.length && PARTIKEL.has(woerter[woerter.length - 1].toLowerCase())) woerter.pop();
+      const n = woerter.join(" ").trim();
       if (n.length >= 3 && !KEINE_NAMEN_KL.has(n.toLowerCase())) {
         dyn.add(n);
         if (n.includes(" ")) dyn.add(n.split(" ").slice(-1)[0]);
       }
     }
+    // Vorname + Nachname(n): nur gross geschrieben, in derselben Zeile, Mittelname/Initiale, Partikel, zweiter Nachname
     for (const m of text.matchAll(RX_VORNAME)) {
-      const vn = m[1][0].toUpperCase() + m[1].slice(1);
-      if (m[2] && /^\p{Lu}/u.test(m[2]) && !FUNKTION.has(m[2].toLowerCase()) && !KEINE_NAMEN_KL.has(m[2].toLowerCase())) {
-        const nn = m[2][0].toUpperCase() + m[2].slice(1);
-        dyn.add(vn + " " + nn); dyn.add(nn);
+      if (!istGross(m[1])) continue;
+      const vn = m[1] + (m[2] || "");
+      const teile = (m[3] || "").split(/\s+/).filter(Boolean);
+      const name = [vn];
+      let nach = [], part = [];
+      for (let k = 0; k < teile.length; k++) {
+        const w = teile[k], wl = w.toLowerCase(), nxt = teile[k + 1] || "";
+        if (PARTIKEL.has(wl) && w.length <= 5 && istGross(nxt)) { part.push(w); continue; }
+        if (!istGross(w) || FUNKTION.has(wl) || KEINE_NAMEN_KL.has(wl)) break;
+        if (RX_INI_WORT.test(w)) {
+          if (nach.length || !istGross(nxt)) break;
+          name.push(w); continue;
+        }
+        if (!nach.length) {
+          if (VN_KLEIN.has(wl) && !MEHRD.has(wl) && !part.length && istGross(nxt) &&
+              !FUNKTION.has(nxt.toLowerCase()) && !KEINE_NAMEN_KL.has(nxt.toLowerCase())) { name.push(w); continue; }
+          nach = part.concat([w]); part = []; continue;
+        }
+        if (part.length || NACH.has(wl)) { nach = nach.concat(part, [w]); part = []; continue; }
+        break;
+      }
+      if (MEHRD.has(vn.toLowerCase()) && (!nach.length || RX_ARTIKEL_VOR.test(text.slice(Math.max(0, m.index - 8), m.index)))) continue;
+      if (nach.length) {
+        dyn.add(name.concat(nach).join(" "));
+        const echte = nach.filter(x => !PARTIKEL.has(x.toLowerCase()));
+        for (const x of echte) if (x.length >= 3 && !VN_KLEIN.has(x.toLowerCase())) dyn.add(x);
+        dyn.add(nach.join(" "));
+        if (echte.length) dyn.add(echte[echte.length - 1]);
       }
       dyn.add(vn);
     }
-    // 1b) GROSSBUCHSTABEN-Namen und Kontoauszüge
+    // Initiale + Nachname ohne Anrede: «J. Morris»
+    for (const m of text.matchAll(RX_INITIALE)) {
+      const nn = m[2], l = nn.toLowerCase();
+      if (VN_KLEIN.has(l) || FUNKTION.has(l) || KEINE_NAMEN_KL.has(l) || NOMEN_STOP.has(l) || endetNomen(l) || ["M.", "D."].includes(m[1].trim())) continue;
+      dyn.add(m[0]); dyn.add(nn);
+    }
+    // 1b) GROSSBUCHSTABEN-Namen (bekannter Vorname) und Kontoauszüge
     for (const m of text.matchAll(RX_CAPS)) {
       const w = m[1].split(/\s+/);
-      if (VN_KLEIN.has(w[0].toLowerCase()) && !w.some(x => CAPS_STOP.has(x))) dyn.add(m[1]);
+      if (!w.slice(1).some(x => CAPS_STOP.has(x) || FUNKTION.has(x.toLowerCase()) || KEINE_NAMEN_KL.has(x.toLowerCase()))) {
+        dyn.add(m[1]);
+        if (w[w.length - 1].length >= 3) dyn.add(w[w.length - 1]);
+      }
     }
     const zeilenC = text.split("\n");
     zeilenC.forEach((zeile, i) => {
@@ -135,12 +188,22 @@
         }
       }
     });
-    const alle = [...new Set([...(namen || []).filter(n => n && n.trim().length >= 3).map(n => n.trim()), ...[...dyn].filter(d => d.length >= 3)])]
-      .sort((a, b) => b.length - a.length);
+    const eigene = (namen || []).filter(n => n && n.trim().length >= 3).map(n => n.trim());
+    const auto = new Set([...dyn].filter(d => d.length >= 3 && !eigene.includes(d)));
+    const alle = [...new Set([...eigene, ...auto])].sort((a, b) => b.length - a.length || (a < b ? -1 : a > b ? 1 : 0));   // gleich wie SHIELD.py
 
-    // 3) Muster (IBAN, AHV, Telefon, Adressen, Orte mit PLZ …), Datum wahlweise
+    // 3) Muster (IBAN, AHV, Telefon, Adressen, Orte mit PLZ …), Datum wahlweise; Gruppe «w» = nur dieser Teil
     const liste = MUSTER.concat(opt.datum === false ? [] : DATUM);
-    for (const [art, r] of liste) text = text.replace(r, m => platz(art, m));
+    for (const [art, r] of liste) {
+      text = text.replace(r, (...a) => {
+        const g = typeof a[a.length - 1] === "object" ? a[a.length - 1] : null;
+        if (g && g.w !== undefined) {
+          const m0 = a[0], p = m0.lastIndexOf(g.w);      // «w» steht immer am Ende des Treffers
+          return m0.slice(0, p) + platz(art, g.w) + m0.slice(p + g.w.length);
+        }
+        return platz(art, a[0]);
+      });
+    }
 
     // 3b) Bankname im Satz mit IBAN/Konto
     const bank = s => s.includes("[IBAN") || s.includes("[Bankverbindung") || s.includes("[Finanzkonto");
@@ -158,6 +221,7 @@
               if (j === 0 && off === 0) return m0;
               const w = m0.split(/\s+/);
               if (w.some(x => BANK_STOP.has(x.toLowerCase()) || namenW.has(x.toLowerCase()) || x.length < 4)) return m0;
+              if (w.length === 1 && !RX_BANKWORT.test(w[0])) return m0;    // einzelnes Wort nur, wenn es nach Bank aussieht
               return platz("Bank", m0);
             });
           }).join("");
@@ -165,10 +229,13 @@
       }).join("\n");
     }
 
-    // 4) Personennamen (auch Genitiv)
+    // 4) Personennamen (auch Genitiv); automatisch gefundene Namen klein geschrieben sind Wörter («petit», «rosa»)
     for (const n of alle) {
       const r = rx("(?<![\\w\\[])" + esc(n) + "(s)?(?![\\w\\]])", "i");
-      text = text.replace(r, (m0, s) => platz("Person", m0.slice(0, m0.length - (s || "").length)) + (s || ""));
+      text = text.replace(r, (m0, s) => {
+        if (auto.has(n) && istGross(n) && istKlein(m0)) return m0;
+        return platz("Person", m0.slice(0, m0.length - (s || "").length)) + (s || "");
+      });
     }
     // 5) Vorname vor ersetztem Nachnamen
     for (let k = 0; k < 2; k++) text = text.replace(RX_VN_VOR_PERSON, (m0, vn, ph) => platz("Person", vn + " " + (karte[ph] || "")));
@@ -213,7 +280,7 @@
   const deanonymisieren = (text, karte) => deanonTeile(text, karte).map(x => x.t !== undefined ? x.t : x.echt).join("");
 
   function offenePlatzhalter(text) {
-    return [...new Set((text.match(/\[(?:Person|Ort|Adresse|IBAN|E-Mail|Telefon|AHV-Nr\.|Datum|Kontrollschild|Vertrags-Nr\.|Jahrgang|Konto|Bankverbindung|Bank|Behörde|Objekt|Geburtsdatum|Zeit|Firma|Projekt|Finanzkonto) \d+\]/g) || []))].sort();
+    return [...new Set((text.match(/\[(?:Person|Ort|Adresse|IBAN|E-Mail|Telefon|AHV-Nr\.|Datum|Kontrollschild|Vertrags-Nr\.|Jahrgang|Konto|Bankverbindung|Bank|Behörde|Objekt|Geburtsdatum|Zeit|Firma|Projekt|Finanzkonto|Aktenzeichen|Steuer-Nr\.|Sozialvers\.-Nr\.) \d+\]/g) || []))].sort();
   }
   function heikleThemen(text) {
     return Object.entries(D.ANON_HEIKEL).filter(([, p]) => new RegExp(p, "i").test(text || "")).map(([b]) => b);
