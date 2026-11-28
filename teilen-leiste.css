@@ -79,3 +79,17 @@
 @media (max-width:899px) { .dx-band-app, .dx-schwebe-app { display:none !important; } }
 @media (max-width:600px) { .dx-band b { font-size:21px; } .dx-band .in { padding:30px 16px; } }
 .schwebe.weg, .dx-schwebe.weg { opacity:0 !important; pointer-events:none !important; }
+/* 28.11.2026: Menü zu breit für die Kopfzeile -> Seite scrollt nie seitlich; teilen-leiste.js schaltet dann auf den Menü-Knopf */
+.dxw-top .in { max-width:1760px !important; }
+.dxw-menu { min-width:0; overflow-x:auto; scrollbar-width:none; }
+.dxw-menu::-webkit-scrollbar { display:none; }
+html.dx-eng .dxw-menu, html.dx-eng .dx-shield-panel { display:none !important; }
+html.dx-eng .dx-menue-knopf { display:inline-flex; align-items:center; gap:4px; margin-left:auto; height:40px; padding:0 12px; border:2px solid #2563EB; border-radius:10px; background:#FAFAFF; color:#2563EB; font:inherit; font-weight:800; font-size:14px; cursor:pointer; position:relative; flex:none; }
+html.dx-eng .dx-menue-knopf span { display:block; width:16px; height:2px; background:#2563EB; border-radius:2px; position:absolute; left:12px; }
+html.dx-eng .dx-menue-knopf span:nth-child(1) { top:13px; } html.dx-eng .dx-menue-knopf span:nth-child(2) { top:19px; } html.dx-eng .dx-menue-knopf span:nth-child(3) { top:25px; }
+html.dx-eng .dx-menue-knopf b { margin-left:22px; }
+html.dx-eng .dx-menue-knopf.an { background:#2563EB; color:#FAFAFF; } html.dx-eng .dx-menue-knopf.an span { background:#FAFAFF; }
+html.dx-eng .dx-menue-liste { display:flex; flex-direction:column; background:#FAFAFF; border-top:1px solid #E5E7EB; padding:6px 16px 12px; box-shadow:0 12px 24px rgba(15,23,42,.12); max-height:75vh; overflow:auto; }
+html.dx-eng .dx-menue-liste a { display:block; padding:12px 4px; border-bottom:1px solid #EEF2F7; color:#0F172A !important; text-decoration:none; font-weight:700; font-size:16px; }
+html.dx-eng .dx-menue-liste a.an { color:#2563EB !important; }
+html.dx-eng .dx-menue-liste a.dx-ml-sub { padding-left:20px; font-weight:600; }
