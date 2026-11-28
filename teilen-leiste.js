@@ -6,9 +6,11 @@
   var LINK = "https://dexxus.ch";
   var ZAHLUNG = "https://autoteileexpress.payrexx.com/pay?tid=86ce70f3";   // gleiche Payrexx-Seite wie alle DEXXUS-Pakete
   var e = encodeURIComponent(LINK);
+  var nurMenue = !!(document.currentScript && document.currentScript.hasAttribute("data-nur-menue"));   // z.B. Demo: nur Menü, keine Leiste/Kauf-Knöpfe
   var kopf = document.querySelector(".dxw-top");
   if (!kopf || document.querySelector(".dx-leiste")) return;
 
+  if (!nurMenue) {
   var leiste = document.createElement("div");
   leiste.className = "dx-leiste";
   leiste.innerHTML =
@@ -30,6 +32,7 @@
     if (navigator.share) { navigator.share({ title: "DEXXUS", text: "DEXXUS – Schweizer Bürosoftware mit KI-Datenschutz", url: LINK }).catch(function () {}); return; }
     leiste.classList.toggle("offen");
   });
+  }
 
   /* 17.11.2026: Reiter «Shield» – Auswahl mit drei Kacheln (PC Shield, WEB Shield, App Shield) */
   var SHIELDS = [["PC Shield", "/shield.html", "Programm für Windows"], ["WEB Shield", "/web-shield.html", "Im Browser neben der KI"], ["App Shield", "/app-shield/", "Auf dem Mobile"]];
@@ -44,7 +47,7 @@
     kopf.appendChild(sp);
     var spZu = function () { sp.hidden = true; sReiter.classList.remove("offen"); };
     sReiter.addEventListener("click", function (ev) {
-      if (window.innerWidth <= 860) return;
+      if (window.innerWidth <= 860 || document.documentElement.classList.contains("dx-eng")) return;
       ev.preventDefault(); sp.hidden = !sp.hidden; sReiter.classList.toggle("offen", !sp.hidden);
     });
     document.addEventListener("click", function (ev) { if (!sp.hidden && !ev.target.closest(".dx-shield-panel, [data-shield]")) spZu(); });
@@ -71,7 +74,18 @@
       liste.hidden = !liste.hidden; mk.setAttribute("aria-expanded", String(!liste.hidden)); mk.classList.toggle("an", !liste.hidden);
     });
     liste.addEventListener("click", function (ev) { if (ev.target.closest("a")) { liste.hidden = true; mk.classList.remove("an"); mk.setAttribute("aria-expanded", "false"); } });
+    /* 28.11.2026: passt das Menü nicht in die Kopfzeile (viele Reiter, grosse Schrift), Menü-Knopf statt Reiter */
+    var eng = function () {
+      var h = document.documentElement;
+      h.classList.remove("dx-eng");
+      if (window.innerWidth > 860 && nav.scrollWidth > nav.clientWidth + 1) h.classList.add("dx-eng");
+      else if (window.innerWidth > 860) { liste.hidden = true; mk.classList.remove("an"); mk.setAttribute("aria-expanded", "false"); }
+    };
+    eng();
+    window.addEventListener("resize", eng);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(eng);
   }
+  if (nurMenue) return;
 
   var ov = document.createElement("div");
   ov.className = "dx-sk-ov"; ov.hidden = true;
